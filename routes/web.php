@@ -14,3 +14,31 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*
+ *
+ * --------------------------------------IMPORTANTE !!!!!---------------------------------------------------------------
+ *
+ * Se realiza la division y se solicita a cada desarrollador respetar su espacio de trabajo en este archivo que es de
+ * comun acceso. Se requiere de LIMPIEZA y TRANSPARENCIA en la codificacion.
+ *
+ * ---------------------------------------------------------------------------------------------------------------------
+ *
+ */
+
+
+/*
+ * --------------------------------------Ana Dayana Yero Cardoso--------------------------------------------------------
+ */
+
+
+
+/*
+ * --------------------------------------Darwin Tarapuez Tarapuez-------------------------------------------------------
+ */
+
+
+
+/*
+ * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
+ */
