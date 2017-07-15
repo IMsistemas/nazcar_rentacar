@@ -43,7 +43,8 @@ Route::get('/', function () {
  * --------------------------------------Darwin Tarapuez Tarapuez-------------------------------------------------------
  */
 
-
+	//-------------------LOGICA MARCA DE AUTO-------------------////
+	Route::resource('/Marca', 'MarcaAuto\MarcaController');
 
 /*
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
