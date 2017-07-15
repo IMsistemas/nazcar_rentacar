@@ -44,7 +44,7 @@ Route::get('/', function () {
  */
 
 	//-------------------LOGICA MARCA DE AUTO-------------------////
-	Route::resource('/Marca', 'MarcaAuto\MarcaController');
+	Route::resource('/Marca', 'MarcaAuto\MarcaController'); 
 
 /*
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
