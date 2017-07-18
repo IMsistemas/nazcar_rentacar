@@ -40,13 +40,17 @@ Route::get('/', function () {
 
 
 /*
- * --------------------------------------Darwin Tarapuez Tarapuez-------------------------------------------------------
+ * --------------------------------------Darwin Tarapuez Tarapues-------------------------------------------------------
  */
 
 	//-------------------LOGICA MARCA DE AUTO-------------------////
 	Route::get('Marca/estado/{texto}', 'MarcaAuto\MarcaController@modify_estado');
 	Route::get('Marca/get_list_marca', 'MarcaAuto\MarcaController@get_list_marca');
 	Route::resource('Marca', 'MarcaAuto\MarcaController');
+	//-------------------LOGICA FORMA PAGO-------------------////
+	Route::get('FormPago/estado/{texto}', 'FormaPago\FormaPagoController@modify_estado');
+	Route::get('FormPago/get_list_pago', 'FormaPago\FormaPagoController@get_list_pago');
+	Route::resource('FormPago', 'FormaPago\FormaPagoController');
 	
 
 /*
