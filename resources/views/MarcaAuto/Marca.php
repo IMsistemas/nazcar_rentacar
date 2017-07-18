@@ -226,11 +226,11 @@
 	        Inactivar/Activar Marca
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" ng-click="ok_inactivar();" >
+	        <button type="button" class="btn btn-danger" ng-disabled=" aux_btn_marcad!='1' " ng-click="ok_inactivar();" >
                 Anular <i class="fa fa-ban" aria-hidden="true"></i> 
             </button>
 
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+	        <button type="button" class="btn btn-secondary" ng-click=" aux_btn_marcad='1' " data-dismiss="modal">
                 Cancelar <i class="fa fa-ban" aria-hidden="true"></i> 
             </button>
 	      </div>
@@ -261,11 +261,11 @@
 	        		        	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" ng-click="modify();">
+	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_marcae!='1' " ng-click="modify();">
                 Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i> 
             </button>
 
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+	        <button type="button" class="btn btn-secondary" ng-click=" aux_btn_marcae='1' " data-dismiss="modal">
                 Cancelar <i class="fa fa-ban" aria-hidden="true"></i> 
             </button>
 	      </div>
@@ -295,11 +295,11 @@
 	        	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" ng-click="save_marca()">
+	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_marcas!='1' " ng-click="save_marca()">
                 Aceptar <i class="fa fa-check-circle" aria-hidden="true"  ></i> 
             </button>
 
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+	        <button type="button" class="btn btn-secondary" ng-click=" aux_btn_marcas='1' " data-dismiss="modal">
                 Cancelar <i class="fa fa-ban" aria-hidden="true"></i> 
             </button>
 	      </div>

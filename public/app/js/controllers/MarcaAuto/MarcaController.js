@@ -7,9 +7,15 @@ app.controller('MarcaController', function($scope, $http, API_URL) {
     $scope.aux_marca={};
     $scope.buscquedamarca="";
     $scope.estado="1";
+
+    $scope.aux_btn_marcas="1";
+    $scope.aux_btn_marcae="1";
+    $scope.aux_btn_marcad="1";
+
     ///--- Guardar marca
     $scope.save_marca=function() {
     	if($scope.namecarbrand!=""){
+    		$scope.aux_btn_marcas="2";
     		var data={
     			namecarbrand: $scope.namecarbrand,
     			state:'1'
@@ -30,6 +36,7 @@ app.controller('MarcaController', function($scope, $http, API_URL) {
         		$scope.Mensaje="Se guardo correctamente";
     			$("#modalMessageError").modal("show");
     			$scope.initLoad(1);
+    			$scope.aux_btn_marcas="1";
         	}else{
         		$scope.namecarbrand="";
         		$("#modalMessagePrimaryAdd").modal("hide");
@@ -67,7 +74,7 @@ app.controller('MarcaController', function($scope, $http, API_URL) {
     $scope.modify=function() {
     	if($scope.aux_namecarbrand!="" ){
     		$scope.aux_marca.namecarbrand=$scope.aux_namecarbrand;
-
+    		$scope.aux_btn_marcae="2";
     		$http.put(API_URL+'Marca/'+$scope.aux_marca.idcarbrand,$scope.aux_marca)
 	        .then(function (response) {
 	        	if(response.data=="true"){
@@ -86,7 +93,8 @@ app.controller('MarcaController', function($scope, $http, API_URL) {
 	        		$scope.Mensaje="Error al modificar los datos";
 	    			$("#modalMessageError").modal("show");
 	        	}
-	                    
+
+	        	$scope.aux_btn_marcae="1";
 	        });
 
     	}else{
@@ -106,6 +114,7 @@ app.controller('MarcaController', function($scope, $http, API_URL) {
     	}else{
     		$scope.aux_marca.state="1";
     	}
+    	$scope.aux_btn_marcad="2";
     	$http.get(API_URL + 'Marca/estado/'+JSON.stringify($scope.aux_marca))
 		.then(function(response){
 		    console.log(response);
@@ -124,6 +133,7 @@ app.controller('MarcaController', function($scope, $http, API_URL) {
 	        		$scope.Mensaje="Error al modificar los datos";
 	    			$("#modalMessageError").modal("show");
 	        	}
+	        	$scope.aux_btn_marcad="1";
 		});
     };
 });
