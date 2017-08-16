@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 /*
  *
@@ -60,3 +60,5 @@ Route::get('/', function () {
 /*
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
+
+    Route::resource('/', 'IndexReservation\IndexReservationController');
