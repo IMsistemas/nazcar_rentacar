@@ -30,6 +30,10 @@
  * --------------------------------------Ana Dayana Yero Cardoso--------------------------------------------------------
  */
 
+    //---------------LISTAR RENTAS--------------------///
+    Route::get('rent/listRents', 'Rent\RentController@listRents');
+    Route::resource('rent', 'Rent\RentController');
+
     //---------------REGISTRAR LOS AUTOS--------------------///
     Route::get('car/getListCars', 'Car\CarController@getListCars');
     Route::resource('car', 'Car\CarController');
