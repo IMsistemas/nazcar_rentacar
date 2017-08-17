@@ -91,7 +91,7 @@
                 </form>
 
                 <div class="col-12" style="margin-top: 10px;" ng-disabled="formReserva_1.$invalid">
-                    <button type="button" class="btn btn-danger btn-lg btn-block">RESERVAR</button>
+                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal()">RESERVAR</button>
                 </div>
 
                 <div class="col-12" style="margin-top: 3px;">
@@ -109,12 +109,37 @@
 
             </div>
         </div>
+
+
+        <div class="modal fade" id="modalMessageError" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-info">
+                        <h5 class="modal-title">Error</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {{Mensaje}}
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
 </body>
 
 <script src="<?= asset('../lib/jquery/jquery-3.2.1.min.js') ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
 <script src="<?= asset('../lib/bootstrap-4/dist/js/bootstrap.min.js') ?>"></script>
 
