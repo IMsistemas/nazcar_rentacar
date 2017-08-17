@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Rent;
 
+use App\Models\Car\Car;
+use App\Models\Client\Client;
 use App\Models\Rent\Rent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,18 +21,33 @@ class RentController extends Controller
     }
 
     /**
+     * Get list of Clients.
+     */
+
+    public function getListClients(){
+        return Client::join('person', 'person.idperson', '=', 'client.idperson')
+        ->orderBy('idclient', 'asc')->get();
+    }
+
+    /**
+     * Get list of Car Brands.
+     */
+
+    public function getCarBrands(){
+        return Car::join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
+            ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
+            ->orderBy('idcar', 'asc')->get();
+    }
+
+    /**
      * Show the list of Rents.
      */
 
     public function listRents(Request $request){
-        /*$filter = json_decode($request->get('filter'));
+        $filter = json_decode($request->get('filter'));
         $search = $filter->search;
         $client = $filter->idclient;
         $car = $filter->idcar;
-        $expired = $filter->expired;
-        $startdate = $filter->startdate;
-        $enddate = $filter->enddate;
-        $billingfilter  = $filter->billingfilter;*/
 
         $rent = Rent::join('client', 'client.idclient', '=', 'rent.idclient')
             ->join('person', 'person.idperson', '=', 'client.idperson')
@@ -38,43 +55,17 @@ class RentController extends Controller
             ->join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
             ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand');
 
-        /*if($search != null){
-            $key = $key->whereRaw("(client.businessname LIKE '%" . $search . "%' OR client.tradename LIKE '%" . $search ."%' OR client.ruc LIKE '%" . $search . "%' OR key.keyname LIKE '%". $search . "%' ) ");
+        if($search != null){
+            $rent = $rent->whereRaw("(person.nameperson LIKE '%" . $search . "%' OR person.lastnameperson LIKE '%" . $search ."%' OR carmodel.namecarmodel LIKE '%" . $search . "%' OR carbrand.namecarbrand LIKE '%". $search . "%' ) ");
         }
 
         if ($client != null) {
-            $key = $key->whereRaw('rent.idclient = ' . $client);
+            $rent = $rent->whereRaw('rent.idclient = ' . $client);
         }
 
-        if ($system != null) {
-            $key = $key->whereRaw('rent.idcar = ' . $car);
+        if ($car != null) {
+            $rent = $rent->whereRaw('rent.idcar = ' . $car);
         }
-
-        if ($expired != null) {
-            $temp = " (SELECT DATEDIFF(key.enddate, '"  . date('Y-m-d') . "') ";
-
-            if  ($expired == 'A') {
-                $temp .= '> 60)';
-            } else if ($expired == 'B')  {
-                $temp .= "<= 60) AND (SELECT DATEDIFF(key.enddate, '"  . date('Y-m-d') . "') > 30)";
-            } else if ($expired == 'C')  {
-                $temp .= '<= 30)';
-            }
-
-            $rent = $rent->whereRaw($temp);
-        }
-
-        if ($billingfilter != null) {
-            $key = $key->whereRaw("key.electronicbilling =  '".$billingfilter."'");
-        }
-
-        if ($startdate != null) {
-            $key = $key->whereRaw("key.startdate =  '".$startdate."'");
-        }
-
-        if ($enddate != null) {
-            $key = $key->whereRaw("key.enddate = ' ". $enddate."'");
-        }*/
 
         return $rent->orderBy('idrent', 'desc')->paginate(10);
     }

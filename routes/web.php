@@ -31,6 +31,8 @@
  */
 
     //---------------LISTAR RENTAS--------------------///
+    Route::get('rent/getCarBrands', 'Rent\RentController@getCarBrands');
+    Route::get('rent/getListClients', 'Rent\RentController@getListClients');
     Route::get('rent/listRents', 'Rent\RentController@listRents');
     Route::resource('rent', 'Rent\RentController');
 

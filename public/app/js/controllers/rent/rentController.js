@@ -5,7 +5,8 @@
 
         $scope.initLoad = function(pageNumber){
 
-            /*if ($scope.buscar !== undefined) {
+
+            if ($scope.buscar !== undefined) {
                 var search = $scope.buscar;
             } else var search = null;
 
@@ -13,42 +14,18 @@
                 var idclient = $scope.clientfilter;
             } else var idclient = null;
 
-            if ($scope.systemfilter !== undefined) {
-                var idsystem = $scope.systemfilter;
-            } else var idsystem = null;
-
-            if ($scope.expired !== "0") {
-                var expired = $scope.expired;
-            } else var expired = null;
-
-            if ($scope.billingfilter !== "") {
-                var billingfilter = $scope.billingfilter;
-            } else var billingfilter = null;
-
-            if($("#startfilter").val() !== undefined && $("#startfilter").val()!== "" ){
-                var s = $("#startfilter").val();
-                var startdate = convertDatetoDB(s);
-            } else var startdate = null;
-
-            if($("#endfilter").val() !== undefined && $("#endfilter").val()!== ""){
-                var e = $("#endfilter").val()
-                var enddate = convertDatetoDB(e);
-            } else var enddate = null;
+            if ($scope.carBrandfilter !== undefined) {
+                var idcar = $scope.carBrandfilter;
+            } else var idcar = null;
 
 
             var filtros = {
                 search: search,
                 idclient: idclient,
-                idsystem: idsystem,
-                expired: expired,
-                startdate: startdate,
-                enddate: enddate,
-                billingfilter: billingfilter
-            };*/
+                idcar: idcar
+            };
 
-            $http.get(API_URL + 'rent/listRents?page=' + pageNumber).then(function(response) {
-
-                console.log(response);
+            $http.get(API_URL + 'rent/listRents?page=' + pageNumber + '&filter=' + JSON.stringify(filtros)).then(function(response) {
 
                 $scope.list = response.data.data;
                 $scope.totalItems = response.data.total;
@@ -61,4 +38,63 @@
                 });
         };
 
+        $scope.getClients = function () {
+
+            $http.get(API_URL + 'rent/getListClients').then(function(response){
+
+                var long = response.data.length;
+                var array = [{label: '-- Seleccione --', id: ''}];
+                for(var i = 0; i < long; i++){
+                    array.push({label: response.data[i].nameperson +" "+ response.data[i].lastnameperson, id: response.data[i].idclient})
+                }
+                $scope.clientslist = array;
+                $scope.clientfilter = '';
+            });
+
+        };
+
+        $scope.getCarBrand = function () {
+
+            $http.get(API_URL + 'rent/getCarBrands').then(function(response){
+
+                var long = response.data.length;
+                var array = [{label: '-- Seleccione --', id: ''}];
+                for(var i = 0; i < long; i++){
+                    array.push({label: response.data[i].namecarbrand , id: response.data[i].idcar})
+                }
+                $scope.carBrandlist = array;
+                $scope.carBrandfilter = '';
+            });
+
+        };
+
+        ///---mostrar informacion de la renta
+        $scope.showModalInformation=function(item){
+
+            $scope.title="Información detallada de la reserva";
+
+            $("#modalInformation").modal("show");
+        };
+
+        ///---confirmar cambio de estado de renta
+        $scope.showModalChangeEstate=function(item){
+            $scope.car=item;
+
+            $('#modalMessagePrimary').modal('show');
+        };
+        ///--- cambiar estado y enviar a el controlador php
+        $scope.ok_inactivar=function(){
+
+        };
+
+        $scope.getClients();
+        $scope.getCarBrand();
     });
+
+    $(document).ready(function(){
+
+    });
+    function showModal(id){
+        $('#' + id).modal('show')
+    }
+

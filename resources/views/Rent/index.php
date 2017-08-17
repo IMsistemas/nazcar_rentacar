@@ -39,11 +39,32 @@
         <hr>
     </div>
 
-    <!--div class="col-12 text-right" style="margin-top: 5px;">
-        <button type="button" class="btn btn-primary" onclick="showModal('modalMessagePrimaryAdd')">
+    <div class="row" style="margin-top: 5px; margin-left: 5px">
+        <div class="col-4" style="margin-top: 3px;">
+            <div class="form-group has-feedback" style="margin-top: 3px;">
+                <input type="text" class="form-control" id="buscar" placeholder="Buscar..." ng-model="buscar" ng-keyup="initLoad(1)">
+                <span class="fa fa-search form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="col-4" style="margin-top: 3px;">
+            <div class="input-group">
+                <span class="input-group-addon">Cliente: </span>
+                <select class="form-control" name="clientfilter" id="clientfilter" ng-model="clientfilter" ng-change="initLoad(1)"
+                        ng-options="value.id as value.label for value in clientslist" ></select>
+            </div>
+        </div>
+        <div class="col-4" style="margin-top: 3px;">
+            <div class="input-group">
+                <span class="input-group-addon">Marca: </span>
+                <select class="form-control" name="carBrandfilter" id="carBrandfilter" ng-model="carBrandfilter" ng-change="initLoad(1)"
+                        ng-options="value.id as value.label for value in carBrandlist" ></select>
+            </div>
+        </div>
+
+        <!--button type="button" class="btn btn-primary" onclick="showModal('modalMessagePrimaryAdd')">
             Agregar <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        </button>
-    </div-->
+        </button-->
+    </div>
 
     <div class="col-xs-12" style="margin-top: 10px;">
         <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
@@ -51,9 +72,9 @@
             <tr>
                 <td style="width: 5px">NO.</td>
                 <td style="width: 20px">CLIENTE</td>
-                <td style="width: 15px">MARCA AUTO</td>
-                <td style="width: 15px">MODELO AUTO</td>
-                <td style="width: 10px">AÑO AUTO</td>
+                <td style="width: 15px">AUTO</td>
+                <td style="width: 15px">MODELO</td>
+                <td style="width: 10px">AÑO</td>
                 <td style="width: 12px">FECHA INICIO</td>
                 <td style="width: 12px">FECHA FIN</td>
                 <td style="width: 10px">ACCIONES</td>
@@ -69,15 +90,15 @@
                 <td>{{item.startdatetime}}</td>
                 <td>{{item.enddatetime}}</td>
                 <td  class="text-center">
-                    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" onclick="showModal('modalMessageInfo')">
+                    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" ng-click="showModalInformation(item)">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                     </button>
                     <!--button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" onclick="showModal('modalMessagePrimaryEdit')">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" onclick="showModal('modalMessagePrimary')">
-                        <i class="fa fa-ban" aria-hidden="true"></i>
                     </button-->
+                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" ng-click="showModalChangeEstate(item)">
+                        <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
                 </td>
             </tr>
             </tbody>
@@ -93,6 +114,54 @@
                 direction-links="true"
                 boundary-links="true" >
         </dir-pagination-controls>
+    </div>
+
+    <div class="modal fade" id="modalMessageError" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header modal-header-info">
+                    <h5 class="modal-title">Error</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{Mensaje}}
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalMessagePrimary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header modal-header-danger">
+                    <h5 class="modal-title">Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Inactivar/Activar Marca
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-disabled=" aux_btn_marcad!='1' " ng-click="ok_inactivar();" >
+                        Anular <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" ng-click=" aux_btn_marcad='1' " data-dismiss="modal">
+                        Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
