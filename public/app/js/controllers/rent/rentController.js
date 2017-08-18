@@ -84,7 +84,32 @@
         };
         ///--- cambiar estado y enviar a el controlador php
         $scope.ok_inactivar=function(){
+            if($scope.aux_marca.state=="1"){
+                $scope.aux_marca.state="0";
+            }else{
+                $scope.aux_marca.state="1";
+            }
+            $scope.aux_btn_marcad="2";
+            $http.get(API_URL + 'Marca/estado/'+JSON.stringify($scope.aux_marca))
+                .then(function(response){
+                    console.log(response);
+                    if(response.data=="true"){
+                        $("#modalMessagePrimary").modal("hide");
 
+                        $scope.aux_marca={};
+
+                        $scope.Mensaje="Se modifico correctamente";
+                        $("#modalMessageError").modal("show");
+                        $scope.initLoad(1);
+                    }else{
+                        $scope.namecarbrand="";
+                        $("#modalMessagePrimary").modal("hide");
+
+                        $scope.Mensaje="Error al modificar los datos";
+                        $("#modalMessageError").modal("show");
+                    }
+                    $scope.aux_btn_marcad="1";
+                });
         };
 
         $scope.getClients();

@@ -149,10 +149,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Inactivar/Activar Marca
+                    Anular Reserva
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" ng-disabled=" aux_btn_marcad!='1' " ng-click="ok_inactivar();" >
+                    <button type="button" class="btn btn-danger" ng-disabled=" aux_btn_marcad!='1' " ng-click="ok_anular();" >
                         Anular <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
 
@@ -169,6 +169,7 @@
 </body>
 
 <script src="<?= asset('../lib/jquery/jquery-3.2.1.min.js') ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
 <script src="<?= asset('../lib/bootstrap-4/dist/js/bootstrap.min.js') ?>"></script>
 
