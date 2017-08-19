@@ -8,7 +8,6 @@
 
         $scope.initLoad = function(pageNumber){
 
-
             if ($scope.buscar !== undefined) {
                 var search = $scope.buscar;
             } else var search = null;
@@ -21,11 +20,15 @@
                 var idcar = $scope.carBrandfilter;
             } else var idcar = null;
 
+            if ($scope.statefilter !== undefined) {
+                var state = $scope.statefilter;
+            } else var state = null;
 
             var filtros = {
                 search: search,
                 idclient: idclient,
-                idcar: idcar
+                idcar: idcar,
+                state: state
             };
 
             $http.get(API_URL + 'rent/listRents?page=' + pageNumber + '&filter=' + JSON.stringify(filtros)).then(function(response) {

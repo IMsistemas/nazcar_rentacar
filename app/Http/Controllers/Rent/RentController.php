@@ -48,6 +48,7 @@ class RentController extends Controller
         $search = $filter->search;
         $client = $filter->idclient;
         $car = $filter->idcar;
+        $state = $filter->state;
 
         $rent = Rent::join('client', 'client.idclient', '=', 'rent.idclient')
             ->join('person', 'person.idperson', '=', 'client.idperson')
@@ -65,6 +66,10 @@ class RentController extends Controller
 
         if ($car != null) {
             $rent = $rent->whereRaw('rent.idcar = ' . $car);
+        }
+
+        if ($state != null) {
+            $rent = $rent->whereRaw('rent.state = ' . $state);
         }
 
         return $rent->orderBy('idrent', 'desc')->paginate(10);

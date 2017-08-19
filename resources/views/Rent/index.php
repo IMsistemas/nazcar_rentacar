@@ -40,30 +40,35 @@
     </div>
 
     <div class="row" style="margin-top: 5px; margin-left: 5px">
-        <div class="col-4" style="margin-top: 3px;">
+        <div class="col-3" style="margin-top: 3px;">
             <div class="form-group has-feedback" style="margin-top: 3px;">
                 <input type="text" class="form-control" id="buscar" placeholder="Buscar..." ng-model="buscar" ng-keyup="initLoad(1)">
                 <span class="fa fa-search form-control-feedback" aria-hidden="true"></span>
             </div>
         </div>
-        <div class="col-4" style="margin-top: 3px;">
+        <div class="col-3" style="margin-top: 3px;">
             <div class="input-group">
                 <span class="input-group-addon">Cliente: </span>
                 <select class="form-control" name="clientfilter" id="clientfilter" ng-model="clientfilter" ng-change="initLoad(1)"
                         ng-options="value.id as value.label for value in clientslist" ></select>
             </div>
         </div>
-        <div class="col-4" style="margin-top: 3px;">
+        <div class="col-3" style="margin-top: 3px;">
             <div class="input-group">
                 <span class="input-group-addon">Marca: </span>
                 <select class="form-control" name="carBrandfilter" id="carBrandfilter" ng-model="carBrandfilter" ng-change="initLoad(1)"
                         ng-options="value.id as value.label for value in carBrandlist" ></select>
             </div>
         </div>
-
-        <!--button type="button" class="btn btn-primary" onclick="showModal('modalMessagePrimaryAdd')">
-            Agregar <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        </button-->
+        <div class="col-3" style="margin-top: 3px;">
+            <div class="input-group">
+                <span class="input-group-addon">Estado: </span>
+                <select class="form-control" name="statefilter" id="statefilter" ng-model="statefilter" ng-change="initLoad(1)">
+                    <option value="1">Activas</option>
+                    <option value="0">Inactivas</option>
+                </select>
+            </div>
+        </div>
     </div>
 
     <div class="col-xs-12" style="margin-top: 10px;">
