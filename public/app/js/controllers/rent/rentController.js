@@ -2,6 +2,9 @@
 
     app.controller('RentController', function($scope, $http, API_URL) {
 
+        $scope.aux_estado = "";
+        $scope.iditem = 0;
+
 
         $scope.initLoad = function(pageNumber){
 
@@ -71,7 +74,22 @@
         ///---mostrar informacion de la renta
         $scope.showModalInformation=function(item){
 
-            $scope.title="Información detallada de la reserva";
+            $scope.client = item.nameperson + " " + item.lastnameperson;
+            $scope.idclient = item.identifyperson
+            $scope.emailperson = item.emailperson;
+            $scope.phoneperson = item.numphoneperson;
+            $scope.celperson = item.numcelperson;
+            $scope.addressperson = item.addressperson;
+
+            $scope.carbrand = item.namecarbrand;
+            $scope.carmodel = item.namecarmodel;
+            $scope.year = item.year;
+            $scope.nameowner = item.nameowner;
+            $scope.insurancecompany = item.insurancecompany;
+            $scope.securecode = item.securecode;
+
+            $scope.startdate = item.startdatetime;
+            $scope.enddate = item.enddatetime;
 
             $("#modalInformation").modal("show");
         };
@@ -79,37 +97,44 @@
         ///---confirmar cambio de estado de renta
         $scope.showModalChangeEstate=function(item){
             $scope.car=item;
+            $scope.iditem = item.idrent;
+            $scope.aux_estado = item.state;
 
             $('#modalMessagePrimary').modal('show');
         };
         ///--- cambiar estado y enviar a el controlador php
-        $scope.ok_inactivar=function(){
-            if($scope.aux_marca.state=="1"){
-                $scope.aux_marca.state="0";
+        $scope.ok_anular=function(){
+
+            if($scope.aux_estado==="1"){
+                $scope.state="0";
             }else{
-                $scope.aux_marca.state="1";
+                $scope.state="1";
             }
-            $scope.aux_btn_marcad="2";
-            $http.get(API_URL + 'Marca/estado/'+JSON.stringify($scope.aux_marca))
-                .then(function(response){
-                    console.log(response);
-                    if(response.data=="true"){
-                        $("#modalMessagePrimary").modal("hide");
 
-                        $scope.aux_marca={};
+            var data = {
+               state: $scope.state
+            };
+            $http.put(API_URL + 'rent/' + $scope.iditem, data).then(function(response) {
 
-                        $scope.Mensaje="Se modifico correctamente";
-                        $("#modalMessageError").modal("show");
-                        $scope.initLoad(1);
-                    }else{
-                        $scope.namecarbrand="";
-                        $("#modalMessagePrimary").modal("hide");
+                if (response.data.success === true) {
+                    $scope.iditem = 0;
+                    $('#modalMessagePrimary').modal('hide');
+                    $scope.mensaje = 'Se ha anulado correctamente la reserva seleccionada...';
+                    $('#modalMessage').modal('show');
+                    $scope.initLoad(1);
+                } else {
 
-                        $scope.Mensaje="Error al modificar los datos";
-                        $("#modalMessageError").modal("show");
-                    }
-                    $scope.aux_btn_marcad="1";
-                });
+                }
+
+            }).catch(function(data, status) {
+
+                console.error('Gists error', response.status, response.data);
+
+            }).finally(function() {
+
+                //console.log("finally finished gists");
+
+            });
         };
 
         $scope.getClients();

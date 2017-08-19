@@ -122,7 +122,18 @@ class RentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $object = Rent::find($id);
+
+        $object->state = $request->input('state');
+
+
+        if ($object->save()) {
+
+            return response()->json(['success' => true]);
+
+        } else return response()->json(['success' => false]);
+
     }
 
     /**

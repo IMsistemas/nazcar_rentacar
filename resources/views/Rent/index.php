@@ -131,7 +131,7 @@
                 <div class="modal-footer">
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                        Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                        Cerrar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -152,12 +152,86 @@
                     Anular Reserva
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" ng-disabled=" aux_btn_marcad!='1' " ng-click="ok_anular();" >
+                    <button type="button" class="btn btn-danger" ng-click="ok_anular();" >
                         Anular <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
 
-                    <button type="button" class="btn btn-secondary" ng-click=" aux_btn_marcad='1' " data-dismiss="modal">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header modal-header-danger">
+                    <h5 class="modal-title">Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{mensaje}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Cerrar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalInformation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header modal-header-danger">
+                    <h5 class="modal-title">Información de la Reserva</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            Cliente<hr>
+                            Nombre y Apellidos: {{client}}<br>
+                            Identificación: {{idclient}}<br>
+                            No. Teléfono: {{phoneperson}}<br>
+                            No. Celular: {{celperson}}<br>
+                            Dirección: {{addressperson}}
+                        </div>
+                        <div class="col-6">
+                            Auto<hr>
+                            Marca: {{carbrand}}<br>
+                            Modelo: {{carmodel}}<br>
+                            Año: {{year}}<br>
+                            Propietario: {{nameowner}}<br>
+                            Aseguradora: {{insurancecompany}}<br>
+                            Código de Seguro: {{securecode}}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12">
+                            Reserva<hr>
+                            <div class="row">
+                                <div class="col-6">
+                                    Fecha Inicio: {{startdate}}
+                                </div>
+                                <div class="col-6">
+                                    Fecha Entrega: {{enddate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Cerrar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
