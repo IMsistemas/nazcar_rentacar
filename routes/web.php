@@ -36,6 +36,12 @@
     Route::get('rent/listRents', 'Rent\RentController@listRents');
     Route::resource('rent', 'Rent\RentController');
 
+    //---------------LISTAR RENTAS--------------------///
+    Route::get('client/getListCountry', 'Client\ClientController@getListCountry');
+    Route::get('client/getPaidForms', 'Client\ClientController@getPaidForms');
+    Route::get('client/listClients', 'Client\ClientController@listClients');
+    Route::resource('client', 'Client\ClientController');
+
     //---------------REGISTRAR LOS AUTOS--------------------///
     Route::get('car/getListCars', 'Car\CarController@getListCars');
     Route::resource('car', 'Car\CarController');

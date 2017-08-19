@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Models\Client\Client;
+use App\Models\Country\Country;
+use App\Models\FormaPago\Paidform;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +18,47 @@ class ClientController extends Controller
 
     public function index()
     {
-        //
+        return view('Client.index');
+    }
+
+    /**
+     * Get list of Clients.
+     */
+
+    public function getListCountry(){
+        return Country::orderBy('idcountry', 'asc')->get();
+    }
+
+    /**
+     * Get list of Car Brands.
+     */
+
+    public function getPaidForms(){
+        return Paidform::orderBy('idpaidform', 'asc')->get();
+    }
+
+    /**
+     * Show the list of Rents.
+     */
+
+    public function listClients(Request $request){
+        $filter = json_decode($request->get('filter'));
+        $search = $filter->search;
+        $state = $filter->state;
+
+        $client = Client::join('person', 'person.idperson', '=', 'client.idperson')
+            ->join('country', 'country.idcountry', '=', 'client.idcountry')
+            ->join('paidform', 'paidform.idpaidform', '=', 'client.idpaidform');
+
+        if($search != null){
+            $client = $client->whereRaw("(person.nameperson LIKE '%" . $search . "%' OR person.lastnameperson LIKE '%" . $search ."%' OR person.identifyperson LIKE '%" . $search . "%') ");
+        }
+
+        if ($state != null) {
+            $client = $client->whereRaw('client.state = ' . $state);
+        }
+
+        return $client->orderBy('idclient', 'desc')->paginate(10);
     }
 
     /**
