@@ -37,6 +37,7 @@
     Route::resource('rent', 'Rent\RentController');
 
     //---------------LISTAR RENTAS--------------------///
+    Route::get('client/activarInactivar{id}', 'Client\ClientController@activarInactivar');
     Route::get('client/getListCountry', 'Client\ClientController@getListCountry');
     Route::get('client/getPaidForms', 'Client\ClientController@getPaidForms');
     Route::get('client/listClients', 'Client\ClientController@listClients');

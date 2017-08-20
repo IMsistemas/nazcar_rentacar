@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Models\Client\Client;
 use App\Models\Country\Country;
 use App\Models\FormaPago\Paidform;
+use App\Models\Person\Person;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -113,7 +114,46 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $person = Person::find($request->input('idperson'));
+
+        $person->nameperson = $request->input('name');
+        $person->lastnameperson = $request->input('lastname');
+        $person->identifyperson = $request->input('identify');
+        $person->numphoneperson = $request->input('phone');
+        $person->numcelperson = $request->input('cell');
+        $person->emailperson = $request->input('email');
+        $person->addressperson = $request->input('address');
+
+        if ($person->save()) {
+
+            $client = Client::find($id);
+
+            $client->country = $request->input('country');
+            $client->paidform = $request->input('paidform');
+            $client->activitystatus = $request->input('activity');
+
+            if ($client->save()) {
+
+                return response()->json(['success' => true]);
+
+            }else return response()->json(['success' => false]);
+
+        } else return response()->json(['success' => false]);
+    }
+
+    public function activarInactivar(Request $request, $id)
+    {
+
+        $client = Client::find($id);
+
+        $client->state = $request->input('state');
+
+        if ($client->save()) {
+
+            return response()->json(['success' => true]);
+
+        }else return response()->json(['success' => false]);
+
     }
 
     /**

@@ -103,7 +103,7 @@
         <div class="col-6" style="margin-top: 3px;">
             <div class="input-group">
                 <span class="input-group-addon">Estado: </span>
-                <select class="form-control" name="statefilter" id="statefilter" ng-model="statefilter" ng-change="initLoad(1)">
+                <select class="form-control" value="1" name="statefilter" id="statefilter" ng-model="statefilter" ng-change="initLoad(1)">
                     <option value="1">Activos</option>
                     <option value="0">Inactivos</option>
                 </select>
@@ -129,17 +129,18 @@
                 <td>{{$index + 1}}</td>
                 <td>{{item.lastnameperson + " " + item.nameperson}}</td>
                 <td>{{item.identifyperson}}</td>
-                <td>{{item.numphoneperson + "/" + item.numcelperson}}</td>
+                <td>{{item.numphoneperson + " / " + item.numcelperson}}</td>
                 <td>{{item.country}}</td>
-                <td>{{item.state}}</td>
+                <td ng-show="1">Activo</td>
+                <td ng-show="0">Inactivo</td>
                 <td>
-                    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" onclick="showModal('modalMessageInfo')">
+                    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" ng-click="showModalInformation(item)">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" onclick="showModal('modalMessagePrimaryEdit')">
+                    <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="showModalEdit(item)">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" onclick="showModal('modalMessagePrimary')">
+                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" ng-click="showModalAnular(item)">
                         <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
                 </td>
@@ -169,15 +170,36 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    text
+                    Activar / Inactivar el cliente seleccionado...
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" >
-                        Anular <i class="fa fa-ban" aria-hidden="true"></i>
+                    <button type="button" class="btn btn-danger" ng-click="activarInactivar()">
+                        Aceptar <i class="fa fa-ok" aria-hidden="true"></i>
                     </button>
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header modal-header-success">
+                    <h5 class="modal-title">Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{message}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Cerrar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -194,7 +216,15 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    toda la informacion del cliente
+                    <strong>Nombre completo: </strong> {{client}}<br>
+                    <strong>No. Identificación: </strong>{{identify}}<br>
+                    <strong>Correo Electrónico: </strong>{{email}}<br>
+                    <strong>No. Teléfono: </strong>{{phone}}<br>
+                    <strong>No. Celular: </strong>{{cell}}<br>
+                    <strong>Dirección: </strong>{{address}}<br>
+                    <strong>País: </strong>{{country}}<br>
+                    <strong>Actividad Económica: </strong>{{activity}}<br>
+                    <strong>Forma de Pago: </strong>{{paidform}}
                 </div>
             </div>
         </div>
@@ -210,74 +240,94 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Apellidos: </span>
-                                <input type="text" class="form-control" />
+                    <form name="form">
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Apellidos: </span>
+                                    <input type="text" class="form-control" ng-model="lastname" required/>
+                                </div>
+                                <span class="help-block error"
+                                      ng-show="form.lastname.$invalid">Este campo es requerido</span>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Nombre(s): </span>
+                                    <input type="text" class="form-control" ng-model="name" required/>
+                                </div>
+                                <span class="help-block error"
+                                      ng-show="form.name.$invalid">Este campo es requerido</span>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Nombre(s): </span>
-                                <input type="text" class="form-control" />
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Identificación: </span>
+                                    <input type="text" class="form-control" ng-model="identify" required/>
+                                </div>
+                                <span class="help-block error"
+                                      ng-show="form.identify.$invalid">Este campo es requerido</span>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Email: </span>
+                                    <input type="text" class="form-control" ng-model="email" required/>
+                                </div>
+                                <span class="help-block error"
+                                      ng-show="form.email.$invalid">Este campo es requerido</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Identificacion: </span>
-                                <input type="text" class="form-control" />
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">No. Telefono: </span>
+                                    <input type="text" class="form-control" ng-model="phone" required/>
+                                </div>
+                                <span class="help-block error"
+                                      ng-show="form.phone.$invalid">Este campo es requerido</span>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">No. Celular: </span>
+                                    <input type="text" class="form-control" ng-model="cell" required/>
+                                </div>
+                                <span class="help-block error"
+                                      ng-show="form.cell.$invalid">Este campo es requerido</span>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Email: </span>
-                                <input type="text" class="form-control" />
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">País: </span>
+                                    <select class="form-control" name="country" id="country" ng-model="country"
+                                            ng-options="value.id as value.label for value in countrylist" required></select>
+                                </div>
+                                <span class="help-block error"
+                                      ng-show="form.country.$invalid">Este campo es requerido</span>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Forma de pago: </span>
+                                    <select class="form-control" name="paidform" id="paidform" ng-model="paidform"
+                                            ng-options="value.id as value.label for value in paidlist" required ></select>
+                                </div>
+                                <span class="help-block error"
+                                      ng-show="form.paidform.$invalid">Este campo es requerido</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-6 col-xs-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">No. Telefono: </span>
-                                <input type="text" class="form-control" />
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Dirección: </span>
+                                    <input type="text" class="form-control" ng-model="address"/>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">No. Celular: </span>
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Pais: </span>
-                                <select class="form-control"></select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Forma Pago: </span>
-                                <select class="form-control"></select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Direccion: </span>
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">
-                        Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <button type="button" class="btn btn-primary" ng-click="edit()" ng-disabled="form.$invalid">
+                        Aceptar <i class="fa fa-check-circle" aria-hidden="true" ></i>
                     </button>
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
