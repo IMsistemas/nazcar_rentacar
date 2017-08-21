@@ -158,13 +158,14 @@
             } else $scope.estado = "1";
 
             var data = {
-                state: $scope.estado
+                state: $scope.estado,
+                iditem: $scope.iditem
             };
-            $http.put(API_URL + 'client/activarInactivar/' + $scope.iditem, data).then(function(response) {
+            $http.get(API_URL + 'client/activarInactivar/' + JSON.stringify(data)).then(function(response) {
 
                 if (response.data.success === true) {
                     $scope.iditem = 0;
-                    $('#modalMessagePrimaryEdit').modal('hide');
+                    $('#modalMessagePrimary').modal('hide');
                     $scope.message = 'Se han modificado correctamente los datos del cliente seleccionado...';
                     $('#modalMessage').modal('show');
                     $scope.initLoad(1);

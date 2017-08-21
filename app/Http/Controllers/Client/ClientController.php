@@ -141,12 +141,13 @@ class ClientController extends Controller
         } else return response()->json(['success' => false]);
     }
 
-    public function activarInactivar(Request $request, $id)
+    public function activarInactivar($data)
     {
+        $datos = json_decode($data);
 
-        $client = Client::find($id);
+        $client = Client::find($datos->iditem);
 
-        $client->state = $request->input('state');
+        $client->state = $datos->estado;
 
         if ($client->save()) {
 
