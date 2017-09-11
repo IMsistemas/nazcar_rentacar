@@ -33,8 +33,11 @@
 <body>
 
 
-    <div class="container" style="margin-top: 10px;" ng-controller="IndexController">
-        <div class="card" style="width: 35%;">
+    <div class="container" style="margin-top: 3%;" ng-controller="IndexController">
+
+        <!-- FORMULARIO RESERVA PASO 1 -->
+
+        <div class="card" style="width: 35%;" ng-show="reserva_1 == 1">
             <div class="card-body">
 
                 <h4 class="card-title text-center">Haz tu Reserva</h4>
@@ -73,12 +76,12 @@
                             <small id="emailHelp" class="form-text text-danger text-right">El Télefono es requerido</small>
                         </span>
                     </div>
-                    <div class="col-12" style="margin-top: 3px;">
+                    <!--<div class="col-12" style="margin-top: 3px;">
                         <select name="" id="" class="form-control"></select>
                     </div>
                     <div class="col-12" style="margin-top: 3px;">
                         <select name="" id="" class="form-control"></select>
-                    </div>
+                    </div>-->
                     <div class="col-12" style="margin-top: 3px;">
                         <input class="form-control" placeholder="Fecha estimada para el Alquiler *" />
                     </div>
@@ -91,14 +94,83 @@
                 </form>
 
                 <div class="col-12" style="margin-top: 10px;" ng-disabled="formReserva_1.$invalid">
-                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal()">RESERVAR</button>
+                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal(1)">RESERVAR</button>
                 </div>
 
                 <div class="col-12" style="margin-top: 3px;">
 
                     <div class="row">
                         <div class="col-4">
-                            Resetear
+                            <!--Resetear -->
+                        </div>
+                        <div class="col-8 text-right">
+                            <small id="emailHelp" class="form-text text-muted">Los campos con * son obligatorios.</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FORMULARIO RESERVA PASO 2 -->
+
+        <div class="card" style="width: 35%;" ng-show="reserva_1 == 2">
+            <div class="card-body">
+
+                <h4 class="card-title text-center">Haz tu Reserva</h4>
+
+                <form class="form-horizontal" name="formReserva_2" novalidate="">
+
+                    <div class="col-12" style="margin-top: 30px !important;">
+                        <select class="form-control" name="lugar_retiro" id="lugar_retiro" ng-model="lugar_retiro" required></select>
+                        <span class="help-block error" ng-show="formReserva_2.lugar_retiro.$invalid && formReserva_2.lugar_retiro.$touched">
+                            <small id="emailHelp" class="form-text text-danger text-right">El Lugar de Retiro es requerido</small>
+                        </span>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 3px;">
+                        <input class="form-control" name="fecha_retiro" id="fecha_retiro" ng-model="fecha_retiro" placeholder="Fecha y Hora para el Retiro *" required />
+                        <span class="help-block error" ng-show="formReserva_2.fecha_retiro.$invalid && formReserva_2.fecha_retiro.$touched">
+                            <small id="emailHelp" class="form-text text-danger text-right">La Fecha y Hora de Retiro es requerido</small>
+                        </span>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Mismo Lugar de Entrega
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 3px;">
+                        <select class="form-control" name="lugar_entrega" id="lugar_entrega" ng-model="lugar_entrega" required></select>
+                        <span class="help-block error" ng-show="formReserva_2.lugar_entrega.$invalid && formReserva_2.lugar_entrega.$touched">
+                            <small id="emailHelp" class="form-text text-danger text-right">El Lugar de Entrega es requerido</small>
+                        </span>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 3px;">
+                        <input class="form-control" name="fecha_entrega" id="fecha_entrega" ng-model="fecha_entrega" placeholder="Fecha y Hora para la Entrega *" required />
+                        <span class="help-block error" ng-show="formReserva_2.fecha_entrega.$invalid && formReserva_2.fecha_entrega.$touched">
+                            <small id="emailHelp" class="form-text text-danger text-right">La Fecha y Hora de Entrega es requerido</small>
+                        </span>
+                    </div>
+
+
+
+                </form>
+
+                <div class="col-12" style="margin-top: 10px;" ng-disabled="formReserva_2.$invalid">
+                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal(2)">RESERVAR (2)</button>
+                </div>
+
+                <div class="col-12" style="margin-top: 3px;">
+
+                    <div class="row">
+                        <div class="col-4">
+                            <!--Resetear -->
                         </div>
                         <div class="col-8 text-right">
                             <small id="emailHelp" class="form-text text-muted">Los campos con * son obligatorios.</small>
