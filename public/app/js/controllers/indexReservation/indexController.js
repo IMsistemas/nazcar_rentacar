@@ -2,7 +2,7 @@
 
     app.controller('IndexController', function($scope, $http, API_URL) {
 
-        $scope.reserva_1 = 3;
+        $scope.reserva_1 = 4;
 
         $scope.showModal = function (step) {
 
@@ -11,6 +11,8 @@
             } else if (step === 2) {
                 $scope.reserva_1 = 3;
             } else if (step === 3) {
+                $scope.reserva_1 = 4;
+            } else if (step === 4) {
                 $scope.reserva_1 = 1;
             }
 

@@ -319,6 +319,137 @@
             </div>
         </div>
 
+        <!-- FORMULARIO RESERVA PASO 4 -->
+
+        <div class="card" style="width: 45%;" ng-show="reserva_1 == 4">
+            <div class="card-body">
+
+                <h4 class="card-title text-center">Haz tu Reserva</h4>
+
+                <form class="form-horizontal" name="formReserva_3" novalidate="">
+
+                    <div class="col-12" style="margin-top: 30px !important;">
+                        <table class="table table-sm">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>RETIRO</th>
+                                <th>RETORNO</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">FECHA</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HORA</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">LUGAR</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h4>
+                                    Nombre del vehiculo
+                                </h4>
+                            </div>
+                            <img class="card-img-bottom" src="http://www.toyota.com.ec/gt86/web/css/images/auto-home.png" alt="Card image cap">
+                        </div>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px">
+                        <h4>
+                            Servicios Adicionales
+                        </h4>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+
+                        <table class="table table-sm">
+                            <tbody>
+                            <tr>
+                                <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
+                                <td>Protección y cobertura 1 daño a terceros</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
+                                <td>Protección y cobertura 2 PAI</td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px">
+                        <h4>
+                            Otros Servicios
+                        </h4>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+
+                        <table class="table table-sm">
+                            <tbody>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
+                                    <td>Asiento(s) de Bebe</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
+                                    <td>Conductor Autorizado</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
+                                    <td>GPS</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
+                                    <td>Servicio de Chofer</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </form>
+
+                <div class="col-12" style="margin-top: 10px;" ng-disabled="formReserva_3.$invalid">
+                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal(4)">RESERVAR (4)</button>
+                </div>
+
+                <div class="col-12" style="margin-top: 3px;">
+
+                    <div class="row">
+                        <div class="col-4">
+                            <!--Resetear -->
+                        </div>
+                        <div class="col-8 text-right">
+                            <small id="emailHelp" class="form-text text-muted">Los campos con * son obligatorios.</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
         <div class="modal fade" id="modalMessageError" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
