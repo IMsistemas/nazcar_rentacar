@@ -145,11 +145,11 @@ class ClientController extends Controller
     {
         $datos = json_decode($data);
 
-        $client = Client::find($datos->iditem);
+        $client = Client::whereRaw('idclient = ' . $datos->iditem)->update(['state' => $datos->estado]);
 
-        $client->state = $datos->estado;
+        //$client->state = $datos->estado;
 
-        if ($client->save()) {
+        if ($client == true) {
 
             return response()->json(['success' => true]);
 
