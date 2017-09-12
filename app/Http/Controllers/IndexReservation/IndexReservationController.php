@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\IndexReservation;
 
+use App\Models\Place\Place;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +16,11 @@ class IndexReservationController extends Controller
     public function index()
     {
         return view('index');
+    }
+
+    public function getPlaces()
+    {
+        return Place::orderBy('nameplace', 'asc')->get();
     }
 
     /**

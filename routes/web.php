@@ -75,5 +75,5 @@
 /*
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
-
+    Route::get('reservation/getPlaces', 'IndexReservation\IndexReservationController@getPlaces');
     Route::resource('/', 'IndexReservation\IndexReservationController');

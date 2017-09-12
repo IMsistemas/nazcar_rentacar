@@ -83,7 +83,7 @@
                         <select name="" id="" class="form-control"></select>
                     </div>-->
                     <div class="col-12" style="margin-top: 3px;">
-                        <input class="form-control" placeholder="Fecha estimada para el Alquiler *" />
+                        <input class="form-control datepickerA" placeholder="Fecha estimada para el Alquiler *" />
                     </div>
                     <div class="col-12" style="margin-top: 3px;">
                         <input class="form-control" placeholder="Tiempo *" />
@@ -123,14 +123,15 @@
                 <form class="form-horizontal" name="formReserva_2" novalidate="">
 
                     <div class="col-12" style="margin-top: 30px !important;">
-                        <select class="form-control" name="lugar_retiro" id="lugar_retiro" ng-model="lugar_retiro" required></select>
+                        <select class="form-control" name="lugar_retiro" id="lugar_retiro" ng-model="lugar_retiro"
+                                ng-options="value.id as value.label for value in placelist" required></select>
                         <span class="help-block error" ng-show="formReserva_2.lugar_retiro.$invalid && formReserva_2.lugar_retiro.$touched">
                             <small id="emailHelp" class="form-text text-danger text-right">El Lugar de Retiro es requerido</small>
                         </span>
                     </div>
 
                     <div class="col-12" style="margin-top: 3px;">
-                        <input class="form-control" name="fecha_retiro" id="fecha_retiro" ng-model="fecha_retiro" placeholder="Fecha y Hora para el Retiro *" required />
+                        <input class="form-control datepicker" name="fecha_retiro" id="fecha_retiro" ng-model="fecha_retiro" placeholder="Fecha y Hora para el Retiro *" required />
                         <span class="help-block error" ng-show="formReserva_2.fecha_retiro.$invalid && formReserva_2.fecha_retiro.$touched">
                             <small id="emailHelp" class="form-text text-danger text-right">La Fecha y Hora de Retiro es requerido</small>
                         </span>
@@ -145,14 +146,15 @@
                     </div>
 
                     <div class="col-12" style="margin-top: 3px;">
-                        <select class="form-control" name="lugar_entrega" id="lugar_entrega" ng-model="lugar_entrega" required></select>
+                        <select class="form-control" name="lugar_entrega" id="lugar_entrega" ng-model="lugar_entrega"
+                                ng-options="value.id as value.label for value in placelist" required></select>
                         <span class="help-block error" ng-show="formReserva_2.lugar_entrega.$invalid && formReserva_2.lugar_entrega.$touched">
                             <small id="emailHelp" class="form-text text-danger text-right">El Lugar de Entrega es requerido</small>
                         </span>
                     </div>
 
                     <div class="col-12" style="margin-top: 3px;">
-                        <input class="form-control" name="fecha_entrega" id="fecha_entrega" ng-model="fecha_entrega" placeholder="Fecha y Hora para la Entrega *" required />
+                        <input class="form-control datepicker" name="fecha_entrega" id="fecha_entrega" ng-model="fecha_entrega" placeholder="Fecha y Hora para la Entrega *" required />
                         <span class="help-block error" ng-show="formReserva_2.fecha_entrega.$invalid && formReserva_2.fecha_entrega.$touched">
                             <small id="emailHelp" class="form-text text-danger text-right">La Fecha y Hora de Entrega es requerido</small>
                         </span>
