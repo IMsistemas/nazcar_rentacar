@@ -37,9 +37,9 @@
 		<table class="table table-responsive table-striped table-hover table-condensed table-bordered">
 			<thead class="bg-primary">
 				<tr>
-					<td>NO.</td>
-					<td>MODELO</td>
-					<td>ACCIONES</td>
+					<th style="width: 5%;">NO.</th>
+					<th>MODELO</th>
+					<th style="width: 15%;">ACCIONES</th>
 				</tr>
 			</thead>
 			<tbody>
