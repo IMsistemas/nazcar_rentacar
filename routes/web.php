@@ -48,7 +48,8 @@
     Route::resource('client', 'Client\ClientController');
 
     //---------------REGISTRAR LOS AUTOS--------------------///
-    Route::get('car/getListCars', 'Car\CarController@getListCars');
+    Route::get('car/get_list_marca', 'Car\CarController@get_list_marca');
+    Route::get('car/listCars', 'Car\CarController@listCars');
     Route::resource('car', 'Car\CarController');
 
 

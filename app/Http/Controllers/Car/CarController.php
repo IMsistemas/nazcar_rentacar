@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Car;
 
+use App\Models\Car\Car;
+use App\Models\MarcaAuto\Carbrand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +17,31 @@ class CarController extends Controller
     public function index()
     {
         return view('Car.car_index');
+    }
+
+    public function get_list_marca()
+    {
+
+        Carbrand::orderBy("namecarbrand","ASC")->get();
+    }
+
+    public function listCars(Request $request){
+        $filter = json_decode($request->get('filter'));
+        $search = $filter->search;
+        $state = $filter->state;
+
+        $car = Car::join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
+            ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand');
+
+        if($search != null){
+            $car = $car->whereRaw("(carmodel.namecarmodel LIKE '%" . $search . "%' OR carbrand.namecarbrand LIKE '%" . $search ."%' OR car.nameowner LIKE '%" . $search . "%' OR car.carserial LIKE '%" . $search . "%') ");
+        }
+
+        if ($state != null) {
+            $car = $car->whereRaw('car.state = ' . $state);
+        }
+
+        return $car->orderBy('idcar', 'desc')->paginate(10);
     }
     /**
      *

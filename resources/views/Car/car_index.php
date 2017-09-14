@@ -1,7 +1,7 @@
 
 
 
-<div class="container" style="margin-top: 10px;" ng-controller="CarController">
+<div class="container" style="margin-top: 10px;" ng-controller="CarController" ng-init="initLoad(1)">
 
     <div class="col-xs-12">
         <h4>Registro de Autos</h4>
@@ -28,13 +28,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr dir-paginate="item in list|orderBy:sortKey:reverse| itemsPerPage:10" total-items="totalItems" ng-cloak>
                 <td>text</td>
-                <td>text</td>
-                <td>text</td>
-                <td>text</td>
-                <td>text</td>
-                <td>text</td>
+                <td>{{item.namecarmodel}}</td>
+                <td>{{item.namecarbrand}}</td>
+                <td>{{item.cartype}}</td>
+                <td>{{item.nameowner}}</td>
+                <td>{{item.rentcost}}</td>
                 <td>
                     <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" onclick="showModal('modalMessageInfo')">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -49,6 +49,17 @@
             </tr>
             </tbody>
         </table>
+        <dir-pagination-controls
+
+                on-page-change="pageChanged(newPageNumber)"
+
+                template-url="dirPagination.html"
+
+                class="pull-right"
+                max-size="1"
+                direction-links="true"
+                boundary-links="true" >
+        </dir-pagination-controls>
     </div>
 
     <div class="modal fade" id="modalMessagePrimary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
