@@ -93,6 +93,8 @@
 
 
 <script src="<?= asset('../app/js/controllers/FormaPago/PagoController.js') ?>"></script>
+<script src="<?= asset('../app/js/controllers/ModeloAuto/ModeloController.js') ?>"></script>
+<script src="<?= asset('../app/js/controllers/MarcaAuto/MarcaController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Car/carController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/client/clientController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/rent/rentController.js') ?>"></script>
