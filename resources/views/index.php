@@ -13,6 +13,20 @@
 
     <link href="<?= asset('../app/css/main.css') ?>" rel="stylesheet">
 
+    <style>
+
+        .form-control-feedback {
+            float: right;
+            margin-right: 6px;
+            margin-top: -25px;
+            position: relative;
+            z-index: 2;
+            color: #6c757d;
+        }
+
+    </style>
+
+
 </head>
 <body ng-controller="IndexController">
 
