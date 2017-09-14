@@ -94,7 +94,7 @@
                 </form>
 
                 <div class="col-12" style="margin-top: 10px;" ng-disabled="formReserva_1.$invalid">
-                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal(1)">RESERVAR</button>
+                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal(2)">RESERVAR</button>
                 </div>
 
                 <div class="col-12" style="margin-top: 3px;">
@@ -131,18 +131,24 @@
                     </div>
 
                     <div class="col-12" style="margin-top: 3px;">
-                        <input class="form-control datepicker" name="fecha_retiro" id="fecha_retiro" ng-model="fecha_retiro" placeholder="Fecha y Hora para el Retiro *" required />
+                        <input type="datetime-local" class="form-control" name="fecha_retiro" id="fecha_retiro" ng-model="fecha_retiro" placeholder="Fecha y Hora para el Retiro *" required />
                         <span class="help-block error" ng-show="formReserva_2.fecha_retiro.$invalid && formReserva_2.fecha_retiro.$touched">
                             <small id="emailHelp" class="form-text text-danger text-right">La Fecha y Hora de Retiro es requerido</small>
                         </span>
                     </div>
 
                     <div class="col-12" style="margin-top: 5px;">
-                        <div class="form-check form-check-inline">
+                        <!--<div class="form-check form-check-inline">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Mismo Lugar de Entrega
                             </label>
-                        </div>
+                        </div>-->
+
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Mismo Lugar de Entrega</span>
+                        </label>
                     </div>
 
                     <div class="col-12" style="margin-top: 3px;">
@@ -164,8 +170,9 @@
 
                 </form>
 
-                <div class="col-12" style="margin-top: 10px;" ng-disabled="formReserva_2.$invalid">
-                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal(2)">RESERVAR (2)</button>
+                <div class="col-12 text-center" style="margin-top: 10px;" ng-disabled="formReserva_2.$invalid">
+                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(1)">ANTERIOR</button>
+                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(3)">SIGUIENTE</button>
                 </div>
 
                 <div class="col-12" style="margin-top: 3px;">
@@ -301,8 +308,9 @@
 
                 </form>
 
-                <div class="col-12" style="margin-top: 10px;" ng-disabled="formReserva_3.$invalid">
-                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal(3)">RESERVAR (3)</button>
+                <div class="col-12 text-center" style="margin-top: 10px;" ng-disabled="formReserva_3.$invalid">
+                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(2)">ANTERIOR</button>
+                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(4)">SIGUIENTE</button>
                 </div>
 
                 <div class="col-12" style="margin-top: 3px;">
@@ -381,12 +389,24 @@
                         <table class="table table-sm">
                             <tbody>
                             <tr>
-                                <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
-                                <td>Protección y cobertura 1 daño a terceros</td>
-                                <td></td>
+                                <td>
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
+                                    </label>
+                                </td>
+                                <td style="width: 89% !important;">Protección y cobertura 1 daño a terceros</td>
+                                <td style="width: 10% !important;"></td>
                             </tr>
                             <tr>
-                                <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
+                                <td>
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
+                                    </label>
+                                </td>
                                 <td>Protección y cobertura 2 PAI</td>
                                 <td></td>
                             </tr>
@@ -406,22 +426,46 @@
                         <table class="table table-sm">
                             <tbody>
                                 <tr>
-                                    <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
-                                    <td>Asiento(s) de Bebe</td>
-                                    <td></td>
+                                    <td>
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input">
+                                            <span class="custom-control-indicator"></span>
+                                            <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
+                                        </label>
+                                    </td>
+                                    <td style="width: 89% !important;">Asiento(s) de Bebe</td>
+                                    <td style="width: 15% !important;"></td>
                                 </tr>
                                 <tr>
-                                    <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
+                                    <td>
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input">
+                                            <span class="custom-control-indicator"></span>
+                                            <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
+                                        </label>
+                                    </td>
                                     <td>Conductor Autorizado</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
+                                    <td>
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input">
+                                            <span class="custom-control-indicator"></span>
+                                            <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
+                                        </label>
+                                    </td>
                                     <td>GPS</td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"></td>
+                                    <td>
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input">
+                                            <span class="custom-control-indicator"></span>
+                                            <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
+                                        </label>
+                                    </td>
                                     <td>Servicio de Chofer</td>
                                     <td></td>
                                 </tr>
@@ -432,8 +476,9 @@
 
                 </form>
 
-                <div class="col-12" style="margin-top: 10px;" ng-disabled="formReserva_3.$invalid">
-                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal(4)">RESERVAR (4)</button>
+                <div class="col-12 text-center" style="margin-top: 10px;" ng-disabled="formReserva_3.$invalid">
+                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(3)">ANTERIOR</button>
+                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(4)">PROCESAR</button>
                 </div>
 
                 <div class="col-12" style="margin-top: 3px;">
