@@ -8,13 +8,13 @@
 
 	<div class="row " style="margin-top: 5px;">
 		
-		<div class="col-xs-4 ">
+		<div class="col-4 ">
 			<div class="input-group">                        
 			    <input type="text" class="form-control" ng-model="buscquedamodelo">
 			    <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
 			</div>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-4">
 			<div class="input-group">                        
 			    <span class="input-group-addon">Estado: </span>
 			    <select class="form-control" ng-model="estado" ng-change="initLoad(1)";>
@@ -23,7 +23,7 @@
 			    </select>
 			</div>
 		</div>
-		<div class="col-xs-4 text-right">
+		<div class="col-4 text-right">
 			<button type="button" class="btn btn-primary" onclick="showModal('modalMessagePrimaryAdd')" >
 	            Agregar <i class="fa fa-plus-circle" aria-hidden="true"></i> 
 	        </button>
@@ -33,7 +33,7 @@
 	</div>
 
 	<div class="row">
-	<div class="col-xs-12" style="margin-top: 10px;">
+	<div class="col-12" style="margin-top: 10px;">
 		<table class="table table-responsive table-striped table-hover table-condensed table-bordered">
 			<thead class="bg-primary">
 				<tr>
