@@ -1,6 +1,6 @@
 
 
-    app.controller('IndexController', function($scope, $http, API_URL) {
+    app.controller('IndexReservationController', function($scope, $http, API_URL) {
 
         $('.datepicker').datetimepicker({
             locale: 'es'
@@ -39,5 +39,11 @@
         };
 
         $scope.getPlaces();
+
+        $scope.save = function () {
+
+
+
+        };
 
     });

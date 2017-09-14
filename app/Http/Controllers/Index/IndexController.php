@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\IndexReservation;
+namespace App\Http\Controllers\Index;
 
-use App\Models\Place\Place;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
-class IndexReservationController extends Controller
+class IndexController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,20 @@ class IndexReservationController extends Controller
      */
     public function index()
     {
-        return view('indexReservation');
+        if (Session::has('users') == false) {
+
+            return view('index');
+
+        } else {
+
+            return view('login');
+
+        }
     }
 
-    public function getPlaces()
+    public function viewIndex()
     {
-        return Place::orderBy('nameplace', 'asc')->get();
+        return view('Index.index');
     }
 
     /**

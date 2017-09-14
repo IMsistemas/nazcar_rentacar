@@ -1,36 +1,3 @@
-<!doctype html>
-<html lang="en" ng-app="reservationApp">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <link href="<?= asset('../lib/bootstrap-4/dist/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link href="<?= asset('../lib/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css') ?>" rel="stylesheet">
-    <link href="<?= asset('../lib/font-awesome-4.7.0/css/font-awesome.min.css') ?>" rel="stylesheet">
-
-    <style>
-
-        select, textarea, input, .btn, .card {
-            border-radius: 0 !important;
-        }
-
-        .form-control-feedback {
-            float: right;
-            margin-right: 6px;
-            margin-top: -25px;
-            position: relative;
-            z-index: 2;
-            color: #6c757d;
-        }
-
-    </style>
-
-
-</head>
-<body>
 
 
 <div class="container" style="margin-top: 10px;" ng-controller="RentController" ng-init="initLoad(1)">
@@ -245,26 +212,3 @@
 </div>
 
 
-</body>
-
-<script src="<?= asset('../lib/jquery/jquery-3.2.1.min.js') ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
-<script src="<?= asset('../lib/bootstrap-4/dist/js/bootstrap.min.js') ?>"></script>
-
-<script src="<?= asset('../lib/bootstrap-datetimepicker/moment.min.js') ?>"></script>
-<script src="<?= asset('../lib/bootstrap-datetimepicker/es.js') ?>"></script>
-<script src="<?= asset('../lib/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js') ?>"></script>
-
-
-<script src="<?= asset('../lib/angularjs/angular.min.js') ?>"></script>
-<script src="<?= asset('../lib/angularjs/angular-sanitize.min.js') ?>"></script>
-<script src="<?= asset('../lib/angularjs/angular-route.min.js') ?>"></script>
-<script src="<?= asset('../lib/upload/ng-file-upload.min.js') ?>"></script>
-<script src="<?= asset('../lib/dirPagination.js') ?>"></script>
-
-<script src="<?= asset('../app/js/app_system.js') ?>"></script>
-
-<script src="<?= asset('../app/js/controllers/rent/rentController.js') ?>"></script>
-
-</html>

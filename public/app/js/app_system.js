@@ -21,13 +21,33 @@ app.config(['$locationProvider', function($locationProvider) {
 app.config(function($routeProvider){
 
     $routeProvider
-        .when('/',{
-            templateUrl : URL + '',
-            controller: ''
+        .when('/rent',{
+            templateUrl : URL + 'rent',
+            controller: 'RentController'
         })
-        /*.otherwise({
-            templateUrl : URL + '',
-            controller : ''
-        })*/;
+        .when('/client',{
+            templateUrl : URL + 'client',
+            controller: 'ClientController'
+        })
+        .when('/car',{
+            templateUrl : URL + 'car',
+            controller: 'CarController'
+        })
+        .when('/Marca',{
+            templateUrl : URL + 'Marca',
+            controller: 'MarcaController'
+        })
+        .when('/FormPago',{
+            templateUrl : URL + 'FormPago',
+            controller: 'PagoController'
+        })
+        .when('/Modelo',{
+            templateUrl : URL + 'Modelo',
+            controller: 'ModeloController'
+        })
+        .otherwise({
+            templateUrl : URL + 'index/index_b',
+            controller : 'indexController'
+        });
 
 });

@@ -1,89 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="reservationApp">
-<head>
-    <meta charset="UTF-8">
-    <title>NCR-7</title>
 
-    <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
-
-    <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
-    <style>
-
-        .modal-header-success {
-            color:#fff;
-            padding:9px 15px;
-            border-bottom:1px solid #eee;
-            background-color: #5cb85c;
-            /*-webkit-border-top-left-radius: 5px;
-            -webkit-border-top-right-radius: 5px;
-            -moz-border-radius-topleft: 5px;
-            -moz-border-radius-topright: 5px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;*/
-        }
-        .modal-header-warning {
-            color:#fff;
-            padding:9px 15px;
-            border-bottom:1px solid #eee;
-            background-color: #f0ad4e;
-            /*-webkit-border-top-left-radius: 5px;
-            -webkit-border-top-right-radius: 5px;
-            -moz-border-radius-topleft: 5px;
-            -moz-border-radius-topright: 5px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;*/
-        }
-        .modal-header-danger {
-            color:#fff;
-            padding:9px 15px;
-            border-bottom:1px solid #eee;
-            background-color: #d9534f;
-            /*-webkit-border-top-left-radius: 5px;
-            -webkit-border-top-right-radius: 5px;
-            -moz-border-radius-topleft: 5px;
-            -moz-border-radius-topright: 5px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;*/
-        }
-        .modal-header-info {
-            color:#fff;
-            padding:9px 15px;
-            border-bottom:1px solid #eee;
-            background-color: #5bc0de;
-            /*-webkit-border-top-left-radius: 5px;
-            -webkit-border-top-right-radius: 5px;
-            -moz-border-radius-topleft: 5px;
-            -moz-border-radius-topright: 5px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;*/
-        }
-        .modal-header-primary {
-            color:#fff;
-            padding:9px 15px;
-            border-bottom:1px solid #eee;
-            background-color: #428bca;
-            /*-webkit-border-top-left-radius: 5px;
-            -webkit-border-top-right-radius: 5px;
-            -moz-border-radius-topleft: 5px;
-            -moz-border-radius-topright: 5px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;*/
-        }
-
-        .btn {
-            border-radius: 0px !important;
-        }
-
-        .modal .modal-content .modal-dialog .modal-footer{
-            border-radius: 0px !important;
-        }
-
-    </style>
-
-
-</head>
-<body>
 
 
 <div class="container" style="margin-top: 10px;" ng-controller="CarController">
@@ -397,15 +312,6 @@
 
 </div>
 
-
-
-</body>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-
-<script src="<?= asset('../app/js/controllers/Car/carController.js') ?>"></script>
 <script>
 
     $(function () {
@@ -419,4 +325,3 @@
 
 </script>
 
-</html>

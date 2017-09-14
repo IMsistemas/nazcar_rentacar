@@ -15,6 +15,10 @@
     return view('welcome');
 });*/
 
+
+    Route::get('index/index_b', 'Index\IndexController@viewIndex');
+    Route::resource('/', 'Index\IndexController');
+
 /*
  *
  * --------------------------------------IMPORTANTE !!!!!---------------------------------------------------------------
@@ -76,4 +80,4 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
     Route::get('reservation/getPlaces', 'IndexReservation\IndexReservationController@getPlaces');
-    Route::resource('/', 'IndexReservation\IndexReservationController');
+    Route::resource('reservation', 'IndexReservation\IndexReservationController');

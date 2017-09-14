@@ -1,123 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="reservationApp">
-<head>
-	<title>Inicio</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-	
-	<link href="<?= asset('../lib/bootstrap4/css/bootstrap.min.css') ?>" rel="stylesheet">
-	<link href="<?= asset('../lib/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css') ?>" rel="stylesheet">
-	<link href="<?= asset('../lib/font-awesome-4.7.0/css/font-awesome.min.css') ?>" rel="stylesheet">
-
-
-
-   
-	<script src="<?= asset('../lib/jquery/jquery-3.2.1.min.js') ?>"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
-	
-	<script src="<?= asset('../lib/bootstrap4/js/bootstrap.min.js') ?>"></script>
-	
-
-
-	<script src="<?= asset('../lib/bootstrap-datetimepicker/moment.min.js') ?>"></script>
-	<script src="<?= asset('../lib/bootstrap-datetimepicker/es.js') ?>"></script>
-	<script src="<?= asset('../lib/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js') ?>"></script>
-
-
-	<script src="<?= asset('../lib/angularjs/angular.min.js') ?>"></script>
-	<script src="<?= asset('../lib/angularjs/angular-sanitize.min.js') ?>"></script>
-	<script src="<?= asset('../lib/angularjs/angular-route.min.js') ?>"></script>
-	<script src="<?= asset('../lib/upload/ng-file-upload.min.js') ?>"></script>
-	<script src="<?= asset('../lib/dirPagination.js') ?>"></script>
-
-	<script src="<?= asset('../app/js/app_system.js') ?>"></script>
-
-	<script src="<?= asset('../app/js/controllers/ModeloAuto/ModeloController.js') ?>"></script>
-
-	
-	<style>
-		
-		.modal-header-success {
-		    color:#fff;
-		    padding:9px 15px;
-		    border-bottom:1px solid #eee;
-		    background-color: #5cb85c;
-		    /*-webkit-border-top-left-radius: 5px;
-		    -webkit-border-top-right-radius: 5px;
-		    -moz-border-radius-topleft: 5px;
-		    -moz-border-radius-topright: 5px;
-		    border-top-left-radius: 5px;
-		    border-top-right-radius: 5px;*/
-		}
-		.modal-header-warning {
-		    color:#fff;
-		    padding:9px 15px;
-		    border-bottom:1px solid #eee;
-		    background-color: #f0ad4e;
-		    /*-webkit-border-top-left-radius: 5px;
-		    -webkit-border-top-right-radius: 5px;
-		    -moz-border-radius-topleft: 5px;
-		    -moz-border-radius-topright: 5px;
-		    border-top-left-radius: 5px;
-		    border-top-right-radius: 5px;*/
-		}
-		.modal-header-danger {
-		    color:#fff;
-		    padding:9px 15px;
-		    border-bottom:1px solid #eee;
-		    background-color: #d9534f;
-		    /*-webkit-border-top-left-radius: 5px;
-		    -webkit-border-top-right-radius: 5px;
-		    -moz-border-radius-topleft: 5px;
-		    -moz-border-radius-topright: 5px;
-		    border-top-left-radius: 5px;
-		    border-top-right-radius: 5px;*/
-		}
-		.modal-header-info {
-		    color:#fff;
-		    padding:9px 15px;
-		    border-bottom:1px solid #eee;
-		    background-color: #5bc0de;
-		    /*-webkit-border-top-left-radius: 5px;
-		    -webkit-border-top-right-radius: 5px;
-		    -moz-border-radius-topleft: 5px;
-		    -moz-border-radius-topright: 5px;
-		    border-top-left-radius: 5px;
-		    border-top-right-radius: 5px;*/
-		}
-		.modal-header-primary {
-		    color:#fff;
-		    padding:9px 15px;
-		    border-bottom:1px solid #eee;
-		    background-color: #428bca;
-		    /*-webkit-border-top-left-radius: 5px;
-		    -webkit-border-top-right-radius: 5px;
-		    -moz-border-radius-topleft: 5px;
-		    -moz-border-radius-topright: 5px;
-		    border-top-left-radius: 5px;
-		    border-top-right-radius: 5px;*/
-		}
-
-		.btn {
-			border-radius: 0px !important;
-		}
-
-		.modal .modal-content .modal-dialog .modal-footer{
-			border-radius: 0px !important;
-		}
-
-	</style>
-	<script type="text/javascript">
-		$(function () {
-		  $('[data-toggle="tooltip"]').tooltip()
-		})
-
-	</script>
-</head>
-<body >
 
 <div class="container" style="margin-top: 10px;" ng-controller="ModeloController">
 	
@@ -309,5 +189,9 @@
 
 </div>
 
-</body>
-</html>
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+</script>
