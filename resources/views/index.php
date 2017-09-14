@@ -11,6 +11,8 @@
     <link href="<?= asset('../lib/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css') ?>" rel="stylesheet">
     <link href="<?= asset('../lib/font-awesome-4.7.0/css/font-awesome.min.css') ?>" rel="stylesheet">
 
+    <link href="<?= asset('../app/css/main.css') ?>" rel="stylesheet">
+
     <style>
 
         select, textarea, input, .btn, .card {
