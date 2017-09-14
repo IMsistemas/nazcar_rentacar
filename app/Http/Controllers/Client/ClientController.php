@@ -128,15 +128,15 @@ class ClientController extends Controller
 
             $client = Client::find($id);
 
-            $client->country = $request->input('country');
-            $client->paidform = $request->input('paidform');
+            $client->idcountry = $request->input('country');
+            $client->idpaidform = $request->input('paidform');
             $client->activitystatus = $request->input('activity');
 
             if ($client->save()) {
 
                 return response()->json(['success' => true]);
 
-            }else return response()->json(['success' => false]);
+            }
 
         } else return response()->json(['success' => false]);
     }
@@ -145,7 +145,7 @@ class ClientController extends Controller
     {
         $datos = json_decode($data);
 
-        $client = Client::whereRaw('idclient = ' . $datos->iditem)->update(['state' => $datos->estado]);
+        $client = Client::whereRaw('idclient = ' . $datos->iditem)->update(['state' => $datos->state]);
 
         //$client->state = $datos->estado;
 

@@ -5,6 +5,7 @@
         $scope.iditem = 0;
         $scope.aux_estado= "";
         $scope.idpersonitem = 0;
+        $scope.statefilter = "1";
 
         $scope.initLoad = function(pageNumber){
 
@@ -25,6 +26,8 @@
 
                 $scope.list = response.data.data;
                 $scope.totalItems = response.data.total;
+
+                console.log($scope.list);
             })
                 .catch(function(data, status) {
                     console.error('Gists error', response.status, response.data);
@@ -108,6 +111,8 @@
             $scope.iditem = item.idclient;
             $scope.aux_estado = item.state;
 
+            console.log(item.state);
+
             $("#modalMessagePrimary").modal("show");
 
         };
@@ -153,7 +158,7 @@
 
         $scope.activarInactivar = function(){
 
-            if ( $scope.aux_estado === "1"){
+            if ( $scope.aux_estado == "1"){
                 $scope.estado = "0";
             } else $scope.estado = "1";
 
@@ -161,6 +166,8 @@
                 state: $scope.estado,
                 iditem: $scope.iditem
             };
+
+            console.log(data);
             $http.get(API_URL + 'client/activarInactivar/' + JSON.stringify(data)).then(function(response) {
 
                 if (response.data.success === true) {

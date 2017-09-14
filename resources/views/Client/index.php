@@ -17,7 +17,7 @@
         <div class="col-6" style="margin-top: 3px;">
             <div class="input-group">
                 <span class="input-group-addon">Estado: </span>
-                <select class="form-control" value="1" name="statefilter" id="statefilter" ng-model="statefilter" ng-change="initLoad(1)">
+                <select class="form-control" value="" name="statefilter" id="statefilter" ng-model="statefilter" ng-change="initLoad(1)">
                     <option value="1">Activos</option>
                     <option value="0">Inactivos</option>
                 </select>
@@ -45,8 +45,8 @@
                 <td>{{item.identifyperson}}</td>
                 <td>{{item.numphoneperson + " / " + item.numcelperson}}</td>
                 <td>{{item.country}}</td>
-                <td ng-show="1">Activo</td>
-                <td ng-show="0">Inactivo</td>
+                <td ng-show="item.state == '1'">Activo</td>
+                <td ng-show="item.state == '0'">Inactivo</td>
                 <td>
                     <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" ng-click="showModalInformation(item)">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
