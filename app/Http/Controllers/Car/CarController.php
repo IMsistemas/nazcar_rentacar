@@ -22,7 +22,7 @@ class CarController extends Controller
     public function get_list_marca()
     {
 
-        Carbrand::orderBy("namecarbrand","ASC")->get();
+        return Carbrand::orderBy("namecarbrand","ASC")->get();
     }
 
     public function listCars(Request $request){

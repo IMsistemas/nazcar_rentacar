@@ -5,6 +5,8 @@
 
         $scope.initLoad = function(pageNumber){
 
+            $scope.listCarbrand();
+
             if ($scope.buscar !== undefined) {
                 var search = $scope.buscar;
             } else var search = null;
@@ -25,6 +27,7 @@
 
                 console.log($scope.list);
 
+
             })
                 .catch(function(data, status) {
                     console.error('Gists error', response.status, response.data);
@@ -33,6 +36,21 @@
                     //console.log("finally finished gists");
                 });
 
+        };
+
+        $scope.listCarbrand = function(){
+            $http.get(API_URL + 'car/get_list_marca').then(function(response){
+
+                var longitud = response.data.length;
+                var array_temp = [{label: '-- Seleccione --', id: ''}];
+                for(var i = 0; i < longitud; i++){
+                    array_temp.push({label: response.data[i].namecarbrand, id: response.data[i].idcarbrand});
+                }
+
+                $scope.marcaslist = array_temp;
+                $scope.car_brand = '';
+                console.log($scope.marcaslist);
+            });
         };
 
     });

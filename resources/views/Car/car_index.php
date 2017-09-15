@@ -29,7 +29,11 @@
             </thead>
             <tbody>
             <tr dir-paginate="item in list|orderBy:sortKey:reverse| itemsPerPage:10" total-items="totalItems" ng-cloak>
-                <td>text</td>
+                <td>
+                    <div class="text-center">
+                        <img src="https://www.autoefectivo.com/img/auto.png" style="width: 50px; height: 40px;" class="rounded">
+                    </div>
+                </td>
                 <td>{{item.namecarmodel}}</td>
                 <td>{{item.namecarbrand}}</td>
                 <td>{{item.cartype}}</td>
@@ -97,7 +101,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    toda la informacion del cliente
+                    toda la información del cliente
                 </div>
             </div>
         </div>
@@ -118,13 +122,17 @@
                             <div class="col-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">Marca: </span>
-                                    <select class="form-control" ng-model="car_brand"></select>
+                                    <select class="form-control" ng-model="car_brand" id="car_brand" name="car_brand"
+                                            ng-options="value.id as value.label for value in marcaslist">
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Modelo: </span>
-                                    <select class="form-control" ng-model="car_model"></select>
+                                    <select class="form-control" ng-model="car_model" id=""
+                                            ng-options="value.id as value.label for value in modelos">
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12" style="margin-top: 5px;">
