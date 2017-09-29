@@ -18,7 +18,8 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
     		$scope.aux_btn_modelos="2";
     		var data={
     			namecarmodel: $scope.namecarmodel,
-    			state:'1'
+    			state:'1',
+                idcarbrand: $scope.namecarmarca
     		};
     		$scope.save(data);
     	}else{
@@ -47,6 +48,23 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
                     
         });
     };
+
+    $scope.listMarcas = function () {
+
+        $http.get(API_URL + 'Modelo/listMarcas').then(function(response){
+
+            var longitud = response.data.length;
+            var array_temp = [{label: '-- Seleccione --', id: ''}];
+            for(var i = 0; i < longitud; i++){
+                array_temp.push({label: response.data[i].namecarbrand, id: response.data[i].idcarbrand})
+            }
+            $scope.listmarcas = array_temp;
+            $scope.namecarmarca = '';
+            $scope.aux_namecarmarca = '';
+		});
+
+    };
+
     ///--- Lista modelos 
     $scope.pageChanged = function(newPage) {
         $scope.initLoad(newPage);
@@ -63,10 +81,15 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
                 $scope.totalItems = response.data.total;
          });
     };
+
+    $scope.listMarcas();
+
     $scope.initLoad(1);
+
     ///--- Editar Modelo
     $scope.edit_modelo=function(item) {
     	$scope.aux_namecarmodel=item.namecarmodel;
+        $scope.aux_namecarmarca = item.idcarbrand;
     	$scope.aux_modelo=item;
     	showModal('modalMessagePrimaryEdit');
 
@@ -75,6 +98,7 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
     $scope.modify=function() {
     	if($scope.aux_namecarmodel!="" ){
     		$scope.aux_modelo.namecarmodel=$scope.aux_namecarmodel;
+            $scope.aux_modelo.idcarbrand = $scope.aux_namecarmarca;
     		$scope.aux_btn_modeloe="2";
     		$http.put(API_URL+'Modelo/'+$scope.aux_modelo.idcarmodel,$scope.aux_modelo)
 	        .then(function (response) {

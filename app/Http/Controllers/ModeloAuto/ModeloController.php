@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\ModeloAuto;
 
+use App\Models\MarcaAuto\Carbrand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -52,6 +53,13 @@ class ModeloController extends Controller
                         ->orderBy("namecarmodel","ASC");
         return $data->paginate(10);
     }
+
+
+    public function listMarcas()
+    {
+        return Carbrand::where('state', 1)->orderBy('namecarbrand', 'asc')->get();
+    }
+
     /**
      *
      * Modifcar modelo

@@ -131,7 +131,16 @@
 	      <div class="modal-body">
 	      		
 	        	<div class="row">
-	        		<div class="col-12">
+
+                    <div class="col-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Marca: </span>
+                            <select class="form-control" id="aux_namecarmarca" name="aux_namecarmarca" ng-model="aux_namecarmarca"
+                                    ng-options="value.id as value.label for value in listmarcas"></select>
+                        </div>
+                    </div>
+
+	        		<div class="col-12" style="margin-top: 5px;">
 	        			<div class="input-group">                        
 			                <span class="input-group-addon">Modelo: </span>
 			                <input type="text" class="form-control" ng-model="aux_namecarmodel" />
@@ -166,11 +175,20 @@
 
 				<div class="row">
 	        		<div class="col-12">
-	        			<div class="input-group">                        
-			                <span class="input-group-addon">Modelo: </span>
-			                <input type="text" class="form-control" id="namecarmodel" name="namecarmodel" ng-model="namecarmodel"  />
+	        			<div class="input-group">
+			                <span class="input-group-addon">Marca: </span>
+                            <select class="form-control" id="namecarmarca" name="namecarmarca" ng-model="namecarmarca"
+                                    ng-options="value.id as value.label for value in listmarcas"></select>
 			            </div>
 	        		</div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+                        <div class="input-group">
+                            <span class="input-group-addon">Modelo: </span>
+                            <input type="text" class="form-control" id="namecarmodel" name="namecarmodel" ng-model="namecarmodel"  />
+                        </div>
+                    </div>
+
 	        	</div>	      		
 	        	
 	      </div>

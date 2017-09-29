@@ -72,6 +72,7 @@
 	Route::get('FormPago/get_list_pago', 'FormaPago\FormaPagoController@get_list_pago');
 	Route::resource('FormPago', 'FormaPago\FormaPagoController');
 	//-------------------LOGICA MODELO DE AUTO-------------------////
+    Route::get('Modelo/listMarcas', 'ModeloAuto\ModeloController@listMarcas');
 	Route::get('Modelo/estado/{texto}', 'ModeloAuto\ModeloController@modify_estado');
 	Route::get('Modelo/get_list_modelo', 'ModeloAuto\ModeloController@get_list_modelo');
 	Route::resource('Modelo', 'ModeloAuto\ModeloController');
