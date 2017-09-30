@@ -49,6 +49,26 @@
 
                 $scope.marcaslist = array_temp;
                 $scope.car_brand = '';
+
+                $scope.modelos = [{label: '-- Seleccione --', id: ''}];
+                $scope.car_model = '';
+
+                console.log($scope.marcaslist);
+            });
+        };
+
+        $scope.listCarModel = function(){
+            $http.get(API_URL + 'car/get_list_modelo/' + $scope.car_brand).then(function(response){
+
+                var longitud = response.data.length;
+                var array_temp = [{label: '-- Seleccione --', id: ''}];
+                for(var i = 0; i < longitud; i++){
+                    array_temp.push({label: response.data[i].namecarmodel, id: response.data[i].idcarmodel});
+                }
+
+                $scope.modelos = array_temp;
+                $scope.car_model = '';
+
                 console.log($scope.marcaslist);
             });
         };

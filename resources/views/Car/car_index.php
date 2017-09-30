@@ -236,43 +236,47 @@
                             <div class="col-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">Marca: </span>
-                                    <select class="form-control"></select>
+                                    <select class="form-control" ng-model="car_brand" id="car_brand" name="car_brand"
+                                            ng-options="value.id as value.label for value in marcaslist" ng-change="listCarModel()">
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Modelo: </span>
-                                    <select class="form-control"></select>
+                                    <select class="form-control" ng-model="car_model" id="car_model"
+                                            ng-options="value.id as value.label for value in modelos">
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Año: </span>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" ng-model="year"/>
                                 </div>
                             </div>
                             <div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Tipo: </span>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" ng-model="car_type"/>
                                 </div>
                             </div>
                             <div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Serie Motor: </span>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" ng-model="serial_motor"/>
                                 </div>
                             </div>
                             <div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Serie Auto: </span>
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" ng-model="serial_car"/>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-12">
                             <img src="https://www.autoefectivo.com/img/auto.png" style="width: 100%">
-                            <input type="file" class="form-control" />
+                            <input type="file" class="form-control" ng-model="car_img"/>
                         </div>
                     </div>
 
@@ -282,7 +286,7 @@
                         <div class="col-12">
                             <div class="input-group">
                                 <span class="input-group-addon">Propietario: </span>
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" ng-model="name_owner"/>
                             </div>
                         </div>
                     </div>
@@ -290,13 +294,13 @@
                         <div class="col-sm-6 col-12">
                             <div class="input-group">
                                 <span class="input-group-addon">Compañia Seguro: </span>
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" ng-model="insurance_company"/>
                             </div>
                         </div>
                         <div class="col-sm-6 col-12">
                             <div class="input-group">
-                                <span class="input-group-addon">Codigo Seguro: </span>
-                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">Código Seguro: </span>
+                                <input type="text" class="form-control" ng-model="secure_code"/>
                             </div>
                         </div>
                     </div>
@@ -304,13 +308,13 @@
                         <div class="col-sm-6 col-12">
                             <div class="input-group">
                                 <span class="input-group-addon">Costo Renta: </span>
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" ng-model="rent_cost"/>
                             </div>
                         </div>
                         <div class="col-sm-6 col-12">
                             <div class="input-group">
                                 <span class="input-group-addon">Costo Adicional: </span>
-                                <input type="text" class="form-control" />
+                                <input type="text" class="form-control" ng-model="aditional_cost"/>
                             </div>
                         </div>
                     </div>

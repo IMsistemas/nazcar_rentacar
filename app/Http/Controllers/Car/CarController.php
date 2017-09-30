@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Car;
 
 use App\Models\Car\Car;
 use App\Models\MarcaAuto\Carbrand;
+use App\Models\ModeloAuto\Carmodel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,6 +24,11 @@ class CarController extends Controller
     {
 
         return Carbrand::orderBy("namecarbrand","ASC")->get();
+    }
+
+    public function get_list_modelo($id)
+    {
+        return Carmodel::where('idcarbrand', $id)->orderBy('namecarmodel', 'asc')->get();
     }
 
     public function listCars(Request $request){
