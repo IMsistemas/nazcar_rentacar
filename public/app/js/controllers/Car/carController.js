@@ -171,11 +171,13 @@
 
         $scope.showModalAdd = function () {
 
+            $scope.url_foto = 'https://www.autoefectivo.com/img/auto.png';
+
             $("#modalMessagePrimaryAdd").modal("show");
 
         };
 
-        $scope.showModalAdd = function (item) {
+        $scope.showModalEdit = function (item) {
 
              $scope.car_brand = item.carbrand;
              $scope.car_model = item.carmodel;
@@ -207,7 +209,14 @@
             $scope.secure_code = item.securecode;
             $scope.rent_cost = item.rentcost;
             $scope.aditional_cost = item.additionalcost;
-            $scope.file = item.image;
+
+            if (item.image !== null) {
+                $scope.file_view = item.image;
+            } else {
+                $scope.file_view = '';
+            }
+
+
 
             $("#modalMessageInfo").modal("show");
 

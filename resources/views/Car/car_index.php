@@ -30,8 +30,8 @@
             <tbody>
             <tr dir-paginate="item in list|orderBy:sortKey:reverse| itemsPerPage:10" total-items="totalItems" ng-cloak>
                 <td>
-                    <div class="text-center">
-                        <img src="https://www.autoefectivo.com/img/auto.png" style="width: 50px; height: 40px;" class="rounded">
+                    <div ng-show="item.image" class="text-center">
+                        <img src="{{item.image}}" style="width: 50px; height: 40px;" class="rounded">
                     </div>
                 </td>
                 <td>{{item.namecarmodel}}</td>
@@ -43,7 +43,7 @@
                     <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" ng-click="showModalInfo(item)">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="showModalAdd(item)">
+                    <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="showModalEdit(item)">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     </button>
                     <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" ng-click="change_estado(item)">
@@ -140,7 +140,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="text-center">
-                                <img src="https://www.autoefectivo.com/img/auto.png" style="width: 200px; height: 170px;">
+                                <img src="{{file_view}}" style="width: 200px; height: 170px;">
                             </div>
                             <strong>Costo de Renta: </strong>{{rent_cost}}<br>
                             <strong>Costo Adicional: </strong>{{aditional_cost}}
@@ -208,7 +208,8 @@
                         </div>
                         <div class="col-sm-6 col-12">
                             <img ngf-src="file || url_foto" alt="" class="img-thumbnail img-fluid">
-                            <input type="file" class="form-control" ng-model="file"/>
+                            <input class="form-control" type="file" ngf-select ng-model="file" name="file" id="file"
+                                   accept="image/*" ngf-max-size="2MB"  ng-required="false" ngf-pattern="image/*">
                         </div>
                     </div>
 

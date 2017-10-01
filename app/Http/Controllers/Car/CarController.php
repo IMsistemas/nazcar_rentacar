@@ -66,7 +66,7 @@ class CarController extends Controller
             if(!$file->move($destinationPath, $name)) {
                 return response()->json(['success' => false]);
             } else {
-                $url_file = '/uploads/images/' . $name;
+                $url_file = 'uploads/images/' . $name;
             }
 
         }
