@@ -119,11 +119,11 @@ class CarController extends Controller
      * Modi
      *
      */
-    public function modify_estado($texto)
+    public function modify_estado($data)
     {
-        $datos = json_decode($texto);
-        $car=Car::find($datos->idcar);
-        $car->state=$datos->state;
+        $data = json_decode($data);
+        $car=Car::find($data->id);
+        $car->state=$data->state;
         $respuesta=$car->save();
         if($respuesta==1){
             return "true";

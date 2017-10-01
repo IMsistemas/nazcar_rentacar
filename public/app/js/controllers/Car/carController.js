@@ -3,6 +3,7 @@
     app.controller('CarController', function($scope, $http, API_URL, Upload) {
 
         $scope.id = 0;
+        $scope.aux_state = "1";
 
         $scope.initLoad = function(pageNumber){
 
@@ -126,11 +127,72 @@
 
         };
 
+        ///---cambiar estado marca
+        $scope.change_estado=function(item){
+            $scope.aux_state=item.state;
+            $scope.id = item.idcar;
+            $("#modalMessagePrimary").modal("show");
+        };
+        ///--- cambiar estado y enviar a el controlador php
+        $scope.ok_inactivar = function(){
+
+            if ( $scope.aux_state == "1"){
+                $scope.state = "0";
+            } else $scope.state = "1";
+
+            var data = {
+                state: $scope.state,
+                id: $scope.id
+            };
+
+            console.log(data);
+            $http.get(API_URL + 'car/estado/' + JSON.stringify(data)).then(function(response) {
+
+                if (response.data.success === true) {
+                    $scope.id = 0;
+                    $('#modalMessagePrimary').modal('hide');
+                    $scope.message = 'Se ha modificado el estado del auto seleccionado...';
+                    $('#modalMessage').modal('show');
+                    $scope.initLoad(1);
+                } else {
+
+                }
+
+            }).catch(function(data, status) {
+
+                console.error('Gists error', response.status, response.data);
+
+            }).finally(function() {
+
+                //console.log("finally finished gists");
+
+            });
+        };
+
         $scope.showModalAdd = function () {
 
             $("#modalMessagePrimaryAdd").modal("show");
 
-        }
+        };
+
+        $scope.showModalAdd = function (item) {
+
+            $scope.car_brand = item.carbrand;
+             $scope.car_model = item.carmodel;
+             $scope.year = item.year;
+             $scope.car_type = item.cartype;
+             $scope.serial_motor = item.serialmotor;
+             $scope.serial_car = item.carserial;
+             $scope.name_owner = item.nameowner;
+             $scope.insurance_company = item.insurancecompany;
+             $scope.secure_code = item.securecode;
+             $scope.rent_cost = item.rentcost;
+             $scope.aditional_cost = item.additionalcost;
+             $scope.file = item.image;
+
+            $("#modalMessagePrimaryAdd").modal("show");
+
+        };
 
         $scope.onlyNumber = function ($event, length, field) {
 

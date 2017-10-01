@@ -40,13 +40,13 @@
                 <td>{{item.nameowner}}</td>
                 <td>{{item.rentcost}}</td>
                 <td>
-                    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" onclick="showModal('modalMessageInfo')">
+                    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" ng-click="info(item)">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                     </button>
                     <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="showModalAdd(item)">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" onclick="showModal('modalMessagePrimary')">
+                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" ng-click="change_estado(item)">
                         <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
                 </td>
@@ -80,6 +80,31 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" >
+                        Aceptar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalMessagePrimary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header modal-header-danger">
+                    <h5 class="modal-title">Confirmación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Activar / Inactivar Auto
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="ok_inactivar()">
                         Aceptar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
 
