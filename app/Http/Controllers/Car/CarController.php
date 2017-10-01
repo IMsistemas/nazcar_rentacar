@@ -56,7 +56,53 @@ class CarController extends Controller
      *
      */
     public function store(Request $request){
+        $url_file = null;
 
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $destinationPath = public_path() . '/uploads/images';
+            $name = rand(0, 9999) . '_' . $file->getClientOriginalName();
+
+            if(!$file->move($destinationPath, $name)) {
+                return response()->json(['success' => false]);
+            } else {
+                $url_file = '/uploads/images/' . $name;
+            }
+
+        }
+
+        if ($request->input('id') == 0) {
+
+            $car = new Car();
+            $car->image = $url_file;
+
+        } else {
+
+            $car = Car::find($request->input('id'));
+
+            if ($url_file != null) {
+                $car->image = $url_file;
+            }
+
+        }
+
+        $car->idcarmodel = $request->input('car_model');
+        $car->year = $request->input('year');
+        $car->cartype = $request->input('car_type');
+        $car->serialmotor = $request->input('serial_motor');
+        $car->carserial = $request->input('serial_car');
+        $car->nameowner = $request->input('name_owner');
+        $car->insurancecompany = $request->input('insurance_company');
+        $car->securecode = $request->input('secure_code');
+        //$car->securetype = $request->input('rent_cost');
+        $car->rentcost = $request->input('rent_cost');
+        $car->additionalcost = $request->input('aditional_cost');
+
+        if ($car->save()) {
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['success' => false]);
+        }
     }
 
     /**
@@ -67,47 +113,6 @@ class CarController extends Controller
      */
     public function update(Request $request, $id){
 
-        $url_file = null;
-
-        if ($request->hasFile('urlphoto')) {
-            $image = $request->file('urlphoto');
-            $destinationPath = public_path() . '/uploads/school';
-            $name = rand(0, 9999) . '_' . $image->getClientOriginalName();
-            if (!$image->move($destinationPath, $name)) {
-                return response()->json(['success' => false]);
-            } else {
-                $url_file = '/uploads/school/' . $name;
-            }
-        }
-
-        $school = new School();
-
-        $school->ruc = $request->input('ruc');
-        $school->businessname = $request->input('businessname');
-        $school->tradename = $request->input('tradename');
-        $school->address = $request->input('address');
-        $school->phone = $request->input('phone');
-        $school->email = $request->input('email');
-        $school->urlphoto = $request->input('urlphoto');
-
-        if ($request->input('specialtaxpayer') == '') {
-            $school->specialtaxpayer = null;
-        } else {
-            $school->specialtaxpayer = $request->input('specialtaxpayer');
-        }
-
-        if ($request->input('forcedaccounting') === true) {
-            $school->forcedaccounting = 1;
-        } else {
-            $school->forcedaccounting = 0;
-        }
-
-        if ($url_file != null) {
-            $school->urlphoto = $url_file;
-        }
-
-        return ($school->save()) ? response()->json(['success' => true]) : response()->json(['success' => false]);
-
     }
     /**
      *
@@ -117,9 +122,9 @@ class CarController extends Controller
     public function modify_estado($texto)
     {
         $datos = json_decode($texto);
-        $modelo=Carmodel::find($datos->idcarmodel);
-        $modelo->state=$datos->state;
-        $respuesta=$modelo->save();
+        $car=Car::find($datos->idcar);
+        $car->state=$datos->state;
+        $respuesta=$car->save();
         if($respuesta==1){
             return "true";
         }else{

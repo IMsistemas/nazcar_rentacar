@@ -1,11 +1,13 @@
 
 
-    app.controller('CarController', function($scope, $http, API_URL) {
+    app.controller('CarController', function($scope, $http, API_URL, Upload) {
 
+        $scope.id = 0;
 
         $scope.initLoad = function(pageNumber){
 
             $scope.listCarbrand();
+            //$scope.listCarModel();
 
             if ($scope.buscar !== undefined) {
                 var search = $scope.buscar;
@@ -24,8 +26,6 @@
 
                 $scope.list = response.data.data;
                 $scope.totalItems = response.data.total;
-
-                console.log($scope.list);
 
 
             })
@@ -53,11 +53,11 @@
                 $scope.modelos = [{label: '-- Seleccione --', id: ''}];
                 $scope.car_model = '';
 
-                console.log($scope.marcaslist);
             });
         };
 
         $scope.listCarModel = function(){
+
             $http.get(API_URL + 'car/get_list_modelo/' + $scope.car_brand).then(function(response){
 
                 var longitud = response.data.length;
@@ -69,52 +69,93 @@
                 $scope.modelos = array_temp;
                 $scope.car_model = '';
 
-                console.log($scope.marcaslist);
+                console.log($scope.modelos);
+
+
             });
         };
 
-    });
-    ///-- Guardar datos autos
-    /*$scope.saveCar = function () {
+        ///-- Guardar datos autos
+        $scope.saveCar = function () {
 
-        var data = {
-            car_brand: $scope.car_brand,
-            car_model: $scope.car_model,
-            year: $scope.year,
-            car_type: $scope.car_type,
-            serial_motor: $scope.serial_motor,
-            serial_car: $scope.serial_car,
-            name_owner: $scope.name_owner,
-            insurance_company: $scope.insurance_company,
-            secure_code: $scope.secure_code,
-            rent_cost: $scope.rent_cost,
-            aditional_cost: $scope.aditional_cost,
-            car_img: $scope.car_img
+            var data = {
+                id: $scope.id,
+                car_brand: $scope.car_brand,
+                car_model: $scope.car_model,
+                year: $scope.year,
+                car_type: $scope.car_type,
+                serial_motor: $scope.serial_motor,
+                serial_car: $scope.serial_car,
+                name_owner: $scope.name_owner,
+                insurance_company: $scope.insurance_company,
+                secure_code: $scope.secure_code,
+                rent_cost: $scope.rent_cost,
+                aditional_cost: $scope.aditional_cost,
+                file: $scope.file
+            };
+
+            console.log(data);
+
+            Upload.upload({
+
+                url: 'car',
+                method: 'POST',
+                data: data
+
+            }).then(function(data, status, headers, config) {
+
+                if (data.data.success === true) {
+
+                    $scope.id = 0;
+
+                    $scope.initLoad();
+
+                    $("#modalMessagePrimaryAdd").modal("hide");
+
+                    $scope.message = 'Se ha guardado el auto satisfactoriamente...';
+                    $('#modalMessage').modal('show');
+
+                } else {
+
+                    $scope.message_error = 'Ha ocurrido un error al intentar almacenar el video...';
+                    $('#modalMessageError').modal('show');
+                    $("#modalMessagePrimaryAdd").modal("hide");
+                }
+            });
+
+
         };
 
-        console.log(data);
+        $scope.showModalAdd = function () {
 
-        /*var url = API_URL + "car";
+            $("#modalMessagePrimaryAdd").modal("show");
 
-        if ($scope.idcar !== undefined){
-            url += "/update/" + $scope.idschool;
         }
 
-        Upload.upload({
-            url: url,
-            method: 'POST',
-            data: data
-        }).then(function(data, status, headers, config) {
+        $scope.onlyNumber = function ($event, length, field) {
 
-            $scope.initLoad();
-
-            if (data.data.success === true) {
-                $scope.modalMessageSuccess = 'Se editaron correctamente los datos de la institución...';
-                $('#modalMessageSuccess').modal('show');
-                $scope.initLoad();
-            } else {
-
+            if (length != undefined) {
+                var valor = $('#' + field).val();
+                if (valor.length == length) $event.preventDefault();
             }
 
-        });
-    };*/
+            var k = $event.keyCode;
+            if (k == 8 || k == 0) return true;
+            var patron = /\d/;
+            var n = String.fromCharCode(k);
+
+            if (n == ".") {
+                return true;
+            } else {
+
+                if(patron.test(n) == false){
+                    $event.preventDefault();
+                }
+                else return true;
+            }
+        };
+
+
+    });
+
+
