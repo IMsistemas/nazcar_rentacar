@@ -177,7 +177,7 @@
 
         $scope.showModalAdd = function (item) {
 
-            $scope.car_brand = item.carbrand;
+             $scope.car_brand = item.carbrand;
              $scope.car_model = item.carmodel;
              $scope.year = item.year;
              $scope.car_type = item.cartype;
@@ -191,6 +191,25 @@
              $scope.file = item.image;
 
             $("#modalMessagePrimaryAdd").modal("show");
+
+        };
+
+        $scope.showModalInfo = function (item) {
+
+            $scope.car_brand = item.namecarbrand;
+            $scope.car_model = item.namecarmodel;
+            $scope.year = item.year;
+            $scope.car_type = item.cartype;
+            $scope.serial_motor = item.serialmotor;
+            $scope.serial_car = item.carserial;
+            $scope.name_owner = item.nameowner;
+            $scope.insurance_company = item.insurancecompany;
+            $scope.secure_code = item.securecode;
+            $scope.rent_cost = item.rentcost;
+            $scope.aditional_cost = item.additionalcost;
+            $scope.file = item.image;
+
+            $("#modalMessageInfo").modal("show");
 
         };
 

@@ -40,7 +40,7 @@
                 <td>{{item.nameowner}}</td>
                 <td>{{item.rentcost}}</td>
                 <td>
-                    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" ng-click="info(item)">
+                    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" ng-click="showModalInfo(item)">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                     </button>
                     <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="showModalAdd(item)">
@@ -126,7 +126,26 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    toda la información del cliente
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Marca: </strong> {{car_brand}}<br>
+                            <strong>Modelo: </strong>{{car_model}}<br>
+                            <strong>Año: </strong>{{year}}<br>
+                            <strong>Tipo de Auto: </strong>{{car_type}}<br>
+                            <strong>Serial del Motor: </strong>{{serial_motor}}<br>
+                            <strong>Serial del Auto: </strong>{{serial_car}}<br>
+                            <strong>Propietario: </strong>{{name_owner}}<br>
+                            <strong>Compañía de Seguros: </strong>{{insurance_company}}<br>
+                            <strong>Código de Seguro: </strong>{{secure_code}}<br>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <img src="https://www.autoefectivo.com/img/auto.png" style="width: 200px; height: 170px;">
+                            </div>
+                            <strong>Costo de Renta: </strong>{{rent_cost}}<br>
+                            <strong>Costo Adicional: </strong>{{aditional_cost}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
