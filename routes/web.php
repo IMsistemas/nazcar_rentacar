@@ -86,5 +86,7 @@ Route::get('car/estado/{data}', 'Car\CarController@modify_estado');
 /*
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
+    Route::get('reservation/getCar', 'IndexReservation\IndexReservationController@getCar');
+    Route::get('reservation/getCategories', 'IndexReservation\IndexReservationController@getCategories');
     Route::get('reservation/getPlaces', 'IndexReservation\IndexReservationController@getPlaces');
     Route::resource('reservation', 'IndexReservation\IndexReservationController');

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\IndexReservation;
 
+use App\Models\Car\Car;
+use App\Models\MarcaAuto\Carbrand;
 use App\Models\Place\Place;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,6 +23,18 @@ class IndexReservationController extends Controller
     public function getPlaces()
     {
         return Place::orderBy('nameplace', 'asc')->get();
+    }
+
+    public function getCategories()
+    {
+        return Carbrand::orderBy('namecarbrand', 'asc')->get();
+    }
+
+    public function getCar()
+    {
+        return Car::join('carmodel', 'car.idcarmodel', '=', 'carmodel.idcarmodel')
+            ->join('carbrand', 'carmodel.idcarbrand', '=', 'carbrand.idcarbrand')
+            ->orderBy('idcar', 'asc')->get();
     }
 
     /**

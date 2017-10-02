@@ -26,6 +26,11 @@
             color: #6c757d;
         }
 
+        hr{
+            height:2px;
+            background-color:#6c757d;
+        }
+
     </style>
 
 
@@ -46,7 +51,8 @@
 
                     <div class="col-12 form-group" style="margin-top: 30px !important;">
                         <label for="lugar_retiro">LUGAR DE RETIRO *</label>
-                        <input class="form-control" name="lugar_retiro" id="lugar_retiro" ng-model="lugar_retiro" placeholder="Lugar de Retiro" required />
+                        <input class="form-control" name="lugar_retiro" id="lugar_retiro" ng-model="lugar_retiro"
+                               placeholder="Lugar de Retiro" required ng-click="showListPlace(0)" readonly />
                         <span class="help-block error" ng-show="formReserva_1.lugar_retiro.$invalid && formReserva_1.lugar_retiro.$touched">
                             <small id="emailHelp" class="form-text text-danger text-right">El Nombre es requerido</small>
                         </span>
@@ -57,11 +63,15 @@
 
                         <div class="row">
                             <div class="col-6">
-                                <input class="form-control datepickerA" name="fecha_retiro" id="fecha_retiro" ng-model="fecha_retiro" placeholder="Día" required />
+                                <div class="input-group">
+                                    <input class="form-control datepickerA" name="fecha_retiro" id="fecha_retiro" ng-model="fecha_retiro" placeholder="Día" required />
+                                    <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                </div>
                                 <span class="help-block error" ng-show="formReserva_1.fecha_retiro.$invalid && formReserva_1.fecha_retiro.$touched">
-                                <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
-                            </span>
+                                    <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
+                                </span>
                             </div>
+
                             <div class="col-6">
                                 <input type="time" class="form-control" name="hora_retiro" id="hora_retiro" ng-model="hora_retiro" placeholder="Hora" required />
                                 <span class="help-block error" ng-show="formReserva_1.hora_retiro.$invalid && formReserva_1.hora_retiro.$touched">
@@ -75,7 +85,8 @@
 
                     <div class="col-12 form-group" style="margin-top: 3px">
                         <label for="lugar_entrega">LUGAR DE ENTREGA *</label>
-                        <input class="form-control" name="lugar_entrega" id="lugar_entrega" ng-model="lugar_entrega" placeholder="Lugar de Entrega" required />
+                        <input class="form-control" name="lugar_entrega" id="lugar_entrega" ng-model="lugar_entrega"
+                               placeholder="Lugar de Entrega" required ng-click="showListPlace(1)" readonly />
                         <span class="help-block error" ng-show="formReserva_1.lugar_entrega.$invalid && formReserva_1.lugar_entrega.$touched">
                             <small id="emailHelp" class="form-text text-danger text-right">El Nombre es requerido</small>
                         </span>
@@ -86,7 +97,11 @@
 
                         <div class="row">
                             <div class="col-6">
-                                <input class="form-control datepickerA" name="fecha_entrega" id="fecha_entrega" ng-model="fecha_entrega" placeholder="Día" required />
+
+                                <div class="input-group">
+                                    <input class="form-control datepickerA" name="fecha_entrega" id="fecha_entrega" ng-model="fecha_entrega" placeholder="Día" required />
+                                    <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                </div>
                                 <span class="help-block error" ng-show="formReserva_1.fecha_entrega.$invalid && formReserva_1.fecha_entrega.$touched">
                                 <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
                             </span>
@@ -183,31 +198,101 @@
         <div class="container" ng-show="reserva_1 == 2">
 
             <div class="row">
-                <div class="col-3">
+                <div class="col-3" style="color: red !important;">
                     1. Seleccionar
+                    <hr>
                 </div>
                 <div class="col-3">
                     2. Servicios
+                    <hr>
                 </div>
                 <div class="col-3">
                     3. Datos Personales
+                    <hr>
                 </div>
                 <div class="col-3">
                     4. Datos de Pagos
+                    <hr>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin-top: 30px;">
 
                 <div class="col-12">
+
+                    <div class="row">
+                        <div class="col-12 col-sm-5" style="background-color: #e0e0e0; height: 100px;">
+
+                        </div>
+                        <div class="col-12 col-sm-2">
+
+                        </div>
+                        <div class="col-12 col-sm-5" style="background-color: #e0e0e0; height: 100px;">
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-12" style="margin-top: 20px;">
                     RESERVA DE VEHICULO
                 </div>
 
-                <div class="col-12">
-                    <button type="button" class="btn btn-light">Light</button>
+                <div class="col-12" style="margin-top: 10px;">
+                    <button type="button" class="btn btn-secondary" ng-repeat="item_cat in categorieslist" style="margin-right: 5px;">
+                        {{item_cat.namecarbrand}}
+                    </button>
+                    <hr>
                 </div>
 
                 <div class="row">
+
+                    <div class="col-12 col-sm-2" style="padding: 0; margin: 25px;" ng-repeat="item_car in carlist">
+
+                        <div class="col-12 text-center">
+                            <h4>{{item_car.namecarbrand}}</h4>
+                        </div>
+                        <div class="col-12 text-center">
+                            {{item_car.namecarmodel}}
+                        </div>
+                        <div class="col-12 text-center" style="padding: 0; margin-top: 10px;">
+                            <img class="img-fluid" src="{{item_car.image}}" alt="" style="max-width: 100%;">
+                        </div>
+
+                        <div class="row" style="margin-top: 5px; font-size: 12px;">
+                            <div class="col-12 col-sm-6">
+                                5 Puestos <br>
+                                2 Equipajes <br>
+                                1 Equipaje <br>
+                                <a href="#">Detalles</a>
+                            </div>
+                            <div class="col-12 col-sm-6" style="padding: 0;">
+                                <div class="col-12 text-right">COSTO</div>
+                                <div class="col-12 text-right">
+                                    $
+                                    <span style="font-weight: bold; font-size: 20px; color: #6c757d;">
+                                        {{item_car.rentcost}}
+                                    </span>
+                                </div>
+                                <div class="col-12 text-right">DIARIO</div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-12 col-sm-6" style="padding-right: 0;">
+                                <button type="button" class="btn btn-outline-dark btn-sm" style="font-size: 12px !important; ">
+                                    PAGO CAJA
+                                </button>
+                            </div>
+                            <div class="col-12 col-sm-6" style="padding-left: 0;">
+                                <button type="button" class="btn btn-danger btn-sm" style="font-size: 12px !important; ">
+                                    PAGO AHORA
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -604,6 +689,45 @@
 
             </div>
         </div>
+
+
+
+
+
+        <div class="modal fade" id="modalMessagePlace" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-info">
+                        <h5 class="modal-title">Lugar de {{type_place}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="list-group">
+                                    <!--<a href="#" class="list-group-item"></a>-->
+                                    <a href="#" class="list-group-item list-group-item-action"
+                                            ng-repeat="item in placelist" ng-click="selectOptionPlace(item)">{{item.nameplace}}</a>
+                                    <!--<a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                                    <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>-->
+                                </div>
+                            </div>
+                            <div class="col-8"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger">
+                            Confirmar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="modal fade" id="modalMessageError" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
