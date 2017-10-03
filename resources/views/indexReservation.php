@@ -266,7 +266,7 @@
                                 5 Puestos <br>
                                 2 Equipajes <br>
                                 1 Equipaje <br>
-                                <a href="#">Detalles</a>
+                                <a href="#" ng-click="getDetails(item_car)">Detalles</a>
                             </div>
                             <div class="col-12 col-sm-6" style="padding: 0;">
                                 <div class="col-12 text-right">COSTO</div>
@@ -721,6 +721,61 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger">
                             Confirmar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="modalMessageInfoCar" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-info">
+                        <h5 class="modal-title">{{title_carbrand}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <span>{{title_carmodel}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <img class="img-fluid" src="{{title_carimage}}" alt="" style="max-width: 100%;">
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    5 Pasajeros <br>
+                                    1 Niño <br>
+                                    2 Equipajes <br>
+                                    1 Equipaje <br>
+                                    Gasolina Diesel <br>
+                                    Manual Automatico
+                                </div>
+
+                                <div class="row">
+                                    COSTO <br>
+                                    $<span style="font-weight: bold; font-size: 20px; color: #6c757d;">
+                                        {{title_rentcost}}
+                                    </span> <br>
+                                    DIARIO
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark btn-sm" style="font-size: 12px !important; ">
+                            PAGO CAJA
+                        </button>
+
+                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 12px !important; ">
+                            PAGO AHORA
                         </button>
                     </div>
                 </div>

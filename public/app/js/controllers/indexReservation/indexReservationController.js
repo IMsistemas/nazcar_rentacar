@@ -109,6 +109,18 @@
         };
 
 
+        $scope.getDetails = function (item) {
+
+            $scope.title_carbrand = item.namecarbrand;
+            $scope.title_carmodel = item.namecarmodel;
+            $scope.title_carimage = item.image;
+            $scope.title_rentcost = item.rentcost;
+
+            $('#modalMessageInfoCar').modal('show');
+
+        };
+
+
         $scope.getPlaces();
         $scope.getCategories();
         $scope.getCar();
