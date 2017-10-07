@@ -3,7 +3,7 @@
 <div class="container" style="margin-top: 10px;" ng-controller="fuelController" ng-init="initLoad(1)">
 	
 	<div class="col-xs-12">
-		<h4>Registro de Tipos de Transmisiones</h4>
+		<h4>Registro de Tipos de Combustibles</h4>
 		<hr>
 	</div>
 
