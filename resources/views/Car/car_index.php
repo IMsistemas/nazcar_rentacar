@@ -155,7 +155,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header modal-header-primary">
-                    <h5 class="modal-title">Agregar / Editar</h5>
+                    <h5 class="modal-title">{{title_modal_action}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -183,28 +183,47 @@
                             </div>
                             <div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
+                                    <span class="input-group-addon">Tipo Motor: </span>
+                                    <select class="form-control" ng-model="serial_motor" id="serial_motor"
+                                            ng-options="value.id as value.label for value in motors">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12" style="margin-top: 5px;">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Tipo Combustible: </span>
+                                    <select class="form-control" ng-model="serial_fuel" id="serial_fuel"
+                                            ng-options="value.id as value.label for value in fuels">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12" style="margin-top: 5px;">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Tipo Trasnmisión: </span>
+                                    <select class="form-control" ng-model="serial_transmission" id="serial_transmission"
+                                            ng-options="value.id as value.label for value in transmission">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12" style="margin-top: 5px;">
+                                <div class="input-group">
                                     <span class="input-group-addon">Año: </span>
                                     <input type="text" class="form-control" ng-model="year"/>
                                 </div>
                             </div>
-                            <div class="col-12" style="margin-top: 5px;">
+                            <!--<div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Tipo: </span>
                                     <input type="text" class="form-control" ng-model="car_type"/>
                                 </div>
                             </div>
-                            <div class="col-12" style="margin-top: 5px;">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Serie Motor: </span>
-                                    <input type="text" class="form-control" ng-model="serial_motor"/>
-                                </div>
-                            </div>
+
                             <div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Serie Auto: </span>
                                     <input type="text" class="form-control" ng-model="serial_car"/>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="col-sm-6 col-12">
                             <img ngf-src="file || url_foto" alt="" class="img-thumbnail img-fluid">

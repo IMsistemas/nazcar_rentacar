@@ -8,7 +8,9 @@
         $scope.initLoad = function(pageNumber){
 
             $scope.listCarbrand();
-            //$scope.listCarModel();
+            $scope.listMotors();
+            $scope.listFuel();
+            $scope.listTransmission();
 
             if ($scope.buscar !== undefined) {
                 var search = $scope.buscar;
@@ -72,6 +74,51 @@
 
                 console.log($scope.modelos);
 
+
+            });
+        };
+
+        $scope.listMotors = function(){
+            $http.get(API_URL + 'car/get_list_motor').then(function(response){
+
+                var longitud = response.data.length;
+                var array_temp = [{label: '-- Seleccione --', id: ''}];
+                for(var i = 0; i < longitud; i++){
+                    array_temp.push({label: response.data[i].namemotor, id: response.data[i].idmotor});
+                }
+
+                $scope.motors = array_temp;
+                $scope.serial_motor = '';
+
+            });
+        };
+
+        $scope.listFuel = function(){
+            $http.get(API_URL + 'car/get_list_fuel').then(function(response){
+
+                var longitud = response.data.length;
+                var array_temp = [{label: '-- Seleccione --', id: ''}];
+                for(var i = 0; i < longitud; i++){
+                    array_temp.push({label: response.data[i].namefuel, id: response.data[i].idfuel});
+                }
+
+                $scope.fuels = array_temp;
+                $scope.serial_fuel = '';
+
+            });
+        };
+
+        $scope.listTransmission = function(){
+            $http.get(API_URL + 'car/get_list_transmission').then(function(response){
+
+                var longitud = response.data.length;
+                var array_temp = [{label: '-- Seleccione --', id: ''}];
+                for(var i = 0; i < longitud; i++){
+                    array_temp.push({label: response.data[i].nametransmission, id: response.data[i].idtransmission});
+                }
+
+                $scope.transmission = array_temp;
+                $scope.serial_transmission = '';
 
             });
         };
@@ -171,6 +218,7 @@
 
         $scope.showModalAdd = function () {
 
+            $scope.title_modal_action = 'Agregar';
             $scope.url_foto = 'https://www.autoefectivo.com/img/auto.png';
 
             $("#modalMessagePrimaryAdd").modal("show");

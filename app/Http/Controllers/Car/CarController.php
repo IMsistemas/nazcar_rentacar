@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Car;
 
 use App\Models\Car\Car;
+use App\Models\Fuel\Fuel;
 use App\Models\MarcaAuto\Carbrand;
 use App\Models\ModeloAuto\Carmodel;
+use App\Models\Motor\Motor;
+use App\Models\Transmission\Transmission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,8 +25,22 @@ class CarController extends Controller
 
     public function get_list_marca()
     {
-
         return Carbrand::orderBy("namecarbrand","ASC")->get();
+    }
+
+    public function get_list_motor()
+    {
+        return Motor::orderBy("namemotor","asc")->get();
+    }
+
+    public function get_list_fuel()
+    {
+        return Fuel::orderBy("namefuel","asc")->get();
+    }
+
+    public function get_list_transmission()
+    {
+        return Transmission::orderBy("nametransmission","asc")->get();
     }
 
     public function get_list_modelo($id)

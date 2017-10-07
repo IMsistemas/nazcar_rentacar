@@ -51,6 +51,9 @@
     Route::get('car/estado/{data}', 'Car\CarController@modify_estado');
     Route::get('car/get_list_modelo/{id}', 'Car\CarController@get_list_modelo');
     Route::get('car/get_list_marca', 'Car\CarController@get_list_marca');
+    Route::get('car/get_list_motor', 'Car\CarController@get_list_motor');
+    Route::get('car/get_list_fuel', 'Car\CarController@get_list_fuel');
+    Route::get('car/get_list_transmission', 'Car\CarController@get_list_transmission');
     Route::get('car/listCars', 'Car\CarController@listCars');
     Route::resource('car', 'Car\CarController');
 
