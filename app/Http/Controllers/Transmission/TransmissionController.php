@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Transmission;
 
+use App\Models\Transmission\Transmission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +16,12 @@ class TransmissionController extends Controller
     public function index()
     {
         return view('Transmission.index');
+    }
+
+
+    public function getTransmission()
+    {
+        return Transmission::orderBy('nametransmission', 'asc')->get();
     }
 
     /**
@@ -35,7 +42,20 @@ class TransmissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $transmission = new Transmission();
+
+        $transmission->nametransmission = $request->input('nametransmission');
+        $transmission->state = 1;
+
+        if ($transmission->save()) {
+
+            return response()->json(['success' => true]);
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
     }
 
     /**
@@ -69,7 +89,36 @@ class TransmissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $transmission = Transmission::find($id);
+
+        $transmission->nametransmission = $request->input('nametransmission');
+
+        if ($transmission->save()) {
+
+            return response()->json(['success' => true]);
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
+    }
+
+    public function updateState(Request $request, $id)
+    {
+        $transmission = Transmission::find($id);
+
+        $transmission->state = $request->input('state');
+
+        if ($transmission->save()) {
+
+            return response()->json(['success' => true]);
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
     }
 
     /**

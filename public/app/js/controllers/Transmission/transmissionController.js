@@ -2,10 +2,12 @@
 
     app.controller('transmissionController', function($scope, $http, API_URL) {
 
-        $scope.iditem = 0;
-        $scope.aux_estado= "";
-        $scope.idpersonitem = 0;
-        $scope.statefilter = "1";
+        $scope.idtransmission = 0;
+        $scope.selectItem = null;
+
+        $scope.pageChanged = function(newPage) {
+            $scope.initLoad(newPage);
+        };
 
         $scope.initLoad = function(pageNumber){
 
@@ -22,126 +24,163 @@
                 state: state
             };
 
-            $http.get(API_URL + 'client/listClients?page=' + pageNumber + '&filter=' + JSON.stringify(filtros)).then(function(response) {
+            $http.get(API_URL + 'transmission/getTransmission?page=' + pageNumber + '&filter=' + JSON.stringify(filtros)).then(function(response) {
 
-                $scope.list = response.data.data;
+                $scope.list = response.data;
                 $scope.totalItems = response.data.total;
 
                 console.log($scope.list);
             })
-                .catch(function(data, status) {
+            .catch(function(data, status) {
+                console.error('Gists error', response.status, response.data);
+            })
+            .finally(function() {
+                //console.log("finally finished gists");
+            });
+
+        };
+
+
+        /*
+            METHOD ACTION-----------------------------------------------------------------------------------------------
+         */
+
+        $scope.cancel = function () {
+            $scope.idtransmission = 0;
+            $scope.nametransmission = '';
+            $scope.selectItem = null;
+        };
+
+        $scope.add = function () {
+            $scope.cancel();
+            $scope.title_modal_action = 'Agregar';
+            $('#modalAction').modal('show');
+        };
+
+        $scope.edit = function (item) {
+            $scope.cancel();
+
+            $scope.idtransmission = item.idtransmission;
+            $scope.nametransmission = item.nametransmission;
+
+            $scope.title_modal_action = 'Editar';
+            $('#modalAction').modal('show');
+        };
+
+        $scope.editState = function (item) {
+            $scope.cancel();
+
+            $scope.idtransmission = item.idtransmission;
+            $scope.name_transmission = item.nametransmission;
+            $scope.selectItem = item;
+
+            $('#modalSetState').modal('show');
+        };
+
+        $scope.save = function () {
+
+            var data = {
+                nametransmission: $scope.nametransmission
+            };
+
+            if ($scope.idtransmission === 0) {
+
+                $http.post(API_URL + 'transmission', data).then(function(response) {
+
+                    $('#modalAction').modal('hide');
+
+                    if (response.data.success === true) {
+
+                        $scope.cancel();
+
+                        $scope.message_success = 'La Transmisión se ha agregado satisfactoriamente...';
+                        $('#modalSuccess').modal('show');
+
+                        $scope.initLoad(1);
+
+                    } else {
+
+                        $scope.message_error = 'Ha ocurrido un error al intentar agregar una Transmisión...';
+                        $('#modalError').modal('show');
+
+                    }
+
+                }).catch(function(data, status) {
+
                     console.error('Gists error', response.status, response.data);
-                })
-                .finally(function() {
+
+                }).finally(function() {
+
                     //console.log("finally finished gists");
+
                 });
 
+            }
+            else {
+
+                $http.put(API_URL + 'transmission/' + $scope.idtransmission, data).then(function(response) {
+
+                    $('#modalAction').modal('hide');
+
+                    if (response.data.success === true) {
+
+                        $scope.cancel();
+
+                        $scope.message_success = 'La Transmisión se ha editado satisfactoriamente...';
+                        $('#modalSuccess').modal('show');
+
+                        $scope.initLoad(1);
+
+                    } else {
+
+                        $scope.message_error = 'Ha ocurrido un error al intentar editar una Transmisión...';
+                        $('#modalError').modal('show');
+
+                    }
+
+                }).catch(function(data, status) {
+
+                    console.error('Gists error', response.status, response.data);
+
+                }).finally(function() {
+
+                    //console.log("finally finished gists");
+
+                });
+
+
+            }
         };
 
-        //----Llenar el select de paises-----//
-        $scope.getCountrys = function () {
+        $scope.saveSetState = function () {
 
-            $http.get(API_URL + 'client/getListCountry').then(function(response){
+            var state = 0;
 
-                var long = response.data.length;
-                var array = [{label: '-- Seleccione --', id: ''}];
-                for(var i = 0; i < long; i++){
-                    array.push({label: response.data[i].country, id: response.data[i].idcountry})
-                }
-                $scope.countrylist = array;
-                $scope.country = '';
-            });
-
-        };
-
-        //-----llenar el select de formas de pago----//
-        $scope.getPaidForms = function () {
-
-            $http.get(API_URL + 'client/getPaidForms').then(function(response){
-
-                var long = response.data.length;
-                var array = [{label: '-- Seleccione --', id: ''}];
-                for(var i = 0; i < long; i++){
-                    array.push({label: response.data[i].namepaidform , id: response.data[i].idpaidform})
-                }
-                $scope.paidlist = array;
-                $scope.paidform = '';
-            });
-
-        };
-
-        $scope.showModalInformation = function (item) {
-
-            $scope.client = item.nameperson + " " + item.lastnameperson;
-            $scope.identify = item.identifyperson;
-            $scope.email = item.emailperson;
-            $scope.phone = item.numphoneperson;
-            $scope.cell = item.numcelperson;
-            $scope.address = item.addressperson;
-            $scope.activity = item.activitystatus;
-            $scope.country = item.country;
-            $scope.paidform = item.namepaidform;
-
-            $("#modalMessageInfo").modal("show");
-
-        };
-
-        $scope.showModalEdit = function (item) {
-
-            $scope.iditem = item.idclient;
-            $scope.idpersonitem = item.idperson;
-            $scope.aux_estado = item.state;
-            $scope.name = item.nameperson;
-            $scope.lastname = item.lastnameperson;
-            $scope.identify = item.identifyperson;
-            $scope.email = item.emailperson;
-            $scope.phone = item.numphoneperson;
-            $scope.cell = item.numcelperson;
-            $scope.address = item.addressperson;
-            $scope.activity = item.activitystatus;
-            $scope.country = item.idcountry;
-            $scope.paidform = item.idpaidform;
-
-            $("#modalMessagePrimaryEdit").modal("show");
-
-        };
-
-        $scope.showModalAnular = function (item) {
-
-            $scope.iditem = item.idclient;
-            $scope.aux_estado = item.state;
-
-            console.log(item.state);
-
-            $("#modalMessagePrimary").modal("show");
-
-        };
-
-        ///--- editar cliente-----//
-        $scope.edit=function(){
+            if ($scope.selectItem.state === '0') {
+                state = 1;
+            }
 
             var data = {
-                idperson: $scope.idpersonitem,
-                name: $scope.name,
-                lastname: $scope.lastname,
-                identify: $scope.identify,
-                email: $scope.email,
-                phone: $scope.phone,
-                cell: $scope.cell,
-                address: $scope.address,
-                activity: $scope.activity,
-                country: $scope.country,
-                paidform: $scope.paidform
+                state: state
             };
-            $http.put(API_URL + 'client/' + $scope.iditem, data).then(function(response) {
+
+            $http.put(API_URL + 'transmission/updateState/' + $scope.idtransmission, data).then(function(response) {
+
+                $('#modalSetState').modal('hide');
 
                 if (response.data.success === true) {
-                    $scope.iditem = 0;
-                    $('#modalMessagePrimaryEdit').modal('hide');
-                    $scope.message = 'Se han modificado correctamente los datos del cliente seleccionado...';
-                    $('#modalMessage').modal('show');
+
+                    $scope.cancel();
+
+                    $scope.message_success = 'El estado de la Transmisión se ha editado satisfactoriamente...';
+                    $('#modalSuccess').modal('show');
+
                     $scope.initLoad(1);
+
                 } else {
+
+                    $scope.message_error = 'Ha ocurrido un error al intentar editar el estado de la Transmisión...';
+                    $('#modalError').modal('show');
 
                 }
 
@@ -156,45 +195,6 @@
             });
         };
 
-        $scope.activarInactivar = function(){
-
-            if ( $scope.aux_estado == "1"){
-                $scope.estado = "0";
-            } else $scope.estado = "1";
-
-            var data = {
-                state: $scope.estado,
-                iditem: $scope.iditem
-            };
-
-            console.log(data);
-            $http.get(API_URL + 'client/activarInactivar/' + JSON.stringify(data)).then(function(response) {
-
-                if (response.data.success === true) {
-                    $scope.iditem = 0;
-                    $('#modalMessagePrimary').modal('hide');
-                    $scope.message = 'Se han modificado correctamente los datos del cliente seleccionado...';
-                    $('#modalMessage').modal('show');
-                    $scope.initLoad(1);
-                } else {
-
-                }
-
-            }).catch(function(data, status) {
-
-                console.error('Gists error', response.status, response.data);
-
-            }).finally(function() {
-
-                //console.log("finally finished gists");
-
-            });
-        };
-
-
-
-        $scope.getCountrys();
-        $scope.getPaidForms();
     });
 
 
