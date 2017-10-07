@@ -45,6 +45,10 @@ app.config(function($routeProvider){
             templateUrl : URL + 'Modelo',
             controller: 'ModeloController'
         })
+        .when('/transmission',{
+            templateUrl : URL + 'transmission',
+            controller: 'transmissionController'
+        })
         .otherwise({
             templateUrl : URL + 'index/index_b',
             controller : 'indexController'

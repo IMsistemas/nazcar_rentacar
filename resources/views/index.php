@@ -58,6 +58,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#Modelo">Modelos</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#transmission">Transmisión</a>
+            </li>
         </ul>
         <span class="navbar-text">
       Navbar text with an inline element
@@ -93,6 +96,7 @@
 <script src="<?= asset('../app/js/controllers/FormaPago/PagoController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/ModeloAuto/ModeloController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/MarcaAuto/MarcaController.js') ?>"></script>
+<script src="<?= asset('../app/js/controllers/Transmission/transmissionController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Car/carController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/client/clientController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/rent/rentController.js') ?>"></script>

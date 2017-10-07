@@ -48,7 +48,7 @@
     Route::resource('client', 'Client\ClientController');
 
     //---------------REGISTRAR LOS AUTOS--------------------///
-Route::get('car/estado/{data}', 'Car\CarController@modify_estado');
+    Route::get('car/estado/{data}', 'Car\CarController@modify_estado');
     Route::get('car/get_list_modelo/{id}', 'Car\CarController@get_list_modelo');
     Route::get('car/get_list_marca', 'Car\CarController@get_list_marca');
     Route::get('car/listCars', 'Car\CarController@listCars');
@@ -86,6 +86,9 @@ Route::get('car/estado/{data}', 'Car\CarController@modify_estado');
 /*
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
+
+    Route::resource('transmission', 'Transmission\TransmissionController');
+
     Route::get('reservation/getCar', 'IndexReservation\IndexReservationController@getCar');
     Route::get('reservation/getCategories', 'IndexReservation\IndexReservationController@getCategories');
     Route::get('reservation/getPlaces', 'IndexReservation\IndexReservationController@getPlaces');
