@@ -19,9 +19,20 @@ class TransmissionController extends Controller
     }
 
 
-    public function getTransmission()
+    public function getTransmission(Request $request)
     {
-        return Transmission::orderBy('nametransmission', 'asc')->get();
+
+        $filter = json_decode($request->get('filter'));
+        $search = $filter->search;
+        $state = $filter->state;
+
+        $transmission = Transmission::where('state', $state);
+
+        if ($search != null) {
+            $transmission = $transmission->whereRaw("transmission.nametransmission LIKE '%" . $search . "%' ");
+        }
+
+        return $transmission->orderBy('nametransmission', 'asc')->paginate(10);
     }
 
     /**

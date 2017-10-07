@@ -1,6 +1,6 @@
 
 
-<div class="container" style="margin-top: 10px;" ng-controller="transmissionController" ng-init="initLoad()">
+<div class="container" style="margin-top: 10px;" ng-controller="transmissionController" ng-init="initLoad(1)">
 	
 	<div class="col-xs-12">
 		<h4>Registro de Tipos de Transmisiones</h4>
@@ -11,7 +11,7 @@
 		
 		<div class="col-4 ">
 			<div class="input-group">                        
-			    <input type="text" class="form-control" ng-model="buscqueda">
+			    <input type="text" class="form-control" ng-model="busqueda" ng-keyup="initLoad(1)">
 			    <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
 			</div>
 		</div>
@@ -19,8 +19,8 @@
 			<div class="input-group">                        
 			    <span class="input-group-addon">Estado: </span>
 			    <select class="form-control" ng-model="estado" ng-change="initLoad(1)";>
-			    	<option value="1">Activos</option>
-			    	<option value="0">Inactivos</option>
+			    	<option value="1">ACTIVOS</option>
+			    	<option value="0">ANULADOS</option>
 			    </select>
 			</div>
 		</div>
@@ -168,7 +168,7 @@
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
                     <button type="button" class="btn btn-danger" ng-click="saveSetState()">
-                        Aceptar <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>

@@ -4,6 +4,7 @@
 
         $scope.idtransmission = 0;
         $scope.selectItem = null;
+        $scope.estado = '1';
 
         $scope.pageChanged = function(newPage) {
             $scope.initLoad(newPage);
@@ -11,12 +12,12 @@
 
         $scope.initLoad = function(pageNumber){
 
-            if ($scope.buscar !== undefined) {
-                var search = $scope.buscar;
+            if ($scope.busqueda !== undefined) {
+                var search = $scope.busqueda;
             } else var search = null;
 
-            if ($scope.statefilter !== undefined) {
-                var state = $scope.statefilter;
+            if ($scope.estado !== undefined) {
+                var state = $scope.estado;
             } else var state = null;
 
             var filtros = {
@@ -26,10 +27,8 @@
 
             $http.get(API_URL + 'transmission/getTransmission?page=' + pageNumber + '&filter=' + JSON.stringify(filtros)).then(function(response) {
 
-                $scope.list = response.data;
+                $scope.list = response.data.data;
                 $scope.totalItems = response.data.total;
-
-                console.log($scope.list);
             })
             .catch(function(data, status) {
                 console.error('Gists error', response.status, response.data);
