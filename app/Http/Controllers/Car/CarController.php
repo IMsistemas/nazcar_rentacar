@@ -104,16 +104,20 @@ class CarController extends Controller
         }
 
         $car->idcarmodel = $request->input('car_model');
+        $car->idmotor = $request->input('idmotor');
+        $car->idfuel = $request->input('idfuel');
+        $car->idtransmission = $request->input('idtransmission');
+
         $car->year = $request->input('year');
-        $car->cartype = $request->input('car_type');
-        $car->serialmotor = $request->input('serial_motor');
-        $car->carserial = $request->input('serial_car');
+
         $car->nameowner = $request->input('name_owner');
         $car->insurancecompany = $request->input('insurance_company');
         $car->securecode = $request->input('secure_code');
         //$car->securetype = $request->input('rent_cost');
         $car->rentcost = $request->input('rent_cost');
         $car->additionalcost = $request->input('aditional_cost');
+
+        $car->state = 1;
 
         if ($car->save()) {
             return response()->json(['success' => true]);

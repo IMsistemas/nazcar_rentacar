@@ -130,10 +130,10 @@
                 id: $scope.id,
                 car_brand: $scope.car_brand,
                 car_model: $scope.car_model,
+                idmotor: $scope.serial_motor,
+                idfuel: $scope.serial_fuel,
+                idtransmission: $scope.serial_transmission,
                 year: $scope.year,
-                car_type: $scope.car_type,
-                serial_motor: $scope.serial_motor,
-                serial_car: $scope.serial_car,
                 name_owner: $scope.name_owner,
                 insurance_company: $scope.insurance_company,
                 secure_code: $scope.secure_code,
@@ -170,7 +170,6 @@
                     $("#modalMessagePrimaryAdd").modal("hide");
                 }
             });
-
 
         };
 
