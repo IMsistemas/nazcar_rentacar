@@ -87,6 +87,10 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
+    Route::get('motor/getMotor', 'Motor\MotorController@getMotor');
+    Route::put('motor/updateState/{id}', 'Motor\MotorController@updateState');
+    Route::resource('motor', 'Motor\MotorController');
+
     Route::get('fuel/getFuel', 'Fuel\FuelController@getFuel');
     Route::put('fuel/updateState/{id}', 'Fuel\FuelController@updateState');
     Route::resource('fuel', 'Fuel\FuelController');
