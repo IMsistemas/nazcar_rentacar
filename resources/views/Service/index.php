@@ -41,7 +41,7 @@
 					<th style="width: 5%;">NO.</th>
 					<th>TIPO SERVICIO</th>
                     <th style="width: 15%;">COSTO</th>
-                    <th style="width: 10%;">TIPO</th>
+                    <th style="width: 25%;">TIPO</th>
 					<th style="width: 15%;">ACCIONES</th>
 				</tr>
 			</thead>
@@ -51,7 +51,10 @@
 					<td>{{ $index + 1 }}</td>
 					<td>{{ item.service }}</td>
                     <td>{{ item.price }}</td>
-                    <td>{{ item.type }}</td>
+                    <td>
+                        <span ng-show="item.type == 0">SERVICIOS ADICIONALES</span>
+                        <span ng-show="item.type == 1">OTROS SERVICIOS</span>
+                    </td>
 					<td>
 			            <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="edit(item)" >
 			                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -192,7 +195,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
-                            Está seguro que desea cambiar el estado de: <strong>{{name_motor}}</strong>
+                            Está seguro que desea cambiar el estado de: <strong>{{name_service}}</strong>
                         </div>
                     </div>
                 </div>

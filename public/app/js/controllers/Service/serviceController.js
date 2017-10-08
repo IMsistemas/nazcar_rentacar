@@ -84,8 +84,8 @@
 
             var data = {
                 service: $scope.service,
-                type: item.type,
-                price: item.price
+                type: $scope.type,
+                price: $scope.price
             };
 
             if ($scope.idservice === 0) {
