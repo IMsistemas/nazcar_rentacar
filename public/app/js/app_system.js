@@ -57,6 +57,10 @@ app.config(function($routeProvider){
             templateUrl : URL + 'motor',
             controller: 'motorController'
         })
+        .when('/service',{
+            templateUrl : URL + 'service',
+            controller: 'serviceController'
+        })
         .otherwise({
             templateUrl : URL + 'index/index_b',
             controller : 'indexController'

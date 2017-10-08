@@ -90,6 +90,10 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
+    Route::get('service/getService', 'Service\ServiceController@getService');
+    Route::put('service/updateState/{id}', 'Service\ServiceController@updateState');
+    Route::resource('service', 'Service\ServiceController');
+
     Route::get('motor/getMotor', 'Motor\MotorController@getMotor');
     Route::put('motor/updateState/{id}', 'Motor\MotorController@updateState');
     Route::resource('motor', 'Motor\MotorController');

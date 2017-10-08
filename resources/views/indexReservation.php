@@ -250,22 +250,21 @@
                 <div class="row">
 
                     <div class="col-12 col-sm-2" style="padding: 0; margin: 25px;" ng-repeat="item_car in carlist">
+                        <div class="col-12 text-center">
+                            <span style="font-size: 16px; font-weight: bold;">{{item_car.namecarmodel}}</span>
+                        </div>
+                        <div class="col-12 text-center">
+                            <span style="font-size: 16px; font-weight: bold; color: #6c757d;">{{item_car.namecarbrand}}</span>
+                        </div>
 
-                        <div class="col-12 text-center">
-                            <h4>{{item_car.namecarbrand}}</h4>
-                        </div>
-                        <div class="col-12 text-center">
-                            {{item_car.namecarmodel}}
-                        </div>
                         <div class="col-12 text-center" style="padding: 0; margin-top: 10px;">
                             <img class="img-fluid" src="{{item_car.image}}" alt="" style="max-width: 100%;">
                         </div>
 
                         <div class="row" style="margin-top: 5px; font-size: 12px;">
                             <div class="col-12 col-sm-6">
-                                5 Puestos <br>
-                                2 Equipajes <br>
-                                1 Equipaje <br>
+                                {{item_car.amountpassengers}} Puestos <br>
+                                {{item_car.amountluggage}} Equipajes <br>
                                 <a href="#" ng-click="getDetails(item_car)">Detalles</a>
                             </div>
                             <div class="col-12 col-sm-6" style="padding: 0;">
