@@ -21,7 +21,6 @@
                 <td>IMAGEN</td>
                 <td>MODELO</td>
                 <td>MARCA</td>
-                <td>TIPO</td>
                 <td>PROPIETARIO</td>
                 <td>COSTO RENTA</td>
                 <td>ACCIONES</td>
@@ -36,7 +35,6 @@
                 </td>
                 <td>{{item.namecarmodel}}</td>
                 <td>{{item.namecarbrand}}</td>
-                <td>{{item.cartype}}</td>
                 <td>{{item.nameowner}}</td>
                 <td>{{item.rentcost}}</td>
                 <td>
@@ -239,6 +237,20 @@
                             <div class="input-group">
                                 <span class="input-group-addon">Propietario: </span>
                                 <input type="text" class="form-control" ng-model="name_owner"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 5px;">
+                        <div class="col-sm-6 col-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">Cantidad de Pasajeros: </span>
+                                <input type="text" class="form-control" ng-model="amountpassengers"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">Cantidad de Equipajes: </span>
+                                <input type="text" class="form-control" ng-model="amountluggage"/>
                             </div>
                         </div>
                     </div>

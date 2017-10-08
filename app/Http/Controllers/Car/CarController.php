@@ -107,10 +107,10 @@ class CarController extends Controller
         $car->idmotor = $request->input('idmotor');
         $car->idfuel = $request->input('idfuel');
         $car->idtransmission = $request->input('idtransmission');
-
         $car->year = $request->input('year');
-
         $car->nameowner = $request->input('name_owner');
+        $car->amountpassengers = $request->input('amountpassengers');
+        $car->amountluggage = $request->input('amountluggage');
         $car->insurancecompany = $request->input('insurance_company');
         $car->securecode = $request->input('secure_code');
         //$car->securetype = $request->input('rent_cost');

@@ -135,6 +135,8 @@
                 idtransmission: $scope.serial_transmission,
                 year: $scope.year,
                 name_owner: $scope.name_owner,
+                amountpassengers: $scope.amountpassengers,
+                amountluggage: $scope.amountluggage,
                 insurance_company: $scope.insurance_company,
                 secure_code: $scope.secure_code,
                 rent_cost: $scope.rent_cost,
