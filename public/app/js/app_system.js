@@ -61,6 +61,10 @@ app.config(function($routeProvider){
             templateUrl : URL + 'service',
             controller: 'serviceController'
         })
+        .when('/typetime',{
+            templateUrl : URL + 'typetime',
+            controller: 'typeTimeController'
+        })
         .otherwise({
             templateUrl : URL + 'index/index_b',
             controller : 'indexController'

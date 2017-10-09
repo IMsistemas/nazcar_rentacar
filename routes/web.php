@@ -90,6 +90,10 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
+    Route::get('typetime/getTypeTime', 'TypeTime\TypeTimeController@getTypeTime');
+    Route::put('typetime/updateState/{id}', 'TypeTime\TypeTimeController@updateState');
+    Route::resource('typetime', 'TypeTime\TypeTimeController');
+
     Route::get('service/getService', 'Service\ServiceController@getService');
     Route::put('service/updateState/{id}', 'Service\ServiceController@updateState');
     Route::resource('service', 'Service\ServiceController');

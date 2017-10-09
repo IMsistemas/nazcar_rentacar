@@ -70,9 +70,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="#service">Servicios</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#typetime">Tipo Tiempo</a>
+            </li>
         </ul>
         <span class="navbar-text">
-      Navbar text with an inline element
+      Navbar
     </span>
     </div>
 </nav>
@@ -109,6 +112,7 @@
 <script src="<?= asset('../app/js/controllers/Fuel/fuelController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Motor/motorController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Service/serviceController.js') ?>"></script>
+<script src="<?= asset('../app/js/controllers/TypeTime/typeTimeController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Car/carController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/client/clientController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/rent/rentController.js') ?>"></script>
