@@ -111,10 +111,17 @@
 
         $scope.getDetails = function (item) {
 
+            console.log(item);
+
             $scope.title_carbrand = item.namecarbrand;
             $scope.title_carmodel = item.namecarmodel;
             $scope.title_carimage = item.image;
-            $scope.title_rentcost = item.rentcost;
+            $scope.title_rentcost = item.price;
+
+            $scope.cant_pasajeros = item.amountpassengers;
+            $scope.cant_equipajes = item.amountluggage;
+            $scope.tipo_fuel = item.namefuel;
+            $scope.tipo_transmission = item.nametransmission;
 
             $('#modalMessageInfoCar').modal('show');
 

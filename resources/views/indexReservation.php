@@ -272,7 +272,7 @@
                                 <div class="col-12 text-right">
                                     $
                                     <span style="font-weight: bold; font-size: 20px; color: #6c757d;">
-                                        {{item_car.rentcost}}
+                                        {{item_car.price}}
                                     </span>
                                 </div>
                                 <div class="col-12 text-right">DIARIO</div>
@@ -748,22 +748,22 @@
                                 <img class="img-fluid" src="{{title_carimage}}" alt="" style="max-width: 100%;">
                             </div>
                             <div class="col-6">
-                                <div class="row">
-                                    5 Pasajeros <br>
-                                    1 Niño <br>
-                                    2 Equipajes <br>
-                                    1 Equipaje <br>
-                                    Gasolina Diesel <br>
-                                    Manual Automatico
-                                </div>
 
                                 <div class="row">
-                                    COSTO <br>
+                                    {{cant_pasajeros}} Pasajero(s) <br>
+                                    {{cant_equipajes}} Equipaje(s) <br>
+                                    {{tipo_fuel}} <br>
+                                    {{tipo_transmission}}
+                                </div>
+
+                                <div class="row" style="margin-top: 15px;">
+                                    COSTO <br><br>
                                     $<span style="font-weight: bold; font-size: 20px; color: #6c757d;">
                                         {{title_rentcost}}
                                     </span> <br>
                                     DIARIO
                                 </div>
+
                             </div>
                         </div>
 

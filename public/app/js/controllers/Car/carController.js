@@ -237,7 +237,7 @@
              $scope.name_owner = item.nameowner;
              $scope.insurance_company = item.insurancecompany;
              $scope.secure_code = item.securecode;
-             $scope.rent_cost = item.rentcost;
+             //$scope.rent_cost = item.rentcost;
              $scope.aditional_cost = item.additionalcost;
              $scope.file = item.image;
 
@@ -256,7 +256,8 @@
             $scope.name_owner = item.nameowner;
             $scope.insurance_company = item.insurancecompany;
             $scope.secure_code = item.securecode;
-            $scope.rent_cost = item.rentcost;
+            $scope.rent_cost = item.price;
+
             $scope.aditional_cost = item.additionalcost;
 
             if (item.image !== null) {

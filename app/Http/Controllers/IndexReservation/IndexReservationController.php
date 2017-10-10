@@ -34,6 +34,8 @@ class IndexReservationController extends Controller
     {
         return Car::join('carmodel', 'car.idcarmodel', '=', 'carmodel.idcarmodel')
             ->join('carbrand', 'carmodel.idcarbrand', '=', 'carbrand.idcarbrand')
+            ->join('fuel', 'car.idfuel', '=', 'fuel.idfuel')
+            ->join('transmission', 'car.idtransmission', '=', 'transmission.idtransmission')
             ->orderBy('idcar', 'asc')->get();
     }
 
