@@ -328,15 +328,19 @@
                         <thead>
                             <tr>
                                 <th style="color: red !important;">SERVICIOS ADICIONALES</th>
-                                <th></th>
+                                <th style="width: 15% !important;"></th>
+                                <th style="width: 1% !important;"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="item_aditionalservice in aditionalServiceList">
                                 <td>{{item_aditionalservice.service}}</td>
+                                <td class="text-right" style="font-weight: bold;">$ {{item_aditionalservice.price}}</td>
                                 <td>
                                     <label class="custom-control custom-radio">
-                                        <input name="item_aditionalservice.idservice" id="item_aditionalservice.idservice" ng-model="item_aditionalservice.idservice" type="radio" class="custom-control-input">
+                                        <input name="item_aditionalservice.idservice" id="item_aditionalservice.idservice"
+                                               ng-model="item_aditionalservice.idservice" type="radio"
+                                               class="custom-control-input" ng-click="selectServicesClick(item_aditionalservice)">
                                         <span class="custom-control-indicator"></span>
                                     </label>
                                 </td>
@@ -348,15 +352,19 @@
                         <thead>
                             <tr>
                                 <th style="color: red !important;">OTROS SERVICIOS</th>
-                                <th></th>
+                                <th style="width: 15% !important;"></th>
+                                <th style="width: 1% !important;"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="item_otherservice in otherServiceList">
                                 <td>{{item_otherservice.service}}</td>
+                                <td class="text-right" style="font-weight: bold;">$ {{item_otherservice.price}}</td>
                                 <td>
                                     <label class="custom-control custom-checkbox">
-                                        <input name="item_otherservice.idservice" id="item_otherservice.idservice" ng-model="item_otherservice.idservice" type="checkbox" class="custom-control-input">
+                                        <input name="item_otherservice.idservice" id="item_otherservice.idservice"
+                                               ng-model="item_otherservice.idservice" type="checkbox"
+                                               class="custom-control-input" ng-click="selectServicesClick(item_otherservice)">
                                         <span class="custom-control-indicator"></span>
                                     </label>
                                 </td>
@@ -365,6 +373,33 @@
                     </table>
                 </div>
                 <div class="col-sm-6 col-12">
+
+                    <table class="table table-bordered border-left-0 border-right-0 border-bottom-0">
+                        <tbody>
+                            <tr ng-repeat="item_selectservice in selectServiceList">
+                                <td class="border-0" style="font-weight: bold; text-transform: uppercase;">{{item_selectservice.service}}</td>
+                                <td class="border-0 text-right" style="width: 15% !important;">$ {{item_selectservice.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered border-left-0 border-right-0">
+                        <tbody>
+                            <tr>
+                                <td class="border-0" style="font-weight: bold;">SUBTOTAL</td>
+                                <td class="border-0 text-right" style="color: red;">$ {{subtotal}}</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0" style="font-weight: bold;">IVA</td>
+                                <td class="border-0 text-right" style="color: red;">$ {{iva}}</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0" style="font-weight: bold;">TOTAL</td>
+                                <td class="border-0 text-right" style="color: red; font-weight: bold; font-size: 28px;">$ {{total}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
 
                 </div>
 

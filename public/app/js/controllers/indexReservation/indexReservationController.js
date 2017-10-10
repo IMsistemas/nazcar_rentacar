@@ -3,6 +3,8 @@
     app.controller('IndexReservationController', function($scope, $http, API_URL) {
 
         $scope.type_place = null;
+        $scope.selectServiceList = [];
+        $scope.subtotal = 0.00;
 
         $('.datepicker').datetimepicker({
             locale: 'es'
@@ -143,6 +145,17 @@
 
         };
 
+        $scope.selectServicesClick = function (item) {
+
+
+            $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item.price);
+
+            $scope.iva = (parseFloat($scope.subtotal) * 12) / 100;
+
+            $scope.total = parseFloat($scope.subtotal) + parseFloat($scope.iva);
+
+            $scope.selectServiceList.push(item);
+        };
 
         $scope.getPlaces();
         $scope.getCategories();
