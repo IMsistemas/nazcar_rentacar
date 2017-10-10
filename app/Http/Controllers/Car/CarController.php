@@ -114,7 +114,7 @@ class CarController extends Controller
         $car->insurancecompany = $request->input('insurance_company');
         $car->securecode = $request->input('secure_code');
         //$car->securetype = $request->input('rent_cost');
-        $car->rentcost = $request->input('rent_cost');
+        //$car->rentcost = $request->input('rent_cost');
         $car->additionalcost = $request->input('aditional_cost');
 
         $car->state = 1;

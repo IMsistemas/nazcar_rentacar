@@ -139,7 +139,7 @@
                 amountluggage: $scope.amountluggage,
                 insurance_company: $scope.insurance_company,
                 secure_code: $scope.secure_code,
-                rent_cost: $scope.rent_cost,
+                //rent_cost: $scope.rent_cost,
                 aditional_cost: $scope.aditional_cost,
                 file: $scope.file
             };

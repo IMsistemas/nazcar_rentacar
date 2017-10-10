@@ -22,7 +22,6 @@
                 <td>MODELO</td>
                 <td>MARCA</td>
                 <td>PROPIETARIO</td>
-                <td>COSTO RENTA</td>
                 <td>ACCIONES</td>
             </tr>
             </thead>
@@ -36,7 +35,6 @@
                 <td>{{item.namecarmodel}}</td>
                 <td>{{item.namecarbrand}}</td>
                 <td>{{item.nameowner}}</td>
-                <td>{{item.rentcost}}</td>
                 <td>
                     <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" ng-click="showModalInfo(item)">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -203,12 +201,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12" style="margin-top: 5px;">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Año: </span>
-                                    <input type="text" class="form-control" ng-model="year"/>
-                                </div>
-                            </div>
+
                             <!--<div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Tipo: </span>
@@ -269,10 +262,16 @@
                         </div>
                     </div>
                     <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-6 col-12">
+                        <!--<div class="col-sm-6 col-12">
                             <div class="input-group">
                                 <span class="input-group-addon">Costo Renta: </span>
                                 <input type="text" class="form-control" ng-model="rent_cost"/>
+                            </div>
+                        </div>-->
+                        <div class="col-sm-6 col-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">Año: </span>
+                                <input type="text" class="form-control" ng-model="year"/>
                             </div>
                         </div>
                         <div class="col-sm-6 col-12">
