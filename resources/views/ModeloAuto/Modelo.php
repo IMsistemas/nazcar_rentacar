@@ -39,6 +39,8 @@
 				<tr>
 					<th style="width: 5%;">NO.</th>
 					<th>MODELO</th>
+                    <th>MARCA</th>
+                    <th>COSTO DIARIO</th>
 					<th style="width: 15%;">ACCIONES</th>
 				</tr>
 			</thead>
@@ -47,6 +49,8 @@
 					
 					<td>{{$index+1}}</td>
 					<td>{{m.namecarmodel}}</td>
+                    <td>{{m.namecarbrand}}</td>
+                    <td>{{m.price}}</td>
 					<td>
 			            <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="edit_modelo(m)" >
 			                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -146,6 +150,14 @@
 			                <input type="text" class="form-control" ng-model="aux_namecarmodel" />
 			            </div>
 	        		</div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+                        <div class="input-group">
+                            <span class="input-group-addon">Costo Diario: </span>
+                            <input type="text" class="form-control" ng-model="aux_nameprecio" />
+                        </div>
+                    </div>
+
 	        	</div>
 	        		        	
 	      </div>
@@ -186,6 +198,13 @@
                         <div class="input-group">
                             <span class="input-group-addon">Modelo: </span>
                             <input type="text" class="form-control" id="namecarmodel" name="namecarmodel" ng-model="namecarmodel"  />
+                        </div>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+                        <div class="input-group">
+                            <span class="input-group-addon">Costo Diario: </span>
+                            <input type="text" class="form-control" ng-model="nameprecio" />
                         </div>
                     </div>
 

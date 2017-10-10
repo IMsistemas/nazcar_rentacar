@@ -49,7 +49,8 @@ class ModeloController extends Controller
         if($filter->buscar!=""){
             $sql=" namecarmodel LIKE '%".$filter->buscar."%' ";
         }
-        $data=Carmodel::whereRaw(" state='".$filter->estado."' ".$sql)
+        $data=Carmodel::whereRaw(" carmodel.state='".$filter->estado."' ".$sql)
+                        ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
                         ->orderBy("namecarmodel","ASC");
         return $data->paginate(10);
     }
