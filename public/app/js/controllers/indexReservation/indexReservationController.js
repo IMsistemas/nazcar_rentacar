@@ -40,14 +40,31 @@
 
         };
 
+        $scope.getAditionalServices = function () {
 
+            $http.get(API_URL + 'reservation/getAditionalServices').then(function(response){
+
+                $scope.aditionalServiceList = response.data;
+
+            });
+
+        };
+
+        $scope.getOtherServices = function () {
+
+            $http.get(API_URL + 'reservation/getOtherServices').then(function(response){
+
+                $scope.otherServiceList = response.data;
+
+            });
+
+        };
 
         $scope.save = function () {
 
 
 
         };
-
 
         $scope.showListPlace = function (type) {
 
@@ -108,7 +125,6 @@
 
         };
 
-
         $scope.getDetails = function (item) {
 
             console.log(item);
@@ -131,5 +147,7 @@
         $scope.getPlaces();
         $scope.getCategories();
         $scope.getCar();
+        $scope.getAditionalServices();
+        $scope.getOtherServices();
 
     });

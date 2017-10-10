@@ -281,12 +281,12 @@
 
                         <div class="row" style="margin-top: 5px;">
                             <div class="col-12 col-sm-6" style="padding-right: 0;">
-                                <button type="button" class="btn btn-outline-dark btn-sm" style="font-size: 12px !important; ">
+                                <button type="button" class="btn btn-outline-dark btn-sm" ng-click="showModal(3)" style="font-size: 12px !important; ">
                                     PAGO CAJA
                                 </button>
                             </div>
                             <div class="col-12 col-sm-6" style="padding-left: 0;">
-                                <button type="button" class="btn btn-danger btn-sm" style="font-size: 12px !important; ">
+                                <button type="button" class="btn btn-danger btn-sm" ng-click="showModal(3)" style="font-size: 12px !important; ">
                                     PAGO AHORA
                                 </button>
                             </div>
@@ -300,7 +300,78 @@
 
         </div>
 
+        <div class="container" ng-show="reserva_1 == 3">
 
+            <div class="row">
+                <div class="col-3">
+                    1. Seleccionar
+                    <hr>
+                </div>
+                <div class="col-3" style="color: red !important;">
+                    2. Servicios
+                    <hr>
+                </div>
+                <div class="col-3">
+                    3. Datos Personales
+                    <hr>
+                </div>
+                <div class="col-3">
+                    4. Datos de Pagos
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
+
+                <div class="col-sm-6 col-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="color: red !important;">SERVICIOS ADICIONALES</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item_aditionalservice in aditionalServiceList">
+                                <td>{{item_aditionalservice.service}}</td>
+                                <td>
+                                    <label class="custom-control custom-radio">
+                                        <input name="item_aditionalservice.idservice" id="item_aditionalservice.idservice" ng-model="item_aditionalservice.idservice" type="radio" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="color: red !important;">OTROS SERVICIOS</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item_otherservice in otherServiceList">
+                                <td>{{item_otherservice.service}}</td>
+                                <td>
+                                    <label class="custom-control custom-checkbox">
+                                        <input name="item_otherservice.idservice" id="item_otherservice.idservice" ng-model="item_otherservice.idservice" type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-6 col-12">
+
+                </div>
+
+            </div>
+
+
+        </div>
 
 
 
@@ -385,7 +456,7 @@
 
         <!-- FORMULARIO RESERVA PASO 3 -->
 
-        <div class="card" style="width: 45%;" ng-show="reserva_1 == 3">
+        <div class="card" style="width: 45%;" ng-show="reserva_1 == 6">
             <div class="card-body">
 
                 <h4 class="card-title text-center">Haz tu Reserva</h4>
@@ -769,18 +840,17 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-dark btn-sm" style="font-size: 12px !important; ">
+                        <button type="button" class="btn btn-outline-dark btn-sm" ng-click="showModal(3)" style="font-size: 12px !important; ">
                             PAGO CAJA
                         </button>
 
-                        <button type="button" class="btn btn-danger btn-sm" style="font-size: 12px !important; ">
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="showModal(3)" style="font-size: 12px !important; ">
                             PAGO AHORA
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-
 
 
         <div class="modal fade" id="modalMessageError" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\IndexReservation;
 use App\Models\Car\Car;
 use App\Models\MarcaAuto\Carbrand;
 use App\Models\Place\Place;
+use App\Models\Service\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -37,6 +38,16 @@ class IndexReservationController extends Controller
             ->join('fuel', 'car.idfuel', '=', 'fuel.idfuel')
             ->join('transmission', 'car.idtransmission', '=', 'transmission.idtransmission')
             ->orderBy('idcar', 'asc')->get();
+    }
+
+    public function getAditionalServices()
+    {
+        return Service::where('type', '0')->orderBy('service', 'asc')->get();
+    }
+
+    public function getOtherServices()
+    {
+        return Service::where('type', '1')->orderBy('service', 'asc')->get();
     }
 
     /**
