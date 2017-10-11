@@ -53,7 +53,10 @@
 					<td>{{ $index + 1 }}</td>
 					<td>{{ item.nametypetime }}</td>
                     <td>{{ item.amountday }}</td>
-                    <td>{{ item.typeclient }}</td>
+                    <td>
+                        <span ng-show="item.typeclient == 0">Cliente No Corporativo</span>
+                        <span ng-show="item.typeclient == 1">Cliente Corporativo</span>
+                    </td>
                     <td>{{ item.typecalculate }}</td>
                     <td>{{ item.constant }}</td>
 					<td>

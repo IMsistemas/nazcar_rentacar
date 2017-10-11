@@ -40,9 +40,9 @@
 				<tr>
 					<th style="width: 5%;">NO.</th>
 					<th>TIPO SERVICIO</th>
-                    <th style="width: 15%;">COSTO</th>
+                    <th style="width: 10%;">COSTO</th>
                     <th style="width: 25%;">TIPO</th>
-					<th style="width: 15%;">ACCIONES</th>
+					<th style="width: 12%;">ACCIONES</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -50,7 +50,7 @@
 					
 					<td>{{ $index + 1 }}</td>
 					<td>{{ item.service }}</td>
-                    <td>{{ item.price }}</td>
+                    <td class="text-right">$ {{ item.price }}</td>
                     <td>
                         <span ng-show="item.type == 0">SERVICIOS ADICIONALES</span>
                         <span ng-show="item.type == 1">OTROS SERVICIOS</span>

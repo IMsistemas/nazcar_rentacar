@@ -47,9 +47,9 @@ class ClientController extends Controller
         $search = $filter->search;
         $state = $filter->state;
 
-        $client = Client::join('person', 'person.idperson', '=', 'client.idperson')
-            ->join('country', 'country.idcountry', '=', 'client.idcountry')
-            ->join('paidform', 'paidform.idpaidform', '=', 'client.idpaidform');
+        $client = Client::join('person', 'person.idperson', '=', 'client.idperson');
+            //->join('country', 'country.idcountry', '=', 'client.idcountry')
+            //->join('paidform', 'paidform.idpaidform', '=', 'client.idpaidform');
 
         if($search != null){
             $client = $client->whereRaw("(person.nameperson LIKE '%" . $search . "%' OR person.lastnameperson LIKE '%" . $search ."%' OR person.identifyperson LIKE '%" . $search . "%') ");

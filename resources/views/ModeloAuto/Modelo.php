@@ -40,9 +40,9 @@
 					<th style="width: 5%;">NO.</th>
 					<th>MODELO</th>
                     <th>MARCA</th>
-                    <th>COSTO DIARIO</th>
-                    <th>GARANTIA</th>
-					<th style="width: 15%;">ACCIONES</th>
+                    <th style="width: 14%;">COSTO DIARIO</th>
+                    <th style="width: 12%;">GARANTIA</th>
+					<th style="width: 12%;">ACCIONES</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -51,8 +51,8 @@
 					<td>{{$index+1}}</td>
 					<td>{{m.namecarmodel}}</td>
                     <td>{{m.namecarbrand}}</td>
-                    <td>{{m.price}}</td>
-                    <td>{{m.guarantee}}</td>
+                    <td class="text-right">$ {{m.price}}</td>
+                    <td class="text-right">$ {{m.guarantee}}</td>
 					<td>
 			            <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="edit_modelo(m)" >
 			                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
