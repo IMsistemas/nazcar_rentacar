@@ -845,12 +845,12 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control colours" id="numtarjeta" placeholder="Numero de Tarjeta">
+                                <input type="text" class="form-control colours" id="numtarjeta" ng-model="numtarjeta" placeholder="Numero de Tarjeta">
                             </div>
                             <div class="col-12">
                                 <div class="input-group">
-                                    <input type="text" class="form-control colours" placeholder="MM / AA">
-                                    <input type="text" class="form-control colours" placeholder="CVC">
+                                    <input type="text" class="form-control colours" ng-model="mmaa" placeholder="MM / AA">
+                                    <input type="text" class="form-control colours" ng-model="cvc" placeholder="CVC">
                                 </div>
                             </div>
                             <div class="col-12" style="margin-top: 15px;">

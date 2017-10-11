@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\IndexReservation;
 
 use App\Models\Car\Car;
+use App\Models\Client\Client;
 use App\Models\MarcaAuto\Carbrand;
 use App\Models\Person\Person;
 use App\Models\Place\Place;
@@ -99,17 +100,35 @@ class IndexReservationController extends Controller
 
         if ($person->save()) {
 
-            $rent = new Rent();
+            $client = new Client();
 
-            $rent->idcar = $request->input('idcar');
-            $rent->startdatetime = $request->input('startdatetime');
-            $rent->enddatetime = $request->input('enddatetime');
-            $rent->totalcost = $request->input('totalcost');
+            $client->idperson = $person->idperson;
+            $client->state = 1;
 
-            if ($rent->save()){
-                return response()->json(['success' => true]);
+            if ($client->save()) {
+
+                $rent = new Rent();
+
+                $rent->idcar = $request->input('idcar');
+                $rent->idclient = $client->idclient;
+                $rent->startdatetime = $request->input('startdatetime');
+                $rent->enddatetime = $request->input('enddatetime');
+                $rent->totalcost = $request->input('totalcost');
+
+                if ($rent->save()){
+
+                    return response()->json(['success' => true]);
+
+                } else {
+
+                    return response()->json(['success' => false]);
+
+                }
+
             } else {
+
                 return response()->json(['success' => false]);
+
             }
 
         } else {

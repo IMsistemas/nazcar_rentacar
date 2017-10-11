@@ -288,11 +288,15 @@
                 idcar: $scope.carSelected.idcar,
                 startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
                 enddatetime: $scope.fecha_entrega + ' ' + $scope.hora_entrega,
-                totalcost: $scope.total
+                totalcost: $scope.total,
+
+                numtarjeta: $scope.numtarjeta,
+                mmaa: $scope.mmaa,
+                cvc: $scope.cvc
 
             };
 
-            http.post(API_URL + 'reservation', data).then(function(response) {
+            $http.post(API_URL + 'reservation', data).then(function(response) {
 
                 $('#modalAction').modal('hide');
 
