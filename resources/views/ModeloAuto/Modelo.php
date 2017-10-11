@@ -124,7 +124,7 @@
 	  </div>
 	</div>
 
-
+<form class="form-horizontal"  name="modelo_edit" id="modelo_add"  novalidate="">
 	<div class="modal fade" id="modalMessagePrimaryEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -141,37 +141,41 @@
                     <div class="col-12">
                         <div class="input-group">
                             <span class="input-group-addon">Marca: </span>
-                            <select class="form-control" id="aux_namecarmarca" name="aux_namecarmarca" ng-model="aux_namecarmarca"
+                            <select class="form-control" id="aux_namecarmarca" required name="aux_namecarmarca" ng-model="aux_namecarmarca"
                                     ng-options="value.id as value.label for value in listmarcas"></select>
                         </div>
+                        <span class="help-block error" ng-show="modelo_edit.aux_namecarmarca.$invalid && modelo_edit.aux_namecarmarca.$touched">La marca es requerida</span>
                     </div>
 
 	        		<div class="col-12" style="margin-top: 5px;">
 	        			<div class="input-group">                        
 			                <span class="input-group-addon">Modelo: </span>
-			                <input type="text" class="form-control" ng-model="aux_namecarmodel" />
+			                <input type="text" class="form-control" ng-model="aux_namecarmodel" name="aux_namecarmodel" required />
 			            </div>
+			            <span class="help-block error" ng-show="modelo_edit.aux_namecarmodel.$invalid && modelo_edit.aux_namecarmodel.$touched">El modelo es requerido</span>
 	        		</div>
 
                     <div class="col-12" style="margin-top: 5px;">
                         <div class="input-group">
                             <span class="input-group-addon">Costo Diario: </span>
-                            <input type="text" class="form-control" ng-model="aux_nameprecio" />
+                            <input type="text" class="form-control" ng-model="aux_nameprecio" name="aux_nameprecio" required />
                         </div>
+                        <span class="help-block error" ng-show="modelo_edit.aux_nameprecio.$invalid && modelo_edit.aux_nameprecio.$touched">El costo diario es requerido</span>
                     </div>
 
                     <div class="col-12" style="margin-top: 5px;">
                         <div class="input-group">
                             <span class="input-group-addon">Garantía: </span>
-                            <input type="text" class="form-control" ng-model="aux_namegarantia" />
+                            <input type="text" class="form-control" ng-model="aux_namegarantia" name="aux_namegarantia" required />
                         </div>
+                        <span class="help-block error" ng-show="modelo_edit.aux_namegarantia.$invalid && modelo_edit.aux_namegarantia.$touched">La garantia  es requerida</span>
                     </div>
 
 	        	</div>
 	        		        	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_modeloe!='1' " ng-click="modify();">
+	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_modeloe!='1' || modelo_edit.$invalid " ng-click="modify();">
                 Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i> 
             </button>
 
@@ -182,7 +186,8 @@
 	    </div>
 	  </div>
 	</div>
-
+</form>
+	<form class="form-horizontal"  name="modelo_add" id="modelo_add"  novalidate="">
 	<div class="modal fade" id="modalMessagePrimaryAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -198,37 +203,41 @@
 	        		<div class="col-12">
 	        			<div class="input-group">
 			                <span class="input-group-addon">Marca: </span>
-                            <select class="form-control" id="namecarmarca" name="namecarmarca" ng-model="namecarmarca"
+                            <select class="form-control" id="namecarmarca" name="namecarmarca" required ng-model="namecarmarca"
                                     ng-options="value.id as value.label for value in listmarcas"></select>
 			            </div>
+			            <span class="help-block error" ng-show="modelo_add.namecarmarca.$invalid && modelo_add.namecarmarca.$touched">La marca es requerida</span>
 	        		</div>
 
                     <div class="col-12" style="margin-top: 5px;">
                         <div class="input-group">
                             <span class="input-group-addon">Modelo: </span>
-                            <input type="text" class="form-control" id="namecarmodel" name="namecarmodel" ng-model="namecarmodel"  />
+                            <input type="text" class="form-control" id="namecarmodel" name="namecarmodel" ng-model="namecarmodel"  required />
                         </div>
+                        <span class="help-block error" ng-show="modelo_add.namecarmodel.$invalid && modelo_add.namecarmodel.$touched">El modelo es requerido</span>
                     </div>
 
                     <div class="col-12" style="margin-top: 5px;">
                         <div class="input-group">
                             <span class="input-group-addon">Costo Diario: </span>
-                            <input type="text" class="form-control" ng-model="nameprecio" />
+                            <input type="text" class="form-control" ng-model="nameprecio"  name="nameprecio" required />
                         </div>
+                        <span class="help-block error" ng-show="modelo_add.nameprecio.$invalid && modelo_add.nameprecio.$touched">Es necesario el precio</span>
                     </div>
 
                     <div class="col-12" style="margin-top: 5px;">
                         <div class="input-group">
                             <span class="input-group-addon">Garantía: </span>
-                            <input type="text" class="form-control" ng-model="namegarantia" />
+                            <input type="text" class="form-control" ng-model="namegarantia" name="namegarantia" required />
                         </div>
+                        <span class="help-block error" ng-show="modelo_add.namegarantia.$invalid && modelo_add.namegarantia.$touched">Es necesario la garantia</span>
                     </div>
 
 	        	</div>	      		
 	        	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_modelos!='1' " ng-click="save_modelo()">
+	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_modelos!='1' || modelo_add.$invalid  "  ng-click="save_modelo()">
                 Aceptar <i class="fa fa-check-circle" aria-hidden="true"  ></i> 
             </button>
 
@@ -239,7 +248,7 @@
 	    </div>
 	  </div>
 	</div>
-
+	</form>
 </div>
 
 <script type="text/javascript">
