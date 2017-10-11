@@ -313,12 +313,12 @@
 
                         <div class="row" style="margin-top: 5px;">
                             <div class="col-12 col-sm-6" style="padding-right: 0;">
-                                <button type="button" class="btn btn-outline-dark btn-sm" ng-click="showModal(3)" style="font-size: 12px !important; ">
+                                <button type="button" class="btn btn-outline-dark btn-sm" ng-click="intermediateStep(item_car)" style="font-size: 12px !important; ">
                                     PAGO CAJA
                                 </button>
                             </div>
                             <div class="col-12 col-sm-6" style="padding-left: 0;">
-                                <button type="button" class="btn btn-danger btn-sm" ng-click="showModal(3)" style="font-size: 12px !important; ">
+                                <button type="button" class="btn btn-danger btn-sm" ng-click="intermediateStep(item_car)" style="font-size: 12px !important; ">
                                     PAGO AHORA
                                 </button>
                             </div>

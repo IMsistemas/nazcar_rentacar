@@ -6,6 +6,7 @@ use App\Models\Car\Car;
 use App\Models\MarcaAuto\Carbrand;
 use App\Models\Place\Place;
 use App\Models\Service\Service;
+use App\Models\TypeTime\TypeTime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,6 +20,24 @@ class IndexReservationController extends Controller
     public function index()
     {
         return view('indexReservation');
+    }
+
+    public function getCalculate(Request $request)
+    {
+        $parameter = json_decode($request->get('parameter'));
+        $cantday = $parameter->cantday;
+        $price = $parameter->price;
+
+        $result = TypeTime::where('amountday', '>=', $cantday)
+                                ->orderBy('amountday', 'asc')->get();
+
+        if ($result[0]->typecalculate == '#') {
+            $result_calc = $price * $result[0]->constant;
+        } else {
+            $result_calc = ($price * $result[0]->constant/100) * ($result[0]->amountday)-($price * $result[0]->amountday);
+        }
+
+        return abs($result_calc);
     }
 
     public function getPlaces()

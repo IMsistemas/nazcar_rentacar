@@ -110,6 +110,7 @@
     Route::put('transmission/updateState/{id}', 'Transmission\TransmissionController@updateState');
     Route::resource('transmission', 'Transmission\TransmissionController');
 
+    Route::get('reservation/getCalculate', 'IndexReservation\IndexReservationController@getCalculate');
     Route::get('reservation/getOtherServices', 'IndexReservation\IndexReservationController@getOtherServices');
     Route::get('reservation/getAditionalServices', 'IndexReservation\IndexReservationController@getAditionalServices');
     Route::get('reservation/getCar', 'IndexReservation\IndexReservationController@getCar');

@@ -4,6 +4,7 @@
 
         $scope.type_place = null;
 
+        $scope.carSelected = null;
         $scope.dataRetiroPlace = null;
         $scope.dataEntregaPlace = null;
 
@@ -35,15 +36,60 @@
 
         };
 
+        $scope.intermediateStep = function (item) {
+            $scope.carSelected = item;
+            $scope.showModal(3);
+        };
+
         $scope.showModal = function (step) {
 
             if (step === 2) {
                 $scope.rest_day = $scope.restaFechas($scope.fecha_retiro, $scope.fecha_entrega);
             }
 
+            if (step === 3) {
+
+                var item_0 = {
+                    service: 'Renta',
+                    price: 0
+                };
+
+                if (parseInt($scope.rest_day) > 1) {
+
+                    var data = {
+                        cantday: parseInt($scope.rest_day),
+                        price: $scope.carSelected.price
+                    };
+
+                    $http.get(API_URL + 'reservation/getCalculate?parameter=' + JSON.stringify(data)).then(function(response){
+
+                        item_0.price = response.data;
+
+                        $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item_0.price);
+                        $scope.iva = (parseFloat($scope.subtotal) * 12) / 100;
+                        $scope.total = parseFloat($scope.subtotal) + parseFloat($scope.iva);
+
+                        $scope.selectServiceList.push(item_0);
+
+                    });
+
+                } else {
+
+                    item_0.price = $scope.carSelected.price;
+
+                    $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item_0.price);
+                    $scope.iva = (parseFloat($scope.subtotal) * 12) / 100;
+                    $scope.total = parseFloat($scope.subtotal) + parseFloat($scope.iva);
+
+                    $scope.selectServiceList.push(item_0);
+
+                }
+
+
+            }
+
             $scope.reserva_1 = step;
 
-            //$('#modalMessageError').modal('show');
         };
 
         $scope.getPlaces = function () {
@@ -167,6 +213,8 @@
             $scope.cant_equipajes = item.amountluggage;
             $scope.tipo_fuel = item.namefuel;
             $scope.tipo_transmission = item.nametransmission;
+
+            $scope.carSelected = item;
 
             $('#modalMessageInfoCar').modal('show');
 
