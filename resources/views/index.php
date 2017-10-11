@@ -34,7 +34,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <a class="navbar-brand" href="#">
-        <img src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <!--<img src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">-->
         Nazcar
     </a>
 
@@ -75,7 +75,7 @@
             </li>
         </ul>
         <span class="navbar-text">
-      Navbar
+
     </span>
     </div>
 </nav>

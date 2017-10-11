@@ -41,6 +41,7 @@
 					<th>MODELO</th>
                     <th>MARCA</th>
                     <th>COSTO DIARIO</th>
+                    <th>GARANTIA</th>
 					<th style="width: 15%;">ACCIONES</th>
 				</tr>
 			</thead>
@@ -51,6 +52,7 @@
 					<td>{{m.namecarmodel}}</td>
                     <td>{{m.namecarbrand}}</td>
                     <td>{{m.price}}</td>
+                    <td>{{m.guarantee}}</td>
 					<td>
 			            <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="edit_modelo(m)" >
 			                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -158,6 +160,13 @@
                         </div>
                     </div>
 
+                    <div class="col-12" style="margin-top: 5px;">
+                        <div class="input-group">
+                            <span class="input-group-addon">Garantía: </span>
+                            <input type="text" class="form-control" ng-model="aux_namegarantia" />
+                        </div>
+                    </div>
+
 	        	</div>
 	        		        	
 	      </div>
@@ -205,6 +214,13 @@
                         <div class="input-group">
                             <span class="input-group-addon">Costo Diario: </span>
                             <input type="text" class="form-control" ng-model="nameprecio" />
+                        </div>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+                        <div class="input-group">
+                            <span class="input-group-addon">Garantía: </span>
+                            <input type="text" class="form-control" ng-model="namegarantia" />
                         </div>
                     </div>
 

@@ -7,6 +7,9 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
     $scope.nameprecio="";
     $scope.aux_nameprecio="";
 
+    $scope.namegarantia="";
+    $scope.aux_namegarantia="";
+
     $scope.allmodelos=[];
     $scope.aux_modelo={};
     $scope.buscquedamodelo="";
@@ -24,7 +27,8 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
     			namecarmodel: $scope.namecarmodel,
     			state:'1',
                 idcarbrand: $scope.namecarmarca,
-				price: $scope.nameprecio
+				price: $scope.nameprecio,
+                guarantee: $scope.namegarantia,
     		};
     		$scope.save(data);
     	}else{
@@ -40,6 +44,7 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
         		$("#modalMessagePrimaryAdd").modal("hide");
         		$scope.namecarmodel="";
                 $scope.nameprecio="";
+                $scope.namegarantia="";
         		$scope.Mensaje="Se guardo correctamente";
     			$("#modalMessageError").modal("show");
     			$scope.initLoad(1);
@@ -97,6 +102,7 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
     	$scope.aux_namecarmodel=item.namecarmodel;
         $scope.aux_namecarmarca = item.idcarbrand;
         $scope.aux_nameprecio = item.price;
+        $scope.aux_namegarantia = item.guarantee;
     	$scope.aux_modelo=item;
     	showModal('modalMessagePrimaryEdit');
 
@@ -107,6 +113,7 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
     		$scope.aux_modelo.namecarmodel=$scope.aux_namecarmodel;
             $scope.aux_modelo.idcarbrand = $scope.aux_namecarmarca;
             $scope.aux_modelo.price = $scope.aux_nameprecio;
+            $scope.aux_modelo.guarantee = $scope.aux_namegarantia;
     		$scope.aux_btn_modeloe="2";
     		$http.put(API_URL+'Modelo/'+$scope.aux_modelo.idcarmodel,$scope.aux_modelo)
 	        .then(function (response) {

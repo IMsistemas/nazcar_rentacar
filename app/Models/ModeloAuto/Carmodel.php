@@ -18,6 +18,7 @@ class Carmodel extends Model
         'idcarmodel',
         'namecarmodel',
         'price',
+        'guarantee',
         'state',
         'idcarbrand'
     ];
