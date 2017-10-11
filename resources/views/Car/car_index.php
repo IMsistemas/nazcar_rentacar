@@ -18,18 +18,18 @@
         <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
             <thead class="bg-primary">
                 <tr>
-                    <th>IMAGEN</th>
+                    <th style="width: 10%;">IMAGEN</th>
                     <th>MODELO</th>
                     <th>MARCA</th>
                     <th>PROPIETARIO</th>
-                    <th>ACCIONES</th>
+                    <th style="width: 15%;">ACCIONES</th>
                 </tr>
             </thead>
             <tbody>
             <tr dir-paginate="item in list|orderBy:sortKey:reverse| itemsPerPage:10" total-items="totalItems" ng-cloak>
                 <td>
                     <div ng-show="item.image" class="text-center">
-                        <img src="{{item.image}}" style="width: 50px; height: 40px;" class="rounded">
+                        <img src="{{item.image}}" style="width: 100%;" class="">
                     </div>
                 </td>
                 <td>{{item.namecarmodel}}</td>
