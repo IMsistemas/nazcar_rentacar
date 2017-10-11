@@ -66,8 +66,8 @@ app.config(function($routeProvider){
             controller: 'typeTimeController'
         })
         .otherwise({
-            templateUrl : URL + 'index/index_b',
-            controller : 'indexController'
+            template : ''
+            //controller : 'indexController'
         });
 
 });

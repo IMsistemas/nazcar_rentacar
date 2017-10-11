@@ -17,13 +17,13 @@
     <div class="col-xs-12" style="margin-top: 10px;">
         <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
             <thead class="bg-primary">
-            <tr>
-                <td>IMAGEN</td>
-                <td>MODELO</td>
-                <td>MARCA</td>
-                <td>PROPIETARIO</td>
-                <td>ACCIONES</td>
-            </tr>
+                <tr>
+                    <th>IMAGEN</th>
+                    <th>MODELO</th>
+                    <th>MARCA</th>
+                    <th>PROPIETARIO</th>
+                    <th>ACCIONES</th>
+                </tr>
             </thead>
             <tbody>
             <tr dir-paginate="item in list|orderBy:sortKey:reverse| itemsPerPage:10" total-items="totalItems" ng-cloak>
@@ -158,139 +158,169 @@
                 </div>
                 <div class="modal-body">
 
+                    <form class="form-horizontal" name="formCar" novalidate="">
+                        <div class="row">
+                            <div class="col-sm-6 col-12" style="padding: 0;">
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Marca: </span>
+                                        <select class="form-control" ng-model="car_brand" id="car_brand" name="car_brand"
+                                                ng-options="value.id as value.label for value in marcaslist" ng-change="listCarModel()" required >
+                                        </select>
+                                    </div>
+                                    <span class="help-block error" ng-show="formCar.car_brand.$invalid && formCar.car_brand.$touched">
+                                        <small id="emailHelp" class="form-text text-danger text-right">El Tipo de Marca es requerido</small>
+                                    </span>
+                                </div>
+                                <div class="col-12" style="margin-top: 5px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Modelo: </span>
+                                        <select class="form-control" ng-model="car_model" id="car_model"
+                                                ng-options="value.id as value.label for value in modelos" required >
+                                        </select>
+                                    </div>
+                                    <span class="help-block error" ng-show="formCar.car_model.$invalid && formCar.car_model.$touched">
+                                        <small id="emailHelp" class="form-text text-danger text-right">El Tipo de Modelo es requerido</small>
+                                    </span>
+                                </div>
+                                <div class="col-12" style="margin-top: 5px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Tipo Motor: </span>
+                                        <select class="form-control" ng-model="serial_motor" id="serial_motor"
+                                                ng-options="value.id as value.label for value in motors" required >
+                                        </select>
+                                    </div>
+                                    <span class="help-block error" ng-show="formCar.serial_motor.$invalid && formCar.serial_motor.$touched">
+                                        <small id="emailHelp" class="form-text text-danger text-right">El Tipo de Motor es requerido</small>
+                                    </span>
+                                </div>
+                                <div class="col-12" style="margin-top: 5px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Tipo Combustible: </span>
+                                        <select class="form-control" ng-model="serial_fuel" id="serial_fuel"
+                                                ng-options="value.id as value.label for value in fuels" required >
+                                        </select>
+                                    </div>
+                                    <span class="help-block error" ng-show="formCar.serial_fuel.$invalid && formCar.serial_fuel.$touched">
+                                        <small id="emailHelp" class="form-text text-danger text-right">El Tipo de Combustible es requerido</small>
+                                    </span>
+                                </div>
+                                <div class="col-12" style="margin-top: 5px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Tipo Trasnmisión: </span>
+                                        <select class="form-control" ng-model="serial_transmission" id="serial_transmission"
+                                                ng-options="value.id as value.label for value in transmission" required >
+                                        </select>
+                                    </div>
+                                    <span class="help-block error" ng-show="formCar.serial_transmission.$invalid && formCar.serial_transmission.$touched">
+                                        <small id="emailHelp" class="form-text text-danger text-right">El Tipo de Transmision es requerido</small>
+                                    </span>
+                                </div>
 
-                    <div class="row">
-                        <div class="col-sm-6 col-12" style="padding: 0;">
+                                <!--<div class="col-12" style="margin-top: 5px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Tipo: </span>
+                                        <input type="text" class="form-control" ng-model="car_type"/>
+                                    </div>
+                                </div>
+
+                                <div class="col-12" style="margin-top: 5px;">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Serie Auto: </span>
+                                        <input type="text" class="form-control" ng-model="serial_car"/>
+                                    </div>
+                                </div>-->
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <img ngf-src="file || url_foto" alt="" class="img-thumbnail img-fluid">
+                                <input class="form-control" type="file" ngf-select ng-model="file" name="file" id="file"
+                                       accept="image/*" ngf-max-size="2MB"  ng-required="true" ngf-pattern="image/*">
+                                <span class="help-block error" ng-show="formCar.file.$invalid && formCar.file.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">La imagen es requerida</small>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 5px;">
                             <div class="col-12">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Marca: </span>
-                                    <select class="form-control" ng-model="car_brand" id="car_brand" name="car_brand"
-                                            ng-options="value.id as value.label for value in marcaslist" ng-change="listCarModel()">
-                                    </select>
+                                    <span class="input-group-addon">Propietario: </span>
+                                    <input type="text" class="form-control" id="name_owner" name="name_owner" ng-model="name_owner" required/>
                                 </div>
+                                <span class="help-block error" ng-show="formCar.name_owner.$invalid && formCar.name_owner.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">El Propietario es requerido</small>
+                                </span>
                             </div>
-                            <div class="col-12" style="margin-top: 5px;">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Modelo: </span>
-                                    <select class="form-control" ng-model="car_model" id="car_model"
-                                            ng-options="value.id as value.label for value in modelos">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12" style="margin-top: 5px;">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Tipo Motor: </span>
-                                    <select class="form-control" ng-model="serial_motor" id="serial_motor"
-                                            ng-options="value.id as value.label for value in motors">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12" style="margin-top: 5px;">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Tipo Combustible: </span>
-                                    <select class="form-control" ng-model="serial_fuel" id="serial_fuel"
-                                            ng-options="value.id as value.label for value in fuels">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12" style="margin-top: 5px;">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Tipo Trasnmisión: </span>
-                                    <select class="form-control" ng-model="serial_transmission" id="serial_transmission"
-                                            ng-options="value.id as value.label for value in transmission">
-                                    </select>
-                                </div>
-                            </div>
+                        </div>
 
-                            <!--<div class="col-12" style="margin-top: 5px;">
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-sm-6 col-12">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Tipo: </span>
-                                    <input type="text" class="form-control" ng-model="car_type"/>
+                                    <span class="input-group-addon">Cantidad de Pasajeros: </span>
+                                    <input type="text" class="form-control" id="amountpassengers" name="amountpassengers" ng-model="amountpassengers" required />
+                                </div>
+                                <span class="help-block error" ng-show="formCar.amountpassengers.$invalid && formCar.amountpassengers.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">La Cantidad de Pasajeros es requerido</small>
+                                </span>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Cantidad de Equipajes: </span>
+                                    <input type="text" class="form-control" id="amountluggage" name="amountluggage" ng-model="amountluggage" required />
+                                </div>
+                                <span class="help-block error" ng-show="formCar.amountluggage.$invalid && formCar.amountluggage.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">La Cantidad de Equipajes es requerido</small>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Compañia Seguro: </span>
+                                    <input type="text" class="form-control" ng-model="insurance_company"/>
                                 </div>
                             </div>
-
-                            <div class="col-12" style="margin-top: 5px;">
+                            <div class="col-sm-6 col-12">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Serie Auto: </span>
-                                    <input type="text" class="form-control" ng-model="serial_car"/>
+                                    <span class="input-group-addon">Código Seguro: </span>
+                                    <input type="text" class="form-control" ng-model="secure_code"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 5px;">
+                            <!--<div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Costo Renta: </span>
+                                    <input type="text" class="form-control" ng-model="rent_cost"/>
                                 </div>
                             </div>-->
-                        </div>
-                        <div class="col-sm-6 col-12">
-                            <img ngf-src="file || url_foto" alt="" class="img-thumbnail img-fluid">
-                            <input class="form-control" type="file" ngf-select ng-model="file" name="file" id="file"
-                                   accept="image/*" ngf-max-size="2MB"  ng-required="false" ngf-pattern="image/*">
-                        </div>
-                    </div>
-
-
-
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Propietario: </span>
-                                <input type="text" class="form-control" ng-model="name_owner"/>
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Año: </span>
+                                    <input type="text" class="form-control" ng-model="year"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Costo Adicional: </span>
+                                    <input type="text" class="form-control" ng-model="aditional_cost"/>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Cantidad de Pasajeros: </span>
-                                <input type="text" class="form-control" ng-model="amountpassengers"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Cantidad de Equipajes: </span>
-                                <input type="text" class="form-control" ng-model="amountluggage"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Compañia Seguro: </span>
-                                <input type="text" class="form-control" ng-model="insurance_company"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Código Seguro: </span>
-                                <input type="text" class="form-control" ng-model="secure_code"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 5px;">
-                        <!--<div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Costo Renta: </span>
-                                <input type="text" class="form-control" ng-model="rent_cost"/>
-                            </div>
-                        </div>-->
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Año: </span>
-                                <input type="text" class="form-control" ng-model="year"/>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">Costo Adicional: </span>
-                                <input type="text" class="form-control" ng-model="aditional_cost"/>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" ng-click="saveCar()">
-                        Aceptar <i class="fa fa-check-circle" aria-hidden="true" ></i>
-                    </button>
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
+                    <button type="button" class="btn btn-success" ng-click="saveCar()" ng-disabled="formCar.$invalid">
+                        Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    </button>
+
                 </div>
             </div>
         </div>
