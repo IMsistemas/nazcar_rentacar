@@ -408,6 +408,49 @@
                 </div>
                 <div class="col-sm-6 col-12">
 
+                    <div class="row">
+                        <div class="col-12">
+                            {{title_carmodel}} <br>
+                            {{title_carbrand}}
+                        </div>
+
+                        <div class="col-12">
+                            <img class="img-fluid" src="{{title_carimage}}" alt="" style="max-width: 100%;">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                <div class="col-12 text-center">
+                                    <span style="font-size: 12px; font-weight: bold;">Retiro</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span style="font-size: 24px; font-weight: bold;">{{data_retiro_code}}</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span>{{data_retiro_place}}</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                <div class="col-12 text-center">
+                                    <span style="font-size: 12px; font-weight: bold;">Entrega</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span style="font-size: 24px; font-weight: bold;">{{data_entrega_code}}</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span>{{data_entrega_place}}</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span>{{data_entrega_date}} a las {{data_entrega_hour}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                     <table class="table table-bordered border-left-0 border-right-0 border-bottom-0">
                         <tbody>
                             <tr ng-repeat="item_selectservice in selectServiceList">
@@ -431,7 +474,6 @@
                                 <td class="border-0" style="font-weight: bold;">TOTAL</td>
                                 <td class="border-0 text-right" style="color: darkred; font-weight: bold; font-size: 28px;">$ {{total}}</td>
                             </tr>
-
                         </tbody>
                     </table>
 
@@ -588,9 +630,38 @@
                 </div>
 
 
-                <div class="col-12">
+                <div class="row">
                     <div class="col-sm-6 col-12">
-
+                        <div class="row">
+                            <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                <div class="col-12 text-center">
+                                    <span style="font-size: 12px; font-weight: bold;">Retiro</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span style="font-size: 24px; font-weight: bold;">{{data_retiro_code}}</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span>{{data_retiro_place}}</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                <div class="col-12 text-center">
+                                    <span style="font-size: 12px; font-weight: bold;">Entrega</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span style="font-size: 24px; font-weight: bold;">{{data_entrega_code}}</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span>{{data_entrega_place}}</span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <span>{{data_entrega_date}} a las {{data_entrega_hour}}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-sm-6 col-12">

@@ -66,8 +66,8 @@
                         item_0.price = response.data;
 
                         $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item_0.price);
-                        $scope.iva = (parseFloat($scope.subtotal) * 12) / 100;
-                        $scope.total = parseFloat($scope.subtotal) + parseFloat($scope.iva);
+                        $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+                        $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
 
                         $scope.selectServiceList.push(item_0);
 
@@ -78,8 +78,8 @@
                     item_0.price = $scope.carSelected.price;
 
                     $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item_0.price);
-                    $scope.iva = (parseFloat($scope.subtotal) * 12) / 100;
-                    $scope.total = parseFloat($scope.subtotal) + parseFloat($scope.iva);
+                    $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+                    $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
 
                     $scope.selectServiceList.push(item_0);
 
@@ -224,9 +224,8 @@
 
             $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item.price);
 
-            $scope.iva = (parseFloat($scope.subtotal) * 12) / 100;
-
-            $scope.total = parseFloat($scope.subtotal) + parseFloat($scope.iva);
+            $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+            $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
 
             $scope.selectServiceList.push(item);
         };
