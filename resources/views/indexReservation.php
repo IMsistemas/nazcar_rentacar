@@ -31,6 +31,8 @@
             background-color:#6c757d;
         }
 
+        input.colours { background: #bdbdbd; }
+
     </style>
 
 
@@ -195,10 +197,12 @@
             </div>
         </div>
 
+        <!-- FORMULARIO RESERVA PASO 2 -->
+
         <div class="container" ng-show="reserva_1 == 2">
 
             <div class="row">
-                <div class="col-3" style="color: red !important;">
+                <div class="col-3" style="color: darkred !important;">
                     1. Seleccionar
                     <hr>
                 </div>
@@ -300,6 +304,8 @@
 
         </div>
 
+        <!-- FORMULARIO RESERVA PASO 3 -->
+
         <div class="container" ng-show="reserva_1 == 3">
 
             <div class="row">
@@ -307,7 +313,7 @@
                     1. Seleccionar
                     <hr>
                 </div>
-                <div class="col-3" style="color: red !important;">
+                <div class="col-3" style="color: darkred !important;">
                     2. Servicios
                     <hr>
                 </div>
@@ -327,7 +333,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="color: red !important;">SERVICIOS ADICIONALES</th>
+                                <th style="color: darkred !important;">SERVICIOS ADICIONALES</th>
                                 <th style="width: 15% !important;"></th>
                                 <th style="width: 1% !important;"></th>
                             </tr>
@@ -351,7 +357,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="color: red !important;">OTROS SERVICIOS</th>
+                                <th style="color: darkred !important;">OTROS SERVICIOS</th>
                                 <th style="width: 15% !important;"></th>
                                 <th style="width: 1% !important;"></th>
                             </tr>
@@ -387,16 +393,317 @@
                         <tbody>
                             <tr>
                                 <td class="border-0" style="font-weight: bold;">SUBTOTAL</td>
-                                <td class="border-0 text-right" style="color: red;">$ {{subtotal}}</td>
+                                <td class="border-0 text-right" style="color: darkred;">$ {{subtotal}}</td>
                             </tr>
                             <tr>
                                 <td class="border-0" style="font-weight: bold;">IVA</td>
-                                <td class="border-0 text-right" style="color: red;">$ {{iva}}</td>
+                                <td class="border-0 text-right" style="color: darkred;">$ {{iva}}</td>
                             </tr>
                             <tr>
                                 <td class="border-0" style="font-weight: bold;">TOTAL</td>
-                                <td class="border-0 text-right" style="color: red; font-weight: bold; font-size: 28px;">$ {{total}}</td>
+                                <td class="border-0 text-right" style="color: darkred; font-weight: bold; font-size: 28px;">$ {{total}}</td>
                             </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div class="col-12 text-right">
+                        <button type="button" class="btn btn-outline-dark" ng-click="showModal(2)" style="font-size: 12px !important; ">
+                            Regresar
+                        </button>
+
+                        <button type="button" class="btn btn-danger" ng-click="showModal(4)" style="font-size: 12px !important; ">
+                            CONTINUAR
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- FORMULARIO RESERVA PASO 4 -->
+
+        <div class="container" ng-show="reserva_1 == 4">
+
+            <div class="row">
+                <div class="col-3">
+                    1. Seleccionar
+                    <hr>
+                </div>
+                <div class="col-3">
+                    2. Servicios
+                    <hr>
+                </div>
+                <div class="col-3" style="color: darkred !important;">
+                    3. Datos Personales
+                    <hr>
+                </div>
+                <div class="col-3">
+                    4. Datos de Pagos
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
+
+                <div class="col-12">
+
+                    <div class="col-12">
+                        <form>
+
+                            <div class="form-group row">
+                                <label for="docident" class="col-sm-3 col-form-label">Tipo de Documento *</label>
+                                <div class="col-sm-9">
+                                    <label class="custom-control custom-radio">
+                                        <input id="radio1" name="radio" type="radio" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Cedula</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input id="radio2" name="radio" type="radio" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Pasaporte</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="docident" class="col-sm-3 col-form-label">Documento de Identidad *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control colours" id="docident" placeholder="Cedula / Pasaporte">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="names" class="col-sm-3 col-form-label">Nombre(s) *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control colours" id="names" placeholder="Nombre(s)">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="lastnames" class="col-sm-3 col-form-label">Apellidos *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control colours" id="lastnames" placeholder="Apellidos">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label">Correo *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control colours" id="email" placeholder="Correo">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label for="lastnames" class="col-sm-3 col-form-label"></label>
+                                <div class="col-sm-9">
+                                    <div class="col-12" style="padding: 0;">
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input">
+                                            <span class="custom-control-indicator"></span>
+                                            <span class="custom-control-description">Deseo recibir promociones en mi mail</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-12" style="padding: 0;">
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input">
+                                            <span class="custom-control-indicator"></span>
+                                            <span class="custom-control-description">* Acepto ser mayor de edad y poseer licencia de conducir</span>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="pais" class="col-sm-3 col-form-label">Pais *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control colours" id="pais" placeholder="Pais">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="city" class="col-sm-3 col-form-label">Ciudad *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control colours" id="city" placeholder="Ciudad">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="phone" class="col-sm-3 col-form-label">Telefono *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control colours" id="phone" placeholder="Telefono">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="lastnames" class="col-sm-3 col-form-label"></label>
+                                <div class="col-sm-9">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description"> * Acepto Terminos y Condiciones</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="col-12">
+                    <div class="col-sm-6 col-12">
+
+                    </div>
+
+                    <div class="col-sm-6 col-12">
+
+                        <table class="table table-bordered border-left-0 border-right-0 border-bottom-0">
+                            <tbody>
+                            <tr ng-repeat="item_selectservice in selectServiceList">
+                                <td class="border-0" style="font-weight: bold; text-transform: uppercase;">{{item_selectservice.service}}</td>
+                                <td class="border-0 text-right" style="width: 15% !important;">$ {{item_selectservice.price}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table table-bordered border-left-0 border-right-0">
+                            <tbody>
+                            <tr>
+                                <td class="border-0" style="font-weight: bold;">SUBTOTAL</td>
+                                <td class="border-0 text-right" style="color: darkred;">$ {{subtotal}}</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0" style="font-weight: bold;">IVA</td>
+                                <td class="border-0 text-right" style="color: darkred;">$ {{iva}}</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0" style="font-weight: bold;">TOTAL</td>
+                                <td class="border-0 text-right" style="color: darkred; font-weight: bold; font-size: 28px;">$ {{total}}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                        <div class="col-12 text-right">
+                            <button type="button" class="btn btn-outline-dark" ng-click="showModal(3)" style="font-size: 12px !important; ">
+                                Regresar
+                            </button>
+
+                            <button type="button" class="btn btn-danger" ng-click="showModal(5)" style="font-size: 12px !important; ">
+                                PROCESAR
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+
+        <!-- FORMULARIO RESERVA PASO 5 -->
+
+        <div class="container" ng-show="reserva_1 == 5">
+
+            <div class="row">
+                <div class="col-3">
+                    1. Seleccionar
+                    <hr>
+                </div>
+                <div class="col-3">
+                    2. Servicios
+                    <hr>
+                </div>
+                <div class="col-3">
+                    3. Datos Personales
+                    <hr>
+                </div>
+                <div class="col-3" style="color: darkred !important;">
+                    4. Datos de Pagos
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
+
+                <div class="col-sm-6 col-12">
+                    <table class="table table-bordered border-left-0 border-right-0 border-top-0  border-bottom-0 table-sm">
+                        <tbody>
+                        <tr>
+                            <th class="border-0" scope="row">Nombre</th>
+                            <td class="border-0">{{name_client}}</td>
+                        </tr>
+                        <tr>
+                            <th class="border-0" scope="row">Apellidos</th>
+                            <td class="border-0">{{lastname_client}}</td>
+                        </tr>
+                        <tr>
+                            <th class="border-0" scope="row">Correo</th>
+                            <td class="border-0">{{correo_client}}</td>
+                        </tr>
+                        <tr>
+                            <th class="border-0" scope="row">Agencia Retiro</th>
+                            <td class="border-0">{{agencia_retiro}}</td>
+                        </tr>
+                        <tr>
+                            <th class="border-0" scope="row">Agencia Entrega</th>
+                            <td class="border-0">{{agencia_entrega}}</td>
+                        </tr>
+                        <tr>
+                            <th class="border-0" scope="row">Fecha Retiro</th>
+                            <td class="border-0">{{fecha_client_retiro}}</td>
+                        </tr>
+                        <tr>
+                            <th class="border-0" scope="row">Fecha Devolucion</th>
+                            <td class="border-0">{{fecha_client_devolucion}}</td>
+                        </tr>
+                        <tr>
+                            <th class="border-0" scope="row">Renta por</th>
+                            <td class="border-0">{{rent_por}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-sm-6 col-12">
+
+                    <table class="table table-bordered border-left-0 border-right-0 border-bottom-0">
+                        <tbody>
+                        <tr ng-repeat="item_selectservice in selectServiceList">
+                            <td class="border-0" style="font-weight: bold; text-transform: uppercase;">{{item_selectservice.service}}</td>
+                            <td class="border-0 text-right" style="width: 15% !important;">$ {{item_selectservice.price}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered border-left-0 border-right-0">
+                        <tbody>
+                        <tr>
+                            <td class="border-0" style="font-weight: bold;">SUBTOTAL</td>
+                            <td class="border-0 text-right" style="color: darkred;">$ {{subtotal}}</td>
+                        </tr>
+                        <tr>
+                            <td class="border-0" style="font-weight: bold;">IVA</td>
+                            <td class="border-0 text-right" style="color: darkred;">$ {{iva}}</td>
+                        </tr>
+                        <tr>
+                            <td class="border-0" style="font-weight: bold;">TOTAL</td>
+                            <td class="border-0 text-right" style="color: darkred; font-weight: bold; font-size: 28px;">$ {{total}}</td>
+                        </tr>
 
                         </tbody>
                     </table>
@@ -405,395 +712,82 @@
 
             </div>
 
+            <div class="row">
+                <div class="col-sm-6 col-12">
 
-        </div>
+                </div>
+                <div class="col-sm-6 col-12">
 
-
-
-
-        <!-- FORMULARIO RESERVA PASO 2 -->
-
-        <div class="card" style="width: 35%;" ng-show="reserva_1 == 5">
-            <div class="card-body">
-
-                <h4 class="card-title text-center">Haz tu Reserva</h4>
-
-                <form class="form-horizontal" name="formReserva_2" novalidate="">
-
-                    <div class="col-12" style="margin-top: 30px !important;">
-                        <select class="form-control" name="lugar_retiro" id="lugar_retiro" ng-model="lugar_retiro"
-                                ng-options="value.id as value.label for value in placelist" required></select>
-                        <span class="help-block error" ng-show="formReserva_2.lugar_retiro.$invalid && formReserva_2.lugar_retiro.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">El Lugar de Retiro es requerido</small>
-                        </span>
+                    <div class="col-12" style="font-size: 10px; color: #6c757d;">
+                        <p>
+                            *Si la devolución del vehículo se la hace en una ciudad diferente a la de retiro, su factura tendrá un recargo adicional.
+                        </p>
+                        <p>
+                            *Si retira o devuelve un vehículo en el aeropuerto Guayaquil se le cobrará un valor de 2.24 incluido impuestos por Fee Aeropuerto.
+                        </p>
+                        <p>
+                            *Si retira un vehículo en el aeropuerto de Quito se le cobrará un valor del 8% adicional sobre el subtotal de los valores contratados por Fee Aeropuerto
+                        </p>
+                        <p>
+                            *Esto es una Pre-Reserva, AVIS se comunicara con usted para confirmarla.
+                        </p>
                     </div>
 
-                    <div class="col-12" style="margin-top: 3px;">
-                        <input type="datetime-local" class="form-control" name="fecha_retiro" id="fecha_retiro" ng-model="fecha_retiro" placeholder="Fecha y Hora para el Retiro *" required />
-                        <span class="help-block error" ng-show="formReserva_2.fecha_retiro.$invalid && formReserva_2.fecha_retiro.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">La Fecha y Hora de Retiro es requerido</small>
-                        </span>
+                    <div class="col-12" style="background-color: darkred; padding-top: 3%; padding-bottom: 3%;">
+                        <form>
+
+                            <div class="col-12" style="margin-top: 20px;">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" style="color: #FFF; font-weight: bold;">Realice el pago para poder completar su reserva</label>
+                                    <input type="text" class="form-control colours" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control colours" id="numtarjeta" placeholder="Numero de Tarjeta">
+                            </div>
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control colours" placeholder="MM / AA">
+                                    <input type="text" class="form-control colours" placeholder="CVC">
+                                </div>
+                            </div>
+                            <div class="col-12" style="margin-top: 15px;">
+                                <button type="button" class="btn btn-light btn-lg btn-block" style="color: darkred; font-weight: bold;">
+                                    PAGAR $ {{total}}
+                                </button>
+                            </div>
+
+                            <div class="col-12" style="margin-top: 25px;">
+                                <p style="color: #FFF; font-size: 12px;">
+                                    This payment is being securely processed by Kushki, a Level 1 PCI payment provider. Learn
+                                </p>
+                            </div>
+
+                        </form>
                     </div>
 
                     <div class="col-12" style="margin-top: 5px;">
-                        <!--<div class="form-check form-check-inline">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Mismo Lugar de Entrega
-                            </label>
-                        </div>-->
-
-                        <label class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description">Mismo Lugar de Entrega</span>
-                        </label>
+                        <p style="color: #014c8c; font-size: 20px;">
+                            ¿Tienes alguna pregunta?
+                        </p>
                     </div>
-
-                    <div class="col-12" style="margin-top: 3px;">
-                        <select class="form-control" name="lugar_entrega" id="lugar_entrega" ng-model="lugar_entrega"
-                                ng-options="value.id as value.label for value in placelist" required></select>
-                        <span class="help-block error" ng-show="formReserva_2.lugar_entrega.$invalid && formReserva_2.lugar_entrega.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">El Lugar de Entrega es requerido</small>
-                        </span>
+                    <div class="col-12">
+                        <p style="color: #014c8c; font-size: 20px;">
+                            Comunícate con nosotros al
+                        </p>
                     </div>
-
-                    <div class="col-12" style="margin-top: 3px;">
-                        <input class="form-control datepicker" name="fecha_entrega" id="fecha_entrega" ng-model="fecha_entrega" placeholder="Fecha y Hora para la Entrega *" required />
-                        <span class="help-block error" ng-show="formReserva_2.fecha_entrega.$invalid && formReserva_2.fecha_entrega.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">La Fecha y Hora de Entrega es requerido</small>
-                        </span>
-                    </div>
-
-
-
-                </form>
-
-                <div class="col-12 text-center" style="margin-top: 10px;" ng-disabled="formReserva_2.$invalid">
-                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(1)">ANTERIOR</button>
-                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(3)">SIGUIENTE</button>
-                </div>
-
-                <div class="col-12" style="margin-top: 3px;">
-
-                    <div class="row">
-                        <div class="col-4">
-                            <!--Resetear -->
-                        </div>
-                        <div class="col-8 text-right">
-                            <small id="emailHelp" class="form-text text-muted">Los campos con * son obligatorios.</small>
-                        </div>
+                    <div class="col-12">
+                        <p style="color: darkred; font-size: 20px;">
+                            1800 - NAZCAR
+                        </p>
                     </div>
 
                 </div>
-
             </div>
+
+
         </div>
 
-        <!-- FORMULARIO RESERVA PASO 3 -->
-
-        <div class="card" style="width: 45%;" ng-show="reserva_1 == 6">
-            <div class="card-body">
-
-                <h4 class="card-title text-center">Haz tu Reserva</h4>
-
-                <form class="form-horizontal" name="formReserva_3" novalidate="">
-
-                    <div class="col-12" style="margin-top: 30px !important;">
-                        <table class="table table-sm">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>RETIRO</th>
-                                <th>RETORNO</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">FECHA</th>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">HORA</th>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">LUGAR</th>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="col-12" style="margin-top: 10px">
-                        <h4>
-                            Reserva de vehiculo
-                        </h4>
-                    </div>
-
-                    <div class="row" style="margin-top: 10px">
-                        <div class="col-12 col-sm-4" style="margin-top: 10px">
-                            <div class="card rounded">
-                                <img class="card-img-top" src="http://www.toyota.com.ec/gt86/web/css/images/auto-home.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span class="badge badge-dark">Categoria</span>
-                                    <p class="card-text">
-                                        Costo:
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-4" style="margin-top: 10px">
-                            <div class="card rounded">
-                                <img class="card-img-top" src="http://www.toyota.com.ec/gt86/web/css/images/auto-home.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span class="badge badge-dark">Categoria</span>
-                                    <p class="card-text">
-                                        Costo:
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-4" style="margin-top: 10px">
-                            <div class="card rounded">
-                                <img class="card-img-top" src="http://www.toyota.com.ec/gt86/web/css/images/auto-home.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span class="badge badge-dark">Categoria</span>
-                                    <p class="card-text">
-                                        Costo:
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-4" style="margin-top: 10px">
-                            <div class="card rounded">
-                                <img class="card-img-top" src="http://www.toyota.com.ec/gt86/web/css/images/auto-home.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span class="badge badge-dark">Categoria</span>
-                                    <p class="card-text">
-                                        Costo:
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-4" style="margin-top: 10px">
-                            <div class="card rounded">
-                                <img class="card-img-top" src="http://www.toyota.com.ec/gt86/web/css/images/auto-home.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span class="badge badge-dark">Categoria</span>
-                                    <p class="card-text">
-                                        Costo:
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-4" style="margin-top: 10px">
-                            <div class="card rounded">
-                                <img class="card-img-top" src="http://www.toyota.com.ec/gt86/web/css/images/auto-home.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span class="badge badge-dark">Categoria</span>
-                                    <p class="card-text">
-                                        Costo:
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </form>
-
-                <div class="col-12 text-center" style="margin-top: 10px;" ng-disabled="formReserva_3.$invalid">
-                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(2)">ANTERIOR</button>
-                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(4)">SIGUIENTE</button>
-                </div>
-
-                <div class="col-12" style="margin-top: 3px;">
-
-                    <div class="row">
-                        <div class="col-4">
-                            <!--Resetear -->
-                        </div>
-                        <div class="col-8 text-right">
-                            <small id="emailHelp" class="form-text text-muted">Los campos con * son obligatorios.</small>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-        <!-- FORMULARIO RESERVA PASO 4 -->
-
-        <div class="card" style="width: 45%;" ng-show="reserva_1 == 4">
-            <div class="card-body">
-
-                <h4 class="card-title text-center">Haz tu Reserva</h4>
-
-                <form class="form-horizontal" name="formReserva_3" novalidate="">
-
-                    <div class="col-12" style="margin-top: 30px !important;">
-                        <table class="table table-sm">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>RETIRO</th>
-                                <th>RETORNO</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">FECHA</th>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">HORA</th>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">LUGAR</th>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="col-12" style="margin-top: 5px">
-                        <div class="card border-0">
-                            <div class="card-body">
-                                <h4>
-                                    Nombre del vehiculo
-                                </h4>
-                            </div>
-                            <img class="card-img-bottom" src="http://www.toyota.com.ec/gt86/web/css/images/auto-home.png" alt="Card image cap">
-                        </div>
-                    </div>
-
-                    <div class="col-12" style="margin-top: 5px">
-                        <h4>
-                            Servicios Adicionales
-                        </h4>
-                    </div>
-
-                    <div class="col-12" style="margin-top: 5px;">
-
-                        <table class="table table-sm">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
-                                    </label>
-                                </td>
-                                <td style="width: 89% !important;">Protección y cobertura 1 daño a terceros</td>
-                                <td style="width: 10% !important;"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
-                                    </label>
-                                </td>
-                                <td>Protección y cobertura 2 PAI</td>
-                                <td></td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-
-                    <div class="col-12" style="margin-top: 5px">
-                        <h4>
-                            Otros Servicios
-                        </h4>
-                    </div>
-
-                    <div class="col-12" style="margin-top: 5px;">
-
-                        <table class="table table-sm">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
-                                        </label>
-                                    </td>
-                                    <td style="width: 89% !important;">Asiento(s) de Bebe</td>
-                                    <td style="width: 15% !important;"></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
-                                        </label>
-                                    </td>
-                                    <td>Conductor Autorizado</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
-                                        </label>
-                                    </td>
-                                    <td>GPS</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <!--<span class="custom-control-description">Mismo Lugar de Entrega</span>-->
-                                        </label>
-                                    </td>
-                                    <td>Servicio de Chofer</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-
-                </form>
-
-                <div class="col-12 text-center" style="margin-top: 10px;" ng-disabled="formReserva_3.$invalid">
-                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(3)">ANTERIOR</button>
-                    <button type="button" class="btn btn-danger btn-lg" ng-click="showModal(4)">PROCESAR</button>
-                </div>
-
-                <div class="col-12" style="margin-top: 3px;">
-
-                    <div class="row">
-                        <div class="col-4">
-                            <!--Resetear -->
-                        </div>
-                        <div class="col-8 text-right">
-                            <small id="emailHelp" class="form-text text-muted">Los campos con * son obligatorios.</small>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
 
 
 
