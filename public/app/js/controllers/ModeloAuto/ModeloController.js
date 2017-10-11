@@ -104,6 +104,7 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
         $scope.aux_nameprecio = item.price;
         $scope.aux_namegarantia = item.guarantee;
     	$scope.aux_modelo=item;
+        console.log(item)
     	showModal('modalMessagePrimaryEdit');
 
     };
@@ -115,7 +116,15 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
             $scope.aux_modelo.price = $scope.aux_nameprecio;
             $scope.aux_modelo.guarantee = $scope.aux_namegarantia;
     		$scope.aux_btn_modeloe="2";
-    		$http.put(API_URL+'Modelo/'+$scope.aux_modelo.idcarmodel,$scope.aux_modelo)
+            var modelo={
+                'idcarmodel': $scope.aux_modelo.idcarmodel,
+                'namecarmodel': $scope.aux_modelo.namecarmodel,
+                'price': $scope.aux_modelo.price,
+                'guarantee':$scope.aux_modelo.guarantee,
+                'state': $scope.aux_modelo.state,
+                'idcarbrand':$scope.aux_modelo.idcarbrand
+            };
+    		$http.put(API_URL+'Modelo/'+$scope.aux_modelo.idcarmodel,modelo)
 	        .then(function (response) {
 	        	if(response.data=="true"){
 	        		$("#modalMessagePrimaryEdit").modal("hide");
