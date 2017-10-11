@@ -275,6 +275,53 @@
 
         };
 
+        $scope.save = function () {
+
+            var data = {
+
+                nameperson: $scope.names,
+                lastnameperson: $scope.lastnames,
+                identifyperson: $scope.docident,
+                emailperson: $scope.email,
+                numphoneperson: $scope.phone,
+
+                idcar: $scope.carSelected.idcar,
+                startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
+                enddatetime: $scope.fecha_entrega + ' ' + $scope.hora_entrega,
+                totalcost: $scope.total
+
+            };
+
+            http.post(API_URL + 'reservation', data).then(function(response) {
+
+                $('#modalAction').modal('hide');
+
+                if (response.data.success === true) {
+
+                    $scope.message_success = 'La Reserva se ha agregado satisfactoriamente...';
+                    $('#modalSuccess').modal('show');
+
+                    $scope.reserva_1 = 1;
+
+                } else {
+
+                    $scope.message_error = 'Ha ocurrido un error al intentar agregar una Reserva...';
+                    $('#modalError').modal('show');
+
+                }
+
+            }).catch(function(data, status) {
+
+                console.error('Gists error', response.status, response.data);
+
+            }).finally(function() {
+
+                //console.log("finally finished gists");
+
+            });
+
+        };
+
         $scope.getlistEdad();
         $scope.getPlaces();
         $scope.getCategories();

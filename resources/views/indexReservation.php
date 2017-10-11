@@ -182,8 +182,9 @@
                     </div>-->
                 </form>
 
-                <div class="col-12" style="margin-top: 10px;" ng-disabled="formReserva_1.$invalid">
-                    <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="showModal(2)">RESERVAR</button>
+                <div class="col-12" style="margin-top: 10px;">
+                    <button type="button" class="btn btn-danger btn-lg btn-block"
+                            ng-click="showModal(2)" ng-disabled="formReserva_1.$invalid">RESERVAR</button>
                 </div>
 
                 <div class="col-12" style="margin-top: 3px;">
@@ -418,33 +419,35 @@
                             <img class="img-fluid" src="{{title_carimage}}" alt="" style="max-width: 100%;">
                         </div>
 
-                        <div class="row">
-                            <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
-                                <div class="col-12 text-center">
-                                    <span style="font-size: 12px; font-weight: bold;">Retiro</span>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                    <div class="col-12 text-center">
+                                        <span style="font-size: 12px; font-weight: bold;">Retiro</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span style="font-size: 24px; font-weight: bold;">{{data_retiro_code}}</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span>{{data_retiro_place}}</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
+                                    </div>
                                 </div>
-                                <div class="col-12 text-center">
-                                    <span style="font-size: 24px; font-weight: bold;">{{data_retiro_code}}</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span>{{data_retiro_place}}</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
-                                <div class="col-12 text-center">
-                                    <span style="font-size: 12px; font-weight: bold;">Entrega</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span style="font-size: 24px; font-weight: bold;">{{data_entrega_code}}</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span>{{data_entrega_place}}</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span>{{data_entrega_date}} a las {{data_entrega_hour}}</span>
+                                <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                    <div class="col-12 text-center">
+                                        <span style="font-size: 12px; font-weight: bold;">Entrega</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span style="font-size: 24px; font-weight: bold;">{{data_entrega_code}}</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span>{{data_entrega_place}}</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span>{{data_entrega_date}} a las {{data_entrega_hour}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -455,7 +458,7 @@
                         <tbody>
                             <tr ng-repeat="item_selectservice in selectServiceList">
                                 <td class="border-0" style="font-weight: bold; text-transform: uppercase;">{{item_selectservice.service}}</td>
-                                <td class="border-0 text-right" style="width: 15% !important;">$ {{item_selectservice.price}}</td>
+                                <td class="border-0 text-right" style="width: 20% !important;">$ {{item_selectservice.price}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -530,7 +533,7 @@
                                     <label class="custom-control custom-radio">
                                         <input id="radio1" name="radio" type="radio" class="custom-control-input">
                                         <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Cedula</span>
+                                        <span class="custom-control-description">Cédula</span>
                                     </label>
                                     <label class="custom-control custom-radio">
                                         <input id="radio2" name="radio" type="radio" class="custom-control-input">
@@ -543,28 +546,28 @@
                             <div class="form-group row">
                                 <label for="docident" class="col-sm-3 col-form-label">Documento de Identidad *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="docident" placeholder="Cedula / Pasaporte">
+                                    <input type="text" class="form-control colours" id="docident" ng-model="docident" placeholder="Cédula / Pasaporte">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="names" class="col-sm-3 col-form-label">Nombre(s) *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="names" placeholder="Nombre(s)">
+                                    <input type="text" class="form-control colours" id="names" ng-model="names" placeholder="Nombre(s)">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="lastnames" class="col-sm-3 col-form-label">Apellidos *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="lastnames" placeholder="Apellidos">
+                                    <input type="text" class="form-control colours" id="lastnames" ng-model="lastnames" placeholder="Apellidos">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="email" class="col-sm-3 col-form-label">Correo *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="email" placeholder="Correo">
+                                    <input type="text" class="form-control colours" id="email" ng-model="email" placeholder="Correo">
                                 </div>
                             </div>
 
@@ -595,21 +598,21 @@
                             <div class="form-group row">
                                 <label for="pais" class="col-sm-3 col-form-label">Pais *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="pais" placeholder="Pais">
+                                    <input type="text" class="form-control colours" id="pais" ng-model="pais" placeholder="Pais">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="city" class="col-sm-3 col-form-label">Ciudad *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="city" placeholder="Ciudad">
+                                    <input type="text" class="form-control colours" id="city" ng-model="city" placeholder="Ciudad">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="phone" class="col-sm-3 col-form-label">Telefono *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="phone" placeholder="Telefono">
+                                    <input type="text" class="form-control colours" id="phone" ng-model="phone" placeholder="Telefono">
                                 </div>
                             </div>
 
@@ -670,7 +673,7 @@
                             <tbody>
                             <tr ng-repeat="item_selectservice in selectServiceList">
                                 <td class="border-0" style="font-weight: bold; text-transform: uppercase;">{{item_selectservice.service}}</td>
-                                <td class="border-0 text-right" style="width: 15% !important;">$ {{item_selectservice.price}}</td>
+                                <td class="border-0 text-right" style="width: 25% !important;">$ {{item_selectservice.price}}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -744,35 +747,35 @@
                         <tbody>
                         <tr>
                             <th class="border-0" scope="row">Nombre</th>
-                            <td class="border-0">{{name_client}}</td>
+                            <td class="border-0">{{names}}</td>
                         </tr>
                         <tr>
                             <th class="border-0" scope="row">Apellidos</th>
-                            <td class="border-0">{{lastname_client}}</td>
+                            <td class="border-0">{{lastnames}}</td>
                         </tr>
                         <tr>
                             <th class="border-0" scope="row">Correo</th>
-                            <td class="border-0">{{correo_client}}</td>
+                            <td class="border-0">{{email}}</td>
                         </tr>
                         <tr>
                             <th class="border-0" scope="row">Agencia Retiro</th>
-                            <td class="border-0">{{agencia_retiro}}</td>
+                            <td class="border-0">{{data_retiro_place}}</td>
                         </tr>
                         <tr>
                             <th class="border-0" scope="row">Agencia Entrega</th>
-                            <td class="border-0">{{agencia_entrega}}</td>
+                            <td class="border-0">{{data_entrega_place}}</td>
                         </tr>
                         <tr>
                             <th class="border-0" scope="row">Fecha Retiro</th>
-                            <td class="border-0">{{fecha_client_retiro}}</td>
+                            <td class="border-0">{{data_retiro_date}} - {{data_retiro_hour}}</td>
                         </tr>
                         <tr>
-                            <th class="border-0" scope="row">Fecha Devolucion</th>
-                            <td class="border-0">{{fecha_client_devolucion}}</td>
+                            <th class="border-0" scope="row">Fecha Devolución</th>
+                            <td class="border-0">{{data_entrega_date}} - {{data_entrega_hour}}</td>
                         </tr>
                         <tr>
                             <th class="border-0" scope="row">Renta por</th>
-                            <td class="border-0">{{rent_por}}</td>
+                            <td class="border-0">{{rest_day}} días</td>
                         </tr>
                         </tbody>
                     </table>
@@ -784,7 +787,7 @@
                         <tbody>
                         <tr ng-repeat="item_selectservice in selectServiceList">
                             <td class="border-0" style="font-weight: bold; text-transform: uppercase;">{{item_selectservice.service}}</td>
-                            <td class="border-0 text-right" style="width: 15% !important;">$ {{item_selectservice.price}}</td>
+                            <td class="border-0 text-right" style="width: 25% !important;">$ {{item_selectservice.price}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -851,7 +854,8 @@
                                 </div>
                             </div>
                             <div class="col-12" style="margin-top: 15px;">
-                                <button type="button" class="btn btn-light btn-lg btn-block" style="color: darkred; font-weight: bold;">
+                                <button type="button" class="btn btn-light btn-lg btn-block" style="color: darkred; font-weight: bold;"
+                                    ng-click="save()">
                                     PAGAR $ {{total}}
                                 </button>
                             </div>
@@ -886,9 +890,6 @@
 
 
         </div>
-
-
-
 
 
 
