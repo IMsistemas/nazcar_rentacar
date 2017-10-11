@@ -17,6 +17,20 @@
 
         $scope.reserva_1 = 1;
 
+        $scope.getlistEdad = function () {
+
+            var arrayList = [{label: 'Seleccionar Edad', id: ''}];
+
+            for (var i = 18; i <= 65; i++) {
+                arrayList.push({label: i, id: i});
+            }
+
+
+            $scope.listEdad = arrayList;
+            $scope.edad = '';
+
+        };
+
         $scope.showModal = function (step) {
 
             $scope.reserva_1 = step;
@@ -157,6 +171,7 @@
             $scope.selectServiceList.push(item);
         };
 
+        $scope.getlistEdad();
         $scope.getPlaces();
         $scope.getCategories();
         $scope.getCar();

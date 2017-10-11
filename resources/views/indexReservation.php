@@ -31,7 +31,9 @@
             background-color:#6c757d;
         }
 
-        input.colours { background: #bdbdbd; }
+        input.colours { background: #eeeeee; }
+
+        select.colours { background: #eeeeee; }
 
     </style>
 
@@ -66,7 +68,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="input-group">
-                                    <input class="form-control datepickerA" name="fecha_retiro" id="fecha_retiro" ng-model="fecha_retiro" placeholder="Día" required />
+                                    <input class="form-control datepickerA colours" name="fecha_retiro" id="fecha_retiro" ng-model="fecha_retiro" placeholder="Día" required />
                                     <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                 </div>
                                 <span class="help-block error" ng-show="formReserva_1.fecha_retiro.$invalid && formReserva_1.fecha_retiro.$touched">
@@ -75,7 +77,7 @@
                             </div>
 
                             <div class="col-6">
-                                <input type="time" class="form-control" name="hora_retiro" id="hora_retiro" ng-model="hora_retiro" placeholder="Hora" required />
+                                <input type="time" class="form-control colours" name="hora_retiro" id="hora_retiro" ng-model="hora_retiro" placeholder="Hora" required />
                                 <span class="help-block error" ng-show="formReserva_1.hora_retiro.$invalid && formReserva_1.hora_retiro.$touched">
                                 <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
                             </span>
@@ -101,7 +103,7 @@
                             <div class="col-6">
 
                                 <div class="input-group">
-                                    <input class="form-control datepickerA" name="fecha_entrega" id="fecha_entrega" ng-model="fecha_entrega" placeholder="Día" required />
+                                    <input class="form-control datepickerA colours" name="fecha_entrega" id="fecha_entrega" ng-model="fecha_entrega" placeholder="Día" required />
                                     <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                 </div>
                                 <span class="help-block error" ng-show="formReserva_1.fecha_entrega.$invalid && formReserva_1.fecha_entrega.$touched">
@@ -109,7 +111,7 @@
                             </span>
                             </div>
                             <div class="col-6">
-                                <input type="time" class="form-control" name="hora_entrega" id="hora_entrega" ng-model="hora_entrega" placeholder="Hora" required />
+                                <input type="time" class="form-control colours" name="hora_entrega" id="hora_entrega" ng-model="hora_entrega" placeholder="Hora" required />
                                 <span class="help-block error" ng-show="formReserva_1.hora_entrega.$invalid && formReserva_1.hora_entrega.$touched">
                                 <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
                             </span>
@@ -123,9 +125,8 @@
                         <div class="form-group row">
                             <label for="edad" class="col-sm-4 col-form-label">EDAD: *</label>
                             <div class="col-sm-8">
-                                <select name="edad" id="edad" class="form-control">
-                                    <option value="">Seleccione edad</option>
-                                </select>
+                                <select class="form-control" name="edad" id="edad" ng-model="edad"
+                                        ng-options="value.id as value.label for value in listEdad" required></select>
                                 <span class="help-block error" ng-show="formReserva_1.edad.$invalid && formReserva_1.edad.$touched">
                                     <small id="emailHelp" class="form-text text-danger text-right">El Nombre es requerido</small>
                                 </span>
