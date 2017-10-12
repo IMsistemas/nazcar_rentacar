@@ -94,9 +94,16 @@
                 <a class="nav-link" href="#place">Sedes</a>
             </li>-->
         </ul>
-        <span class="navbar-text">
-
-    </span>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Opciones</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#user">Usuarios</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#exit">Salir</a>
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>
 
