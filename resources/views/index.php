@@ -49,7 +49,24 @@
             <li class="nav-item">
                 <a class="nav-link" href="#client">Clientes</a>
             </li>
-            <li class="nav-item">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Datos Iniciales</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#Marca">Marcas</a>
+                    <a class="dropdown-item" href="#Modelo">Modelos</a>
+                    <a class="dropdown-item" href="#transmission">Transmisión</a>
+                    <a class="dropdown-item" href="#fuel">Combustible</a>
+                    <a class="dropdown-item" href="#motor">Motor</a>
+                    <a class="dropdown-item" href="#car">Vehículos</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#service">Servicios</a>
+                    <a class="dropdown-item" href="#typetime">Tipo Tiempo</a>
+                    <a class="dropdown-item" href="#place">Sedes</a>
+                </div>
+            </li>
+
+            <!--<li class="nav-item">
                 <a class="nav-link" href="#car">Vehiculos</a>
             </li>
             <li class="nav-item">
@@ -75,7 +92,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#place">Sedes</a>
-            </li>
+            </li>-->
         </ul>
         <span class="navbar-text">
 
