@@ -65,6 +65,10 @@ app.config(function($routeProvider){
             templateUrl : URL + 'typetime',
             controller: 'typeTimeController'
         })
+        .when('/place',{
+            templateUrl : URL + 'place',
+            controller: 'placeController'
+        })
         .otherwise({
             template : ''
             //controller : 'indexController'
