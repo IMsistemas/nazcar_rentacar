@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" ng-app="reservationApp">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -31,18 +32,34 @@
             background-color:#6c757d;
         }
 
+        hr.estilo {
+            height: 3px;
+            border: 0;
+            background-color: darkred;
+        }
+
         input.colours { background: #eeeeee; }
 
         select.colours { background: #eeeeee; }
+
+        .btn_menu {
+            /*margin-right: 5px;*/
+            width: 100% !important;
+            height: 70px;
+            font-size: 11px;
+            font-weight: bold;
+            word-wrap: break-word !important;
+        }
 
     </style>
 
 
 </head>
+
 <body>
 
 
-    <div class="container" style="margin-top: 3%;" ng-controller="IndexReservationController">
+    <div class="container-fluid" style="margin-top: 3%;" ng-controller="IndexReservationController">
 
         <!-- FORMULARIO RESERVA PASO 1 -->
 
@@ -58,11 +75,11 @@
                         <input class="form-control" name="lugar_retiro" id="lugar_retiro" ng-model="lugar_retiro"
                                placeholder="Lugar de Retiro" required ng-click="showListPlace(0)" readonly />
                         <span class="help-block error" ng-show="formReserva_1.lugar_retiro.$invalid && formReserva_1.lugar_retiro.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">El Nombre es requerido</small>
+                            <small id="emailHelp" class="form-text text-danger text-right">El Lugar de Retiro es requerido</small>
                         </span>
                     </div>
 
-                    <div class="col-12 form-group" style="margin-top: 3px;">
+                    <div class="col-12 form-group" style="">
                         <label for="fecha_retiro">DIA Y HORA DE RETIRO *</label>
 
                         <div class="row">
@@ -73,7 +90,7 @@
                                     <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                 </div>
                                 <span class="help-block error" ng-show="formReserva_1.fecha_retiro.$invalid && formReserva_1.fecha_retiro.$touched">
-                                    <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
+                                    <small id="emailHelp" class="form-text text-danger text-right">La Fecha es requerida</small>
                                 </span>
                             </div>
 
@@ -81,50 +98,48 @@
                                 <input type="time" class="form-control colours" name="hora_retiro" id="hora_retiro"
                                        ng-model="hora_retiro" placeholder="Hora" ng-blur="reafirmHours(0)"  required />
                                 <span class="help-block error" ng-show="formReserva_1.hora_retiro.$invalid && formReserva_1.hora_retiro.$touched">
-                                <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
+                                <small id="emailHelp" class="form-text text-danger text-right">La Hora es requerida</small>
                             </span>
                             </div>
                         </div>
-
-
                     </div>
 
-                    <div class="col-12 form-group" style="margin-top: 3px">
+                    <div class="col-12 form-group" style="">
                         <label for="lugar_entrega">LUGAR DE ENTREGA *</label>
                         <input class="form-control" name="lugar_entrega" id="lugar_entrega" ng-model="lugar_entrega"
                                placeholder="Lugar de Entrega" required ng-click="showListPlace(1)" readonly />
                         <span class="help-block error" ng-show="formReserva_1.lugar_entrega.$invalid && formReserva_1.lugar_entrega.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">El Nombre es requerido</small>
+                            <small id="emailHelp" class="form-text text-danger text-right">El Lugar de Entrega es requerido</small>
                         </span>
                     </div>
 
-                    <div class="col-12" style="margin-top: 3px;">
+                    <div class="col-12" style="">
                         <label for="fecha_entrega">DIA Y HORA DE ENTREGA *</label>
 
                         <div class="row">
                             <div class="col-6">
-
                                 <div class="input-group">
                                     <input class="form-control datepickerA colours" name="fecha_entrega" id="fecha_entrega"
                                            ng-model="fecha_entrega" placeholder="Día" ng-blur="reafirmDate(1)" required />
                                     <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                 </div>
                                 <span class="help-block error" ng-show="formReserva_1.fecha_entrega.$invalid && formReserva_1.fecha_entrega.$touched">
-                                <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
+                                <small id="emailHelp" class="form-text text-danger text-right">La Fecha es requerida</small>
                             </span>
                             </div>
+
                             <div class="col-6">
                                 <input type="time" class="form-control colours" name="hora_entrega" id="hora_entrega"
                                        ng-model="hora_entrega" placeholder="Hora" ng-blur="reafirmHours(1)" required />
                                 <span class="help-block error" ng-show="formReserva_1.hora_entrega.$invalid && formReserva_1.hora_entrega.$touched">
-                                <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
+                                <small id="emailHelp" class="form-text text-danger text-right">La Hora es requerida</small>
                             </span>
                             </div>
                         </div>
 
                     </div>
 
-                    <div class="col-12" style="margin-top: 30px !important;">
+                    <div class="col-12" style="margin-top: 20px !important;">
 
                         <div class="form-group row">
                             <label for="edad" class="col-sm-4 col-form-label">EDAD: *</label>
@@ -132,7 +147,7 @@
                                 <select class="form-control" name="edad" id="edad" ng-model="edad"
                                         ng-options="value.id as value.label for value in listEdad" required></select>
                                 <span class="help-block error" ng-show="formReserva_1.edad.$invalid && formReserva_1.edad.$touched">
-                                    <small id="emailHelp" class="form-text text-danger text-right">El Nombre es requerido</small>
+                                    <small id="emailHelp" class="form-text text-danger text-right">La Edad es requerida</small>
                                 </span>
                             </div>
                         </div>
@@ -205,12 +220,12 @@
 
         <!-- FORMULARIO RESERVA PASO 2 -->
 
-        <div class="container" ng-show="reserva_1 == 2">
+        <div class="col-12" ng-show="reserva_1 == 2">
 
             <div class="row">
-                <div class="col-3" style="color: darkred !important;">
+                <div class="col-3" style="color: darkred !important; font-weight: bold;">
                     1. Seleccionar
-                    <hr>
+                    <hr class="estilo">
                 </div>
                 <div class="col-3">
                     2. Servicios
@@ -269,14 +284,25 @@
 
                 </div>
 
-                <div class="col-12" style="margin-top: 20px;">
+                <div class="col-12" style="margin-top: 20px; color: darkred; font-weight: bold;">
                     RESERVA DE VEHICULO
                 </div>
 
-                <div class="col-12" style="margin-top: 10px;">
-                    <button type="button" class="btn btn-secondary" ng-repeat="item_cat in categorieslist" style="margin-right: 5px;">
-                        {{item_cat.namecarbrand}}
-                    </button>
+                <div class="col-12 text-center" style="margin-top: 10px;">
+
+                    <div class="row">
+                        <div class="" style="padding: 0; margin-right: 2px; width: 7%;">
+                            <button type="button" class="btn_menu">
+                                TODOS
+                            </button>
+                        </div>
+                        <div class="" ng-repeat="item_cat in categorieslist" style="padding: 0; margin-right: 2px; width: 7%;">
+                            <button type="button" class="btn_menu">
+                                {{item_cat.namecarbrand}}
+                            </button>
+                        </div>
+                    </div>
+
                     <hr>
                 </div>
 
