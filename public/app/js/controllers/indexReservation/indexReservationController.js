@@ -9,7 +9,9 @@
         $scope.dataEntregaPlace = null;
 
         $scope.selectServiceList = [];
-        $scope.subtotal = 0.00;
+        $scope.subtotal = '0.00';
+        $scope.iva = '0.00';
+        $scope.total = '0.00';
 
         $('.datepicker').datetimepicker({
             locale: 'es'
@@ -20,7 +22,7 @@
             format: 'YYYY-MM-DD'
         });
 
-        $scope.reserva_1 = 2;
+        $scope.reserva_1 = 1;
 
         $scope.getlistEdad = function () {
 

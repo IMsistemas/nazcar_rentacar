@@ -48,6 +48,10 @@
 
         select.colours { background: #eeeeee; }
 
+        label {
+            /*font-weight: bold;*/
+        }
+
         .btn_menu {
             /*margin-right: 5px;*/
             width: 100% !important;
@@ -384,9 +388,9 @@
                     1. Seleccionar
                     <hr>
                 </div>
-                <div class="col-3" style="color: darkred !important;">
+                <div class="col-3" style="color: darkred !important; font-weight: bold;">
                     2. Servicios
-                    <hr>
+                    <hr class="estilo">
                 </div>
                 <div class="col-3">
                     3. Datos Personales
@@ -401,12 +405,12 @@
             <div class="row" style="margin-top: 20px;">
 
                 <div class="col-sm-6 col-12">
-                    <table class="table">
+                    <table class="table border-0">
                         <thead>
                             <tr>
-                                <th style="color: darkred !important;">SERVICIOS ADICIONALES</th>
-                                <th style="width: 15% !important;"></th>
-                                <th style="width: 1% !important;"></th>
+                                <th class="border-0" style="color: darkred !important; font-size: 20px;">SERVICIOS ADICIONALES</th>
+                                <th class="border-0" style="width: 15% !important;"></th>
+                                <th class="border-0" style="width: 1% !important;"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -428,9 +432,9 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="color: darkred !important;">OTROS SERVICIOS</th>
-                                <th style="width: 15% !important;"></th>
-                                <th style="width: 1% !important;"></th>
+                                <th class="border-0" style="color: darkred !important; font-size: 20px;">OTROS SERVICIOS</th>
+                                <th class="border-0" style="width: 15% !important;"></th>
+                                <th class="border-0" style="width: 1% !important;"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -552,9 +556,9 @@
                     2. Servicios
                     <hr>
                 </div>
-                <div class="col-3" style="color: darkred !important;">
+                <div class="col-3" style="color: darkred !important; font-weight: bold;">
                     3. Datos Personales
-                    <hr>
+                    <hr class="estilo">
                 </div>
                 <div class="col-3">
                     4. Datos de Pagos
