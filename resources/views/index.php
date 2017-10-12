@@ -100,7 +100,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#user">Usuarios</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#exit">Salir</a>
+                    <a class="dropdown-item" href="" ng-click="toLogout()">Salir</a>
                 </div>
             </li>
         </ul>
@@ -109,6 +109,36 @@
 
 <div ng-view ng-cloak>
 
+</div>
+
+
+
+<div class="modal fade" id="modalConfirmLogout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-header-info">
+                <h5 class="modal-title">Confirmación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <span>¿Realmente desea cerrar sesión y salir del Sistema?</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="logoutSystem()">
+                    Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>

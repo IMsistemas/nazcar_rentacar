@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Index;
 
+use App\Models\Administrator\Administrator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
@@ -17,11 +19,11 @@ class IndexController extends Controller
     {
         if (Session::has('users') == false) {
 
-            return view('index');
+            return view('login');
 
         } else {
 
-            return view('login');
+            return view('index');
 
         }
     }
@@ -29,6 +31,13 @@ class IndexController extends Controller
     public function viewIndex()
     {
         return view('Index.index');
+    }
+
+    public function logout()
+    {
+        Session::flush();
+
+        return response()->json(['success' => true]);
     }
 
     /**
@@ -49,7 +58,27 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Administrator::where( 'users', $request->input('users' ) )->get();
+
+        if ( count( $user ) > 0 ) {
+
+            if( Hash::check( $request->input('password'), $user[0]->password  ) ) {
+
+                Session::put('users', $user);
+
+                return response()->json(['success' => true]);
+
+            } else {
+
+                return response()->json(['success' => false]);
+
+            }
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
     }
 
     /**

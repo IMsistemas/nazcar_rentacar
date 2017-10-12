@@ -15,7 +15,7 @@
     return view('welcome');
 });*/
 
-
+    Route::get('index/logout', 'Index\IndexController@logout');
     Route::get('index/index_b', 'Index\IndexController@viewIndex');
     Route::resource('/', 'Index\IndexController');
 
