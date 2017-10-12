@@ -142,6 +142,7 @@
 <script src="<?= asset('../app/js/controllers/TypeTime/typeTimeController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Place/placeController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Car/carController.js') ?>"></script>
+<script src="<?= asset('../app/js/controllers/User/userController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/client/clientController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/rent/rentController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Index/indexController.js') ?>"></script>
