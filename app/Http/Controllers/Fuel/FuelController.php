@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Fuel;
 use App\Models\Fuel\Fuel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class FuelController extends Controller
 {
@@ -15,7 +16,17 @@ class FuelController extends Controller
      */
     public function index()
     {
-        return view('Fuel.index');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('Fuel.index');
+
+        }
+
     }
 
     public function getFuel(Request $request)

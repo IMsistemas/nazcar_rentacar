@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\ModeloAuto\Carmodel;
+use Illuminate\Support\Facades\Session;
+
 class ModeloController extends Controller
 {
     /**
@@ -18,7 +20,17 @@ class ModeloController extends Controller
      */
     public function index()
     {
-    	return view('ModeloAuto.Modelo');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('ModeloAuto.Modelo');
+
+        }
+
     }
     /**
      *

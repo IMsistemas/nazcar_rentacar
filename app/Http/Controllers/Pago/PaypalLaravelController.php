@@ -12,6 +12,7 @@ use Session;
 use Redirect;
 use Illuminate\Support\Facades\Input;
 
+
 /** Librerias Paypal **/
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
@@ -36,7 +37,17 @@ class PaypalLaravelController extends Controller
      */
     public function index()
     {
-        return view('Paypal.Home');
+
+        if (\Illuminate\Support\Facades\Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('Paypal.Home');
+
+        }
+
     }
     /**
      *

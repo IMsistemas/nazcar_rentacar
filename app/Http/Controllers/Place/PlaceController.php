@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Place;
 use App\Models\Place\Place;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class PlaceController extends Controller
 {
@@ -15,7 +16,17 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        return view('Place.index');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('Place.index');
+
+        }
+
     }
 
 

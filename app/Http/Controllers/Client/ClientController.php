@@ -8,6 +8,7 @@ use App\Models\FormaPago\Paidform;
 use App\Models\Person\Person;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
 {
@@ -19,7 +20,17 @@ class ClientController extends Controller
 
     public function index()
     {
-        return view('Client.index');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('Client.index');
+
+        }
+
     }
 
     /**

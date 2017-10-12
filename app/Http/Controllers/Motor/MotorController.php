@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Motor;
 use App\Models\Motor\Motor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class MotorController extends Controller
 {
@@ -15,7 +16,17 @@ class MotorController extends Controller
      */
     public function index()
     {
-        return view('Motor.index');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('Motor.index');
+
+        }
+
     }
 
     public function getMotor(Request $request)

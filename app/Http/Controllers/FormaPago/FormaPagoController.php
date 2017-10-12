@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\FormaPago\Paidform;
+use Illuminate\Support\Facades\Session;
 
 class FormaPagoController extends Controller
 {
@@ -18,7 +19,17 @@ class FormaPagoController extends Controller
      */
     public function index()
     {
-    	return view('FormaPago.Pago');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('FormaPago.Pago');
+
+        }
+
     }
     /**
      *

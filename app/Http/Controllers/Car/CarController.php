@@ -10,6 +10,7 @@ use App\Models\Motor\Motor;
 use App\Models\Transmission\Transmission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class CarController extends Controller
 {
@@ -20,7 +21,17 @@ class CarController extends Controller
      */
     public function index()
     {
-        return view('Car.car_index');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('Car.car_index');
+
+        }
+
     }
 
     public function get_list_marca()

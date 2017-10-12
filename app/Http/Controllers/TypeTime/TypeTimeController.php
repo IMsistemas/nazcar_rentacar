@@ -5,6 +5,7 @@ namespace App\Http\Controllers\TypeTime;
 use App\Models\TypeTime\TypeTime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class TypeTimeController extends Controller
 {
@@ -15,7 +16,17 @@ class TypeTimeController extends Controller
      */
     public function index()
     {
-        return view('TypeTime.index');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('TypeTime.index');
+
+        }
+
     }
 
     public function getTypeTime(Request $request)

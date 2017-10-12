@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Service;
 use App\Models\Service\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class ServiceController extends Controller
 {
@@ -15,7 +16,17 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('Service.index');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('Service.index');
+
+        }
+
     }
 
     public function getService(Request $request)

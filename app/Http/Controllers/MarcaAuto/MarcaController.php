@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\MarcaAuto\Carbrand;
+use Illuminate\Support\Facades\Session;
 
 
 class MarcaController extends Controller
@@ -19,7 +20,17 @@ class MarcaController extends Controller
      */
     public function index()
     {
-    	return view('MarcaAuto.Marca');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('MarcaAuto.Marca');
+
+        }
+
     }
     /**
      *

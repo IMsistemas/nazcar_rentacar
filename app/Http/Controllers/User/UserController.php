@@ -7,6 +7,7 @@ use App\Models\Person\Person;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -17,7 +18,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('User.index');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('User.index');
+
+        }
+
     }
 
     public function getUser(Request $request)

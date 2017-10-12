@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Transmission;
 use App\Models\Transmission\Transmission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class TransmissionController extends Controller
 {
@@ -15,7 +16,17 @@ class TransmissionController extends Controller
      */
     public function index()
     {
-        return view('Transmission.index');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('Transmission.index');
+
+        }
+
     }
 
 

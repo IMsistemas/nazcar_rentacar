@@ -7,6 +7,7 @@ use App\Models\Client\Client;
 use App\Models\Rent\Rent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class RentController extends Controller
 {
@@ -17,7 +18,17 @@ class RentController extends Controller
      */
     public function index()
     {
-        return view('Rent.index');
+
+        if (Session::has('users') == false) {
+
+            return view('login');
+
+        } else {
+
+            return view('Rent.index');
+
+        }
+
     }
 
     /**
