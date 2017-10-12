@@ -3,6 +3,7 @@
     app.controller('userController', function($scope, $http, API_URL) {
 
         $scope.idadministrator = 0;
+        $scope.idperson = 0;
         $scope.selectItem = null;
         $scope.estado = '1';
 
@@ -46,6 +47,7 @@
 
         $scope.cancel = function () {
             $scope.idadministrator = 0;
+            $scope.idperson = 0;
             $scope.nameperson = '';
             $scope.lastnameperson = '';
             $scope.identifyperson = '';
@@ -66,6 +68,7 @@
         $scope.edit = function (item) {
             $scope.cancel();
 
+            $scope.idperson = item.idperson;
             $scope.idadministrator = item.idadministrator;
             $scope.nameperson = item.nameperson;
             $scope.lastnameperson = item.lastnameperson;
@@ -100,43 +103,52 @@
                 numphoneperson: $scope.numphoneperson,
                 users: $scope.users,
                 password: $scope.password,
+                idperson: $scope.idperson
 
             };
 
             if ($scope.idadministrator === 0) {
 
-                $http.post(API_URL + 'user', data).then(function(response) {
+                if ($scope.password !== undefined && $scope.password !== '') {
 
-                    $('#modalAction').modal('hide');
+                    $http.post(API_URL + 'user', data).then(function(response) {
 
-                    if (response.data.success === true) {
+                        $('#modalAction').modal('hide');
 
-                        $scope.cancel();
+                        if (response.data.success === true) {
 
-                        $scope.message_success = 'El usuario se ha agregado satisfactoriamente...';
-                        $('#modalSuccess').modal('show');
+                            $scope.cancel();
 
-                        $scope.initLoad(1);
+                            $scope.message_success = 'El usuario se ha agregado satisfactoriamente...';
+                            $('#modalSuccess').modal('show');
 
-                    } else {
+                            $scope.initLoad(1);
 
-                        $scope.message_error = 'Ha ocurrido un error al intentar agregar un usuario...';
-                        $('#modalError').modal('show');
+                        } else {
 
-                    }
+                            $scope.message_error = 'Ha ocurrido un error al intentar agregar un usuario...';
+                            $('#modalError').modal('show');
 
-                }).catch(function(data, status) {
+                        }
 
-                    console.error('Gists error', response.status, response.data);
+                    }).catch(function(data, status) {
 
-                }).finally(function() {
+                        console.error('Gists error', response.status, response.data);
 
-                    //console.log("finally finished gists");
+                    }).finally(function() {
 
-                });
+                        //console.log("finally finished gists");
 
-            }
-            else {
+                    });
+
+                } else {
+
+                    $scope.message_error = 'El Campo Password es obligatorio';
+                    $('#modalError').modal('show');
+
+                }
+
+            } else {
 
                 $http.put(API_URL + 'user/' + $scope.idadministrator, data).then(function(response) {
 

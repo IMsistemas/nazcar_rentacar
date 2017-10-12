@@ -150,11 +150,8 @@
                             <div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Password: </span>
-                                    <input type="password" class="form-control" id="password" name="password" ng-model="password" required />
+                                    <input type="password" class="form-control" id="password" name="password" ng-model="password" />
                                 </div>
-                                <span class="help-block error" ng-show="formUser.password.$invalid && formUser.password.$touched">
-                                    <small id="emailHelp" class="form-text text-danger text-right">El Password es requerido</small>
-                                </span>
                             </div>
                         </div>
                     </form>
