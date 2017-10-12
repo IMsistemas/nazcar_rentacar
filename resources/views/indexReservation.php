@@ -38,6 +38,12 @@
             background-color: darkred;
         }
 
+        hr.estilo2 {
+            height: 2px;
+            border: 0;
+            background-color: darkred;
+        }
+
         input.colours { background: #eeeeee; }
 
         select.colours { background: #eeeeee; }
@@ -50,6 +56,18 @@
             font-weight: bold;
             word-wrap: break-word !important;
         }
+
+        .text_style {
+            color: #6c757d;
+            font-size: 12px;
+            font-family: "Andale Mono", monospace, sans-serif;
+        }
+
+        .text_style2 {
+            color: #6c757d;
+            font-weight: bold;
+        }
+
 
     </style>
 
@@ -259,11 +277,11 @@
                         </div>
                         <div class="col-12 col-sm-2 text-center" style="color: darkred; font-weight: bold;">
 
-                            <div class="col-12 text-center" style="margin-top: 20px;">
+                            <div class="col-12 text-center" style="margin-top: 15px; font-size: 24px;">
                                 Renta por:
                             </div>
                             <div class="col-12 text-center">
-                                <span style="font-size: 24px;">{{rest_day}} DIAS</span>
+                                <span style="font-size: 32px;">{{rest_day}} DIAS</span>
                             </div>
 
                         </div>
@@ -280,8 +298,6 @@
                         </div>
                     </div>
 
-
-
                 </div>
 
                 <div class="col-12" style="margin-top: 20px; color: darkred; font-weight: bold;">
@@ -290,8 +306,8 @@
 
                 <div class="col-12 text-center" style="margin-top: 10px;">
 
-                    <div class="row">
-                        <div class="" style="padding: 0; margin-right: 2px; width: 7%;">
+                    <div class="row" style="padding-left: 15px;">
+                        <div class="" style="margin-right: 2px; width: 7%;">
                             <button type="button" class="btn_menu">
                                 TODOS
                             </button>
@@ -303,7 +319,7 @@
                         </div>
                     </div>
 
-                    <hr>
+                    <hr class="estilo2">
                 </div>
 
                 <div class="row">
@@ -957,7 +973,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header modal-header-info">
-                        <h5 class="modal-title">{{title_carbrand}}</h5>
+                        <span class="text_style">{{title_carbrand}}</span>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -965,7 +981,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12">
-                                <span>{{title_carmodel}}</span>
+                                <span class="text_style2">{{title_carmodel}}</span>
                             </div>
                         </div>
 
@@ -973,7 +989,7 @@
                             <div class="col-6">
                                 <img class="img-fluid" src="{{title_carimage}}" alt="" style="max-width: 100%;">
                             </div>
-                            <div class="col-6">
+                            <div class="col-6" style="padding-left: 10%;">
 
                                 <div class="row">
                                     {{cant_pasajeros}} Pasajero(s) <br>
@@ -983,11 +999,11 @@
                                 </div>
 
                                 <div class="row" style="margin-top: 15px;">
-                                    COSTO <br><br>
-                                    $<span style="font-weight: bold; font-size: 20px; color: #6c757d;">
-                                        {{title_rentcost}}
-                                    </span> <br>
-                                    DIARIO
+                                    <div class="col-12" style="padding: 0;">COSTO</div>
+                                    <div class="col-12" style="padding: 0;">
+                                        $ <span style="font-weight: bold; font-size: 24px; color: #6c757d;">{{title_rentcost}}</span>
+                                    </div>
+                                    <div class="col-12" style="padding: 0;">DIARIO</div>
                                 </div>
 
                             </div>
