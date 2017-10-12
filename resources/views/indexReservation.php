@@ -381,7 +381,7 @@
 
         <!-- FORMULARIO RESERVA PASO 3 -->
 
-        <div class="container" ng-show="reserva_1 == 3">
+        <div class="col-12" ng-show="reserva_1 == 3">
 
             <div class="row">
                 <div class="col-3">
@@ -453,6 +453,7 @@
                         </tbody>
                     </table>
                 </div>
+
                 <div class="col-sm-6 col-12">
 
                     <div class="row">
@@ -467,7 +468,7 @@
 
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                <div class="col-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
                                     <div class="col-12 text-center">
                                         <span style="font-size: 12px; font-weight: bold;">Retiro</span>
                                     </div>
@@ -481,7 +482,7 @@
                                         <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                <div class="col-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
                                     <div class="col-12 text-center">
                                         <span style="font-size: 12px; font-weight: bold;">Entrega</span>
                                     </div>
@@ -545,7 +546,7 @@
 
         <!-- FORMULARIO RESERVA PASO 4 -->
 
-        <div class="container" ng-show="reserva_1 == 4">
+        <div class="col-12" ng-show="reserva_1 == 4">
 
             <div class="row">
                 <div class="col-3">
@@ -765,7 +766,7 @@
 
         <!-- FORMULARIO RESERVA PASO 5 -->
 
-        <div class="container" ng-show="reserva_1 == 5">
+        <div class="col-12" ng-show="reserva_1 == 5">
 
             <div class="row">
                 <div class="col-3">
