@@ -92,9 +92,10 @@
         $scope.save = function () {
 
             var data = {
+
                 nameperson: $scope.nameperson,
                 lastnameperson: $scope.lastnameperson,
-                dentifyperson: $scope.identifyperson,
+                identifyperson: $scope.identifyperson,
                 emailperson: $scope.emailperson,
                 numphoneperson: $scope.numphoneperson,
                 users: $scope.users,

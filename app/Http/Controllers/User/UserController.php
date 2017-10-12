@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Administrator\Administrator;
+use App\Models\Person\Person;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -28,11 +30,11 @@ class UserController extends Controller
         $transmission = Administrator::where('state', $state);
 
         if ($search != null) {
-            $transmission = $transmission->whereRaw("transmission.nametransmission LIKE '%" . $search . "%' ");
+            $transmission = $transmission->whereRaw("person.nameperson LIKE '%" . $search . "%' ");
         }
 
         return $transmission->join('person', 'person.idperson', '=', 'administrator.idperson')
-            ->orderBy('nametransmission', 'asc')->paginate(10);
+            ->orderBy('person.nameperson', 'asc')->paginate(10);
     }
 
     /**
@@ -53,7 +55,38 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $person = new Person();
+
+        $person->nameperson = $request->input('nameperson');
+        $person->lastnameperson = $request->input('lastnameperson');
+        $person->identifyperson = $request->input('identifyperson');
+        $person->emailperson = $request->input('emailperson');
+        $person->numphoneperson = $request->input('numphoneperson');
+
+        if ($person->save()) {
+
+            $admin = new Administrator();
+
+            $admin->users = $request->input('users');
+            $admin->password = Hash::make($request->input('password'));
+            $admin->idperson = $person->idperson;
+            $admin->state = 1;
+
+            if ($admin->save()) {
+
+                return response()->json(['success' => true]);
+
+            } else {
+
+                return response()->json(['success' => false]);
+
+            }
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
     }
 
     /**
@@ -87,7 +120,57 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $admin = Administrator::find($id);
+
+        $admin->users = $request->input('users');
+
+        if($request->input('password')!== null){
+            $admin->password = Hash::make($request->input('password'));
+        }
+
+        if ($admin->save()) {
+
+            $person = Person::find($admin->idperson);
+
+            $person->nameperson = $request->input('nameperson');
+            $person->lastnameperson = $request->input('lastnameperson');
+            $person->identifyperson = $request->input('identifyperson');
+            $person->emailperson = $request->input('emailperson');
+            $person->numphoneperson = $request->input('numphoneperson');
+
+
+            if ($person->save()) {
+
+                return response()->json(['success' => true]);
+
+            } else {
+
+                return response()->json(['success' => false]);
+
+            }
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
+    }
+
+    public function updateState(Request $request, $id)
+    {
+        $admin = Administrator::find($id);
+
+        $admin->state = $request->input('state');
+
+        if ($admin->save()) {
+
+            return response()->json(['success' => true]);
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
     }
 
     /**
