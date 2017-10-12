@@ -119,7 +119,7 @@
 	  </div>
 	</div>
 
-
+<form class="form-horizontal"  name="marca_edit" id="marca_edit"  novalidate="">
 	<div class="modal fade" id="modalMessagePrimaryEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -135,14 +135,16 @@
 	        		<div class="col-12">
 	        			<div class="input-group">                        
 			                <span class="input-group-addon">Marca: </span>
-			                <input type="text" class="form-control" ng-model="aux_namecarbrand" />
+			                <input type="text" class="form-control" ng-model="aux_namecarbrand" name="aux_namecarbrand" id="aux_namecarbrand"  required />
 			            </div>
+
+			            <span class="help-block error" ng-show="marca_edit.aux_namecarbrand.$invalid && marca_edit.aux_namecarbrand.$touched">La marca es requerida</span>
 	        		</div>
 	        	</div>
 	        		        	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_marcae!='1' " ng-click="modify();">
+	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_marcae!='1' || marca_edit.$invalid " ng-click="modify();">
                 Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i> 
             </button>
 
@@ -153,7 +155,9 @@
 	    </div>
 	  </div>
 	</div>
+</form>
 
+<form class="form-horizontal"  name="marca_add" id="marca_add"  novalidate="">
 	<div class="modal fade" id="modalMessagePrimaryAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -169,14 +173,16 @@
 	        		<div class="col-12">
 	        			<div class="input-group">                        
 			                <span class="input-group-addon">Marca: </span>
-			                <input type="text" class="form-control" id="namecarbrand" name="namecarbrand" ng-model="namecarbrand"  />
+			                <input type="text" class="form-control" id="namecarbrand" name="namecarbrand" ng-model="namecarbrand"  required />
 			            </div>
+
+			            <span class="help-block error" ng-show="marca_add.namecarbrand.$invalid && marca_add.namecarbrand.$touched">La marca es requerida</span>
 	        		</div>
 	        	</div>	      		
 	        	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_marcas!='1' " ng-click="save_marca()">
+	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_marcas!='1'  || marca_add.$invalid " ng-click="save_marca()">
                 Aceptar <i class="fa fa-check-circle" aria-hidden="true"  ></i> 
             </button>
 
@@ -187,6 +193,7 @@
 	    </div>
 	  </div>
 	</div>
+</form>
 
 </div>
 

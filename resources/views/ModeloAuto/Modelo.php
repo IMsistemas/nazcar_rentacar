@@ -158,7 +158,7 @@
                     <div class="col-12" style="margin-top: 5px;">
                         <div class="input-group">
                             <span class="input-group-addon">Costo Diario: </span>
-                            <input type="text" class="form-control" ng-model="aux_nameprecio" name="aux_nameprecio" required />
+                            <input type="text" class="form-control" ng-model="aux_nameprecio" name="aux_nameprecio" id="aux_nameprecio" required  ng-keypress="onlyNumber($event, 10, 'aux_nameprecio')"  />
                         </div>
                         <span class="help-block error" ng-show="modelo_edit.aux_nameprecio.$invalid && modelo_edit.aux_nameprecio.$touched">El costo diario es requerido</span>
                     </div>
@@ -166,7 +166,7 @@
                     <div class="col-12" style="margin-top: 5px;">
                         <div class="input-group">
                             <span class="input-group-addon">Garantía: </span>
-                            <input type="text" class="form-control" ng-model="aux_namegarantia" name="aux_namegarantia" required />
+                            <input type="text" class="form-control" ng-model="aux_namegarantia" name="aux_namegarantia" id="aux_namegarantia" required   ng-keypress="onlyNumber($event, 10, 'aux_namegarantia')" />
                         </div>
                         <span class="help-block error" ng-show="modelo_edit.aux_namegarantia.$invalid && modelo_edit.aux_namegarantia.$touched">La garantia  es requerida</span>
                     </div>
@@ -220,7 +220,7 @@
                     <div class="col-12" style="margin-top: 5px;">
                         <div class="input-group">
                             <span class="input-group-addon">Costo Diario: </span>
-                            <input type="text" class="form-control" ng-model="nameprecio"  name="nameprecio" required />
+                            <input type="text" class="form-control" ng-model="nameprecio"  name="nameprecio" required id="nameprecio"  ng-keypress="onlyNumber($event, 10, 'nameprecio')" />
                         </div>
                         <span class="help-block error" ng-show="modelo_add.nameprecio.$invalid && modelo_add.nameprecio.$touched">Es necesario el precio</span>
                     </div>
@@ -228,7 +228,7 @@
                     <div class="col-12" style="margin-top: 5px;">
                         <div class="input-group">
                             <span class="input-group-addon">Garantía: </span>
-                            <input type="text" class="form-control" ng-model="namegarantia" name="namegarantia" required />
+                            <input type="text" class="form-control" ng-model="namegarantia" name="namegarantia" required id="namegarantia" ng-keypress="onlyNumber($event, 10, 'namegarantia')" />
                         </div>
                         <span class="help-block error" ng-show="modelo_add.namegarantia.$invalid && modelo_add.namegarantia.$touched">Es necesario la garantia</span>
                     </div>
@@ -250,7 +250,6 @@
 	</div>
 	</form>
 </div>
-
 <script type="text/javascript">
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

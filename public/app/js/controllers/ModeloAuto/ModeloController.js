@@ -185,6 +185,29 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
 	        	$scope.aux_btn_modelod="1";
 		});
     };
+    ///--- valida numero
+    $scope.onlyNumber = function ($event, length, field) {
+
+        if (length != undefined) {
+            var valor = $('#' + field).val();
+            if (valor.length == length) $event.preventDefault();
+        }
+
+        var k = $event.keyCode;
+        if (k == 8 || k == 0) return true;
+        var patron = /\d/;
+        var n = String.fromCharCode(k);
+
+        if (n == ".") {
+            return true;
+        } else {
+
+            if(patron.test(n) == false){
+                $event.preventDefault();
+            }
+            else return true;
+        }
+    };
 });
 
 $(document).ready(function(){
