@@ -256,13 +256,21 @@
 
         };
 
-        $scope.convertDate = function (date) {
+        $scope.convertDate = function (date_p) {
+
+            var array_date = date_p.split('-');
 
             var meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
             var diasSemana = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado", "Domingo"];
 
-            var f = new Date(date);
-            return diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
+            var f = new Date(array_date[0], array_date[1], array_date[2]);
+
+            var text_date = diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
+
+            console.log(f);
+            console.log(text_date);
+
+            return text_date;
 
         };
 
