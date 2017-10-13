@@ -3,6 +3,7 @@
     app.controller('IndexReservationController', function($scope, $http, API_URL) {
 
         $scope.type_place = null;
+        $scope.type_place_text = null;
 
         $scope.carSelected = null;
         $scope.dataRetiroPlace = null;
@@ -152,10 +153,10 @@
                 $scope.placelist = response.data;
 
                 if (type === 0) {
-                    $scope.type_place = 'Retiro';
+                    $scope.type_place_text = 'Retiro';
                     $scope.type_place = 0;
                 } else {
-                    $scope.type_place = 'Entrega';
+                    $scope.type_place_text = 'Entrega';
                     $scope.type_place = 1;
                 }
 
@@ -261,16 +262,11 @@
             var array_date = date_p.split('-');
 
             var meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-            var diasSemana = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado", "Domingo"];
+            var diasSemana = ["Domingo", "Lunes","Martes","Miércoles","Jueves","Viernes","Sábado" ];
 
-            var f = new Date(array_date[0], array_date[1], array_date[2]);
+            var f = new Date(parseInt(array_date[0]), parseInt(array_date[1]) - 1, parseInt(array_date[2]));
 
-            var text_date = diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
-
-            console.log(f);
-            console.log(text_date);
-
-            return text_date;
+            return diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
 
         };
 

@@ -944,7 +944,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header modal-header-info">
-                        <h5 class="modal-title">Lugar de {{type_place}}</h5>
+                        <h5 class="modal-title">Lugar de {{type_place_text}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
