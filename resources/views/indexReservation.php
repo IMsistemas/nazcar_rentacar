@@ -580,10 +580,10 @@
                 <div class="col-12">
 
                     <div class="col-12">
-                        <form>
+                        <form class="form-horizontal" name="formDataClient" novalidate="">
 
                             <div class="form-group row">
-                                <label for="docident" class="col-sm-3 col-form-label">Tipo de Documento *</label>
+                                <label for="docident" class="col-sm-3 col-form-label" style="font-weight: bold;">Tipo de Documento *</label>
                                 <div class="col-sm-9">
                                     <label class="custom-control custom-radio">
                                         <input id="radio1" name="radio" type="radio" class="custom-control-input">
@@ -599,36 +599,48 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="docident" class="col-sm-3 col-form-label">Documento de Identidad *</label>
+                                <label for="docident" class="col-sm-3 col-form-label" style="font-weight: bold;">Documento de Identidad *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="docident" ng-model="docident" placeholder="Cédula / Pasaporte">
+                                    <input type="text" class="form-control colours" name="docident" id="docident" ng-model="docident" placeholder="Cédula / Pasaporte" required />
+                                    <span class="help-block error" ng-show="formDataClient.docident.$invalid && formDataClient.docident.$touched">
+                                        <small class="form-text text-danger text-right">El Documento de Identidad es requerido</small>
+                                    </span>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="names" class="col-sm-3 col-form-label">Nombre(s) *</label>
+                                <label for="names" class="col-sm-3 col-form-label" style="font-weight: bold;">Nombre(s) *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="names" ng-model="names" placeholder="Nombre(s)">
+                                    <input type="text" class="form-control colours" name="names" id="names" ng-model="names" placeholder="Nombre(s)" required />
+                                    <span class="help-block error" ng-show="formDataClient.names.$invalid && formDataClient.names.$touched">
+                                        <small class="form-text text-danger text-right">Nombre(s) es requerido</small>
+                                    </span>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="lastnames" class="col-sm-3 col-form-label">Apellidos *</label>
+                                <label for="lastnames" class="col-sm-3 col-form-label" style="font-weight: bold;">Apellidos *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="lastnames" ng-model="lastnames" placeholder="Apellidos">
+                                    <input type="text" class="form-control colours" name="lastnames" id="lastnames" ng-model="lastnames" placeholder="Apellidos" required />
+                                    <span class="help-block error" ng-show="formDataClient.lastnames.$invalid && formDataClient.lastnames.$touched">
+                                        <small class="form-text text-danger text-right">Apellidos es requerido</small>
+                                    </span>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="email" class="col-sm-3 col-form-label">Correo *</label>
+                                <label for="email" class="col-sm-3 col-form-label" style="font-weight: bold;">Correo *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="email" ng-model="email" placeholder="Correo">
+                                    <input type="text" class="form-control colours" name="email" id="email" ng-model="email" placeholder="Correo" required />
+                                    <span class="help-block error" ng-show="formDataClient.email.$invalid && formDataClient.email.$touched">
+                                        <small class="form-text text-danger text-right">Correo es requerido</small>
+                                    </span>
                                 </div>
                             </div>
 
                             <div class="form-group row">
 
-                                <label for="lastnames" class="col-sm-3 col-form-label"></label>
+                                <label for="lastnames" class="col-sm-3 col-form-label" style="font-weight: bold;"></label>
                                 <div class="col-sm-9">
                                     <div class="col-12" style="padding: 0;">
                                         <label class="custom-control custom-checkbox">
@@ -647,38 +659,49 @@
 
                                 </div>
 
-
                             </div>
 
                             <div class="form-group row">
-                                <label for="pais" class="col-sm-3 col-form-label">Pais *</label>
+                                <label for="pais" class="col-sm-3 col-form-label" style="font-weight: bold;">País *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="pais" ng-model="pais" placeholder="Pais">
+                                    <input type="text" class="form-control colours" name="pais" id="pais" ng-model="pais" placeholder="Pais" required />
+                                    <span class="help-block error" ng-show="formDataClient.pais.$invalid && formDataClient.pais.$touched">
+                                        <small class="form-text text-danger text-right">País es requerido</small>
+                                    </span>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="city" class="col-sm-3 col-form-label">Ciudad *</label>
+                                <label for="city" class="col-sm-3 col-form-label" style="font-weight: bold;">Ciudad *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="city" ng-model="city" placeholder="Ciudad">
+                                    <input type="text" class="form-control colours" name="city" id="city" ng-model="city" placeholder="Ciudad" required />
+                                    <span class="help-block error" ng-show="formDataClient.city.$invalid && formDataClient.city.$touched">
+                                        <small class="form-text text-danger text-right">Ciudad es requerida</small>
+                                    </span>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="phone" class="col-sm-3 col-form-label">Telefono *</label>
+                                <label for="phone" class="col-sm-3 col-form-label" style="font-weight: bold;">Teléfono *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" id="phone" ng-model="phone" placeholder="Telefono">
+                                    <input type="text" class="form-control colours" name="phone" id="phone" ng-model="phone" placeholder="Teléfono" required />
+                                    <span class="help-block error" ng-show="formDataClient.phone.$invalid && formDataClient.phone.$touched">
+                                        <small class="form-text text-danger text-right">Teléfono es requerido</small>
+                                    </span>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="lastnames" class="col-sm-3 col-form-label"></label>
+                                <label for="lastnames" class="col-sm-3 col-form-label" style="font-weight: bold;"></label>
                                 <div class="col-sm-9">
                                     <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input">
+                                        <input type="checkbox" name="term_cond" class="custom-control-input" required />
                                         <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description"> * Acepto Terminos y Condiciones</span>
+                                        <span class="custom-control-description" style="color: darkred;"> * Acepto Términos y Condiciones</span>
                                     </label>
+                                    <span class="help-block error" ng-show="formDataClient.term_cond.$invalid && formDataClient.term_cond.$touched">
+                                        <small class="form-text text-danger text-right">Es requerido</small>
+                                    </span>
                                 </div>
                             </div>
 
@@ -771,7 +794,7 @@
                                 Regresar
                             </button>
 
-                            <button type="button" class="btn btn-danger" ng-click="showModal(5)" style="font-size: 12px !important; ">
+                            <button type="button" class="btn btn-danger" ng-disabled="formDataClient.$invalid" ng-click="showModal(5)" style="font-size: 12px !important; ">
                                 PROCESAR
                             </button>
                         </div>
