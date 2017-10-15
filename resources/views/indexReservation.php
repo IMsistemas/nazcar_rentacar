@@ -419,9 +419,9 @@
                                 <td class="text-right" style="font-weight: bold;">$ {{item_aditionalservice.price}}</td>
                                 <td>
                                     <label class="custom-control custom-radio">
-                                        <input name="item_aditionalservice.idservice" id="item_aditionalservice.idservice"
+                                        <input name="radio_{{item_aditionalservice.idservice}}" id="radio_{{item_aditionalservice.idservice}}"
                                                ng-model="item_aditionalservice.idservice" type="radio"
-                                               class="custom-control-input" ng-click="selectServicesClick(item_aditionalservice)">
+                                               class="custom-control-input" ng-click="selectServicesClick(item_aditionalservice, 'radio_' + item_aditionalservice.idservice)">
                                         <span class="custom-control-indicator"></span>
                                     </label>
                                 </td>
@@ -443,9 +443,9 @@
                                 <td class="text-right" style="font-weight: bold;">$ {{item_otherservice.price}}</td>
                                 <td>
                                     <label class="custom-control custom-checkbox">
-                                        <input name="item_otherservice.idservice" id="item_otherservice.idservice"
+                                        <input name="item_otherservice.idservice" id="checkbox_{{item_otherservice.idservice}}"
                                                ng-model="item_otherservice.idservice" type="checkbox"
-                                               class="custom-control-input" ng-click="selectServicesClick(item_otherservice)">
+                                               class="custom-control-input" ng-click="selectServicesClick(item_otherservice, 'checkbox_' + item_otherservice.idservice)">
                                         <span class="custom-control-indicator"></span>
                                     </label>
                                 </td>
@@ -462,45 +462,53 @@
                             {{title_carbrand}}
                         </div>
 
-                        <div class="col-12">
-                            <img class="img-fluid" src="{{title_carimage}}" alt="" style="max-width: 100%;">
+                        <div class="col-12 text-center">
+                            <img class="img-fluid" src="{{title_carimage}}" alt="" style="max-width: 60%;">
                         </div>
 
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
-                                    <div class="col-12 text-center">
-                                        <span style="font-size: 12px; font-weight: bold;">Retiro</span>
-                                    </div>
-                                    <div class="col-12 text-center">
-                                        <span style="font-size: 24px; font-weight: bold;">{{data_retiro_code}}</span>
-                                    </div>
-                                    <div class="col-12 text-center">
-                                        <span>{{data_retiro_place}}</span>
-                                    </div>
-                                    <div class="col-12 text-center">
-                                        <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
+
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                            <div class="col-12 text-center">
+                                                <span style="font-size: 18px; font-weight: bold; color: darkred;">Retiro</span>
+                                            </div>
+                                            <div class="col-12 text-center">
+                                                <span style="font-size: 24px; font-weight: bold;">{{data_retiro_code}}</span>
+                                            </div>
+                                            <div class="col-12 text-center">
+                                                <span>{{data_retiro_place}}</span>
+                                            </div>
+                                            <div class="col-12 text-center">
+                                                <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                            <div class="col-12 text-center">
+                                                <span style="font-size: 18px; font-weight: bold; color: darkred;">Entrega</span>
+                                            </div>
+                                            <div class="col-12 text-center">
+                                                <span style="font-size: 24px; font-weight: bold;">{{data_entrega_code}}</span>
+                                            </div>
+                                            <div class="col-12 text-center">
+                                                <span>{{data_entrega_place}}</span>
+                                            </div>
+                                            <div class="col-12 text-center">
+                                                <span>{{data_entrega_date}} a las {{data_entrega_hour}}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
-                                    <div class="col-12 text-center">
-                                        <span style="font-size: 12px; font-weight: bold;">Entrega</span>
-                                    </div>
-                                    <div class="col-12 text-center">
-                                        <span style="font-size: 24px; font-weight: bold;">{{data_entrega_code}}</span>
-                                    </div>
-                                    <div class="col-12 text-center">
-                                        <span>{{data_entrega_place}}</span>
-                                    </div>
-                                    <div class="col-12 text-center">
-                                        <span>{{data_entrega_date}} a las {{data_entrega_hour}}</span>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
 
                     </div>
-
+                    <div class="col-12" style="color: darkred; margin-top: 10px;">
+                        Renta por: {{rest_day}} días
+                    </div>
                     <table class="table table-bordered border-left-0 border-right-0 border-bottom-0">
                         <tbody>
                             <tr ng-repeat="item_selectservice in selectServiceList">
@@ -527,7 +535,7 @@
                         </tbody>
                     </table>
 
-                    <div class="col-12 text-right">
+                    <div class="col-12 text-right" style="margin-bottom: 50px;">
                         <button type="button" class="btn btn-outline-dark" ng-click="showModal(2)" style="font-size: 12px !important; ">
                             Regresar
                         </button>

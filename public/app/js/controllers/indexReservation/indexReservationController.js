@@ -41,6 +41,12 @@
 
         $scope.intermediateStep = function (item) {
             $scope.carSelected = item;
+
+            $scope.title_carbrand = item.namecarbrand;
+            $scope.title_carmodel = item.namecarmodel;
+            $scope.title_carimage = item.image;
+            $scope.title_rentcost = item.price;
+
             $scope.showModal(3);
         };
 
@@ -118,6 +124,8 @@
             $http.get(API_URL + 'reservation/getAditionalServices').then(function(response){
 
                 $scope.aditionalServiceList = response.data;
+
+                console.log($scope.aditionalServiceList);
 
             });
 
@@ -223,14 +231,67 @@
 
         };
 
-        $scope.selectServicesClick = function (item) {
+        $scope.selectServicesClick = function (item, field) {
 
-            $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item.price);
+            console.log($scope.aditionalServiceList);
 
-            $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
-            $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
+            //console.log($('#' + field));
 
-            $scope.selectServiceList.push(item);
+            var type = field.split('_');
+            var flag = true;
+
+            if (type[0] === 'radio') {
+
+                if ($('#' + field).prop('checked') !== true) {
+
+                    flag = false;
+
+                }
+
+            } else {
+
+                if (type[1] !== 'true') {
+
+                    flag = false;
+
+                }
+
+            }
+
+            if (flag === true) {
+
+                $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item.price);
+
+                $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+                $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
+
+                $scope.selectServiceList.push(item);
+
+            } else {
+
+                var temp = [];
+
+                var longitud = $scope.selectServiceList.length;
+                $scope.subtotal = 0;
+
+                for (var i = 0; i < longitud; i++) {
+
+                    if ($scope.selectServiceList[i].idservice !== item.idservice) {
+
+                        temp.push($scope.selectServiceList[i]);
+                        $scope.subtotal = parseFloat($scope.subtotal) + parseFloat($scope.selectServiceList[i].price);
+
+                    }
+
+                }
+
+                $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+                $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
+
+                $scope.selectServiceList = temp;
+
+            }
+
         };
 
         $scope.reafirmDate = function (type) {
