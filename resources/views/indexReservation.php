@@ -601,9 +601,14 @@
                             <div class="form-group row">
                                 <label for="docident" class="col-sm-3 col-form-label" style="font-weight: bold;">Documento de Identidad *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" name="docident" id="docident" ng-model="docident" placeholder="Cédula / Pasaporte" required />
+                                    <input type="text" class="form-control colours" name="docident" id="docident" ng-model="docident"
+                                           placeholder="Cédula / Pasaporte" ng-maxlength="10" required />
+
                                     <span class="help-block error" ng-show="formDataClient.docident.$invalid && formDataClient.docident.$touched">
                                         <small class="form-text text-danger text-right">El Documento de Identidad es requerido</small>
+                                    </span>
+                                    <span class="help-block error" ng-show="formDataClient.docident.$invalid && formDataClient.docident.$error.maxlength">
+                                        <small class="form-text text-danger text-right">La longitud máxima es de 10 caracteres</small>
                                     </span>
                                 </div>
                             </div>
@@ -823,9 +828,9 @@
                     3. Datos Personales
                     <hr>
                 </div>
-                <div class="col-3" style="color: darkred !important;">
+                <div class="col-3" style="color: darkred !important; font-weight: bold;">
                     4. Datos de Pagos
-                    <hr>
+                    <hr class="estilo">
                 </div>
             </div>
 
