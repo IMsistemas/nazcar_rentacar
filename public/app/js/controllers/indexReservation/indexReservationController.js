@@ -383,55 +383,54 @@
 
             };
 
+            $http.post(API_URL + 'reservation', data).then(function(response) {
 
-            $http.post(API_URL+'Paypallaravel2',datos).then(function (response) {
+                $('#modalAction').modal('hide');
 
-                if(response.data.url !== undefined){
+                if (response.data.success === true) {
 
-                    location.href = response.data.url;
 
-                    /*$http.post(API_URL + 'reservation', data).then(function(response) {
+                    $http.post(API_URL+'Paypallaravel2',datos).then(function (response) {
 
-                        $('#modalAction').modal('hide');
+                        if(response.data.url !== undefined){
 
-                        if (response.data.success === true) {
+                            location.href = response.data.url;
 
-                            $scope.message_success = 'La Reserva se ha agregado satisfactoriamente...';
-                            $('#modalSuccess').modal('show');
-
-                            $scope.reserva_1 = 1;
 
                         } else {
 
-                            $scope.message_error = 'Ha ocurrido un error al intentar agregar una Reserva...';
-                            $('#modalError').modal('show');
+                            location.href = response.data;
+
+                            /*$scope.message_error = 'Ha ocurrido un error al intentar Pagar via PayPal...';
+                            $('#modalError').modal('show');*/
 
                         }
 
-                    }).catch(function(data, status) {
+                    });
 
-                        console.error('Gists error', response.status, response.data);
 
-                    }).finally(function() {
 
-                        //console.log("finally finished gists");
+                    $scope.message_success = 'La Reserva se ha agregado satisfactoriamente...';
+                    $('#modalSuccess').modal('show');
 
-                    });*/
-
+                    /*$scope.reserva_1 = 1;*/
 
                 } else {
 
-                    location.href = response.data;
-
-                    /*$scope.message_error = 'Ha ocurrido un error al intentar Pagar via PayPal...';
-                    $('#modalError').modal('show');*/
+                    $scope.message_error = 'Ha ocurrido un error al intentar agregar una Reserva...';
+                    $('#modalError').modal('show');
 
                 }
 
+            }).catch(function(data, status) {
+
+                console.error('Gists error', response.status, response.data);
+
+            }).finally(function() {
+
+                //console.log("finally finished gists");
+
             });
-
-
-
 
 
         };
