@@ -202,9 +202,9 @@
 
         };
 
-        $scope.getCar = function () {
+        $scope.getCar = function (categories) {
 
-            $http.get(API_URL + 'reservation/getCar').then(function(response){
+            $http.get(API_URL + 'reservation/getCar/' + categories).then(function(response){
 
                 $scope.carlist = response.data;
             });
@@ -439,7 +439,7 @@
         $scope.getlistEdad();
         $scope.getPlaces();
         $scope.getCategories();
-        $scope.getCar();
+        $scope.getCar(0);
         $scope.getAditionalServices();
         $scope.getOtherServices();
 

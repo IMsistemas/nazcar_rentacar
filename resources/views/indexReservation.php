@@ -312,12 +312,12 @@
 
                     <div class="row" style="padding-left: 15px;">
                         <div class="" style="margin-right: 2px; width: 7%;">
-                            <button type="button" class="btn_menu">
+                            <button type="button" class="btn_menu" ng-click="getCar(0)">
                                 TODOS
                             </button>
                         </div>
                         <div class="" ng-repeat="item_cat in categorieslist" style="padding: 0; margin-right: 2px; width: 7%;">
-                            <button type="button" class="btn_menu">
+                            <button type="button" class="btn_menu" ng-click="getCar(item_cat.idcarbrand)">
                                 {{item_cat.namecarbrand}}
                             </button>
                         </div>

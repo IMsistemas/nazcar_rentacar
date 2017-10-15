@@ -53,13 +53,20 @@ class IndexReservationController extends Controller
         return Carbrand::orderBy('namecarbrand', 'asc')->get();
     }
 
-    public function getCar()
+    public function getCar($categories)
     {
-        return Car::join('carmodel', 'car.idcarmodel', '=', 'carmodel.idcarmodel')
+
+        $list = Car::join('carmodel', 'car.idcarmodel', '=', 'carmodel.idcarmodel')
             ->join('carbrand', 'carmodel.idcarbrand', '=', 'carbrand.idcarbrand')
             ->join('fuel', 'car.idfuel', '=', 'fuel.idfuel')
             ->join('transmission', 'car.idtransmission', '=', 'transmission.idtransmission')
-            ->orderBy('idcar', 'asc')->get();
+            ->orderBy('idcar', 'asc');
+
+        if ($categories != 0) {
+            $list = $list->where('carbrand.idcarbrand', $categories);
+        }
+
+        return $list->get();
     }
 
     public function getAditionalServices()

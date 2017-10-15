@@ -121,7 +121,7 @@
     Route::get('reservation/getCalculate', 'IndexReservation\IndexReservationController@getCalculate');
     Route::get('reservation/getOtherServices', 'IndexReservation\IndexReservationController@getOtherServices');
     Route::get('reservation/getAditionalServices', 'IndexReservation\IndexReservationController@getAditionalServices');
-    Route::get('reservation/getCar', 'IndexReservation\IndexReservationController@getCar');
+    Route::get('reservation/getCar/{categories}', 'IndexReservation\IndexReservationController@getCar');
     Route::get('reservation/getCategories', 'IndexReservation\IndexReservationController@getCategories');
     Route::get('reservation/getPlaces', 'IndexReservation\IndexReservationController@getPlaces');
     Route::resource('reservation', 'IndexReservation\IndexReservationController');
