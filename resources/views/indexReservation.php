@@ -720,10 +720,25 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+
+                            <div class="col-12 text-center">
+                                <img class="img-fluid" src="{{title_carimage}}" alt="" style="max-width: 60%;">
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <span style="font-size: 18px; font-weight: bold;">{{title_carmodel}} </span>
+                                <br>
+                                {{title_carbrand}}
+                            </div>
+
+                        </div>
                     </div>
 
                     <div class="col-sm-6 col-12">
-
+                        <div class="col-12" style="color: darkred;">
+                            Renta por: {{rest_day}} días
+                        </div>
                         <table class="table table-bordered border-left-0 border-right-0 border-bottom-0">
                             <tbody>
                             <tr ng-repeat="item_selectservice in selectServiceList">
@@ -751,7 +766,7 @@
                             </tbody>
                         </table>
 
-                        <div class="col-12 text-right">
+                        <div class="col-12 text-right" style="margin-bottom: 50px;">
                             <button type="button" class="btn btn-outline-dark" ng-click="showModal(3)" style="font-size: 12px !important; ">
                                 Regresar
                             </button>
@@ -764,11 +779,7 @@
                     </div>
                 </div>
 
-
-
-
             </div>
-
 
         </div>
 
