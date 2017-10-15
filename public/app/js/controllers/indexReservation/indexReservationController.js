@@ -365,33 +365,74 @@
 
             };
 
-            $http.post(API_URL + 'reservation', data).then(function(response) {
+            var list_item = [
 
-                $('#modalAction').modal('hide');
+                {
+                    Nombre: 'Renta de: ',
+                    Cantidad: 1,
+                    PrecioU: parseFloat($scope.total)
+                }
 
-                if (response.data.success === true) {
+            ];
 
-                    $scope.message_success = 'La Reserva se ha agregado satisfactoriamente...';
-                    $('#modalSuccess').modal('show');
+            var datos = {
 
-                    $scope.reserva_1 = 1;
+                Items: list_item,
+                ValorTotal: parseFloat($scope.total),
+                Descripcion: 'Renta por Nazcar'
+
+            };
+
+
+            $http.post(API_URL+'Paypallaravel2',datos).then(function (response) {
+
+                if(response.data.url !== undefined){
+
+                    location.href = response.data.url;
+
+                    /*$http.post(API_URL + 'reservation', data).then(function(response) {
+
+                        $('#modalAction').modal('hide');
+
+                        if (response.data.success === true) {
+
+                            $scope.message_success = 'La Reserva se ha agregado satisfactoriamente...';
+                            $('#modalSuccess').modal('show');
+
+                            $scope.reserva_1 = 1;
+
+                        } else {
+
+                            $scope.message_error = 'Ha ocurrido un error al intentar agregar una Reserva...';
+                            $('#modalError').modal('show');
+
+                        }
+
+                    }).catch(function(data, status) {
+
+                        console.error('Gists error', response.status, response.data);
+
+                    }).finally(function() {
+
+                        //console.log("finally finished gists");
+
+                    });*/
+
 
                 } else {
 
-                    $scope.message_error = 'Ha ocurrido un error al intentar agregar una Reserva...';
-                    $('#modalError').modal('show');
+                    location.href = response.data;
+
+                    /*$scope.message_error = 'Ha ocurrido un error al intentar Pagar via PayPal...';
+                    $('#modalError').modal('show');*/
 
                 }
 
-            }).catch(function(data, status) {
-
-                console.error('Gists error', response.status, response.data);
-
-            }).finally(function() {
-
-                //console.log("finally finished gists");
-
             });
+
+
+
+
 
         };
 
