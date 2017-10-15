@@ -17,8 +17,8 @@
             } else var idclient = null;
 
             if ($scope.carBrandfilter !== undefined) {
-                var idcar = $scope.carBrandfilter;
-            } else var idcar = null;
+                var idcarbran = $scope.carBrandfilter;
+            } else var idcarbran = null;
 
             if ($scope.statefilter !== undefined) {
                 var state = $scope.statefilter;
@@ -27,7 +27,7 @@
             var filtros = {
                 search: search,
                 idclient: idclient,
-                idcar: idcar,
+                idcarbran: idcarbran,
                 state: state
             };
 
@@ -62,6 +62,7 @@
         $scope.getCarBrand = function () {
 
             $http.get(API_URL + 'rent/getCarBrands').then(function(response){
+                console.log(response);
 
                 var long = response.data.length;
                 var array = [{label: '-- Seleccione --', id: ''}];
@@ -93,6 +94,7 @@
 
             $scope.startdate = item.startdatetime;
             $scope.enddate = item.enddatetime;
+            $scope.totalcost = item.totalcost;
 
             $("#modalInformation").modal("show");
         };

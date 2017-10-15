@@ -43,12 +43,13 @@
             <thead class="bg-primary">
             <tr>
                 <td style="width: 5px">NO.</td>
-                <td style="width: 20px">CLIENTE</td>
+                <td style="width: 15px">CLIENTE</td>
                 <td style="width: 15px">AUTO</td>
                 <td style="width: 15px">MODELO</td>
-                <td style="width: 10px">AÑO</td>
+                <td style="width: 8px">AÑO</td>
                 <td style="width: 12px">FECHA INICIO</td>
                 <td style="width: 12px">FECHA FIN</td>
+                <td style="width: 12px">COSTO</td>
                 <td style="width: 10px">ACCIONES</td>
             </tr>
             </thead>
@@ -61,6 +62,7 @@
                 <td>{{item.year}}</td>
                 <td>{{item.startdatetime}}</td>
                 <td>{{item.enddatetime}}</td>
+                <td>{{item.totalcost}}</td>
                 <td  class="text-center">
                     <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" ng-click="showModalInformation(item)">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -160,7 +162,7 @@
     <div class="modal fade" id="modalInformation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header modal-header-danger">
+                <div class="modal-header modal-header-info">
                     <h5 class="modal-title">Información de la Reserva</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -191,11 +193,14 @@
                         <div class="col-12">
                             Reserva<hr>
                             <div class="row">
-                                <div class="col-6">
-                                    Fecha Inicio: {{startdate}}
+                                <div class="col-4">
+                                    Fecha Inicio: <br>{{startdate}}
                                 </div>
-                                <div class="col-6">
-                                    Fecha Entrega: {{enddate}}
+                                <div class="col-4">
+                                    Fecha Entrega: <br>{{enddate}}
+                                </div>
+                                <div class="col-4">
+                                    Costo Total: <br>{{totalcost}}
                                 </div>
                             </div>
                         </div>

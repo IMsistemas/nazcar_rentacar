@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Rent;
 
 use App\Models\Car\Car;
 use App\Models\Client\Client;
+use App\Models\MarcaAuto\Carbrand;
 use App\Models\Rent\Rent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -45,9 +46,7 @@ class RentController extends Controller
      */
 
     public function getCarBrands(){
-        return Car::join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
-            ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
-            ->orderBy('idcar', 'asc')->get();
+        return Carbrand::orderBy("namecarbrand","ASC")->get();
     }
 
     /**
@@ -58,7 +57,7 @@ class RentController extends Controller
         $filter = json_decode($request->get('filter'));
         $search = $filter->search;
         $client = $filter->idclient;
-        $car = $filter->idcar;
+        $carbran = $filter->idcarbran;
         $state = $filter->state;
 
         $rent = Rent::join('client', 'client.idclient', '=', 'rent.idclient')
@@ -75,8 +74,8 @@ class RentController extends Controller
             $rent = $rent->whereRaw('rent.idclient = ' . $client);
         }
 
-        if ($car != null) {
-            $rent = $rent->whereRaw('rent.idcar = ' . $car);
+        if ($carbran != null) {
+            $rent = $rent->whereRaw('rent.idcar = ' . $carbran);
         }
 
         if ($state != null) {

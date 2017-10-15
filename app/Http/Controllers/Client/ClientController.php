@@ -131,7 +131,6 @@ class ClientController extends Controller
         $person->lastnameperson = $request->input('lastname');
         $person->identifyperson = $request->input('identify');
         $person->numphoneperson = $request->input('phone');
-        $person->numcelperson = $request->input('cell');
         $person->emailperson = $request->input('email');
         $person->addressperson = $request->input('address');
 
@@ -139,8 +138,6 @@ class ClientController extends Controller
 
             $client = Client::find($id);
 
-            $client->idcountry = $request->input('country');
-            $client->idpaidform = $request->input('paidform');
             $client->activitystatus = $request->input('activity');
 
             if ($client->save()) {

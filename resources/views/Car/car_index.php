@@ -257,7 +257,7 @@
                             <div class="col-sm-6 col-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">Cantidad de Pasajeros: </span>
-                                    <input type="text" class="form-control" id="amountpassengers" name="amountpassengers" ng-model="amountpassengers" required />
+                                    <input type="text" class="form-control" id="amountpassengers" name="amountpassengers" ng-model="amountpassengers" ng-keypress="onlyNumber(e,3,amountpassengers)" required />
                                 </div>
                                 <span class="help-block error" ng-show="formCar.amountpassengers.$invalid && formCar.amountpassengers.$touched">
                                     <small id="emailHelp" class="form-text text-danger text-right">La Cantidad de Pasajeros es requerido</small>
@@ -317,7 +317,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-success" ng-click="saveCar()" ng-disabled="formCar.$invalid">
+                    <button type="button" class="btn btn-success" ng-click="saveCar()" >
                         Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
                     </button>
 

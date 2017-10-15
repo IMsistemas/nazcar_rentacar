@@ -127,11 +127,8 @@
                 identify: $scope.identify,
                 email: $scope.email,
                 phone: $scope.phone,
-                cell: $scope.cell,
                 address: $scope.address,
-                activity: $scope.activity,
-                country: $scope.country,
-                paidform: $scope.paidform
+                activity: $scope.activity
             };
             $http.put(API_URL + 'client/' + $scope.iditem, data).then(function(response) {
 

@@ -32,8 +32,7 @@
                 <td>NO.</td>
                 <td>APELLIDOS NOMBRE(S)</td>
                 <td>IDENTIFICACION</td>
-                <td>NO. TELEFONOS</td>
-                <td>PAIS</td>
+                <td>NO. TELEFONO</td>
                 <td>ESTADO</td>
                 <td>ACCIONES</td>
             </tr>
@@ -43,8 +42,7 @@
                 <td>{{$index + 1}}</td>
                 <td>{{item.lastnameperson + " " + item.nameperson}}</td>
                 <td>{{item.identifyperson}}</td>
-                <td>{{item.numphoneperson + " / " + item.numcelperson}}</td>
-                <td>{{item.country}}</td>
+                <td>{{item.numphoneperson}}</td>
                 <td ng-show="item.state == '1'">Activo</td>
                 <td ng-show="item.state == '0'">Inactivo</td>
                 <td>
@@ -134,11 +132,8 @@
                     <strong>No. Identificación: </strong>{{identify}}<br>
                     <strong>Correo Electrónico: </strong>{{email}}<br>
                     <strong>No. Teléfono: </strong>{{phone}}<br>
-                    <strong>No. Celular: </strong>{{cell}}<br>
                     <strong>Dirección: </strong>{{address}}<br>
-                    <strong>País: </strong>{{country}}<br>
                     <strong>Actividad Económica: </strong>{{activity}}<br>
-                    <strong>Forma de Pago: </strong>{{paidform}}
                 </div>
             </div>
         </div>
@@ -199,34 +194,6 @@
                                 </div>
                                 <span class="help-block error"
                                       ng-show="form.phone.$invalid">Este campo es requerido</span>
-                            </div>
-                            <div class="col-sm-6 col-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">No. Celular: </span>
-                                    <input type="text" class="form-control" ng-model="cell" required/>
-                                </div>
-                                <span class="help-block error"
-                                      ng-show="form.cell.$invalid">Este campo es requerido</span>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 5px;">
-                            <div class="col-sm-6 col-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">País: </span>
-                                    <select class="form-control" name="country" id="country" ng-model="country"
-                                            ng-options="value.id as value.label for value in countrylist" required></select>
-                                </div>
-                                <span class="help-block error"
-                                      ng-show="form.country.$invalid">Este campo es requerido</span>
-                            </div>
-                            <div class="col-sm-6 col-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Forma de pago: </span>
-                                    <select class="form-control" name="paidform" id="paidform" ng-model="paidform"
-                                            ng-options="value.id as value.label for value in paidlist" required ></select>
-                                </div>
-                                <span class="help-block error"
-                                      ng-show="form.paidform.$invalid">Este campo es requerido</span>
                             </div>
                         </div>
                         <div class="row" style="margin-top: 5px;">
