@@ -419,8 +419,8 @@
                                 <td class="text-right" style="font-weight: bold;">$ {{item_aditionalservice.price}}</td>
                                 <td>
                                     <label class="custom-control custom-radio">
-                                        <input name="radio_{{item_aditionalservice.idservice}}" id="radio_{{item_aditionalservice.idservice}}"
-                                               ng-model="item_aditionalservice.idservice" type="radio"
+                                        <input name="radio" id="radio"
+                                               ng-model="item_aditionalservice.idservice" type="radio" value="{{item_aditionalservice.idservice}}"
                                                class="custom-control-input" ng-click="selectServicesClick(item_aditionalservice, 'radio_' + item_aditionalservice.idservice)">
                                         <span class="custom-control-indicator"></span>
                                     </label>

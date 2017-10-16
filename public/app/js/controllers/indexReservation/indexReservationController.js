@@ -23,7 +23,7 @@
             format: 'YYYY-MM-DD'
         });
 
-        $scope.reserva_1 = 1;
+        $scope.reserva_1 = 3;
 
         $scope.getlistEdad = function () {
 
@@ -141,12 +141,6 @@
 
         };
 
-        $scope.save = function () {
-
-
-
-        };
-
         $scope.showListPlace = function (type) {
 
             $http.get(API_URL + 'reservation/getPlaces').then(function(response){
@@ -233,41 +227,10 @@
 
         $scope.selectServicesClick = function (item, field) {
 
-            console.log($scope.aditionalServiceList);
-
-            //console.log($('#' + field));
-
             var type = field.split('_');
             var flag = true;
 
             if (type[0] === 'radio') {
-
-                if ($('#' + field).prop('checked') !== true) {
-
-                    flag = false;
-
-                }
-
-            } else {
-
-                if (type[1] !== 'true') {
-
-                    flag = false;
-
-                }
-
-            }
-
-            if (flag === true) {
-
-                $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item.price);
-
-                $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
-                $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
-
-                $scope.selectServiceList.push(item);
-
-            } else {
 
                 var temp = [];
 
@@ -276,21 +239,81 @@
 
                 for (var i = 0; i < longitud; i++) {
 
-                    if ($scope.selectServiceList[i].idservice !== item.idservice) {
+                    console.log($scope.selectServiceList);
+
+                    if ($scope.selectServiceList[i].type !== '0') {
 
                         temp.push($scope.selectServiceList[i]);
                         $scope.subtotal = parseFloat($scope.subtotal) + parseFloat($scope.selectServiceList[i].price);
 
+                    } else {
+
+                        flag = false;
+                        temp.push(item);
+                        $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item.price);
+
                     }
+
+                }
+
+                $scope.selectServiceList = temp;
+
+                if (flag === true) {
+
+                    $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item.price);
+
+                    $scope.selectServiceList.push(item);
+
+                    console.log($scope.selectServiceList);
 
                 }
 
                 $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
                 $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
 
-                $scope.selectServiceList = temp;
+
+
+            } else {
+
+
+
+                if (type[1] !== 'true') {
+
+                    var temp = [];
+
+                    var longitud = $scope.selectServiceList.length;
+                    $scope.subtotal = 0;
+
+                    for (var i = 0; i < longitud; i++) {
+
+                        if ($scope.selectServiceList[i].idservice !== item.idservice) {
+
+                            temp.push($scope.selectServiceList[i]);
+                            $scope.subtotal = parseFloat($scope.subtotal) + parseFloat($scope.selectServiceList[i].price);
+
+                        }
+
+                    }
+
+                    $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+                    $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
+
+                    $scope.selectServiceList = temp;
+
+                } else {
+
+                    $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item.price);
+
+                    $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+                    $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
+
+                    $scope.selectServiceList.push(item);
+
+                }
 
             }
+
+
 
         };
 
