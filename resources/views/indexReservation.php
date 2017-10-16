@@ -326,50 +326,56 @@
                     <hr class="estilo2">
                 </div>
 
-                <div class="row">
+                <div class="col-12">
 
-                    <div class="col-12 col-sm-2" style="padding: 0; margin: 25px;" ng-repeat="item_car in carlist">
+                    <div class="row">
+                        <div class="col-12 col-sm-2" style="padding: 0; margin-bottom: 10px;" ng-repeat="item_car in carlist">
 
-                        <div class="col-12 text-center">
-                            <span style="font-size: 16px; font-weight: bold;">{{item_car.namecarmodel}}</span>
-                        </div>
-                        <div class="col-12 text-center">
-                            <span style="font-size: 12px; font-weight: bold; color: #6c757d;">{{item_car.namecarbrand}}</span>
-                        </div>
-
-                        <div class="col-12 text-center" style="padding: 0; margin-top: 10px;">
-                            <img class="img-fluid" src="{{item_car.image}}" alt="image" style="width: 450px; height: 150px;">
-                            <!--<img class="img-fluid" src="{{item_car.image}}" alt="" style="max-width: 100%; border: 1px solid;">-->
-                        </div>
-
-                        <div class="row" style="margin-top: 5px; font-size: 12px;">
-                            <div class="col-12 col-sm-6">
-                                {{item_car.amountpassengers}} Puestos <br>
-                                {{item_car.amountluggage}} Equipajes <br>
-                                <a href="#" ng-click="getDetails(item_car)">Detalles</a>
+                            <div class="col-12 text-center">
+                                <span style="font-size: 16px; font-weight: bold;">{{item_car.namecarmodel}}</span>
                             </div>
-                            <div class="col-12 col-sm-6" style="padding: 0;">
-                                <div class="col-12 text-right">COSTO</div>
-                                <div class="col-12 text-right">
-                                    $
-                                    <span style="font-weight: bold; font-size: 20px; color: #6c757d;">
+                            <div class="col-12 text-center">
+                                <span style="font-size: 12px; font-weight: bold; color: #6c757d;">{{item_car.namecarbrand}}</span>
+                            </div>
+
+                            <div class="col-12 text-center" style="padding: 0; margin-top: 10px;">
+                                <img class="img-fluid" src="{{item_car.image}}" alt="image" style="max-width: 100% !important; height: 150px !important;">
+                                <!--<img class="img-fluid" src="{{item_car.image}}" alt="" style="max-width: 100%; border: 1px solid;">-->
+                            </div>
+
+                            <div class="col-12" style="margin-top: 5px; font-size: 12px;">
+                                <div class="row" style="padding: 5px;">
+                                    <div class="col-12 col-sm-6">
+                                        {{item_car.amountpassengers}} Puestos <br>
+                                        {{item_car.amountluggage}} Equipajes <br>
+                                        <a href="#" ng-click="getDetails(item_car)">Detalles</a>
+                                    </div>
+                                    <div class="col-12 col-sm-6" style="padding: 0;">
+                                        <div class="col-12 text-right">COSTO</div>
+                                        <div class="col-12 text-right">
+                                            $
+                                            <span style="font-weight: bold; font-size: 20px; color: #6c757d;">
                                         {{item_car.price}}
                                     </span>
+                                        </div>
+                                        <div class="col-12 text-right">DIARIO</div>
+                                    </div>
                                 </div>
-                                <div class="col-12 text-right">DIARIO</div>
                             </div>
-                        </div>
 
-                        <div class="row" style="margin-top: 5px;">
-                            <div class="col-12 col-sm-6" style="padding-right: 0;">
-                                <button type="button" class="btn btn-outline-dark btn-sm" ng-click="intermediateStep(item_car)" style="font-size: 12px !important; ">
-                                    PAGO CAJA
-                                </button>
-                            </div>
-                            <div class="col-12 col-sm-6" style="padding-left: 0;">
-                                <button type="button" class="btn btn-danger btn-sm" ng-click="intermediateStep(item_car)" style="font-size: 12px !important; ">
-                                    PAGO AHORA
-                                </button>
+                            <div class="col-12" style="margin-top: 5px;">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6" style="padding-right: 0;">
+                                        <button type="button" class="btn btn-outline-dark btn-sm" ng-click="intermediateStep(item_car)" style="font-size: 12px !important; ">
+                                            PAGO CAJA
+                                        </button>
+                                    </div>
+                                    <div class="col-12 col-sm-6" style="padding-left: 0;">
+                                        <button type="button" class="btn btn-danger btn-sm" ng-click="intermediateStep(item_car)" style="font-size: 12px !important; ">
+                                            PAGO AHORA
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
