@@ -245,20 +245,20 @@
         <div class="col-12" ng-show="reserva_1 == 2">
 
             <div class="row">
-                <div class="col-3" style="color: darkred !important; font-weight: bold;">
-                    1. Seleccionar
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: darkred !important; font-weight: bold; text-decoration: none;">1. Seleccionar</a>
                     <hr class="estilo">
                 </div>
-                <div class="col-3">
-                    2. Servicios
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">2. Servicios</a>
                     <hr>
                 </div>
-                <div class="col-3">
-                    3. Datos Personales
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">3. Datos Personales</a>
                     <hr>
                 </div>
-                <div class="col-3">
-                    4. Datos de Pagos
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">4. Datos de Pagos</a>
                     <hr>
                 </div>
             </div>
@@ -392,22 +392,24 @@
         <div class="col-12" ng-show="reserva_1 == 3">
 
             <div class="row">
-                <div class="col-3">
-                    1. Seleccionar
+
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">1. Seleccionar</a>
                     <hr>
                 </div>
-                <div class="col-3" style="color: darkred !important; font-weight: bold;">
-                    2. Servicios
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: darkred !important; font-weight: bold; text-decoration: none;">2. Servicios</a>
                     <hr class="estilo">
                 </div>
-                <div class="col-3">
-                    3. Datos Personales
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">3. Datos Personales</a>
                     <hr>
                 </div>
-                <div class="col-3">
-                    4. Datos de Pagos
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">4. Datos de Pagos</a>
                     <hr>
                 </div>
+
             </div>
 
             <div class="row" style="margin-top: 20px;">
@@ -479,32 +481,36 @@
 
                                 <div class="col-12">
                                     <div class="row">
-                                        <div class="col-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
-                                            <div class="col-12 text-center">
-                                                <span style="font-size: 18px; font-weight: bold; color: darkred;">Retiro</span>
-                                            </div>
-                                            <div class="col-12 text-center">
-                                                <span style="font-size: 24px; font-weight: bold;">{{data_retiro_code}}</span>
-                                            </div>
-                                            <div class="col-12 text-center">
-                                                <span>{{data_retiro_place}}</span>
-                                            </div>
-                                            <div class="col-12 text-center">
-                                                <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
+                                        <div class="col-6" style="">
+                                            <div class="col-12" style="padding: 5px; background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                                <div class="col-12 text-center">
+                                                    <span style="font-size: 18px; font-weight: bold; color: darkred;">Retiro</span>
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <span style="font-size: 24px; font-weight: bold;">{{data_retiro_code}}</span>
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <span>{{data_retiro_place}}</span>
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
-                                            <div class="col-12 text-center">
-                                                <span style="font-size: 18px; font-weight: bold; color: darkred;">Entrega</span>
-                                            </div>
-                                            <div class="col-12 text-center">
-                                                <span style="font-size: 24px; font-weight: bold;">{{data_entrega_code}}</span>
-                                            </div>
-                                            <div class="col-12 text-center">
-                                                <span>{{data_entrega_place}}</span>
-                                            </div>
-                                            <div class="col-12 text-center">
-                                                <span>{{data_entrega_date}} a las {{data_entrega_hour}}</span>
+                                        <div class="col-6">
+                                            <div class="col-12" style="padding: 5px; background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                                <div class="col-12 text-center">
+                                                    <span style="font-size: 18px; font-weight: bold; color: darkred;">Entrega</span>
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <span style="font-size: 24px; font-weight: bold;">{{data_entrega_code}}</span>
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <span>{{data_entrega_place}}</span>
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <span>{{data_entrega_date}} a las {{data_entrega_hour}}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -565,22 +571,24 @@
         <div class="col-12" ng-show="reserva_1 == 4">
 
             <div class="row">
-                <div class="col-3">
-                    1. Seleccionar
+
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">1. Seleccionar</a>
                     <hr>
                 </div>
-                <div class="col-3">
-                    2. Servicios
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">2. Servicios</a>
                     <hr>
                 </div>
-                <div class="col-3" style="color: darkred !important; font-weight: bold;">
-                    3. Datos Personales
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: darkred !important; font-weight: bold; text-decoration: none;">3. Datos Personales</a>
                     <hr class="estilo">
                 </div>
-                <div class="col-3">
-                    4. Datos de Pagos
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">4. Datos de Pagos</a>
                     <hr>
                 </div>
+
             </div>
 
             <div class="row" style="margin-top: 20px;">
@@ -725,37 +733,43 @@
 
 
                 <div class="row">
+
                     <div class="col-sm-6 col-12">
                         <div class="row">
-                            <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
-                                <div class="col-12 text-center">
-                                    <span style="font-size: 12px; font-weight: bold;">Retiro</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span style="font-size: 24px; font-weight: bold;">{{data_retiro_code}}</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span>{{data_retiro_place}}</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
+                            <div class="col-12 col-sm-6">
+                                <div class="col-12" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                    <div class="col-12 text-center">
+                                        <span style="font-size: 12px; font-weight: bold;">Retiro</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span style="font-size: 24px; font-weight: bold;">{{data_retiro_code}}</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span>{{data_retiro_place}}</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span>{{data_retiro_date}} a las {{data_retiro_hour}}</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-6" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
-                                <div class="col-12 text-center">
-                                    <span style="font-size: 12px; font-weight: bold;">Entrega</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span style="font-size: 24px; font-weight: bold;">{{data_entrega_code}}</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span>{{data_entrega_place}}</span>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <span>{{data_entrega_date}} a las {{data_entrega_hour}}</span>
+                            <div class="col-12 col-sm-6">
+                                <div class="col-12" style="background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                    <div class="col-12 text-center">
+                                        <span style="font-size: 12px; font-weight: bold;">Entrega</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span style="font-size: 24px; font-weight: bold;">{{data_entrega_code}}</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span>{{data_entrega_place}}</span>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <span>{{data_entrega_date}} a las {{data_entrega_hour}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
 
                             <div class="col-12 text-center">
@@ -824,22 +838,24 @@
         <div class="col-12" ng-show="reserva_1 == 5">
 
             <div class="row">
-                <div class="col-3">
-                    1. Seleccionar
+
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">1. Seleccionar</a>
                     <hr>
                 </div>
-                <div class="col-3">
-                    2. Servicios
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">2. Servicios</a>
                     <hr>
                 </div>
-                <div class="col-3">
-                    3. Datos Personales
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: #6c757d !important; font-weight: bold; text-decoration: none;">3. Datos Personales</a>
                     <hr>
                 </div>
-                <div class="col-3" style="color: darkred !important; font-weight: bold;">
-                    4. Datos de Pagos
+                <div class="col-12 col-sm-3">
+                    <a href="" ng-click="" style="color: darkred !important; font-weight: bold; text-decoration: none;">4. Datos de Pagos</a>
                     <hr class="estilo">
                 </div>
+
             </div>
 
             <div class="row" style="margin-top: 20px;">
