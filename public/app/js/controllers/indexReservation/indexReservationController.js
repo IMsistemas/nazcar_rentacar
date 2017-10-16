@@ -23,7 +23,7 @@
             format: 'YYYY-MM-DD'
         });
 
-        $scope.reserva_1 = 3;
+        $scope.reserva_1 = 1;
 
         $scope.getlistEdad = function () {
 
