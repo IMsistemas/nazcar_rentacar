@@ -329,15 +329,18 @@
                 <div class="row">
 
                     <div class="col-12 col-sm-2" style="padding: 0; margin: 25px;" ng-repeat="item_car in carlist">
+
                         <div class="col-12 text-center">
                             <span style="font-size: 16px; font-weight: bold;">{{item_car.namecarmodel}}</span>
                         </div>
                         <div class="col-12 text-center">
-                            <span style="font-size: 16px; font-weight: bold; color: #6c757d;">{{item_car.namecarbrand}}</span>
+                            <span style="font-size: 12px; font-weight: bold; color: #6c757d;">{{item_car.namecarbrand}}</span>
                         </div>
 
                         <div class="col-12 text-center" style="padding: 0; margin-top: 10px;">
-                            <img class="img-fluid" src="{{item_car.image}}" alt="" style="max-width: 100%;">
+                            <img class="img-fluid" src="{{item_car.image}}" alt="" style="width: 500px; height: 150px;">
+
+                            <!--<img class="img-fluid" src="{{item_car.image}}" alt="" style="max-width: 100%; border: 1px solid;">-->
                         </div>
 
                         <div class="row" style="margin-top: 5px; font-size: 12px;">
