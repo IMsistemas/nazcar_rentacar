@@ -338,8 +338,7 @@
                         </div>
 
                         <div class="col-12 text-center" style="padding: 0; margin-top: 10px;">
-                            <img class="img-fluid" src="{{item_car.image}}" alt="" style="width: 500px; height: 150px;">
-
+                            <img class="img-fluid" src="{{item_car.image}}" alt="image" style="width: 500px; height: 150px;">
                             <!--<img class="img-fluid" src="{{item_car.image}}" alt="" style="max-width: 100%; border: 1px solid;">-->
                         </div>
 
