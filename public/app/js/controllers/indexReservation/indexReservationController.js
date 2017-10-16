@@ -239,8 +239,6 @@
 
                 for (var i = 0; i < longitud; i++) {
 
-                    console.log($scope.selectServiceList);
-
                     if ($scope.selectServiceList[i].type !== '0') {
 
                         temp.push($scope.selectServiceList[i]);
@@ -264,18 +262,12 @@
 
                     $scope.selectServiceList.push(item);
 
-                    console.log($scope.selectServiceList);
-
                 }
 
                 $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
                 $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
 
-
-
             } else {
-
-
 
                 if (type[1] !== 'true') {
 
@@ -312,8 +304,6 @@
                 }
 
             }
-
-
 
         };
 
