@@ -52,6 +52,8 @@
 
         $scope.showModal = function (step) {
 
+            $('#modalMessageInfoCar').modal('hide');
+
             if (step === 2) {
                 $scope.rest_day = $scope.restaFechas($scope.fecha_retiro, $scope.fecha_entrega);
             }

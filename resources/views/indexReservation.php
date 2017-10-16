@@ -1012,7 +1012,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
                             Confirmar
                         </button>
                     </div>
