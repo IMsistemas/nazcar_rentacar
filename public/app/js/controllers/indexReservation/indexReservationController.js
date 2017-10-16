@@ -58,7 +58,9 @@
 
             if (step === 3) {
 
+
                 var item_0 = {
+                    idservice: 0,
                     service: 'Renta',
                     price: 0
                 };
@@ -74,11 +76,44 @@
 
                         item_0.price = response.data;
 
-                        $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item_0.price);
-                        $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
-                        $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
 
-                        $scope.selectServiceList.push(item_0);
+
+                        var longitud = $scope.selectServiceList.length;
+
+                        if (longitud === 0) {
+
+                            $scope.selectServiceList.push(item_0);
+
+                            $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item_0.price);
+                            $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+                            $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
+
+                        } else {
+
+                            for (var i = 0; i < longitud; i++) {
+
+                                if ($scope.selectServiceList[i].idservice === 0) {
+
+                                    if (parseFloat($scope.selectServiceList[i].price) < parseFloat(response.data)) {
+
+                                        console.log(response.data);
+
+                                        $scope.subtotal = parseFloat($scope.subtotal) - parseFloat($scope.selectServiceList[i].price);
+
+                                        $scope.selectServiceList[i].price = response.data;
+
+                                        $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(response.data);
+                                        $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+                                        $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
+
+                                    }
+
+                                    break;
+                                }
+
+                            }
+
+                        }
 
                     });
 
