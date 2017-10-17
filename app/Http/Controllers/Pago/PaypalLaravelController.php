@@ -135,6 +135,7 @@ class PaypalLaravelController extends Controller
                 return $data;
             }
         }
+
         foreach($payment->getLinks() as $link) {
             if($link->getRel() == 'approval_url') {
                 $redirect_url = $link->getHref();

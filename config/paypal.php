@@ -3,8 +3,8 @@
 
 return array(
 /** set your paypal credential **/
-'client_id' =>'Af_CXYeYgtHmtSe14aO4RbsOu-c7l-aMS5sjAIxUHjasJww_nPVSfovKoGxg9Y0EU8Dqu4r38cSMH-f-',
-'secret' => 'EBqyTTvrtRJGj5rO2R82h3o1fZGQM75x4pxprq70KBTn0DJEDSVUTbG8LF5rP9rwO1CVvfPN0Zvwkx82',
+'client_id' =>'AZvPYG0CTtAMQ4M96Vg-3HMqMis0QQ6EFoxj6_nwCvebGS15buOEFbPbAv17O8tBT-hrVoDz7_b_EolH',
+'secret' => 'EPkbY6CzbUJLVpj1RegMa6hpaoBX1B8eTv8aoyUx1Wg9d8NWHIK3S8cVqmx0A_ctZxv7s8H5Zn84lCZo',
 /**
 * SDK configuration 
 */
