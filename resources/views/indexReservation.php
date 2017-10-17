@@ -953,6 +953,17 @@
                         </p>
                     </div>
 
+                    <hr>
+
+                    <div class="col-12" style="margin-top: 15px;">
+                        <button type="button" class="btn btn-info btn-lg btn-block" style="font-weight: bold;"
+                                ng-click="save()">
+                            <i class="fa fa-paypal" aria-hidden="true"></i> PayPal $ {{total}}
+                        </button>
+                    </div>
+
+                    <hr>
+
                     <div class="col-12" style="background-color: darkred; padding-top: 3%; padding-bottom: 3%;">
                         <form>
 
@@ -973,7 +984,7 @@
                             </div>
                             <div class="col-12" style="margin-top: 15px;">
                                 <button type="button" class="btn btn-light btn-lg btn-block" style="color: darkred; font-weight: bold;"
-                                    ng-click="save()">
+                                    ng-click="save()" disabled>
                                     PAGAR $ {{total}}
                                 </button>
                             </div>

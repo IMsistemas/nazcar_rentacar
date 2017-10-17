@@ -88,15 +88,15 @@
 
 <div class="container" style="margin-top: 10px;" ng-controller="PaypalLaravelController" >
 
-    <div class="col-xs-12">
+    <!--<div class="col-xs-12">
         <h4> {{Title}}</h4>
         <hr>
-    </div>
+    </div>-->
 
 
-    <button type="button" class="btn btn-primary" ng-click="paypal_init()" >
+    <!--<button type="button" class="btn btn-primary" ng-click="paypal_init()" >
         Pagar <i class="fa fa-paypal" aria-hidden="true"></i> 
-    </button>
+    </button>-->
 
     <?php 
         if(isset($data)){
