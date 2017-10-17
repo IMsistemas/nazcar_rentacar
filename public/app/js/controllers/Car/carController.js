@@ -144,8 +144,6 @@
                 file: $scope.file
             };
 
-            console.log(data);
-
             Upload.upload({
 
                 url: 'car',
@@ -228,15 +226,21 @@
 
         $scope.showModalEdit = function (item) {
 
-             $scope.car_brand = item.carbrand;
-             $scope.car_model = item.carmodel;
+            console.log(item);
+
+             $scope.car_brand = item.idcarbrand;
+             $scope.car_model = item.idcarmodel;
              $scope.year = item.year;
              $scope.car_type = item.cartype;
-             $scope.serial_motor = item.serialmotor;
+             $scope.serial_motor = item.idmotor;
+             $scope.serial_fuel = item.idfuel;
+             $scope.serial_transmission = item.idtransmission;
              $scope.serial_car = item.carserial;
              $scope.name_owner = item.nameowner;
              $scope.insurance_company = item.insurancecompany;
              $scope.secure_code = item.securecode;
+             $scope.amountpassengers = item.amountpassengers;
+             $scope.amountluggage = item.amountluggage;
              //$scope.rent_cost = item.rentcost;
              $scope.aditional_cost = item.additionalcost;
              $scope.file = item.image;
@@ -254,6 +258,8 @@
             $scope.serial_motor = item.serialmotor;
             $scope.serial_car = item.carserial;
             $scope.name_owner = item.nameowner;
+            $scope.amountpassengers = item.amountpassengers;
+            $scope.amountluggage = item.amountluggage;
             $scope.insurance_company = item.insurancecompany;
             $scope.secure_code = item.securecode;
             $scope.rent_cost = item.price;
@@ -265,8 +271,6 @@
             } else {
                 $scope.file_view = '';
             }
-
-
 
             $("#modalMessageInfo").modal("show");
 

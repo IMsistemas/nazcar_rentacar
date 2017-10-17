@@ -130,6 +130,8 @@
                             <strong>Tipo de Auto: </strong>{{car_type}}<br>
                             <strong>Serial del Motor: </strong>{{serial_motor}}<br>
                             <strong>Serial del Auto: </strong>{{serial_car}}<br>
+                            <strong>Cantidad de Pasajeros: </strong>{{amountpassengers}}<br>
+                            <strong>Cantidad de Equipaje: </strong>{{amountluggage}}<br>
                             <strong>Propietario: </strong>{{name_owner}}<br>
                             <strong>Compañía de Seguros: </strong>{{insurance_company}}<br>
                             <strong>Código de Seguro: </strong>{{secure_code}}<br>
@@ -257,7 +259,7 @@
                             <div class="col-sm-6 col-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">Cantidad de Pasajeros: </span>
-                                    <input type="text" class="form-control" id="amountpassengers" name="amountpassengers" ng-model="amountpassengers" ng-keypress="onlyNumber(e,3,amountpassengers)" required />
+                                    <input type="text" class="form-control" id="amountpassengers" name="amountpassengers" ng-model="amountpassengers" onkeypress="onlyNumber(e,3,amountpassengers)" required />
                                 </div>
                                 <span class="help-block error" ng-show="formCar.amountpassengers.$invalid && formCar.amountpassengers.$touched">
                                     <small id="emailHelp" class="form-text text-danger text-right">La Cantidad de Pasajeros es requerido</small>
