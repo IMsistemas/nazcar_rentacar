@@ -75,7 +75,8 @@ class CarController extends Controller
             $car = $car->whereRaw('car.state = ' . $state);
         }
 
-        return $car->orderBy('idcar', 'desc')->paginate(10);
+        return $car->selectRaw('car.*, carbrand.namecarbrand, carbrand.idcarbrand, carmodel.namecarmodel, carmodel.price, carmodel.guarantee')
+                        ->orderBy('idcar', 'desc')->paginate(10);
     }
     /**
      *
@@ -158,9 +159,9 @@ class CarController extends Controller
         $car->state=$data->state;
         $respuesta=$car->save();
         if($respuesta==1){
-            return "true";
+            return response()->json(['success' => true]);
         }else{
-            return "false";
+            return response()->json(['success' => false]);
         }
     }
 }

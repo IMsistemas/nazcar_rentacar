@@ -4,6 +4,7 @@
 
         $scope.id = 0;
         $scope.aux_state = "1";
+        $scope.estado = '1';
 
         $scope.initLoad = function(pageNumber){
 
@@ -12,12 +13,12 @@
             $scope.listFuel();
             $scope.listTransmission();
 
-            if ($scope.buscar !== undefined) {
-                var search = $scope.buscar;
+            if ($scope.busqueda !== undefined) {
+                var search = $scope.busqueda;
             } else var search = null;
 
-            if ($scope.statefilter !== undefined) {
-                var state = $scope.statefilter;
+            if ($scope.estado !== undefined) {
+                var state = $scope.estado;
             } else var state = null;
 
             var filtros = {
@@ -181,14 +182,19 @@
 
         ///---cambiar estado marca
         $scope.change_estado=function(item){
+
+            console.log(item);
+
             $scope.aux_state=item.state;
             $scope.id = item.idcar;
+            $scope.name_car = item.namecarmodel;
             $("#modalMessagePrimary").modal("show");
         };
-        ///--- cambiar estado y enviar a el controlador php
+
+
         $scope.ok_inactivar = function(){
 
-            if ( $scope.aux_state == "1"){
+            if ( $scope.aux_state === "1" ){
                 $scope.state = "0";
             } else $scope.state = "1";
 
@@ -223,29 +229,29 @@
 
 
         $scope.cancel = function () {
-            $scope.car_brand = item.idcarbrand;
-            //$scope.car_model = item.idcarmodel;
 
-            $scope.listCarModel(item.idcarmodel);
+            $scope.listCarbrand();
+            $scope.year = '';
+            $scope.car_type = '';
+            $scope.serial_motor = '';
+            $scope.serial_fuel = '';
+            $scope.serial_transmission = '';
+            $scope.serial_car = '';
+            $scope.name_owner = '';
+            $scope.insurance_company = '';
+            $scope.secure_code = '';
+            $scope.amountpassengers = '';
+            $scope.amountluggage = '';
+            $scope.aditional_cost = '';
+            $scope.file = '';
 
-            $scope.year = item.year;
-            $scope.car_type = item.cartype;
-            $scope.serial_motor = item.idmotor;
-            $scope.serial_fuel = item.idfuel;
-            $scope.serial_transmission = item.idtransmission;
-            $scope.serial_car = item.carserial;
-            $scope.name_owner = item.nameowner;
-            $scope.insurance_company = item.insurancecompany;
-            $scope.secure_code = item.securecode;
-            $scope.amountpassengers = item.amountpassengers;
-            $scope.amountluggage = item.amountluggage;
-            //$scope.rent_cost = item.rentcost;
-            $scope.aditional_cost = item.additionalcost;
-            $scope.file = item.image;
+            $scope.id = 0;
         };
 
 
         $scope.showModalAdd = function () {
+
+            $scope.cancel();
 
             $scope.title_modal_action = 'Agregar';
             $scope.url_foto = 'https://www.autoefectivo.com/img/auto.png';
@@ -277,6 +283,8 @@
             $scope.file = item.image;
 
             $scope.title_modal_action = 'Editar';
+
+            $scope.id = item.idcar;
 
             $("#modalMessagePrimaryAdd").modal("show");
 

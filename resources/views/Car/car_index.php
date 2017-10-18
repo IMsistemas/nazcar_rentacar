@@ -8,10 +8,30 @@
         <hr>
     </div>
 
-    <div class="col-12 text-right" style="margin-top: 5px;">
-        <button type="button" class="btn btn-primary" ng-click="showModalAdd()">
-            Agregar <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        </button>
+    <div class="row" style="margin-top: 5px;">
+
+        <div class="col-4 ">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="busqueda" ng-keyup="initLoad(1)">
+                <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="input-group">
+                <span class="input-group-addon">Estado: </span>
+                <select class="form-control" ng-model="estado" ng-change="initLoad(1)";>
+                    <option value="1">ACTIVOS</option>
+                    <option value="0">ANULADOS</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4 text-right">
+            <button type="button" class="btn btn-primary" ng-click="showModalAdd()">
+                Agregar <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </button>
+        </div>
+
+
     </div>
 
     <div class="col-xs-12" style="margin-top: 10px;">
@@ -65,8 +85,8 @@
     <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header modal-header-primary">
-                    <h5 class="modal-title">Confirmación</h5>
+                <div class="modal-header modal-header-success">
+                    <h5 class="modal-title">Información</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -74,7 +94,7 @@
                 <div class="modal-body">
                     {{message}}
                 </div>
-                <div class="modal-footer">
+                <!--<div class="modal-footer">
                     <button type="button" class="btn btn-primary" >
                         Aceptar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
@@ -82,7 +102,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -97,15 +117,20 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Activar / Inactivar Auto
+                    <div class="row">
+                        <div class="col-12">
+                            Está seguro que desea cambiar el estado de: <strong>{{name_car}}</strong>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" ng-click="ok_inactivar()">
-                        Aceptar <i class="fa fa-ban" aria-hidden="true"></i>
-                    </button>
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-danger" ng-click="ok_inactivar()">
+                        Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
