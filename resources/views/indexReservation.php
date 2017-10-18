@@ -72,7 +72,10 @@
             font-weight: bold;
         }
 
-
+        #map {
+            height: 400px;
+            width: 100%;
+        }
     </style>
 
 
@@ -1043,7 +1046,9 @@
                                     <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>-->
                                 </div>
                             </div>
-                            <div class="col-8"></div>
+                            <div class="col-8">
+                                <div class="col-12" id="map"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -1157,5 +1162,61 @@
 <script src="<?= asset('../app/js/app_system.js') ?>"></script>
 
 <script src="<?= asset('../app/js/controllers/indexReservation/indexReservationController.js') ?>"></script>
+
+<script>
+    // Note: This example requires that you consent to location sharing when
+    // prompted by your browser. If you see the error "The Geolocation service
+    // failed.", it means you probably did not give permission for the browser to
+    // locate you.
+
+    function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 15
+        });
+
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(function(position) {
+
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                infoWindow.setPosition(pos);
+                //infoWindow.setContent('Location found.');
+                map.setCenter(pos);
+
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    draggable:true
+                });
+
+
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBetlhxbUjMSwBWLtgLrHtZlecWmwpH_jI&callback=initMap">
+</script>
 
 </html>
