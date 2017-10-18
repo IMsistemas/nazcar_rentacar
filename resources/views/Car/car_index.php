@@ -319,7 +319,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-success" ng-click="saveCar()" >
+                    <button type="button" class="btn btn-success" ng-click="saveCar()" ng-disabled="formCar.$invalid">
                         Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
                     </button>
 

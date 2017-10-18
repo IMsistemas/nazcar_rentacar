@@ -59,7 +59,7 @@
             });
         };
 
-        $scope.listCarModel = function(){
+        $scope.listCarModel = function(idcarmodel){
 
             $http.get(API_URL + 'car/get_list_modelo/' + $scope.car_brand).then(function(response){
 
@@ -72,7 +72,13 @@
                 $scope.modelos = array_temp;
                 $scope.car_model = '';
 
-                console.log($scope.modelos);
+                if (idcarmodel !== undefined) {
+
+                    $scope.car_model = idcarmodel;
+
+                }
+
+                //console.log($scope.modelos);
 
 
             });
@@ -215,6 +221,30 @@
             });
         };
 
+
+        $scope.cancel = function () {
+            $scope.car_brand = item.idcarbrand;
+            //$scope.car_model = item.idcarmodel;
+
+            $scope.listCarModel(item.idcarmodel);
+
+            $scope.year = item.year;
+            $scope.car_type = item.cartype;
+            $scope.serial_motor = item.idmotor;
+            $scope.serial_fuel = item.idfuel;
+            $scope.serial_transmission = item.idtransmission;
+            $scope.serial_car = item.carserial;
+            $scope.name_owner = item.nameowner;
+            $scope.insurance_company = item.insurancecompany;
+            $scope.secure_code = item.securecode;
+            $scope.amountpassengers = item.amountpassengers;
+            $scope.amountluggage = item.amountluggage;
+            //$scope.rent_cost = item.rentcost;
+            $scope.aditional_cost = item.additionalcost;
+            $scope.file = item.image;
+        };
+
+
         $scope.showModalAdd = function () {
 
             $scope.title_modal_action = 'Agregar';
@@ -226,24 +256,27 @@
 
         $scope.showModalEdit = function (item) {
 
-            console.log(item);
+            $scope.car_brand = item.idcarbrand;
+            //$scope.car_model = item.idcarmodel;
 
-             $scope.car_brand = item.idcarbrand;
-             $scope.car_model = item.idcarmodel;
-             $scope.year = item.year;
-             $scope.car_type = item.cartype;
-             $scope.serial_motor = item.idmotor;
-             $scope.serial_fuel = item.idfuel;
-             $scope.serial_transmission = item.idtransmission;
-             $scope.serial_car = item.carserial;
-             $scope.name_owner = item.nameowner;
-             $scope.insurance_company = item.insurancecompany;
-             $scope.secure_code = item.securecode;
-             $scope.amountpassengers = item.amountpassengers;
-             $scope.amountluggage = item.amountluggage;
-             //$scope.rent_cost = item.rentcost;
-             $scope.aditional_cost = item.additionalcost;
-             $scope.file = item.image;
+            $scope.listCarModel(item.idcarmodel);
+
+            $scope.year = item.year;
+            $scope.car_type = item.cartype;
+            $scope.serial_motor = item.idmotor;
+            $scope.serial_fuel = item.idfuel;
+            $scope.serial_transmission = item.idtransmission;
+            $scope.serial_car = item.carserial;
+            $scope.name_owner = item.nameowner;
+            $scope.insurance_company = item.insurancecompany;
+            $scope.secure_code = item.securecode;
+            $scope.amountpassengers = item.amountpassengers;
+            $scope.amountluggage = item.amountluggage;
+            //$scope.rent_cost = item.rentcost;
+            $scope.aditional_cost = item.additionalcost;
+            $scope.file = item.image;
+
+            $scope.title_modal_action = 'Editar';
 
             $("#modalMessagePrimaryAdd").modal("show");
 
