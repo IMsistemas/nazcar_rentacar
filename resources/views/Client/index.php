@@ -18,8 +18,8 @@
             <div class="input-group">
                 <span class="input-group-addon">Estado: </span>
                 <select class="form-control" value="" name="statefilter" id="statefilter" ng-model="statefilter" ng-change="initLoad(1)">
-                    <option value="1">Activos</option>
-                    <option value="0">Inactivos</option>
+                    <option value="1">ACTIVOS</option>
+                    <option value="0">INACTIVOS</option>
                 </select>
             </div>
         </div>
@@ -29,18 +29,18 @@
         <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
             <thead class="bg-primary">
             <tr>
-                <td>NO.</td>
-                <td>APELLIDOS NOMBRE(S)</td>
-                <td>IDENTIFICACION</td>
-                <td>NO. TELEFONO</td>
-                <td>ESTADO</td>
-                <td>ACCIONES</td>
+                <th>NO.</th>
+                <th>APELLIDOS NOMBRE(S)</th>
+                <th>IDENTIFICACION</th>
+                <th>NO. TELEFONO</th>
+                <th>ESTADO</th>
+                <th>ACCIONES</th>
             </tr>
             </thead>
             <tbody>
             <tr dir-paginate="item in list|orderBy:sortKey:reverse| itemsPerPage:10" total-items="totalItems" ng-cloak>
                 <td>{{$index + 1}}</td>
-                <td>{{item.lastnameperson + " " + item.nameperson}}</td>
+                <td>{{item.lastnameperson + ", " + item.nameperson}}</td>
                 <td>{{item.identifyperson}}</td>
                 <td>{{item.numphoneperson}}</td>
                 <td ng-show="item.state == '1'">Activo</td>

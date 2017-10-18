@@ -42,15 +42,15 @@
         <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
             <thead class="bg-primary">
             <tr>
-                <td style="width: 5px">NO.</td>
-                <td style="width: 15px">CLIENTE</td>
-                <td style="width: 15px">AUTO</td>
-                <td style="width: 15px">MODELO</td>
-                <td style="width: 8px">AÑO</td>
-                <td style="width: 12px">FECHA INICIO</td>
-                <td style="width: 12px">FECHA FIN</td>
-                <td style="width: 12px">COSTO</td>
-                <td style="width: 10px">ACCIONES</td>
+                <th style="width: 5px">NO.</th>
+                <th style="width: 15px">CLIENTE</th>
+                <th style="width: 15px">AUTO</th>
+                <th style="width: 15px">MODELO</th>
+                <th style="width: 8px">AÑO</th>
+                <th style="width: 12px">FECHA INICIO</th>
+                <th style="width: 12px">FECHA FIN</th>
+                <th style="width: 12px">COSTO</th>
+                <th style="width: 10px">ACCIONES</th>
             </tr>
             </thead>
             <tbody>
@@ -62,7 +62,7 @@
                 <td>{{item.year}}</td>
                 <td>{{item.startdatetime}}</td>
                 <td>{{item.enddatetime}}</td>
-                <td>{{item.totalcost}}</td>
+                <td class="text-right">$ {{item.totalcost}}</td>
                 <td  class="text-center">
                     <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Detalle" ng-click="showModalInformation(item)">
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
