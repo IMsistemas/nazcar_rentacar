@@ -109,16 +109,21 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        Inactivar/Activar Modelo
+              <div class="row">
+                  <div class="col-12">
+                      Está seguro que desea cambiar el estado de: <strong>{{name_model}}</strong>
+                  </div>
+              </div>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" ng-disabled=" aux_btn_modelod!='1' " ng-click="ok_inactivar();" >
-                Anular <i class="fa fa-ban" aria-hidden="true"></i> 
-            </button>
 
 	        <button type="button" class="btn btn-secondary" ng-click=" aux_btn_modelod='1' " data-dismiss="modal">
                 Cancelar <i class="fa fa-ban" aria-hidden="true"></i> 
             </button>
+
+              <button type="button" class="btn btn-danger" ng-disabled=" aux_btn_modelod!='1' " ng-click="ok_inactivar();" >
+                  Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i>
+              </button>
 	      </div>
 	    </div>
 	  </div>

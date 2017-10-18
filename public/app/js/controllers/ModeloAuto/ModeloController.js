@@ -154,6 +154,7 @@ app.controller('ModeloController', function($scope, $http, API_URL) {
     ///---cambiar estado marca
     $scope.change_estado=function(item){
     	$scope.aux_modelo=item;
+        $scope.name_model = item.namecarmodel;
     	$("#modalMessagePrimary").modal("show");
     };
     ///--- cambiar estado y enviar a el controlador php

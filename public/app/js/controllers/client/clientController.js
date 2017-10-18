@@ -111,7 +111,9 @@
             $scope.iditem = item.idclient;
             $scope.aux_estado = item.state;
 
-            console.log(item.state);
+            $scope.name_client = item.lastnameperson + ", " + item.nameperson;
+
+            //console.log(item.state);
 
             $("#modalMessagePrimary").modal("show");
 

@@ -82,15 +82,20 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Activar / Inactivar el cliente seleccionado...
+                    <div class="row">
+                        <div class="col-12">
+                            Está seguro que desea cambiar el estado de: <strong>{{name_client}}</strong>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" ng-click="activarInactivar()">
-                        Aceptar <i class="fa fa-ok" aria-hidden="true"></i>
-                    </button>
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-danger" ng-click="activarInactivar()">
+                        Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>

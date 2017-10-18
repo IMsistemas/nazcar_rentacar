@@ -105,6 +105,7 @@ app.controller('MarcaController', function($scope, $http, API_URL) {
     ///---cambiar estado marca
     $scope.change_estado=function(item){
     	$scope.aux_marca=item;
+    	$scope.name_brand = item.namecarbrand;
     	$("#modalMessagePrimary").modal("show");
     };
     ///--- cambiar estado y enviar a el controlador php
@@ -123,14 +124,14 @@ app.controller('MarcaController', function($scope, $http, API_URL) {
 	        		
 	        		$scope.aux_marca={};
 
-	        		$scope.Mensaje="Se modifico correctamente";
+	        		$scope.Mensaje="El estado de la marca se ha editado satisfactoriamente...";
 	    			$("#modalMessageError").modal("show");
 	    			$scope.initLoad(1);
 	        	}else{
 	        		$scope.namecarbrand="";
 	        		$("#modalMessagePrimary").modal("hide");
 
-	        		$scope.Mensaje="Error al modificar los datos";
+	        		$scope.Mensaje="Ha ocurrido un error al intentar editar el estado de la marca...";
 	    			$("#modalMessageError").modal("show");
 	        	}
 	        	$scope.aux_btn_marcad="1";
