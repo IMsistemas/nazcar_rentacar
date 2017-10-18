@@ -150,7 +150,7 @@
                 </button>
 
               <button type="button" class="btn btn-success" ng-disabled=" aux_btn_marcae!='1' || marca_edit.$invalid " ng-click="modify();">
-                  Aceptar <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                  Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
               </button>
 	      </div>
 	    </div>
@@ -189,7 +189,7 @@
             </button>
 
               <button type="button" class="btn btn-success" ng-disabled=" aux_btn_marcas!='1'  || marca_add.$invalid " ng-click="save_marca()">
-                  Aceptar <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                  Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
               </button>
 
 	      </div>

@@ -182,7 +182,7 @@
             </button>
 
               <button type="button" class="btn btn-success" ng-disabled=" aux_btn_modeloe!='1' || modelo_edit.$invalid " ng-click="modify();">
-                  Aceptar <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                  Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
               </button>
 
 	      </div>
@@ -247,7 +247,7 @@
             </button>
 
               <button type="button" class="btn btn-success" ng-disabled=" aux_btn_modelos!='1' || modelo_add.$invalid  "  ng-click="save_modelo()">
-                  Aceptar <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                  Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
               </button>
 
 	      </div>
