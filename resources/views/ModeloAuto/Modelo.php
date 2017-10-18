@@ -18,8 +18,8 @@
 			<div class="input-group">                        
 			    <span class="input-group-addon">Estado: </span>
 			    <select class="form-control" ng-model="estado" ng-change="initLoad(1)";>
-			    	<option value="1">Activos</option>
-			    	<option value="0">Inactivos</option>
+			    	<option value="1">ACTIVOS</option>
+			    	<option value="0">INACTIVOS</option>
 			    </select>
 			</div>
 		</div>
@@ -175,13 +175,16 @@
 	        		        	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_modeloe!='1' || modelo_edit.$invalid " ng-click="modify();">
-                Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i> 
-            </button>
+
 
 	        <button type="button" class="btn btn-secondary" ng-click=" aux_btn_modeloe='1' " data-dismiss="modal">
                 Cancelar <i class="fa fa-ban" aria-hidden="true"></i> 
             </button>
+
+              <button type="button" class="btn btn-success" ng-disabled=" aux_btn_modeloe!='1' || modelo_edit.$invalid " ng-click="modify();">
+                  Aceptar <i class="fa fa-floppy-o" aria-hidden="true"></i>
+              </button>
+
 	      </div>
 	    </div>
 	  </div>
@@ -237,13 +240,16 @@
 	        	
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" ng-disabled=" aux_btn_modelos!='1' || modelo_add.$invalid  "  ng-click="save_modelo()">
-                Aceptar <i class="fa fa-check-circle" aria-hidden="true"  ></i> 
-            </button>
+
 
 	        <button type="button" class="btn btn-secondary" ng-click=" aux_btn_modelos='1' " data-dismiss="modal">
                 Cancelar <i class="fa fa-ban" aria-hidden="true"></i> 
             </button>
+
+              <button type="button" class="btn btn-success" ng-disabled=" aux_btn_modelos!='1' || modelo_add.$invalid  "  ng-click="save_modelo()">
+                  Aceptar <i class="fa fa-floppy-o" aria-hidden="true"></i>
+              </button>
+
 	      </div>
 	    </div>
 	  </div>
