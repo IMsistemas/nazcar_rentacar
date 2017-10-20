@@ -15,10 +15,21 @@
         $scope.total = '0.00';
 
         $('.datepicker').datetimepicker({
-            locale: 'es'
+            locale: 'es',
+            minDate: new Date()
         });
 
         $('.datepickerA').datetimepicker({
+            locale: 'es',
+            format: 'YYYY-MM-DD',
+            minDate: new Date()
+        }).on('dp.change', function (e) {
+
+            $('#fecha_entrega').data("DateTimePicker").minDate(e.date);
+
+        });
+
+        $('.datepickerB').datetimepicker({
             locale: 'es',
             format: 'YYYY-MM-DD'
         });

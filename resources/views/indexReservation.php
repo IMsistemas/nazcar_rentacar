@@ -144,7 +144,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="input-group">
-                                    <input class="form-control datepickerA colours" name="fecha_entrega" id="fecha_entrega"
+                                    <input class="form-control datepickerB colours" name="fecha_entrega" id="fecha_entrega"
                                            ng-model="fecha_entrega" placeholder="Día" ng-blur="reafirmDate(1)" required />
                                     <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                                 </div>
@@ -1047,7 +1047,9 @@
                                 </div>
                             </div>
                             <div class="col-8">
-                                <div class="col-12" id="map"></div>
+                                <div class="col-12">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1215,8 +1217,8 @@
             'Error: Your browser doesn\'t support geolocation.');
     }
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBetlhxbUjMSwBWLtgLrHtZlecWmwpH_jI&callback=initMap">
-</script>
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBetlhxbUjMSwBWLtgLrHtZlecWmwpH_jI&libraries=places"></script>
 
 </html>
