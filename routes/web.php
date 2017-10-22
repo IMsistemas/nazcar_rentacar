@@ -90,6 +90,9 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
+    Route::resource('company', 'Company\CompanyController');
+
+
     Route::get('user/getUser', 'User\UserController@getUser');
     Route::put('user/updateState/{id}', 'User\UserController@updateState');
     Route::resource('user', 'User\UserController');

@@ -66,10 +66,8 @@
                 </div>
             </li>
 
+
             <!--<li class="nav-item">
-                <a class="nav-link" href="#car">Vehiculos</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#Marca">Marcas</a>
             </li>
             <li class="nav-item">
@@ -96,9 +94,11 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Opciones</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Configuración</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#user">Usuarios</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#company">Empresa</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="" ng-click="toLogout()">Salir</a>
                 </div>
@@ -168,6 +168,7 @@
 <script src="<?= asset('../app/js/controllers/Transmission/transmissionController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Fuel/fuelController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Motor/motorController.js') ?>"></script>
+<script src="<?= asset('../app/js/controllers/Company/companyController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Service/serviceController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/TypeTime/typeTimeController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Place/placeController.js') ?>"></script>

@@ -73,6 +73,10 @@ app.config(function($routeProvider){
             templateUrl : URL + 'user',
             controller: 'userController'
         })
+        .when('/company',{
+            templateUrl : URL + 'company',
+            controller: 'companyController'
+        })
         .otherwise({
             template : ''
             //controller : 'indexController'
