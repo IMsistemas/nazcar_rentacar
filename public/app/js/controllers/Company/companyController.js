@@ -14,11 +14,27 @@
 
             $http.get(API_URL + 'company/getDataCompany').then(function(response) {
 
-                $scope.namecompany = response.data[0].namecompany;
-                $scope.ruccompany = response.data[0].ruccompany;
-                $scope.contribcompany = response.data[0].contributoridcompany;
-                //$scope.emailcompany = response.data[0].namecompany;
-                $scope.addresscompany = response.data[0].addresscompany;
+                if (response.data.length > 0) {
+
+                    $scope.namecompany = response.data[0].namecompany;
+                    $scope.ruccompany = response.data[0].ruccompany;
+                    $scope.contribcompany = response.data[0].contributoridcompany;
+                    //$scope.emailcompany = response.data[0].namecompany;
+                    $scope.addresscompany = response.data[0].addresscompany;
+
+                    $scope.idcompany = response.data[0].idcompany;
+
+                } else {
+
+                    $scope.namecompany = '';
+                    $scope.ruccompany = '';
+                    $scope.contribcompany = '';
+                    //$scope.emailcompany = ';
+                    $scope.addresscompany = '';
+
+                    $scope.idcompany = 0;
+
+                }
 
             })
             .catch(function(data, status) {
