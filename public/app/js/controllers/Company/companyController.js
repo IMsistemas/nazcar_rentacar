@@ -1,34 +1,25 @@
 
 
-    app.controller('fuelController', function($scope, $http, API_URL) {
+    app.controller('companyController', function($scope, $http, API_URL) {
 
-        $scope.idfuel = 0;
-        $scope.selectItem = null;
-        $scope.estado = '1';
+        $scope.idcompany = 0;
 
-        $scope.pageChanged = function(newPage) {
-            $scope.initLoad(newPage);
+        $scope.initLoad = function(){
+
+            $scope.getDataCompany();
+
         };
 
-        $scope.initLoad = function(pageNumber){
+        $scope.getDataCompany = function () {
 
-            if ($scope.busqueda !== undefined) {
-                var search = $scope.busqueda;
-            } else var search = null;
+            $http.get(API_URL + 'company/getDataCompany').then(function(response) {
 
-            if ($scope.estado !== undefined) {
-                var state = $scope.estado;
-            } else var state = null;
+                $scope.namecompany = response.data[0].namecompany;
+                $scope.ruccompany = response.data[0].ruccompany;
+                $scope.contribcompany = response.data[0].contributoridcompany;
+                //$scope.emailcompany = response.data[0].namecompany;
+                $scope.addresscompany = response.data[0].addresscompany;
 
-            var filtros = {
-                search: search,
-                state: state
-            };
-
-            $http.get(API_URL + 'fuel/getFuel?page=' + pageNumber + '&filter=' + JSON.stringify(filtros)).then(function(response) {
-
-                $scope.list = response.data.data;
-                $scope.totalItems = response.data.total;
             })
             .catch(function(data, status) {
                 console.error('Gists error', response.status, response.data);
@@ -45,46 +36,22 @@
          */
 
         $scope.cancel = function () {
-            $scope.idfuel = 0;
-            $scope.namefuel = '';
-            $scope.selectItem = null;
+            $scope.idcompany = 0;
         };
 
-        $scope.add = function () {
-            $scope.cancel();
-            $scope.title_modal_action = 'Agregar';
-            $('#modalAction').modal('show');
-        };
-
-        $scope.edit = function (item) {
-            $scope.cancel();
-
-            $scope.idfuel = item.idfuel;
-            $scope.namefuel = item.namefuel;
-
-            $scope.title_modal_action = 'Editar';
-            $('#modalAction').modal('show');
-        };
-
-        $scope.editState = function (item) {
-            $scope.cancel();
-
-            $scope.idfuel = item.idfuel;
-            $scope.name_fuel = item.namefuel;
-            $scope.selectItem = item;
-
-            $('#modalSetState').modal('show');
-        };
-
-        $scope.save = function () {
+        $scope.saveCompany = function () {
 
             var data = {
-                namefuel: $scope.namefuel
+                namecompany: $scope.namecompany,
+                ruccompany: $scope.ruccompany,
+                contributoridcompany: $scope.contribcompany,
+                emailcompany: $scope.emailcompany,
+                addresscompany: $scope.addresscompany
             };
 
-            if ($scope.idfuel === 0) {
+            if ($scope.idcompany === 0) {
 
-                $http.post(API_URL + 'fuel', data).then(function(response) {
+                $http.post(API_URL + 'company', data).then(function(response) {
 
                     $('#modalAction').modal('hide');
 
@@ -92,14 +59,16 @@
 
                         $scope.cancel();
 
-                        $scope.message_success = 'El Tipo de Combustible se ha agregado satisfactoriamente...';
+                        $scope.idcompany = response.data.idcompany;
+
+                        $scope.message_success = 'La información de la Empresa se ha agregado satisfactoriamente...';
                         $('#modalSuccess').modal('show');
 
-                        $scope.initLoad(1);
+                        $scope.initLoad();
 
                     } else {
 
-                        $scope.message_error = 'Ha ocurrido un error al intentar agregar un Tipo de Combustible...';
+                        $scope.message_error = 'Ha ocurrido un error al intentar agregar la información de la Empresa...';
                         $('#modalError').modal('show');
 
                     }
@@ -117,7 +86,7 @@
             }
             else {
 
-                $http.put(API_URL + 'fuel/' + $scope.idfuel, data).then(function(response) {
+                $http.put(API_URL + 'company/' + $scope.idcompany, data).then(function(response) {
 
                     $('#modalAction').modal('hide');
 
@@ -125,14 +94,14 @@
 
                         $scope.cancel();
 
-                        $scope.message_success = 'El tipo de Combustible se ha editado satisfactoriamente...';
+                        $scope.message_success = 'La información de la Empresa se ha editado satisfactoriamente...';
                         $('#modalSuccess').modal('show');
 
-                        $scope.initLoad(1);
+                        $scope.initLoad();
 
                     } else {
 
-                        $scope.message_error = 'Ha ocurrido un error al intentar editar un Tipo de Combustible...';
+                        $scope.message_error = 'Ha ocurrido un error al intentar editar la información de la Empresa...';
                         $('#modalError').modal('show');
 
                     }
@@ -151,48 +120,6 @@
             }
         };
 
-        $scope.saveSetState = function () {
-
-            var state = 0;
-
-            if ($scope.selectItem.state === '0') {
-                state = 1;
-            }
-
-            var data = {
-                state: state
-            };
-
-            $http.put(API_URL + 'fuel/updateState/' + $scope.idfuel, data).then(function(response) {
-
-                $('#modalSetState').modal('hide');
-
-                if (response.data.success === true) {
-
-                    $scope.cancel();
-
-                    $scope.message_success = 'El estado del Tipo de Combustible se ha editado satisfactoriamente...';
-                    $('#modalSuccess').modal('show');
-
-                    $scope.initLoad(1);
-
-                } else {
-
-                    $scope.message_error = 'Ha ocurrido un error al intentar editar el estado del Tipo de Combustible...';
-                    $('#modalError').modal('show');
-
-                }
-
-            }).catch(function(data, status) {
-
-                console.error('Gists error', response.status, response.data);
-
-            }).finally(function() {
-
-                //console.log("finally finished gists");
-
-            });
-        };
 
     });
 

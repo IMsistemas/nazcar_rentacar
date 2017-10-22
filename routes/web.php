@@ -90,6 +90,8 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
+
+    Route::get('company/getDataCompany', 'Company\CompanyController@getDataCompany');
     Route::resource('company', 'Company\CompanyController');
 
 

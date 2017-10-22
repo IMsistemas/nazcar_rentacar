@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Company;
 
+use App\Models\Company\Company;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -26,6 +27,11 @@ class CompanyController extends Controller
         }
     }
 
+    public function getDataCompany()
+    {
+        return Company::get();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -44,7 +50,22 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $object = new Company();
+
+        $object->namecompany = $request->input('namecompany');
+        $object->ruccompany = $request->input('ruccompany');
+        $object->contributoridcompany = $request->input('contributoridcompany');
+        $object->addresscompany = $request->input('addresscompany');
+
+        if ($object->save()) {
+
+            return response()->json(['success' => true, 'idcompany' => $object->idcompany]);
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
     }
 
     /**
@@ -78,7 +99,22 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $object = Company::find($id);
+
+        $object->namecompany = $request->input('namecompany');
+        $object->ruccompany = $request->input('ruccompany');
+        $object->contributoridcompany = $request->input('contributoridcompany');
+        $object->addresscompany = $request->input('addresscompany');
+
+        if ($object->save()) {
+
+            return response()->json(['success' => true]);
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
     }
 
     /**

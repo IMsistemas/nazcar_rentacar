@@ -15,12 +15,53 @@
                 Empresa
             </div>
             <div class="card-body">
+
+
+                <div class="col-sm-6 col-12">
+
+                    <div class="col-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">Nombre Empresa: </span>
+                            <input type="text" class="form-control" id="namecompany" name="namecompany" ng-model="namecompany" required />
+                        </div>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+                        <div class="input-group">
+                            <span class="input-group-addon">RUC: </span>
+                            <input type="text" class="form-control" id="ruccompany" name="ruccompany" ng-model="ruccompany" required />
+                        </div>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+                        <div class="input-group">
+                            <span class="input-group-addon">Contribuyente ID: </span>
+                            <input type="text" class="form-control" id="contribcompany" name="contribcompany" ng-model="contribcompany" required />
+                        </div>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+                        <div class="input-group">
+                            <span class="input-group-addon">Email: </span>
+                            <input type="text" class="form-control" id="emailcompany" name="emailcompany" ng-model="emailcompany" required />
+                        </div>
+                    </div>
+
+                    <div class="col-12" style="margin-top: 5px;">
+                        <textarea class="form-control" name="addresscompany" id="addresscompany" ng-model="addresscompany" cols="30" rows="3" placeholder="Dirección"></textarea>
+                    </div>
+
+                </div>
+                <div class="col-sm-6 col-12">
+
+                </div>
+
                 <div class="col-12 text-center" style="margin-top: 5px;">
 
                     <button type="button" class="btn btn-secondary">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-success" ng-click="">
+                    <button type="button" class="btn btn-success" ng-click="saveCompany()">
                         Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
                     </button>
 
