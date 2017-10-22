@@ -55,13 +55,17 @@
                         <span ng-show="item.type == 0">SERVICIOS ADICIONALES</span>
                         <span ng-show="item.type == 1">OTROS SERVICIOS</span>
                     </td>
-					<td>
-			            <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="edit(item)" >
-			                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-			            </button>
-			            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" ng-click="editState(item)" >
-			                <i class="fa fa-ban" aria-hidden="true"></i> 
-			            </button>
+					<td class="text-center">
+
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="edit(item)" >
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" ng-click="editState(item)" >
+                                <i class="fa fa-ban" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
 					</td>
 				</tr>
 			</tbody>

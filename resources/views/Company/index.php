@@ -8,16 +8,73 @@
 	</div>
 
 
-    <div class="row">
+    <div class="container">
 
-        <div class="card">
+        <div class="card w-100">
             <div class="card-header">
-                Featured
+                Empresa
             </div>
             <div class="card-body">
-                <h4 class="card-title">Special title treatment</h4>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="col-12 text-center" style="margin-top: 5px;">
+
+                    <button type="button" class="btn btn-secondary">
+                        Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="btn btn-success" ng-click="">
+                        Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card w-100" style="margin-top: 15px;">
+            <div class="card-header">
+                Paypal
+            </div>
+            <div class="card-body">
+                <div class="col-12">
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-1 col-form-label">Modo: </label>
+                        <div class="col-sm-11">
+                            <label class="custom-control custom-radio">
+                                <input id="radio1" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Sandox</span>
+                            </label>
+                            <label class="custom-control custom-radio">
+                                <input id="radio2" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Live</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">Key (Sandox): </span>
+                        <input type="text" class="form-control" id="keysandox" name="keysandox" ng-model="keysandox" required />
+                    </div>
+                </div>
+
+                <div class="col-12" style="margin-top: 5px;">
+                    <div class="input-group">
+                        <span class="input-group-addon">Key (Live): </span>
+                        <input type="text" class="form-control" id="keylive" name="keylive" ng-model="keylive" required />
+                    </div>
+                </div>
+
+                <div class="col-12 text-center" style="margin-top: 5px;">
+
+                    <button type="button" class="btn btn-secondary">
+                        Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="btn btn-success" ng-click="">
+                        Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    </button>
+
+                </div>
             </div>
         </div>
 
