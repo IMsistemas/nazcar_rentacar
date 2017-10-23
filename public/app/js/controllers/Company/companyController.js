@@ -3,6 +3,7 @@
     app.controller('companyController', function($scope, $http, API_URL) {
 
         $scope.idcompany = 0;
+        $scope.idpaypal = 0;
 
         $scope.initLoad = function(){
 
@@ -43,6 +44,42 @@
             .finally(function() {
                 //console.log("finally finished gists");
             });
+
+        };
+
+        $scope.getDataPaypal = function () {
+
+            $http.get(API_URL + 'company/getDataPaypal').then(function(response) {
+
+                if (response.data.length > 0) {
+
+                    $scope.namecompany = response.data[0].namecompany;
+                    $scope.ruccompany = response.data[0].ruccompany;
+                    $scope.contribcompany = response.data[0].contributoridcompany;
+                    //$scope.emailcompany = response.data[0].namecompany;
+                    $scope.addresscompany = response.data[0].addresscompany;
+
+                    $scope.idpaypal = response.data[0].idcompany;
+
+                } else {
+
+                    $scope.namecompany = '';
+                    $scope.ruccompany = '';
+                    $scope.contribcompany = '';
+                    //$scope.emailcompany = ';
+                    $scope.addresscompany = '';
+
+                    $scope.idpaypal = 0;
+
+                }
+
+            })
+                .catch(function(data, status) {
+                    console.error('Gists error', response.status, response.data);
+                })
+                .finally(function() {
+                    //console.log("finally finished gists");
+                });
 
         };
 
