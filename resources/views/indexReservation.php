@@ -967,7 +967,7 @@
 
                     <hr>
 
-                    <div class="col-12" style="background-color: darkred; padding-top: 3%; padding-bottom: 3%;">
+                    <div class="col-12" style="background-color: darkred; padding-top: 3%; padding-bottom: 3%; display: none;">
                         <form>
 
                             <div class="col-12" style="margin-top: 20px;">
