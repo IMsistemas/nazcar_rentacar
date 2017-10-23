@@ -9,6 +9,8 @@
 
             $scope.getDataCompany();
 
+            $scope.getDataPaypal();
+
         };
 
         $scope.getDataCompany = function () {
@@ -50,37 +52,35 @@
 
         $scope.getDataPaypal = function () {
 
-            $http.get(API_URL + 'company/getDataPaypal').then(function(response) {
+            $http.get(API_URL + 'configpaypal/getDataPaypal').then(function(response) {
 
                 if (response.data.length > 0) {
 
-                    $scope.namecompany = response.data[0].namecompany;
-                    $scope.ruccompany = response.data[0].ruccompany;
-                    $scope.contribcompany = response.data[0].contributoridcompany;
-                    //$scope.emailcompany = response.data[0].namecompany;
-                    $scope.addresscompany = response.data[0].addresscompany;
+                    $scope.client_id_sandox = response.data[0].client_id_sandox;
+                    $scope.secret_id_sandox = response.data[0].secret_id_sandox;
+                    $scope.client_id_live = response.data[0].client_id_live;
+                    $scope.secret_id_live = response.data[0].secret_id_live;
 
-                    $scope.idpaypal = response.data[0].idcompany;
+                    $scope.idpaypal = response.data[0].idpaypal;
 
                 } else {
 
-                    $scope.namecompany = '';
-                    $scope.ruccompany = '';
-                    $scope.contribcompany = '';
-                    //$scope.emailcompany = ';
-                    $scope.addresscompany = '';
+                    $scope.client_id_sandox = '';
+                    $scope.secret_id_sandox = '';
+                    $scope.client_id_live = '';
+                    $scope.secret_id_live = '';
 
                     $scope.idpaypal = 0;
 
                 }
 
             })
-                .catch(function(data, status) {
-                    console.error('Gists error', response.status, response.data);
-                })
-                .finally(function() {
-                    //console.log("finally finished gists");
-                });
+            .catch(function(data, status) {
+                console.error('Gists error', response.status, response.data);
+            })
+            .finally(function() {
+                //console.log("finally finished gists");
+            });
 
         };
 
@@ -89,8 +89,12 @@
             METHOD ACTION-----------------------------------------------------------------------------------------------
          */
 
-        $scope.cancel = function () {
-            $scope.idcompany = 0;
+        $scope.cancelCompany = function () {
+            $scope.getDataCompany();
+        };
+
+        $scope.cancelPaypal = function () {
+            $scope.getDataPaypal();
         };
 
         $scope.saveCompany = function () {
@@ -117,7 +121,7 @@
 
                     $scope.initLoad();
 
-                    $scope.message = 'La información de la Empresa se ha guardado satisfactoriamente...';
+                    $scope.message_success = 'La información de la Empresa se ha guardado satisfactoriamente...';
                     $('#modalSuccess').modal('show');
 
                 } else {
@@ -198,6 +202,83 @@
             }*/
         };
 
+        $scope.savePaypal = function () {
+
+            var data = {
+                client_id_sandox: $scope.client_id_sandox,
+                secret_id_sandox: $scope.secret_id_sandox,
+                client_id_live: $scope.client_id_live,
+                secret_id_live: $scope.secret_id_live
+            };
+
+            if ($scope.idpaypal === 0) {
+
+                $http.post(API_URL + 'configpaypal', data).then(function(response) {
+
+                    $('#modalAction').modal('hide');
+
+                    if (response.data.success === true) {
+
+                        $scope.cancelPaypal();
+
+                        $scope.message_success = 'La información de Paypal se ha agregado satisfactoriamente...';
+                        $('#modalSuccess').modal('show');
+
+                        $scope.initLoad();
+
+                    } else {
+
+                        $scope.message_error = 'Ha ocurrido un error al intentar agregar la información de Paypal...';
+                        $('#modalError').modal('show');
+
+                    }
+
+                }).catch(function(data, status) {
+
+                    console.error('Gists error', response.status, response.data);
+
+                }).finally(function() {
+
+                    //console.log("finally finished gists");
+
+                });
+
+            }
+            else {
+
+                $http.put(API_URL + 'configpaypal/' + $scope.idpaypal, data).then(function(response) {
+
+                    $('#modalAction').modal('hide');
+
+                    if (response.data.success === true) {
+
+                        $scope.cancelPaypal();
+
+                        $scope.message_success = 'La información de Paypal se ha editado satisfactoriamente...';
+                        $('#modalSuccess').modal('show');
+
+                        $scope.initLoad();
+
+                    } else {
+
+                        $scope.message_error = 'Ha ocurrido un error al intentar editar la información de Paypal...';
+                        $('#modalError').modal('show');
+
+                    }
+
+                }).catch(function(data, status) {
+
+                    console.error('Gists error', response.status, response.data);
+
+                }).finally(function() {
+
+                    //console.log("finally finished gists");
+
+                });
+
+
+            }
+        };
 
     });
 

@@ -90,6 +90,8 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
+    Route::get('configpaypal/getDataPaypal', 'Paypal\PaypalController@getDataPaypal');
+    Route::resource('configpaypal', 'Paypal\PaypalController');
 
     Route::get('company/getDataCompany', 'Company\CompanyController@getDataCompany');
     Route::resource('company', 'Company\CompanyController');

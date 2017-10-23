@@ -1,6 +1,6 @@
 
 
-<div class="container" style="margin-top: 10px;" ng-controller="companyController" ng-init="initLoad(1)">
+<div class="container" style="margin-top: 10px;" ng-controller="companyController" ng-init="initLoad()">
 	
 	<div class="col-xs-12">
 		<h4>Información de Empresa - Paypal</h4>
@@ -70,7 +70,7 @@
 
                 <div class="col-12 text-center" style="margin-top: 5px;">
 
-                    <button type="button" class="btn btn-secondary">
+                    <button type="button" class="btn btn-secondary" ng-click="cancelCompany()">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
                     <button type="button" class="btn btn-success" ng-click="saveCompany()">
@@ -89,8 +89,8 @@
             <div class="card-body">
                 <div class="col-12">
                     <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-1 col-form-label">Modo: </label>
-                        <div class="col-sm-11">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Modo: </label>
+                        <div class="col-sm-10">
                             <label class="custom-control custom-radio">
                                 <input id="radio1" name="radio" type="radio" class="custom-control-input">
                                 <span class="custom-control-indicator"></span>
@@ -107,24 +107,40 @@
 
                 <div class="col-12">
                     <div class="input-group">
-                        <span class="input-group-addon">Key (Sandox): </span>
-                        <input type="text" class="form-control" id="keysandox" name="keysandox" ng-model="keysandox" required />
+                        <span class="input-group-addon">Cliente ID (Sandox): </span>
+                        <input type="text" class="form-control" id="client_id_sandox" name="client_id_sandox" ng-model="client_id_sandox" required />
                     </div>
                 </div>
 
                 <div class="col-12" style="margin-top: 5px;">
                     <div class="input-group">
-                        <span class="input-group-addon">Key (Live): </span>
-                        <input type="text" class="form-control" id="keylive" name="keylive" ng-model="keylive" required />
+                        <span class="input-group-addon">Secret ID (Sandox): </span>
+                        <input type="text" class="form-control" id="secret_id_sandox" name="secret_id_sandox" ng-model="secret_id_sandox" required />
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="col-12" style="margin-top: 5px;">
+                    <div class="input-group">
+                        <span class="input-group-addon">Cliente ID (Live): </span>
+                        <input type="text" class="form-control" id="client_id_live" name="client_id_live" ng-model="client_id_live" required />
+                    </div>
+                </div>
+
+                <div class="col-12" style="margin-top: 5px;">
+                    <div class="input-group">
+                        <span class="input-group-addon">Secret ID (Live): </span>
+                        <input type="text" class="form-control" id="secret_id_live" name="secret_id_live" ng-model="secret_id_live" required />
                     </div>
                 </div>
 
                 <div class="col-12 text-center" style="margin-top: 5px;">
 
-                    <button type="button" class="btn btn-secondary">
+                    <button type="button" class="btn btn-secondary" ng-click="cancelPaypal()">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-success" ng-click="">
+                    <button type="button" class="btn btn-success" ng-click="savePaypal()">
                         Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
                     </button>
 
@@ -175,33 +191,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modalSetState" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header modal-header-danger">
-                    <h5 class="modal-title">Confirmación</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12">
-                            Está seguro que desea cambiar el estado de: <strong>{{name_fuel}}</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                        Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="btn btn-danger" ng-click="saveSetState()">
-                        Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 </div>
 
