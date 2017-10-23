@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pago;
 
+use App\Models\Paypal\Paypal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -56,10 +57,43 @@ class PaypalLaravelController extends Controller
      *
      */
     private $_api_context;
+
     public function __construct()
     {
         $paypal_conf = \Config::get('paypal');
-        $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'], $paypal_conf['secret']));
+
+        $configPaypal = Paypal::get();
+
+        $mode = null;
+
+        if (count($configPaypal) > 0) {
+
+            if ($configPaypal[0]->mode == 0) {
+
+                $mode = 'sandbox';
+
+                $this->_api_context = new ApiContext(new OAuthTokenCredential($configPaypal[0]->client_id_sandox, $configPaypal[0]->secret_id_sandox));
+
+            } else {
+
+                $mode = 'live';
+
+                $this->_api_context = new ApiContext(new OAuthTokenCredential($configPaypal[0]->client_id_live, $configPaypal[0]->secret_id_live));
+
+            }
+
+        } else {
+
+            $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'], $paypal_conf['secret']));
+
+        }
+
+        if ($mode != null) {
+
+            $paypal_conf['settings']['mode'] = $mode;
+
+        }
+
         $this->_api_context->setConfig($paypal_conf['settings']);
     }
     /**
