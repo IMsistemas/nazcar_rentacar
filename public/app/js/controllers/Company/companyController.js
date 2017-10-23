@@ -1,6 +1,6 @@
 
 
-    app.controller('companyController', function($scope, $http, API_URL) {
+    app.controller('companyController', function($scope, $http, API_URL, Upload) {
 
         $scope.idcompany = 0;
         $scope.idpaypal = 0;
@@ -20,8 +20,9 @@
                     $scope.namecompany = response.data[0].namecompany;
                     $scope.ruccompany = response.data[0].ruccompany;
                     $scope.contribcompany = response.data[0].contributoridcompany;
-                    //$scope.emailcompany = response.data[0].namecompany;
+                    $scope.emailcompany = response.data[0].emailcompany;
                     $scope.addresscompany = response.data[0].addresscompany;
+                    $scope.file = response.data[0].logocompany;
 
                     $scope.idcompany = response.data[0].idcompany;
 
@@ -30,7 +31,7 @@
                     $scope.namecompany = '';
                     $scope.ruccompany = '';
                     $scope.contribcompany = '';
-                    //$scope.emailcompany = ';
+                    $scope.emailcompany = '';
                     $scope.addresscompany = '';
 
                     $scope.idcompany = 0;
@@ -95,14 +96,38 @@
         $scope.saveCompany = function () {
 
             var data = {
+                idcompany: $scope.idcompany,
                 namecompany: $scope.namecompany,
                 ruccompany: $scope.ruccompany,
                 contributoridcompany: $scope.contribcompany,
                 emailcompany: $scope.emailcompany,
-                addresscompany: $scope.addresscompany
+                addresscompany: $scope.addresscompany,
+                file: $scope.file
             };
 
-            if ($scope.idcompany === 0) {
+            Upload.upload({
+
+                url: 'company',
+                method: 'POST',
+                data: data
+
+            }).then(function(data, status, headers, config) {
+
+                if (data.data.success === true) {
+
+                    $scope.initLoad();
+
+                    $scope.message = 'La información de la Empresa se ha guardado satisfactoriamente...';
+                    $('#modalSuccess').modal('show');
+
+                } else {
+
+                    $scope.message_error = 'Ha ocurrido un error al intentar guardar la información de la Empresa...';
+                    $('#modalError').modal('show');
+                }
+            });
+
+            /*if ($scope.idcompany === 0) {
 
                 $http.post(API_URL + 'company', data).then(function(response) {
 
@@ -170,7 +195,7 @@
                 });
 
 
-            }
+            }*/
         };
 
 

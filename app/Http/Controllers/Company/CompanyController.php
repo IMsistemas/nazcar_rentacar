@@ -50,10 +50,41 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $object = new Company();
+
+        $url_file = null;
+
+        if ($request->hasFile('file')) {
+
+            $file = $request->file('file');
+            $destinationPath = public_path() . '/uploads/images';
+            $name = rand(0, 9999) . '_' . $file->getClientOriginalName();
+
+            if(!$file->move($destinationPath, $name)) {
+                return response()->json(['success' => false]);
+            } else {
+                $url_file = 'uploads/images/' . $name;
+            }
+
+        }
+
+        if ($request->input('idcompany') == 0) {
+
+            $object = new Company();
+            $object->logocompany = $url_file;
+
+        } else {
+
+            $object = Company::find($request->input('idcompany'));
+
+            if ($url_file != null) {
+                $object->logocompany = $url_file;
+            }
+
+        }
 
         $object->namecompany = $request->input('namecompany');
         $object->ruccompany = $request->input('ruccompany');
+        $object->emailcompany = $request->input('emailcompany');
         $object->contributoridcompany = $request->input('contributoridcompany');
         $object->addresscompany = $request->input('addresscompany');
 

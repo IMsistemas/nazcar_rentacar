@@ -17,43 +17,55 @@
             <div class="card-body">
 
 
-                <div class="col-sm-6 col-12">
+                <div class="row">
+                    <div class="col-sm-6 col-12">
 
-                    <div class="col-12">
-                        <div class="input-group">
-                            <span class="input-group-addon">Nombre Empresa: </span>
-                            <input type="text" class="form-control" id="namecompany" name="namecompany" ng-model="namecompany" required />
+                        <div class="col-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">Nombre Empresa: </span>
+                                <input type="text" class="form-control" id="namecompany" name="namecompany" ng-model="namecompany" required />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-12" style="margin-top: 5px;">
-                        <div class="input-group">
-                            <span class="input-group-addon">RUC: </span>
-                            <input type="text" class="form-control" id="ruccompany" name="ruccompany" ng-model="ruccompany" required />
+                        <div class="col-12" style="margin-top: 5px;">
+                            <div class="input-group">
+                                <span class="input-group-addon">RUC: </span>
+                                <input type="text" class="form-control" id="ruccompany" name="ruccompany" ng-model="ruccompany" required />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-12" style="margin-top: 5px;">
-                        <div class="input-group">
-                            <span class="input-group-addon">Contribuyente ID: </span>
-                            <input type="text" class="form-control" id="contribcompany" name="contribcompany" ng-model="contribcompany" required />
+                        <div class="col-12" style="margin-top: 5px;">
+                            <div class="input-group">
+                                <span class="input-group-addon">Contribuyente ID: </span>
+                                <input type="text" class="form-control" id="contribcompany" name="contribcompany" ng-model="contribcompany" required />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-12" style="margin-top: 5px;">
-                        <div class="input-group">
-                            <span class="input-group-addon">Email: </span>
-                            <input type="text" class="form-control" id="emailcompany" name="emailcompany" ng-model="emailcompany" required />
+                        <div class="col-12" style="margin-top: 5px;">
+                            <div class="input-group">
+                                <span class="input-group-addon">Email: </span>
+                                <input type="text" class="form-control" id="emailcompany" name="emailcompany" ng-model="emailcompany" required />
+                            </div>
                         </div>
+
+                        <div class="col-12" style="margin-top: 5px;">
+                            <textarea class="form-control" name="addresscompany" id="addresscompany" ng-model="addresscompany" cols="30" rows="3" placeholder="Dirección"></textarea>
+                        </div>
+
                     </div>
 
-                    <div class="col-12" style="margin-top: 5px;">
-                        <textarea class="form-control" name="addresscompany" id="addresscompany" ng-model="addresscompany" cols="30" rows="3" placeholder="Dirección"></textarea>
+                    <div class="col-sm-6 col-12">
+
+                        <img ngf-src="file || url_foto" alt="" class="img-thumbnail img-fluid">
+
+                        <input class="form-control" type="file" ngf-select ng-model="file" name="file" id="file"
+                               accept="image/*" ngf-max-size="2MB"  ngf-pattern="image/*">
+
+                        <span class="help-block error" ng-show="formCar.file.$invalid && formCar.file.$touched">
+                            <small id="emailHelp" class="form-text text-danger text-right">La imagen es requerida</small>
+                        </span>
+
                     </div>
-
-                </div>
-                <div class="col-sm-6 col-12">
-
                 </div>
 
                 <div class="col-12 text-center" style="margin-top: 5px;">
@@ -66,6 +78,7 @@
                     </button>
 
                 </div>
+
             </div>
         </div>
 
