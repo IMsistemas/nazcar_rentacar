@@ -60,6 +60,7 @@
                     $scope.secret_id_sandox = response.data[0].secret_id_sandox;
                     $scope.client_id_live = response.data[0].client_id_live;
                     $scope.secret_id_live = response.data[0].secret_id_live;
+                    $scope.mode = response.data[0].mode;
 
                     $scope.idpaypal = response.data[0].idpaypal;
 
@@ -208,7 +209,8 @@
                 client_id_sandox: $scope.client_id_sandox,
                 secret_id_sandox: $scope.secret_id_sandox,
                 client_id_live: $scope.client_id_live,
-                secret_id_live: $scope.secret_id_live
+                secret_id_live: $scope.secret_id_live,
+                mode: $scope.mode
             };
 
             if ($scope.idpaypal === 0) {

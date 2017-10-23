@@ -47,8 +47,7 @@ class PaypalController extends Controller
         $object->secret_id_sandox = $request->input('secret_id_sandox');
         $object->client_id_live = $request->input('client_id_live');
         $object->secret_id_live = $request->input('secret_id_live');
-
-        $object->mode = 0;
+        $object->mode = $request->input('mode');
 
         if ($object->save()) {
 
@@ -98,8 +97,7 @@ class PaypalController extends Controller
         $object->secret_id_sandox = $request->input('secret_id_sandox');
         $object->client_id_live = $request->input('client_id_live');
         $object->secret_id_live = $request->input('secret_id_live');
-
-        $object->mode = 0;
+        $object->mode = $request->input('mode');
 
         if ($object->save()) {
 

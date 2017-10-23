@@ -92,12 +92,12 @@
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Modo: </label>
                         <div class="col-sm-10">
                             <label class="custom-control custom-radio">
-                                <input id="radio1" name="radio" type="radio" class="custom-control-input">
+                                <input id="radio1" name="radio" type="radio" ng-model="mode" value="0" class="custom-control-input">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">Sandox</span>
                             </label>
                             <label class="custom-control custom-radio">
-                                <input id="radio2" name="radio" type="radio" class="custom-control-input">
+                                <input id="radio2" name="radio" type="radio" ng-model="mode" value="1" class="custom-control-input">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">Live</span>
                             </label>
