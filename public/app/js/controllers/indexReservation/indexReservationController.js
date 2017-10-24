@@ -220,15 +220,19 @@
         $scope.selectOptionPlace = function (item) {
 
             if ($scope.type_place === 0) {
+
                 $scope.lugar_retiro = item.nameplace;
                 $scope.dataRetiroPlace = item;
                 $scope.data_retiro_code = item.codeplace;
                 $scope.data_retiro_place = item.nameplace;
+
             } else {
+
                 $scope.lugar_entrega = item.nameplace;
                 $scope.dataEntregaPlace = item;
                 $scope.data_entrega_code = item.codeplace;
                 $scope.data_entrega_place = item.nameplace;
+
             }
 
             $('#modalMessagePlace').modal('hide');
@@ -419,6 +423,9 @@
                 startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
                 enddatetime: $scope.fecha_entrega + ' ' + $scope.hora_entrega,
                 totalcost: $scope.total,
+
+                idplaceretreat: $scope.dataRetiroPlace.idplace,
+                idplacereturn: $scope.dataEntregaPlace.idplace,
 
                 numtarjeta: $scope.numtarjeta,
                 mmaa: $scope.mmaa,

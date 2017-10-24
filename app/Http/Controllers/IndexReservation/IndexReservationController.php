@@ -8,6 +8,7 @@ use App\Models\MarcaAuto\Carbrand;
 use App\Models\Person\Person;
 use App\Models\Place\Place;
 use App\Models\Rent\Rent;
+use App\Models\Rent\Rent_Place;
 use App\Models\Service\Service;
 use App\Models\TypeTime\TypeTime;
 use Illuminate\Http\Request;
@@ -124,7 +125,21 @@ class IndexReservationController extends Controller
 
                 if ($rent->save()){
 
-                    return response()->json(['success' => true]);
+                    $rentplace = new Rent_Place();
+
+                    $rentplace->idrent = $rent->idrent;
+                    $rentplace->idplaceretreat = $request->input('idplaceretreat');
+                    $rentplace->idplacereturn = $request->input('idplacereturn');
+
+                    if ($rentplace->save()) {
+
+                        return response()->json(['success' => true]);
+
+                    } else {
+
+                        return response()->json(['success' => false]);
+
+                    }
 
                 } else {
 

@@ -485,7 +485,7 @@
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-6" style="">
-                                            <div class="col-12" style="padding: 5px; background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                            <div class="col-12" style="padding: 5px; background-color: #e0e0e0; height: 140px; color: #1a237e;">
                                                 <div class="col-12 text-center">
                                                     <span style="font-size: 18px; font-weight: bold; color: darkred;">Retiro</span>
                                                 </div>
@@ -501,7 +501,7 @@
                                             </div>
                                         </div>
                                         <div class="col-6">
-                                            <div class="col-12" style="padding: 5px; background-color: #e0e0e0; height: 130px; color: #1a237e;">
+                                            <div class="col-12" style="padding: 5px; background-color: #e0e0e0; height: 140px; color: #1a237e;">
                                                 <div class="col-12 text-center">
                                                     <span style="font-size: 18px; font-weight: bold; color: darkred;">Entrega</span>
                                                 </div>
@@ -523,7 +523,7 @@
                         </div>
 
                     </div>
-                    <div class="col-12" style="color: darkred; margin-top: 10px;">
+                    <div class="col-12" style="color: darkred; margin-top: 15px; margin-bottom: 10px;">
                         Renta por: {{rest_day}} días
                     </div>
                     <table class="table table-bordered border-left-0 border-right-0 border-bottom-0">
@@ -792,7 +792,7 @@
                         <div class="col-12" style="color: darkred;">
                             Renta por: {{rest_day}} días
                         </div>
-                        <table class="table table-bordered border-left-0 border-right-0 border-bottom-0">
+                        <table class="table table-bordered border-left-0 border-right-0 border-bottom-0 w-100">
                             <tbody>
                             <tr ng-repeat="item_selectservice in selectServiceList">
                                 <td class="border-0" style="font-weight: bold; text-transform: uppercase;">{{item_selectservice.service}}</td>
@@ -801,7 +801,7 @@
                             </tbody>
                         </table>
 
-                        <table class="table table-bordered border-left-0 border-right-0">
+                        <table class="table table-bordered border-left-0 border-right-0 w-100">
                             <tbody>
                             <tr>
                                 <td class="border-0" style="font-weight: bold;">SUBTOTAL</td>
@@ -819,7 +819,7 @@
                             </tbody>
                         </table>
 
-                        <div class="col-12 text-right" style="margin-bottom: 50px;">
+                        <div class="col-12 text-right w-100" style="margin-bottom: 50px;">
                             <button type="button" class="btn btn-outline-dark" ng-click="showModal(3)" style="font-size: 12px !important; ">
                                 Regresar
                             </button>
