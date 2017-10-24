@@ -9,6 +9,8 @@
         $scope.dataRetiroPlace = null;
         $scope.dataEntregaPlace = null;
 
+        $scope.stateRegister = 0;
+
         $scope.selectServiceList = [];
         $scope.subtotal = '0.00';
         $scope.iva = '0.00';
@@ -407,7 +409,30 @@
 
         };
 
+        $scope.showDataRegister = function () {
 
+            $scope.registeremail = $scope.email;
+            $scope.registerpassword = '';
+
+            $('#modalRegister').modal('show');
+
+        };
+
+        $scope.okRegister = function () {
+
+            $scope.stateRegister = 1;
+
+            $('#modalRegister').modal('hide');
+
+        };
+
+        $scope.cancelRegister = function () {
+
+            $scope.stateRegister = 0;
+
+            $('#modalRegister').modal('hide');
+
+        };
 
         $scope.save = function () {
 
@@ -426,6 +451,10 @@
 
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
+
+                stateRegister: $scope.stateRegister,
+                registeremail: $scope.registeremail,
+                registerpassword: $scope.registerpassword,
 
                 numtarjeta: $scope.numtarjeta,
                 mmaa: $scope.mmaa,

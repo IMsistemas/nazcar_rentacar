@@ -13,6 +13,7 @@ use App\Models\Service\Service;
 use App\Models\TypeTime\TypeTime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class IndexReservationController extends Controller
 {
@@ -98,48 +99,80 @@ class IndexReservationController extends Controller
      */
     public function store(Request $request)
     {
-        $person = new Person();
 
-        $person->nameperson = $request->input('nameperson');
-        $person->lastnameperson = $request->input('lastnameperson');
-        $person->identifyperson = $request->input('identifyperson');
-        $person->emailperson = $request->input('emailperson');
-        $person->numphoneperson = $request->input('numphoneperson');
+        $exists = $this->searchClient($request->input('emailperson'));
 
-        if ($person->save()) {
+        $idclient = null;
+        $result_register = null;
 
-            $client = new Client();
+        if ($exists != false) {
 
-            $client->idperson = $person->idperson;
-            $client->state = 1;
+            $client = Client::where('idperson', $exists)->get();
 
-            if ($client->save()) {
+            $idclient = $client[0]->idclient;
 
-                $rent = new Rent();
+        } else {
 
-                $rent->idcar = $request->input('idcar');
-                $rent->idclient = $client->idclient;
-                $rent->startdatetime = $request->input('startdatetime');
-                $rent->enddatetime = $request->input('enddatetime');
-                $rent->totalcost = $request->input('totalcost');
+            $person = new Person();
 
-                if ($rent->save()){
+            $person->nameperson = $request->input('nameperson');
+            $person->lastnameperson = $request->input('lastnameperson');
+            $person->identifyperson = $request->input('identifyperson');
+            $person->emailperson = $request->input('emailperson');
+            $person->numphoneperson = $request->input('numphoneperson');
 
-                    $rentplace = new Rent_Place();
+            if ($person->save()) {
 
-                    $rentplace->idrent = $rent->idrent;
-                    $rentplace->idplaceretreat = $request->input('idplaceretreat');
-                    $rentplace->idplacereturn = $request->input('idplacereturn');
+                $client = new Client();
 
-                    if ($rentplace->save()) {
+                $client->idperson = $person->idperson;
+                $client->registerstatus = 0;
+                $client->state = 1;
 
-                        return response()->json(['success' => true]);
+                if ($client->save()) {
 
-                    } else {
+                    $idclient = $client->idclient;
 
-                        return response()->json(['success' => false]);
+                } else {
 
-                    }
+                    return response()->json(['success' => false]);
+
+                }
+
+            } else {
+
+                return response()->json(['success' => false]);
+
+            }
+
+        }
+
+
+        if ($request->input('stateRegister') == 1) {
+            $result_register = $this->register($idclient, $request->input('registerpassword'));
+        }
+
+        if ($result_register != false) {
+
+            $rent = new Rent();
+
+            $rent->idcar = $request->input('idcar');
+            $rent->idclient = $idclient;
+            $rent->startdatetime = $request->input('startdatetime');
+            $rent->enddatetime = $request->input('enddatetime');
+            $rent->totalcost = $request->input('totalcost');
+
+            if ($rent->save()){
+
+                $rentplace = new Rent_Place();
+
+                $rentplace->idrent = $rent->idrent;
+                $rentplace->idplaceretreat = $request->input('idplaceretreat');
+                $rentplace->idplacereturn = $request->input('idplacereturn');
+
+                if ($rentplace->save()) {
+
+                    return response()->json(['success' => true]);
 
                 } else {
 
@@ -158,6 +191,33 @@ class IndexReservationController extends Controller
             return response()->json(['success' => false]);
 
         }
+
+
+    }
+
+    private function searchClient($email)
+    {
+        $person = Person::where('emailperson', $email)->get();
+
+        if (count($person) == 1) {
+
+            return $person[0]->idperson;
+
+        } else {
+
+            return false;
+
+        }
+    }
+
+    private function register($idclient, $password)
+    {
+        $client = Client::find($idclient);
+
+        $client->password = Hash::make($password);
+        $client->registerstatus = 1;
+
+        return ($client->save()) ? true : false;
     }
 
     /**

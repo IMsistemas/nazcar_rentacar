@@ -900,6 +900,14 @@
                         </tr>
                         </tbody>
                     </table>
+
+
+                    <div class="col-12 text-center" style="margin-top: 5px;">
+                        <p style="color: #014c8c; font-size: 20px;">
+                            <a href="" ng-click="showDataRegister()">¿Desea quedar registrado con nosotros para futuras rentas?</a>
+                        </p>
+                    </div>
+
                 </div>
 
                 <div class="col-sm-6 col-12">
@@ -939,6 +947,7 @@
                 <div class="col-sm-6 col-12">
 
                 </div>
+
                 <div class="col-sm-6 col-12">
 
                     <div class="col-12" style="font-size: 10px; color: #6c757d;">
@@ -1134,6 +1143,43 @@
 
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
                             Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalRegister" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <h5 class="modal-title">Registro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Email: </span>
+                                    <input type="text" class="form-control" id="registeremail" name="registeremail" ng-model="registeremail" disabled />
+                                </div>
+                            </div>
+                            <div class="col-12" style="margin-top: 5px;">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Password: </span>
+                                    <input type="password" class="form-control" id="registerpassword" name="registerpassword" ng-model="registerpassword" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" ng-click="cancelRegister()">
+                            Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="btn btn-primary" ng-click="okRegister()">
+                            Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
