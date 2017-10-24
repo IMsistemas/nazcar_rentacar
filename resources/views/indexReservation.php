@@ -88,160 +88,197 @@
 
         <!-- FORMULARIO RESERVA PASO 1 -->
 
-        <div class="card" style="width: 35%;" ng-show="reserva_1 == 1">
-            <div class="card-body">
+        <div class="row" ng-show="reserva_1 == 1">
 
-                <h4 class="card-title text-center">Haz tu Reserva</h4>
+            <div class="col-sm-4 col-12">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
 
-                <form class="form-horizontal" name="formReserva_1" novalidate="">
+                        <h4 class="card-title text-center">Haz tu Reserva</h4>
 
-                    <div class="col-12 form-group" style="margin-top: 30px !important;">
-                        <label for="lugar_retiro">LUGAR DE RETIRO *</label>
-                        <input class="form-control" name="lugar_retiro" id="lugar_retiro" ng-model="lugar_retiro"
-                               placeholder="Lugar de Retiro" required ng-click="showListPlace(0)" readonly />
-                        <span class="help-block error" ng-show="formReserva_1.lugar_retiro.$invalid && formReserva_1.lugar_retiro.$touched">
+                        <form class="form-horizontal" name="formReserva_1" novalidate="">
+
+                            <div class="col-12 form-group" style="margin-top: 30px !important;">
+                                <label for="lugar_retiro">LUGAR DE RETIRO *</label>
+                                <input class="form-control" name="lugar_retiro" id="lugar_retiro" ng-model="lugar_retiro"
+                                       placeholder="Lugar de Retiro" required ng-click="showListPlace(0)" readonly />
+                                <span class="help-block error" ng-show="formReserva_1.lugar_retiro.$invalid && formReserva_1.lugar_retiro.$touched">
                             <small id="emailHelp" class="form-text text-danger text-right">El Lugar de Retiro es requerido</small>
                         </span>
-                    </div>
+                            </div>
 
-                    <div class="col-12 form-group" style="">
-                        <label for="fecha_retiro">DIA Y HORA DE RETIRO *</label>
+                            <div class="col-12 form-group" style="">
+                                <label for="fecha_retiro">DIA Y HORA DE RETIRO *</label>
 
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="input-group">
-                                    <input class="form-control datepickerA colours" name="fecha_retiro" id="fecha_retiro"
-                                           ng-model="fecha_retiro" placeholder="Día" ng-blur="reafirmDate(0)" required />
-                                    <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                </div>
-                                <span class="help-block error" ng-show="formReserva_1.fecha_retiro.$invalid && formReserva_1.fecha_retiro.$touched">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="input-group">
+                                            <input class="form-control datepickerA colours" name="fecha_retiro" id="fecha_retiro"
+                                                   ng-model="fecha_retiro" placeholder="Día" ng-blur="reafirmDate(0)" required />
+                                            <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        </div>
+                                        <span class="help-block error" ng-show="formReserva_1.fecha_retiro.$invalid && formReserva_1.fecha_retiro.$touched">
                                     <small id="emailHelp" class="form-text text-danger text-right">La Fecha es requerida</small>
                                 </span>
-                            </div>
+                                    </div>
 
-                            <div class="col-6">
-                                <input type="time" class="form-control colours" name="hora_retiro" id="hora_retiro"
-                                       ng-model="hora_retiro" placeholder="Hora" ng-blur="reafirmHours(0)"  required />
-                                <span class="help-block error" ng-show="formReserva_1.hora_retiro.$invalid && formReserva_1.hora_retiro.$touched">
+                                    <div class="col-6">
+                                        <input type="time" class="form-control colours" name="hora_retiro" id="hora_retiro"
+                                               ng-model="hora_retiro" placeholder="Hora" ng-blur="reafirmHours(0)"  required />
+                                        <span class="help-block error" ng-show="formReserva_1.hora_retiro.$invalid && formReserva_1.hora_retiro.$touched">
                                 <small id="emailHelp" class="form-text text-danger text-right">La Hora es requerida</small>
                             </span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="col-12 form-group" style="">
-                        <label for="lugar_entrega">LUGAR DE ENTREGA *</label>
-                        <input class="form-control" name="lugar_entrega" id="lugar_entrega" ng-model="lugar_entrega"
-                               placeholder="Lugar de Entrega" required ng-click="showListPlace(1)" readonly />
-                        <span class="help-block error" ng-show="formReserva_1.lugar_entrega.$invalid && formReserva_1.lugar_entrega.$touched">
+                            <div class="col-12 form-group" style="">
+                                <label for="lugar_entrega">LUGAR DE ENTREGA *</label>
+                                <input class="form-control" name="lugar_entrega" id="lugar_entrega" ng-model="lugar_entrega"
+                                       placeholder="Lugar de Entrega" required ng-click="showListPlace(1)" readonly />
+                                <span class="help-block error" ng-show="formReserva_1.lugar_entrega.$invalid && formReserva_1.lugar_entrega.$touched">
                             <small id="emailHelp" class="form-text text-danger text-right">El Lugar de Entrega es requerido</small>
                         </span>
-                    </div>
+                            </div>
 
-                    <div class="col-12" style="">
-                        <label for="fecha_entrega">DIA Y HORA DE ENTREGA *</label>
+                            <div class="col-12" style="">
+                                <label for="fecha_entrega">DIA Y HORA DE ENTREGA *</label>
 
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="input-group">
-                                    <input class="form-control datepickerB colours" name="fecha_entrega" id="fecha_entrega"
-                                           ng-model="fecha_entrega" placeholder="Día" ng-blur="reafirmDate(1)" required />
-                                    <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                </div>
-                                <span class="help-block error" ng-show="formReserva_1.fecha_entrega.$invalid && formReserva_1.fecha_entrega.$touched">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="input-group">
+                                            <input class="form-control datepickerB colours" name="fecha_entrega" id="fecha_entrega"
+                                                   ng-model="fecha_entrega" placeholder="Día" ng-blur="reafirmDate(1)" required />
+                                            <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        </div>
+                                        <span class="help-block error" ng-show="formReserva_1.fecha_entrega.$invalid && formReserva_1.fecha_entrega.$touched">
                                 <small id="emailHelp" class="form-text text-danger text-right">La Fecha es requerida</small>
                             </span>
-                            </div>
+                                    </div>
 
-                            <div class="col-6">
-                                <input type="time" class="form-control colours" name="hora_entrega" id="hora_entrega"
-                                       ng-model="hora_entrega" placeholder="Hora" ng-blur="reafirmHours(1)" required />
-                                <span class="help-block error" ng-show="formReserva_1.hora_entrega.$invalid && formReserva_1.hora_entrega.$touched">
+                                    <div class="col-6">
+                                        <input type="time" class="form-control colours" name="hora_entrega" id="hora_entrega"
+                                               ng-model="hora_entrega" placeholder="Hora" ng-blur="reafirmHours(1)" required />
+                                        <span class="help-block error" ng-show="formReserva_1.hora_entrega.$invalid && formReserva_1.hora_entrega.$touched">
                                 <small id="emailHelp" class="form-text text-danger text-right">La Hora es requerida</small>
                             </span>
+                                    </div>
+                                </div>
+
                             </div>
-                        </div>
 
-                    </div>
+                            <div class="col-12" style="margin-top: 20px !important;">
 
-                    <div class="col-12" style="margin-top: 20px !important;">
-
-                        <div class="form-group row">
-                            <label for="edad" class="col-sm-4 col-form-label">EDAD: *</label>
-                            <div class="col-sm-8">
-                                <select class="form-control" name="edad" id="edad" ng-model="edad"
-                                        ng-options="value.id as value.label for value in listEdad" required></select>
-                                <span class="help-block error" ng-show="formReserva_1.edad.$invalid && formReserva_1.edad.$touched">
+                                <div class="form-group row">
+                                    <label for="edad" class="col-sm-4 col-form-label">EDAD: *</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" name="edad" id="edad" ng-model="edad"
+                                                ng-options="value.id as value.label for value in listEdad" required></select>
+                                        <span class="help-block error" ng-show="formReserva_1.edad.$invalid && formReserva_1.edad.$touched">
                                     <small id="emailHelp" class="form-text text-danger text-right">La Edad es requerida</small>
                                 </span>
+                                    </div>
+                                </div>
+
                             </div>
+
+                            <!--<div class="col-12" style="margin-top: 30px !important;">
+                                <input class="form-control" name="nombre" id="nombre" ng-model="nombre" placeholder="Nombre *" required />
+                                <span class="help-block error" ng-show="formReserva_1.nombre.$invalid && formReserva_1.nombre.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">El Nombre es requerido</small>
+                                </span>
+                            </div>
+
+                            <div class="col-12" style="margin-top: 3px;">
+                                <input class="form-control" name="apellidos" id="apellidos" ng-model="apellidos" placeholder="Apellidos *" required />
+                                <span class="help-block error" ng-show="formReserva_1.apellidos.$invalid && formReserva_1.apellidos.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
+                                </span>
+                            </div>
+
+                            <div class="col-12" style="margin-top: 3px;">
+                                <input class="form-control" name="pais" id="pais" ng-model="pais" placeholder="País *" required />
+                                <span class="help-block error" ng-show="formReserva_1.pais.$invalid && formReserva_1.pais.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">El País es requerido</small>
+                                </span>
+                            </div>
+                            <div class="col-12" style="margin-top: 3px;">
+                                <input type="email" class="form-control" name="email" id="email" ng-model="email" placeholder="Email *" required />
+                                <span class="help-block error" ng-show="formReserva_1.email.$invalid && formReserva_1.email.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">El País es requerido</small>
+                                </span>
+                            </div>
+                            <div class="col-12" style="margin-top: 3px;">
+                                <input class="form-control" name="telefono" id="telefono" ng-model="telefono" placeholder="Teléfono *" required />
+                                <span class="help-block error" ng-show="formReserva_1.telefono.$invalid && formReserva_1.telefono.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">El Télefono es requerido</small>
+                                </span>
+                            </div>
+                            <div class="col-12" style="margin-top: 3px;">
+                                <input class="form-control datepickerA" placeholder="Fecha estimada para el Alquiler *" />
+                            </div>
+                            <div class="col-12" style="margin-top: 3px;">
+                                <input class="form-control" placeholder="Tiempo *" />
+                            </div>
+                            <div class="col-12" style="margin-top: 3px;">
+                                <textarea cols="30" rows="5" class="form-control" placeholder="Comentarios Adicionales" ></textarea>
+                            </div>-->
+                        </form>
+
+                        <div class="col-12" style="margin-top: 10px;">
+                            <button type="button" class="btn btn-danger btn-lg btn-block"
+                                    ng-click="showModal(2)" ng-disabled="formReserva_1.$invalid">RESERVAR</button>
+                        </div>
+
+                        <div class="col-12" style="margin-top: 3px;">
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <!--Resetear -->
+                                </div>
+                                <div class="col-8 text-right">
+                                    <small id="emailHelp" class="form-text text-muted">Los campos con * son obligatorios.</small>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
-
-                    <!--<div class="col-12" style="margin-top: 30px !important;">
-                        <input class="form-control" name="nombre" id="nombre" ng-model="nombre" placeholder="Nombre *" required />
-                        <span class="help-block error" ng-show="formReserva_1.nombre.$invalid && formReserva_1.nombre.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">El Nombre es requerido</small>
-                        </span>
-                    </div>
-
-                    <div class="col-12" style="margin-top: 3px;">
-                        <input class="form-control" name="apellidos" id="apellidos" ng-model="apellidos" placeholder="Apellidos *" required />
-                        <span class="help-block error" ng-show="formReserva_1.apellidos.$invalid && formReserva_1.apellidos.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">El Apellido es requerido</small>
-                        </span>
-                    </div>
-
-                    <div class="col-12" style="margin-top: 3px;">
-                        <input class="form-control" name="pais" id="pais" ng-model="pais" placeholder="País *" required />
-                        <span class="help-block error" ng-show="formReserva_1.pais.$invalid && formReserva_1.pais.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">El País es requerido</small>
-                        </span>
-                    </div>
-                    <div class="col-12" style="margin-top: 3px;">
-                        <input type="email" class="form-control" name="email" id="email" ng-model="email" placeholder="Email *" required />
-                        <span class="help-block error" ng-show="formReserva_1.email.$invalid && formReserva_1.email.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">El País es requerido</small>
-                        </span>
-                    </div>
-                    <div class="col-12" style="margin-top: 3px;">
-                        <input class="form-control" name="telefono" id="telefono" ng-model="telefono" placeholder="Teléfono *" required />
-                        <span class="help-block error" ng-show="formReserva_1.telefono.$invalid && formReserva_1.telefono.$touched">
-                            <small id="emailHelp" class="form-text text-danger text-right">El Télefono es requerido</small>
-                        </span>
-                    </div>
-                    <div class="col-12" style="margin-top: 3px;">
-                        <input class="form-control datepickerA" placeholder="Fecha estimada para el Alquiler *" />
-                    </div>
-                    <div class="col-12" style="margin-top: 3px;">
-                        <input class="form-control" placeholder="Tiempo *" />
-                    </div>
-                    <div class="col-12" style="margin-top: 3px;">
-                        <textarea cols="30" rows="5" class="form-control" placeholder="Comentarios Adicionales" ></textarea>
-                    </div>-->
-                </form>
-
-                <div class="col-12" style="margin-top: 10px;">
-                    <button type="button" class="btn btn-danger btn-lg btn-block"
-                            ng-click="showModal(2)" ng-disabled="formReserva_1.$invalid">RESERVAR</button>
                 </div>
-
-                <div class="col-12" style="margin-top: 3px;">
-
-                    <div class="row">
-                        <div class="col-4">
-                            <!--Resetear -->
-                        </div>
-                        <div class="col-8 text-right">
-                            <small id="emailHelp" class="form-text text-muted">Los campos con * son obligatorios.</small>
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
+
+            <div class="col-sm-8 col-12">
+                <div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="https://ugc.kn3.net/i/origin/http://i.ytimg.com/vi/QaocTfH4hYM/maxresdefault.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="http://www.todoautos.com.pe/portal/images/stories/informes_especiales/13_autos_deportivos/Honda-Civic-SI-001.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="https://i.ytimg.com/vi/O2N993smFYQ/maxresdefault.jpg" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
         </div>
+
+
 
         <!-- FORMULARIO RESERVA PASO 2 -->
 
