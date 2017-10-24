@@ -68,7 +68,7 @@ class PaypalLaravelController extends Controller
 
         if (count($configPaypal) > 0) {
 
-            if ($configPaypal[0]->mode == 0) {
+            if ($configPaypal[0]->mode == '0') {
 
                 $mode = 'sandbox';
 
@@ -111,7 +111,7 @@ class PaypalLaravelController extends Controller
 
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
-        //cargando items 
+        //cargando items
         $aux_listitem= array();
         foreach ($items as $i) {
             $item = new Item();
@@ -122,14 +122,14 @@ class PaypalLaravelController extends Controller
             array_push($aux_listitem, $item);
         }
 
-        //añadiendo a la lista 
+        //añadiendo a la lista
         $item_list = new ItemList();
         $item_list->setItems($aux_listitem);
 
-        //valor total de la compra 
+        //valor total de la compra
         $amount = new Amount();
         $amount->setCurrency('USD')
-            ->setTotal($valortt);        
+            ->setTotal($valortt);
 
         $transaction = new Transaction();
 
@@ -139,7 +139,7 @@ class PaypalLaravelController extends Controller
 
 
         $redirect_urls = new RedirectUrls();
-        $redirect_urls->setReturnUrl(URL::route('payment.status')) 
+        $redirect_urls->setReturnUrl(URL::route('payment.status'))
             ->setCancelUrl(URL::route('payment.status'));
 
         $payment = new Payment();
@@ -154,7 +154,7 @@ class PaypalLaravelController extends Controller
             if (\Config::get('app.debug')) {
                 \Session::put('error','Connection timeout');
                 $data = array(
-                    'url' => 'Paypallaravel2' , 
+                    'url' => 'Paypallaravel2' ,
                     'estado'=> 'Error',
                     'Info'=> 'Connection timeout'
                     );
@@ -162,7 +162,7 @@ class PaypalLaravelController extends Controller
             } else {
                 \Session::put('error','Some error occur, sorry for inconvenient');
                 $data = array(
-                    'url' => 'Paypallaravel2' , 
+                    'url' => 'Paypallaravel2' ,
                     'estado'=> 'Error',
                     'Info'=> 'Some error occur, sorry for inconvenient'
                     );
@@ -198,7 +198,7 @@ class PaypalLaravelController extends Controller
         if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
             \Session::put('error','Payment failed');
              $data = array(
-                    'url' => 'Paypallaravel2' , 
+                    'url' => 'Paypallaravel2' ,
                     'estado'=> 'Error',
                     'Info'=> 'Payment failed'
                     );
@@ -208,10 +208,10 @@ class PaypalLaravelController extends Controller
         $execution = new PaymentExecution();
         $execution->setPayerId(Input::get('PayerID'));
         $result = $payment->execute($execution, $this->_api_context);
-        if ($result->getState() == 'approved') { 
+        if ($result->getState() == 'approved') {
             \Session::put('success','Payment success');
             $data = array(
-                    'url' => 'Paypallaravel2' , 
+                    'url' => 'Paypallaravel2' ,
                     'estado'=> 'Ok',
                     'Info'=> 'Payment success'
                     );
@@ -219,13 +219,13 @@ class PaypalLaravelController extends Controller
         }
         \Session::put('error','Payment failed');
         $data = array(
-                    'url' => 'Paypallaravel2' , 
+                    'url' => 'Paypallaravel2' ,
                     'estado'=> 'Error',
                     'Info'=> 'Payment failed'
                     );
         return view('Paypal.Home' ,compact('data')); // Vista donde se visualiza la respuesta de paypal
     }
 
-   
+
 
 }

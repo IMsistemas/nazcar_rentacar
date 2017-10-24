@@ -480,6 +480,9 @@
 
             };
 
+            console.log(data);
+            console.log(datos);
+
             $http.post(API_URL + 'reservation', data).then(function(response) {
 
                 $('#modalAction').modal('hide');

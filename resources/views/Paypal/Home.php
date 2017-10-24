@@ -94,9 +94,9 @@
     </div>-->
 
 
-    <!--<button type="button" class="btn btn-primary" ng-click="paypal_init()" >
+    <button type="button" class="btn btn-primary" ng-click="paypal_init()" >
         Pagar <i class="fa fa-paypal" aria-hidden="true"></i> 
-    </button>-->
+    </button>
 
     <?php 
         if(isset($data)){

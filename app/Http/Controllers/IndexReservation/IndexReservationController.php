@@ -103,7 +103,7 @@ class IndexReservationController extends Controller
         $exists = $this->searchClient($request->input('emailperson'));
 
         $idclient = null;
-        $result_register = null;
+        $result_register = true;
 
         if ($exists != false) {
 
