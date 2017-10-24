@@ -458,6 +458,8 @@
                             location.href = response.data.url;
 
 
+
+
                         } else {
 
                             location.href = response.data;
@@ -495,6 +497,42 @@
 
 
         };
+
+
+        $scope.sendEmail = function (data) {
+
+            $http.post(API_URL + 'reservation', data).then(function(response) {
+
+                $('#modalAction').modal('hide');
+
+                if (response.data.success === true) {
+
+                    $scope.cancel();
+
+                    $scope.message_success = 'El Tipo de Combustible se ha agregado satisfactoriamente...';
+                    $('#modalSuccess').modal('show');
+
+                    $scope.initLoad(1);
+
+                } else {
+
+                    $scope.message_error = 'Ha ocurrido un error al intentar agregar un Tipo de Combustible...';
+                    $('#modalError').modal('show');
+
+                }
+
+            }).catch(function(data, status) {
+
+                console.error('Gists error', response.status, response.data);
+
+            }).finally(function() {
+
+                //console.log("finally finished gists");
+
+            });
+
+        };
+
 
         $scope.getlistEdad();
         $scope.getPlaces();
