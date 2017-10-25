@@ -31,8 +31,13 @@
             width: 100%;
         }
 
-        .col-xs-6 {
+        .col-xs-6-l {
             float: left;
+            width: 50%;
+        }
+
+        .col-xs-6-r {
+            float: right;
             width: 50%;
         }
 
@@ -72,7 +77,7 @@
         }
         .table-bordered th,
         .table-bordered td {
-            border: 1px solid #ddd !important;
+            border: 0px solid #ddd !important;
         }
 
         .table {
@@ -127,61 +132,130 @@
 <body>
 
 <div class="col-xs-12">
-    <div class="col-xs-6" style="font-size: 14px;">
+    <div class="col-xs-6-l" style="font-size: 14px;">
         <strong></strong>
     </div>
 
-    <div class="col-xs-6 text-center">
+    <div class="col-xs-6-r text-center">
         <?= $today ?>
     </div>
 </div>
 
 <br>
 
-<div class="col-xs-12 text-right" style="margin-top: 20px;">
-    <h4><strong>COMPROBANTE DE PAGO</strong></h4>
+<div class="col-xs-12 text-center" style="margin-top: 20px;">
+    <h3><strong>COMPROBANTE DE PAGO</strong></h3>
 </div>
 
 
-<div class="col-xs-6">
+<div class="col-xs-6-l">
+
     <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th class="text-center" colspan="2">DATOS CLIENTE</th>
+            </tr>
+        </thead>
         <tbody>
-        <tr>
-            <th>Nombre (s)</th>
-            <td><?= $params->nameperson ?></td>
-        </tr>
-        <tr>
-            <th>Apellidos</th>
-            <td><?= $params->lastnameperson ?></td>
-        </tr>
-        <tr>
-            <th>Correo</th>
-            <td><?= $params->emailperson ?></td>
-        </tr>
-        <tr>
-            <th>Agencia Retiro</th>
-            <td><?= $params->retiro_place ?></td>
-        </tr>
-        <tr>
-            <th>Agencia Entrega</th>
-            <td><?= $params->entrega_place ?></td>
-        </tr>
-        <tr>
-            <th>Fecha Retiro</th>
-            <td><?= $params->startdatetime ?></td>
-        </tr>
-        <tr>
-            <th>Fecha Devolución</th>
-            <td><?= $params->enddatetime ?></td>
-        </tr>
-        <tr>
-            <th>Renta por</th>
-            <td><?= $params->rest_day ?> días</td>
-        </tr>
+
+            <tr>
+                <th style="width: 35%;">Nombre (s)</th>
+                <td style="width: 65%;"><?= $params->nameperson ?></td>
+            </tr>
+            <tr>
+                <th>Apellidos</th>
+                <td><?= $params->lastnameperson ?></td>
+            </tr>
+            <tr>
+                <th>Correo</th>
+                <td><?= $params->emailperson ?></td>
+            </tr>
+            <tr>
+                <th>Agencia Retiro</th>
+                <td><?= $params->retiro_place ?></td>
+            </tr>
+            <tr>
+                <th>Agencia Entrega</th>
+                <td><?= $params->entrega_place ?></td>
+            </tr>
+            <tr>
+                <th>Fecha Retiro</th>
+                <td><?= $params->startdatetime ?></td>
+            </tr>
+            <tr>
+                <th>Fecha Devolución</th>
+                <td><?= $params->enddatetime ?></td>
+            </tr>
+            <tr>
+                <th>Renta por</th>
+                <td><?= $params->rest_day ?> días</td>
+            </tr>
+
         </tbody>
     </table>
+
 </div>
-<div class="col-xs-6">
+
+
+<div class="col-xs-6-r" style="float: right !important;">
+
+    <table class="table table-responsive table-striped table-hover table-condensed table-bordered" style="float: right !important;">
+        <thead>
+            <tr>
+                <th class="text-center" colspan="2">DATOS SERVICIOS</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <?php foreach ($params->serviceList as $item):?>
+                <tr>
+
+                    <th><?= $item->service ?></th>
+                    <td class="text-right"><?= number_format($item->price, 2, '.', ',') ?></td>
+
+                </tr>
+            <?php  endforeach;?>
+
+            <tr>
+
+                <th>
+                    <hr>SUBTOTAL
+                </th>
+                <td class="text-right">
+                    <hr>
+                    <?= number_format($params->subtotal, 2, '.', ',') ?>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <th>
+                    IVA (12%)
+                </th>
+                <td class="text-right">
+                    <?= number_format($params->iva, 2, '.', ',') ?>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <th>
+                    TOTAL
+                </th>
+                <td class="text-right">
+                    <?= number_format($params->totalcost, 2, '.', ',') ?>
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+
 
 </div>
 
