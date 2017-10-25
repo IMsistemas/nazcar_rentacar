@@ -43,9 +43,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
+
             <li class="nav-item">
                 <a class="nav-link" href="#rent">Rentas</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="#client">Clientes</a>
             </li>
@@ -63,6 +65,17 @@
                     <a class="dropdown-item" href="#service">Servicios</a>
                     <a class="dropdown-item" href="#typetime">Tipo Tiempo</a>
                     <a class="dropdown-item" href="#place">Sedes</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Reportes</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#topcar">Top 5 Mas Rentados</a>
+                    <a class="dropdown-item" href="#Modelo">Rentas x Mes</a>
+                    <a class="dropdown-item" href="#transmission">Rentas x Día</a>
+                    <a class="dropdown-item" href="#fuel">Clientes Activos x Mes</a>
+                    <a class="dropdown-item" href="#motor">Vehículos Rentados x Día</a>
                 </div>
             </li>
 
@@ -146,6 +159,7 @@
 <script src="<?= asset('../app/js/controllers/Fuel/fuelController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Motor/motorController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Company/companyController.js') ?>"></script>
+<script src="<?= asset('../app/js/controllers/Reports/reportController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Slider/sliderController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Service/serviceController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/TypeTime/typeTimeController.js') ?>"></script>

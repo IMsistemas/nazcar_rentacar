@@ -90,6 +90,8 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
+    Route::resource('topcar', 'Reports\TopCarController');
+
     Route::get('slider/getDataSlider', 'Slider\SliderController@getDataSlider');
     Route::put('slider/updateState/{id}', 'Slider\SliderController@updateState');
     Route::resource('slider', 'Slider\SliderController');
