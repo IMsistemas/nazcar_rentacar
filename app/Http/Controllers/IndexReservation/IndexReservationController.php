@@ -15,6 +15,7 @@ use App\Models\TypeTime\TypeTime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class IndexReservationController extends Controller
 {
@@ -95,6 +96,35 @@ class IndexReservationController extends Controller
     public function create()
     {
         //
+    }
+
+    public function login(Request $request)
+    {
+        $user = Person::where( 'emailperson', $request->input('email' ) )->get();
+
+        if ( count( $user ) > 0 ) {
+
+            $client = Client::where('client.idperson', $user[0]->idperson)
+                ->join('person', 'person.idperson', '=', 'client.idperson')
+                ->get();
+
+            if( Hash::check( $request->input('password'), $client[0]->password  ) ) {
+
+                Session::put('client', $client);
+
+                return response()->json(['success' => true, 'client' => $client[0]]);
+
+            } else {
+
+                return response()->json(['success' => false]);
+
+            }
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
     }
 
     /**

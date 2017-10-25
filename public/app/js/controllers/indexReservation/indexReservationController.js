@@ -3,6 +3,8 @@
     app.controller('IndexReservationController', function($scope, $http, API_URL) {
 
         $scope.typepago = null;
+        $scope.registered = false;
+        $scope.registeredClient = null;
 
         $scope.type_place = null;
         $scope.type_place_text = null;
@@ -151,6 +153,22 @@
 
 
             }
+
+            if (step === 4) {
+
+                 if ($scope.registered === true) {
+
+                     $scope.names = $scope.registeredClient.nameperson;
+                     $scope.lastnames = $scope.registeredClient.lastnameperson;
+                     $scope.docident = $scope.registeredClient.identifyperson;
+                     $scope.email = $scope.registeredClient.emailperson;
+                     $scope.phone = $scope.registeredClient.numphoneperson;
+
+                     step = 5;
+                 }
+
+            }
+
 
             if (step === 5) {
 
@@ -457,9 +475,50 @@
 
         $scope.okRegister = function () {
 
-            $scope.stateRegister = 1;
+            if ($scope.title_modal_register === 'Acceso') {
 
-            $('#modalRegister').modal('hide');
+                var object = {
+                    email: $scope.registeremail,
+                    password: $scope.registerpassword
+                };
+
+                $http.post(API_URL + 'reservation/login', object ).then(function (response) {
+
+                    if (response.data.success === false) {
+
+                        $scope.text_failed = 'Upss! Usuario y/o Password incorrecto.';
+                        $('#view-failed-login').show();
+
+                    } else {
+
+                        $scope.stateRegister = 1;
+                        $scope.registered = true;
+                        $scope.registeredClient = response.data.client;
+
+                        $('#modalRegister').modal('hide');
+
+                    }
+
+                })
+                .catch(function(data, status) {
+
+                    console.error('Gists error', response.status, response.data);
+
+                }).finally(function() {
+
+                    //console.log("finally finished gists");
+
+                });
+
+            } else {
+
+                $scope.stateRegister = 1;
+
+                $('#modalRegister').modal('hide');
+
+            }
+
+
 
         };
 

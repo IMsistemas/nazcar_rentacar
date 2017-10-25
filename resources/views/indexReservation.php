@@ -1208,6 +1208,9 @@
                                     <input type="password" class="form-control" id="registerpassword" name="registerpassword" ng-model="registerpassword" />
                                 </div>
                             </div>
+                            <div class="col-12" style="margin-top: 5px; display: none;" id="view-failed-login">
+                                <div class="alert alert-danger" style="font-size: 11px;" role="alert">{{text_failed}}</div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
