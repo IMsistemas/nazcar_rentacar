@@ -130,7 +130,7 @@
     Route::put('transmission/updateState/{id}', 'Transmission\TransmissionController@updateState');
     Route::resource('transmission', 'Transmission\TransmissionController');
 
-    Route::get('reservation/printComprobante/{params}', 'Cuentas\CuentasPorCobrarController@printComprobante');
+    Route::get('reservation/printComprobante/{params}', 'IndexReservation\IndexReservationController@printComprobante');
     Route::get('reservation/getCalculate', 'IndexReservation\IndexReservationController@getCalculate');
     Route::get('reservation/getOtherServices', 'IndexReservation\IndexReservationController@getOtherServices');
     Route::get('reservation/getAditionalServices', 'IndexReservation\IndexReservationController@getAditionalServices');
@@ -139,5 +139,5 @@
     Route::get('reservation/getPlaces', 'IndexReservation\IndexReservationController@getPlaces');
     Route::get('reservation/getSlider', 'IndexReservation\IndexReservationController@getSlider');
     Route::post('reservation/login', 'IndexReservation\IndexReservationController@login');
-    Route::post('reservation/caja', 'IndexReservation\IndexReservationController@caja');
+    Route::post('reservation/Caja', 'IndexReservation\IndexReservationController@caja');
     Route::resource('reservation', 'IndexReservation\IndexReservationController');

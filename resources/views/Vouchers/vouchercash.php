@@ -128,7 +128,7 @@
 
 <div class="col-xs-12">
     <div class="col-xs-6" style="font-size: 14px;">
-        <strong><?= $aux_empresa[0]->namecompany ?> </strong>
+        <strong></strong>
     </div>
 
     <div class="col-xs-6 text-center">

@@ -15,6 +15,7 @@ use App\Models\Slider\Slider;
 use App\Models\TypeTime\TypeTime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -413,7 +414,7 @@ class IndexReservationController extends Controller
 
         $view =  \View::make('Vouchers.vouchercash', compact('today', 'params', 'aux_empresa'))->render();
 
-        $pdf = \App::make('dompdf.wrapper');
+        $pdf = App::make('dompdf.wrapper');
 
         $pdf->loadHTML($view);
 
