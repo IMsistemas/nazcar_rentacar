@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class IndexReservationController extends Controller
@@ -401,6 +402,28 @@ class IndexReservationController extends Controller
         //
     }
 
+
+    private function sendEmail($params)
+    {
+
+        $params = json_decode($params);
+
+        if ($params->emailperson != '' && $params->email != null) {
+
+            $correo_cliente = $params->emailperson;
+
+            Mail::send('Lecturas.pdf_body_email_newLectura',['params' => $params] , function($message) use ($correo_cliente)
+            {
+                $message->from('raidelbg84@gmail.com', 'Nazcar');
+
+                $message->to($correo_cliente)
+                    /*$message->bcc('christian.imnegocios@gmail.com');
+                    $message->bcc('kevin.imnegocios@gmail.com');
+                    $message->bcc('raidelbg84@gmail.com');
+                    $message->bcc('luis.imnegocios@gmail.com')*/->subject('Prefactura Lectura!');
+            });
+        }
+    }
 
     public function printComprobante($params)
     {
