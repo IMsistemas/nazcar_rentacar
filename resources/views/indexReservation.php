@@ -934,7 +934,7 @@
                     </table>
 
 
-                    <div class="col-12 text-center" style="margin-top: 5px;">
+                    <div class="col-12 text-center" style="margin-top: 5px;" id="accRegister">
                         <p style="color: #014c8c; font-size: 20px;">
                             <a href="" ng-click="showDataRegister()">¿Desea quedar registrado con nosotros para futuras rentas?</a>
                         </p>

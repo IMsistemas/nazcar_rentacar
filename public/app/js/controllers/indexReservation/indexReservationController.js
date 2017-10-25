@@ -164,7 +164,13 @@
                      $scope.email = $scope.registeredClient.emailperson;
                      $scope.phone = $scope.registeredClient.numphoneperson;
 
+                     $('#accRegister').hide();
+
                      step = 5;
+                 } else {
+
+                     $('#accRegister').show();
+
                  }
 
             }
