@@ -90,12 +90,14 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
+    Route::get('slider/getDataSlider', 'Slider\SliderController@getDataSlider');
+    Route::resource('slider', 'Slider\SliderController');
+
     Route::get('configpaypal/getDataPaypal', 'Paypal\PaypalController@getDataPaypal');
     Route::resource('configpaypal', 'Paypal\PaypalController');
 
     Route::get('company/getDataCompany', 'Company\CompanyController@getDataCompany');
     Route::resource('company', 'Company\CompanyController');
-
 
     Route::get('user/getUser', 'User\UserController@getUser');
     Route::put('user/updateState/{id}', 'User\UserController@updateState');

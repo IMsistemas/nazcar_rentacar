@@ -66,31 +66,6 @@
                 </div>
             </li>
 
-
-            <!--<li class="nav-item">
-                <a class="nav-link" href="#Marca">Marcas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#Modelo">Modelos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#transmission">Transmisión</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#fuel">Combustible</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#motor">Motor</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#service">Servicios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#typetime">Tipo Tiempo</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#place">Sedes</a>
-            </li>-->
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
@@ -99,6 +74,8 @@
                     <a class="dropdown-item" href="#user">Usuarios</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#company">Empresa</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#slider">Slider Principal</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="" ng-click="toLogout()">Salir</a>
                 </div>
@@ -169,6 +146,7 @@
 <script src="<?= asset('../app/js/controllers/Fuel/fuelController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Motor/motorController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Company/companyController.js') ?>"></script>
+<script src="<?= asset('../app/js/controllers/Slider/sliderController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Service/serviceController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/TypeTime/typeTimeController.js') ?>"></script>
 <script src="<?= asset('../app/js/controllers/Place/placeController.js') ?>"></script>

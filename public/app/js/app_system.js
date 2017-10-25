@@ -77,6 +77,10 @@ app.config(function($routeProvider){
             templateUrl : URL + 'company',
             controller: 'companyController'
         })
+        .when('/slider',{
+            templateUrl : URL + 'slider',
+            controller: 'sliderController'
+        })
         .otherwise({
             template : ''
             //controller : 'indexController'
