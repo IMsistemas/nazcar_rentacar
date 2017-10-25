@@ -564,6 +564,10 @@
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
 
+                retiro_place: $scope.data_retiro_place,
+                entrega_place: $scope.data_entrega_place,
+                rest_day: $scope.rest_day,
+
                 stateRegister: $scope.stateRegister,
                 registeremail: $scope.registeremail,
                 registerpassword: $scope.registerpassword,
@@ -667,6 +671,9 @@
 
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
+                retiro_place: $scope.data_retiro_place,
+                entrega_place: $scope.data_entrega_place,
+                rest_day: $scope.rest_day,
 
                 stateRegister: $scope.stateRegister,
                 registeremail: $scope.registeremail,

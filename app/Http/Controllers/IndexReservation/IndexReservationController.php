@@ -4,6 +4,7 @@ namespace App\Http\Controllers\IndexReservation;
 
 use App\Models\Car\Car;
 use App\Models\Client\Client;
+use App\Models\Company\Company;
 use App\Models\MarcaAuto\Carbrand;
 use App\Models\Person\Person;
 use App\Models\Place\Place;
@@ -398,4 +399,25 @@ class IndexReservationController extends Controller
     {
         //
     }
+
+
+    public function printComprobante($params)
+    {
+        ini_set('max_execution_time', 300);
+
+        $aux_empresa = Company::all();
+
+        $params = json_decode($params);
+
+        $today = date("Y-m-d H:i:s");
+
+        $view =  \View::make('Vouchers.vouchercash', compact('today', 'params', 'aux_empresa'))->render();
+
+        $pdf = \App::make('dompdf.wrapper');
+
+        $pdf->loadHTML($view);
+
+        return $pdf->stream('comprob_' . $today);
+    }
+
 }
