@@ -650,6 +650,69 @@
         };
 
 
+        $scope.saveCaja = function () {
+
+            var data = {
+
+                nameperson: $scope.names,
+                lastnameperson: $scope.lastnames,
+                identifyperson: $scope.docident,
+                emailperson: $scope.email,
+                numphoneperson: $scope.phone,
+
+                idcar: $scope.carSelected.idcar,
+                startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
+                enddatetime: $scope.fecha_entrega + ' ' + $scope.hora_entrega,
+                totalcost: $scope.total,
+
+                idplaceretreat: $scope.dataRetiroPlace.idplace,
+                idplacereturn: $scope.dataEntregaPlace.idplace,
+
+                stateRegister: $scope.stateRegister,
+                registeremail: $scope.registeremail,
+                registerpassword: $scope.registerpassword,
+
+                numtarjeta: $scope.numtarjeta,
+                mmaa: $scope.mmaa,
+                cvc: $scope.cvc
+
+            };
+
+            console.log(data);
+
+            $http.post(API_URL + 'reservation/Caja', data).then(function(response) {
+
+                $('#modalAction').modal('hide');
+
+                if (response.data.success === true) {
+
+
+                    $scope.message_success = 'La Reserva se ha agregado satisfactoriamente...';
+                    $('#modalSuccess').modal('show');
+
+
+
+                } else {
+
+                    $scope.message_error = 'Ha ocurrido un error al intentar agregar una Reserva...';
+                    $('#modalError').modal('show');
+
+                }
+
+            }).catch(function(data, status) {
+
+                console.error('Gists error', response.status, response.data);
+
+            }).finally(function() {
+
+                //console.log("finally finished gists");
+
+            });
+
+
+        };
+
+
         $scope.sendEmail = function (data) {
 
             $http.post(API_URL + 'reservation', data).then(function(response) {

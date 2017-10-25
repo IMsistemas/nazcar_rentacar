@@ -1008,7 +1008,7 @@
 
                     <div class="col-12" style="margin-top: 15px;" id="btn_caja">
                         <button type="button" class="btn btn-primary btn-lg btn-block" style="font-weight: bold;"
-                                ng-click="save()">
+                                ng-click="saveCaja()">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Caja $ {{total}}
                         </button>
                     </div>

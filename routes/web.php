@@ -138,4 +138,5 @@
     Route::get('reservation/getPlaces', 'IndexReservation\IndexReservationController@getPlaces');
     Route::get('reservation/getSlider', 'IndexReservation\IndexReservationController@getSlider');
     Route::post('reservation/login', 'IndexReservation\IndexReservationController@login');
+    Route::post('reservation/caja', 'IndexReservation\IndexReservationController@caja');
     Route::resource('reservation', 'IndexReservation\IndexReservationController');

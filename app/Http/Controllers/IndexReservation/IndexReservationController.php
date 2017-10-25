@@ -231,6 +231,104 @@ class IndexReservationController extends Controller
 
     }
 
+    public function caja(Request $request)
+    {
+
+        $exists = $this->searchClient($request->input('emailperson'));
+
+        $idclient = null;
+        $result_register = true;
+
+        if ($exists != false) {
+
+            $client = Client::where('idperson', $exists)->get();
+
+            $idclient = $client[0]->idclient;
+
+        } else {
+
+            $person = new Person();
+
+            $person->nameperson = $request->input('nameperson');
+            $person->lastnameperson = $request->input('lastnameperson');
+            $person->identifyperson = $request->input('identifyperson');
+            $person->emailperson = $request->input('emailperson');
+            $person->numphoneperson = $request->input('numphoneperson');
+
+            if ($person->save()) {
+
+                $client = new Client();
+
+                $client->idperson = $person->idperson;
+                $client->registerstatus = 0;
+                $client->state = 1;
+
+                if ($client->save()) {
+
+                    $idclient = $client->idclient;
+
+                } else {
+
+                    return response()->json(['success' => false]);
+
+                }
+
+            } else {
+
+                return response()->json(['success' => false]);
+
+            }
+
+        }
+
+
+        if ($request->input('stateRegister') == 1) {
+            $result_register = $this->register($idclient, $request->input('registerpassword'));
+        }
+
+        if ($result_register != false) {
+
+            $rent = new Rent();
+
+            $rent->idcar = $request->input('idcar');
+            $rent->idclient = $idclient;
+            $rent->startdatetime = $request->input('startdatetime');
+            $rent->enddatetime = $request->input('enddatetime');
+            $rent->totalcost = $request->input('totalcost');
+
+            if ($rent->save()){
+
+                $rentplace = new Rent_Place();
+
+                $rentplace->idrent = $rent->idrent;
+                $rentplace->idplaceretreat = $request->input('idplaceretreat');
+                $rentplace->idplacereturn = $request->input('idplacereturn');
+
+                if ($rentplace->save()) {
+
+                    return response()->json(['success' => true]);
+
+                } else {
+
+                    return response()->json(['success' => false]);
+
+                }
+
+            } else {
+
+                return response()->json(['success' => false]);
+
+            }
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
+
+
+    }
+
     private function searchClient($email)
     {
         $person = Person::where('emailperson', $email)->get();
