@@ -134,4 +134,5 @@
     Route::get('reservation/getCar/{categories}', 'IndexReservation\IndexReservationController@getCar');
     Route::get('reservation/getCategories', 'IndexReservation\IndexReservationController@getCategories');
     Route::get('reservation/getPlaces', 'IndexReservation\IndexReservationController@getPlaces');
+    Route::get('reservation/getSlider', 'IndexReservation\IndexReservationController@getSlider');
     Route::resource('reservation', 'IndexReservation\IndexReservationController');

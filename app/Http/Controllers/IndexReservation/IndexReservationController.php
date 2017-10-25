@@ -10,6 +10,7 @@ use App\Models\Place\Place;
 use App\Models\Rent\Rent;
 use App\Models\Rent\Rent_Place;
 use App\Models\Service\Service;
+use App\Models\Slider\Slider;
 use App\Models\TypeTime\TypeTime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -79,6 +80,11 @@ class IndexReservationController extends Controller
     public function getOtherServices()
     {
         return Service::where('type', '1')->orderBy('service', 'asc')->get();
+    }
+
+    public function getSlider()
+    {
+        return Slider::where('state', 1)->orderBy('order', 'asc')->get();
     }
 
     /**

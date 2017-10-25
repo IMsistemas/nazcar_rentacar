@@ -175,8 +175,6 @@
 
                 $scope.aditionalServiceList = response.data;
 
-                console.log($scope.aditionalServiceList);
-
             });
 
         };
@@ -434,6 +432,16 @@
 
         };
 
+        $scope.getSlider = function () {
+
+            $http.get(API_URL + 'reservation/getSlider').then(function(response){
+
+                $scope.sliderlist = response.data;
+
+            });
+
+        };
+
         $scope.save = function () {
 
             var data = {
@@ -572,7 +580,7 @@
 
         };
 
-
+        $scope.getSlider();
         $scope.getlistEdad();
         $scope.getPlaces();
         $scope.getCategories();

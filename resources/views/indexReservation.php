@@ -249,21 +249,12 @@
 
             <div class="col-sm-8 col-12">
                 <div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="https://ugc.kn3.net/i/origin/http://i.ytimg.com/vi/QaocTfH4hYM/maxresdefault.jpg" alt="First slide">
+
+                        <div class="carousel-item" ng-class="$index == 0 ? 'active' : ''" ng-repeat="item_image in sliderlist">
+                            <img class="d-block w-100" src="{{item_image.image_url}}" alt="{{$index}}" style="">
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="http://www.todoautos.com.pe/portal/images/stories/informes_especiales/13_autos_deportivos/Honda-Civic-SI-001.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="https://i.ytimg.com/vi/O2N993smFYQ/maxresdefault.jpg" alt="Third slide">
-                        </div>
+
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -277,8 +268,6 @@
             </div>
 
         </div>
-
-
 
         <!-- FORMULARIO RESERVA PASO 2 -->
 
@@ -1070,7 +1059,6 @@
         </div>
 
 
-
         <div class="modal fade" id="modalMessagePlace" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -1107,7 +1095,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="modal fade" id="modalMessageInfoCar" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -1162,7 +1149,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="modal fade" id="modalMessageError" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
