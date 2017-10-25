@@ -55,7 +55,56 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $url_file = null;
+
+        if ($request->hasFile('file')) {
+
+            $file = $request->file('file');
+            $destinationPath = public_path() . '/uploads/imageslider';
+            $name = rand(0, 9999) . '_' . $file->getClientOriginalName();
+
+            if(!$file->move($destinationPath, $name)) {
+
+                return response()->json(['success' => false]);
+
+            } else {
+
+                $url_file = 'uploads/imageslider/' . $name;
+
+            }
+
+        }
+
+        if ($request->input('idslider') == 0) {
+
+            $slider = new Slider();
+            $slider->image_url = $url_file;
+
+        } else {
+
+            $slider = Slider::find($request->input('idslider'));
+
+            if ($url_file != null) {
+
+                $slider->image_url = $url_file;
+
+            }
+
+        }
+
+        $slider->order = $request->input('order');
+        $slider->language = $request->input('language');
+        $slider->state = 1;
+
+        if ($slider->save()) {
+
+            return response()->json(['success' => true]);
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
     }
 
     /**

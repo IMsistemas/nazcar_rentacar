@@ -81,17 +81,38 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" name="formFuel" novalidate="">
+                    <form class="form-horizontal" name="formSlider" novalidate="">
                         <div class="row">
+
                             <div class="col-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Tipo Combustible: </span>
-                                    <input type="text" class="form-control" id="namefuel" name="namefuel" ng-model="namefuel" required />
-                                </div>
-                                <span class="help-block error" ng-show="formFuel.namefuel.$invalid && formFuel.namefuel.$touched">
-                                    <small id="emailHelp" class="form-text text-danger text-right">El Tipo Combustible es requerido</small>
+                                <img ngf-src="file || url_foto" alt="" class="img-thumbnail img-fluid">
+                                <input class="form-control" type="file" ngf-select ng-model="file" name="file" id="file"
+                                       accept="image/*" ngf-max-size="2MB"  ng-required="true" ngf-pattern="image/*">
+                                <span class="help-block error" ng-show="formSlider.file.$invalid && formSlider.file.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">La imagen es requerida</small>
                                 </span>
                             </div>
+
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6" style="margin-top: 5px;">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Idioma: </span>
+                                            <select class="form-control" name="language" id="language" ng-model="language"
+                                                    ng-options="value.id as value.label for value in listLanguage"></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6" style="margin-top: 5px;">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Orden: </span>
+                                            <select class="form-control" name="order" id="order" ng-model="order"
+                                                    ng-options="value.id as value.label for value in listOrder"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </form>
                 </div>
@@ -99,7 +120,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-success" ng-click="save()" ng-disabled="formFuel.$invalid">
+                    <button type="button" class="btn btn-success" ng-click="save()" ng-disabled="formSlider.$invalid">
                         Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i>
                     </button>
                 </div>

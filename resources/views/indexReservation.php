@@ -175,8 +175,8 @@
                                         <select class="form-control" name="edad" id="edad" ng-model="edad"
                                                 ng-options="value.id as value.label for value in listEdad" required></select>
                                         <span class="help-block error" ng-show="formReserva_1.edad.$invalid && formReserva_1.edad.$touched">
-                                    <small id="emailHelp" class="form-text text-danger text-right">La Edad es requerida</small>
-                                </span>
+                                            <small id="emailHelp" class="form-text text-danger text-right">La Edad es requerida</small>
+                                        </span>
                                     </div>
                                 </div>
 

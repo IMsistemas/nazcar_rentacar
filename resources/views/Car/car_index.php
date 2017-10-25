@@ -74,7 +74,6 @@
             </tbody>
         </table>
         <dir-pagination-controls
-
                 on-page-change="pageChanged(newPageNumber)"
 
                 template-url="dirPagination.html"
