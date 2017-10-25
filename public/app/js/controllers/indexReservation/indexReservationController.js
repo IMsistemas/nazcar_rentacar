@@ -428,12 +428,30 @@
 
         };
 
-        $scope.showDataRegister = function () {
+        $scope.showDataRegister = function (login) {
 
-            $scope.registeremail = $scope.email;
-            $scope.registerpassword = '';
+            if (login === undefined) {
 
-            $('#modalRegister').modal('show');
+                $scope.registeremail = $scope.email;
+                $scope.registerpassword = '';
+
+                $('#registeremail').prop('disabled', true);
+
+                $scope.title_modal_register = 'Registro';
+
+                $('#modalRegister').modal('show');
+
+            } else {
+
+                $scope.title_modal_register = 'Acceso';
+
+                $('#registeremail').prop('disabled', false);
+
+                $('#modalRegister').modal('show');
+
+            }
+
+
 
         };
 

@@ -182,6 +182,12 @@
 
                             </div>
 
+                            <div class="col-12 text-center" style="margin-top: 5px;">
+                                <p style="color: #014c8c;">
+                                    <a href="" ng-click="showDataRegister(true)">¿Está Registrado?</a>
+                                </p>
+                            </div>
+
                             <!--<div class="col-12" style="margin-top: 30px !important;">
                                 <input class="form-control" name="nombre" id="nombre" ng-model="nombre" placeholder="Nombre *" required />
                                 <span class="help-block error" ng-show="formReserva_1.nombre.$invalid && formReserva_1.nombre.$touched">
@@ -1183,7 +1189,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header modal-header-primary">
-                        <h5 class="modal-title">Registro</h5>
+                        <h5 class="modal-title">{{title_modal_register}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
