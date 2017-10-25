@@ -68,7 +68,7 @@
                 </div>
             </li>
 
-            <li class="nav-item dropdown">
+            <!--<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Reportes</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#topcar">Top 5 Mas Rentados</a>
@@ -77,7 +77,7 @@
                     <a class="dropdown-item" href="#fuel">Clientes Activos x Mes</a>
                     <a class="dropdown-item" href="#motor">Vehículos Rentados x Día</a>
                 </div>
-            </li>
+            </li>-->
 
         </ul>
         <ul class="navbar-nav">
