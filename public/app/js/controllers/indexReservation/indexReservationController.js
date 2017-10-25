@@ -2,6 +2,8 @@
 
     app.controller('IndexReservationController', function($scope, $http, API_URL) {
 
+        $scope.typepago = null;
+
         $scope.type_place = null;
         $scope.type_place_text = null;
 
@@ -52,7 +54,7 @@
 
         };
 
-        $scope.intermediateStep = function (item) {
+        $scope.intermediateStep = function (item, type) {
             $scope.carSelected = item;
 
             $scope.title_carbrand = item.namecarbrand;
@@ -60,10 +62,10 @@
             $scope.title_carimage = item.image;
             $scope.title_rentcost = item.price;
 
-            $scope.showModal(3);
+            $scope.showModal(3, type);
         };
 
-        $scope.showModal = function (step) {
+        $scope.showModal = function (step, type) {
 
             $('#modalMessageInfoCar').modal('hide');
 
@@ -73,6 +75,9 @@
 
             if (step === 3) {
 
+                //type
+
+                $scope.typepago = type;
 
                 var item_0 = {
                     idservice: 0,
@@ -144,6 +149,22 @@
 
                 }
 
+
+            }
+
+            if (step === 5) {
+
+                if ($scope.typepago === 'paypal') {
+
+                    $('#btn_caja').hide();
+                    $('#btn_paypal').show();
+
+                } else {
+
+                    $('#btn_paypal').hide();
+                    $('#btn_caja').show();
+
+                }
 
             }
 
