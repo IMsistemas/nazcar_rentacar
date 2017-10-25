@@ -1226,25 +1226,30 @@
         </div>
 
         <div class="modal fade" id="WPrint" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header btn-primary">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="WPrint_head"></h4>
+                    <div class="modal-header modal-header-primary">
+                        <h5 class="modal-title" id="WPrint_head"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-xs-12" id="bodyprint">
+                            <div class="col-12" id="bodyprint">
 
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar <i class="glyphicon glyphicon glyphicon-ban-circle"></i> </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+
 
     </div>
 
