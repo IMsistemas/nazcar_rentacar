@@ -91,6 +91,7 @@
  */
 
     Route::get('slider/getDataSlider', 'Slider\SliderController@getDataSlider');
+    Route::put('slider/updateState/{id}', 'Slider\SliderController@updateState');
     Route::resource('slider', 'Slider\SliderController');
 
     Route::get('configpaypal/getDataPaypal', 'Paypal\PaypalController@getDataPaypal');

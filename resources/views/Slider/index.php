@@ -32,18 +32,20 @@
 		<table class="table table-responsive table-striped table-hover table-condensed table-bordered">
 			<thead class="bg-primary">
 				<tr>
-					<th style="width: 5%;">NO.</th>
-					<th>IMAGE</th>
+					<th>IMAGEN</th>
                     <th>ORDEN</th>
+                    <th>IDIOMA</th>
 					<th style="width: 15%;">ACCIONES</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr dir-paginate="item in list | orderBy:sortKey:reverse | itemsPerPage:10" total-items="totalItems" ng-cloak >
 					
-					<td>{{ $index + 1 }}</td>
-					<td>{{ item.image_url }}</td>
+					<td>
+                        <img src="{{item.image_url}}" style="width: 40%;" class="img-fluid">
+                    </td>
                     <td>{{ item.order }}</td>
+                    <td>{{ item.language }}</td>
 					<td class="text-center">
 
                         <div class="btn-group" role="group" aria-label="Basic example">
@@ -180,7 +182,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
-                            Está seguro que desea cambiar el estado de: <strong>{{name_fuel}}</strong>
+                            Está seguro que desea cambiar el estado de la Imagen seleccionada...
                         </div>
                     </div>
                 </div>

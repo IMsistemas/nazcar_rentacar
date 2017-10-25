@@ -80,8 +80,10 @@
         $scope.edit = function (item) {
             $scope.cancel();
 
-            $scope.idfuel = item.idfuel;
-            $scope.namefuel = item.namefuel;
+            $scope.idslider = item.idslider;
+            $scope.language = item.language;
+            $scope.order = item.order;
+            $scope.file = item.image_url;
 
             $scope.title_modal_action = 'Editar';
             $('#modalAction').modal('show');
@@ -90,8 +92,7 @@
         $scope.editState = function (item) {
             $scope.cancel();
 
-            $scope.idfuel = item.idfuel;
-            $scope.name_fuel = item.namefuel;
+            $scope.idslider = item.idslider;
             $scope.selectItem = item;
 
             $('#modalSetState').modal('show');
@@ -120,13 +121,13 @@
 
                     $scope.initLoad(1);
 
-                    $scope.message = 'Se ha guardado la imagen satisfactoriamente...';
-                    $('#modalMessage').modal('show');
+                    $scope.message_success = 'Se ha guardado la imagen satisfactoriamente...';
+                    $('#modalSuccess').modal('show');
 
                 } else {
 
                     $scope.message_error = 'Ha ocurrido un error al intentar almacenar una imagen...';
-                    $('#modalMessageError').modal('show');
+                    $('#modalError').modal('show');
 
                 }
             });
@@ -144,7 +145,7 @@
                 state: state
             };
 
-            $http.put(API_URL + 'fuel/updateState/' + $scope.idfuel, data).then(function(response) {
+            $http.put(API_URL + 'slider/updateState/' + $scope.idslider, data).then(function(response) {
 
                 $('#modalSetState').modal('hide');
 
@@ -152,14 +153,14 @@
 
                     $scope.cancel();
 
-                    $scope.message_success = 'El estado del Tipo de Combustible se ha editado satisfactoriamente...';
+                    $scope.message_success = 'El estado de la Imagen se ha editado satisfactoriamente...';
                     $('#modalSuccess').modal('show');
 
                     $scope.initLoad(1);
 
                 } else {
 
-                    $scope.message_error = 'Ha ocurrido un error al intentar editar el estado del Tipo de Combustible...';
+                    $scope.message_error = 'Ha ocurrido un error al intentar editar el estado de la Imagen...';
                     $('#modalError').modal('show');
 
                 }

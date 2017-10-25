@@ -141,6 +141,23 @@ class SliderController extends Controller
         //
     }
 
+    public function updateState(Request $request, $id)
+    {
+        $slider = Slider::find($id);
+
+        $slider->state = $request->input('state');
+
+        if ($slider->save()) {
+
+            return response()->json(['success' => true]);
+
+        } else {
+
+            return response()->json(['success' => false]);
+
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
