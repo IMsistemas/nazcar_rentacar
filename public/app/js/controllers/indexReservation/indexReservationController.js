@@ -563,7 +563,6 @@
 
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
-
                 retiro_place: $scope.data_retiro_place,
                 entrega_place: $scope.data_entrega_place,
                 rest_day: $scope.rest_day,
@@ -696,6 +695,14 @@
 
                     $scope.message_success = 'La Reserva se ha agregado satisfactoriamente...';
                     $('#modalSuccess').modal('show');
+
+                    var accion = API_URL + 'reservation/printComprobante/' + JSON.stringify(data);
+
+                    $('#WPrint_head').html('Comprobante de Pago');
+
+                    $('#WPrint').modal('show');
+
+                    $('#bodyprint').html("<object width='100%' height='600' data='" + accion + "'></object>");
 
 
 
