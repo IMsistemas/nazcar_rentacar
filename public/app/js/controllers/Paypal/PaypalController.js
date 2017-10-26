@@ -1,8 +1,8 @@
+
+
 app.controller('PaypalLaravelController', function($scope, $http, API_URL) {
 
-    //$scope.Title="Ejeplo paypal ";
-
-    $scope.paypal_init=function(){
+    $scope.paypal_init=function() {
     	var list_item=[];
     		var item={
     			Nombre: 'Pc Dell I5 ',
@@ -38,11 +38,13 @@ app.controller('PaypalLaravelController', function($scope, $http, API_URL) {
 
         $http.get(API_URL + 'reservation/sendEmail').then(function(response){
 
-
+            console.log(response);
 
 
         });
     };
+
+    $scope.sendEmail();
 
 });
 

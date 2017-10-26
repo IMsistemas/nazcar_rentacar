@@ -408,25 +408,37 @@ class IndexReservationController extends Controller
     public function sendEmail()
     {
 
-        $params = json_decode(Session::get('dataRentPaypal'));
+        if (Session::get('pagoPaypal') == true) {
 
-        $today = date("Y-m-d H:i:s");
+            $params = json_decode(Session::get('dataRentPaypal'));
 
-        if ($params->emailperson != '' && $params->email != null) {
+            $today = date("Y-m-d H:i:s");
 
-            $correo_cliente = $params->emailperson;
+            if ($params->emailperson != '' && $params->emailperson != null) {
 
-            Mail::send('Vouchers.vouchercash',['params' => $params, 'today' => $today] , function($message) use ($correo_cliente)
-            {
-                $message->from('raidelbg84@gmail.com', 'Nazcar');
+                $correo_cliente = $params->emailperson;
 
-                $message->to($correo_cliente)
-                    /*$message->bcc('christian.imnegocios@gmail.com');
-                    $message->bcc('kevin.imnegocios@gmail.com');
-                    $message->bcc('raidelbg84@gmail.com');
-                    $message->bcc('luis.imnegocios@gmail.com')*/->subject('Prefactura Lectura!');
-            });
+                Mail::send('Vouchers.vouchercash',['params' => $params, 'today' => $today] , function($message) use ($correo_cliente)
+                {
+                    $message->from('notificacionimnegocios@gmail.com', 'Nazcar');
+
+                    $message->to($correo_cliente)
+                        /*$message->bcc('christian.imnegocios@gmail.com');
+                        $message->bcc('kevin.imnegocios@gmail.com');
+                        $message->bcc('raidelbg84@gmail.com');
+                        $message->bcc('luis.imnegocios@gmail.com')*/->subject('Comprobante de Renta');
+                });
+            }
+
+            return response()->json(['success' => true]);
+
+        } else {
+
+            return response()->json(['success' => false]);
+
         }
+
+
 
     }
 

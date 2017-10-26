@@ -560,6 +560,8 @@
                 startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
                 enddatetime: $scope.fecha_entrega + ' ' + $scope.hora_entrega,
                 totalcost: $scope.total,
+                subtotal: $scope.subtotal,
+                iva: $scope.iva,
 
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
@@ -593,6 +595,8 @@
                 retiro_place: $scope.data_retiro_place,
                 entrega_place: $scope.data_entrega_place,
                 rest_day: $scope.rest_day,
+                subtotal: $scope.subtotal,
+                iva: $scope.iva,
 
                 serviceList: $scope.selectServiceList,
 

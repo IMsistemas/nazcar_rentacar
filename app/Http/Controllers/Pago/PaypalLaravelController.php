@@ -215,6 +215,8 @@ class PaypalLaravelController extends Controller
                     'estado'=> 'Ok',
                     'Info'=> 'Payment success'
                     );
+
+            \Session::put('pagoPaypal', true);
              return view('Paypal.Home' ,compact('data')); // Vista donde se visualiza la respuesta de paypal
         }
         \Session::put('error','Payment failed');
@@ -223,6 +225,7 @@ class PaypalLaravelController extends Controller
                     'estado'=> 'Error',
                     'Info'=> 'Payment failed'
                     );
+        \Session::put('pagoPaypal', false);
         return view('Paypal.Home' ,compact('data')); // Vista donde se visualiza la respuesta de paypal
     }
 

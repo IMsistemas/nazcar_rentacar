@@ -2,7 +2,7 @@
 <html lang="en" ng-app="reservationApp">
 <head>
     <meta charset="UTF-8">
-    <title>Payapal</title>
+    <title>Paypal</title>
 
     <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -85,8 +85,13 @@
 </head>
 <body>
 
+<?php
 
-<div class="container" style="margin-top: 10px;" ng-controller="PaypalLaravelController" >
+    $estado = $data["estado"];
+
+?>
+
+<div class="container" style="margin-top: 10px;" ng-controller="PaypalLaravelController">
 
     <!--<div class="col-xs-12">
         <h4> {{Title}}</h4>
@@ -107,7 +112,7 @@
 
             } else {
 
-                echo '<div class="alert alert-success" role="alert" ng-init="sendMail()"><strong>Se realizó correctamente el pago vía Paypal</strong></div>';
+                echo '<div class="alert alert-success" role="alert"><strong>Se realizó correctamente el pago vía Paypal</strong></div>';
             }
         }
     ?>
