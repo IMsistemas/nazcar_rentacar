@@ -1250,6 +1250,22 @@
             </div>
         </div>
 
+        <!-- MODAL PARA LA ACCION DE MOSTRAR MENSAJE DE CARGA -->
+        <div class="modal fade" id="myModalProgressBar" style="z-index:2000;" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog" style="margin-top: 200px;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p style="font-size: 12px !important; font-weight: bold;" id="text-demo-load">
+                            ESPERE POR FAVOR!, SE ESTA ENVIANDO LOS DATOS A PAYPAL....
+                        </p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
 
     </div>
 

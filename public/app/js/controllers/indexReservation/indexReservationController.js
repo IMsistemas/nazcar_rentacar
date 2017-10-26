@@ -20,6 +20,7 @@
         $scope.iva = '0.00';
         $scope.total = '0.00';
 
+
         $('.datepicker').datetimepicker({
             locale: 'es',
             minDate: new Date()
@@ -632,6 +633,8 @@
 
             console.log(data);
             console.log(datos);
+
+            $('#myModalProgressBar').modal('show');
 
             $http.post(API_URL + 'reservation', data).then(function(response) {
 
