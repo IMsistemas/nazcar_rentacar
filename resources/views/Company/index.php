@@ -44,7 +44,7 @@
                         <div class="col-12" style="margin-top: 5px;">
                             <div class="input-group">
                                 <span class="input-group-addon">Email: </span>
-                                <input type="text" class="form-control" id="emailcompany" name="emailcompany" ng-model="emailcompany" required />
+                                <input type="email" class="form-control" id="emailcompany" name="emailcompany" ng-model="emailcompany" required />
                             </div>
                         </div>
 
