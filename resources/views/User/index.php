@@ -124,7 +124,7 @@
                             <div class="col-12" style="margin-top: 5px;">
                                 <div class="input-group">
                                     <span class="input-group-addon">Email: </span>
-                                    <input type="text" class="form-control" id="emailperson" name="emailperson" ng-model="emailperson" required />
+                                    <input type="email" class="form-control" id="emailperson" name="emailperson" ng-model="emailperson" required />
                                 </div>
                                 <span class="help-block error" ng-show="formUser.emailperson.$invalid && formUser.emailperson.$touched">
                                     <small id="emailHelp" class="form-text text-danger text-right">El Email es requerido</small>
