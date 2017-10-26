@@ -56,7 +56,7 @@
             <tbody>
             <tr dir-paginate="item in list|orderBy:sortKey:reverse| itemsPerPage:10" total-items="totalItems" ng-cloak >
                 <td>{{$index + 1}}</td>
-                <td>{{item.nameperson + item.lastnameperson}}</td>
+                <td>{{item.nameperson + ' ' + item.lastnameperson}}</td>
                 <td>{{item.namecarbrand}}</td>
                 <td>{{item.namecarmodel}}</td>
                 <td>{{item.year}}</td>
