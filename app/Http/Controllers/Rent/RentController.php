@@ -64,7 +64,8 @@ class RentController extends Controller
             ->join('person', 'person.idperson', '=', 'client.idperson')
             ->join('car', 'car.idcar', '=', 'rent.idcar')
             ->join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
-            ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand');
+            ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
+            ->selectRaw('*, rent.state AS staterent');
 
         if($search != null){
             $rent = $rent->whereRaw("(person.nameperson LIKE '%" . $search . "%' OR person.lastnameperson LIKE '%" . $search ."%' OR carmodel.namecarmodel LIKE '%" . $search . "%' OR carbrand.namecarbrand LIKE '%". $search . "%' ) ");
@@ -79,7 +80,13 @@ class RentController extends Controller
         }
 
         if ($state != null) {
-            $rent = $rent->whereRaw('rent.state = ' . $state);
+
+            if ($state == 1) {
+                $rent = $rent->whereRaw('rent.state = ' . $state . ' OR ISNULL(rent.state)');
+            } else {
+                $rent = $rent->whereRaw('rent.state = ' . $state);
+            }
+
         }
 
         return $rent->orderBy('idrent', 'desc')->paginate(10);

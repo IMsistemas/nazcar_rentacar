@@ -31,8 +31,8 @@
             <div class="input-group">
                 <span class="input-group-addon">Estado: </span>
                 <select class="form-control" name="statefilter" id="statefilter" ng-model="statefilter" ng-change="initLoad(1)">
-                    <option value="1">Activas</option>
-                    <option value="0">Inactivas</option>
+                    <option value="1">ACTIVAS</option>
+                    <option value="0">INACTIVAS</option>
                 </select>
             </div>
         </div>
@@ -116,7 +116,6 @@
         </div>
     </div>
 
-
     <div class="modal fade" id="modalMessagePrimary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -127,16 +126,17 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Anular Reserva
+                    Esta seguro que desea cambiar el estado a la Renta seleccionada...
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" ng-click="ok_anular();" >
-                        Anular <i class="fa fa-ban" aria-hidden="true"></i>
-                    </button>
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Cancelar <i class="fa fa-ban" aria-hidden="true"></i>
                     </button>
+                    <button type="button" class="btn btn-danger" ng-click="ok_anular()">
+                        Aceptar <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    </button>
+
                 </div>
             </div>
         </div>

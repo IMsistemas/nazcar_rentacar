@@ -4,6 +4,7 @@
 
         $scope.aux_estado = "";
         $scope.iditem = 0;
+        $scope.statefilter = '1';
 
         $scope.pageChanged = function(newPage) {
             $scope.initLoad(newPage);
@@ -107,14 +108,16 @@
         $scope.showModalChangeEstate=function(item){
             $scope.car=item;
             $scope.iditem = item.idrent;
-            $scope.aux_estado = item.state;
+            $scope.aux_estado = item.staterent;
+
+            console.log(item);
 
             $('#modalMessagePrimary').modal('show');
         };
         ///--- cambiar estado y enviar a el controlador php
         $scope.ok_anular=function(){
 
-            if($scope.aux_estado==="1"){
+            if($scope.aux_estado==="1" || $scope.aux_estado===null){
                 $scope.state="0";
             }else{
                 $scope.state="1";
@@ -123,6 +126,9 @@
             var data = {
                state: $scope.state
             };
+
+            console.log(data);
+
             $http.put(API_URL + 'rent/' + $scope.iditem, data).then(function(response) {
 
                 if (response.data.success === true) {
