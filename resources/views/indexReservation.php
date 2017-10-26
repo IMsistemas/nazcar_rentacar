@@ -637,12 +637,12 @@
                                 <label for="docident" class="col-sm-3 col-form-label" style="font-weight: bold;">Tipo de Documento *</label>
                                 <div class="col-sm-9">
                                     <label class="custom-control custom-radio">
-                                        <input id="radio1" name="radio" type="radio" class="custom-control-input">
+                                        <input id="radio1" name="radio" type="radio" ng-model="mode" value="1" class="custom-control-input" required />
                                         <span class="custom-control-indicator"></span>
                                         <span class="custom-control-description">Cédula</span>
                                     </label>
                                     <label class="custom-control custom-radio">
-                                        <input id="radio2" name="radio" type="radio" class="custom-control-input">
+                                        <input id="radio2" name="radio" type="radio" ng-model="mode" value="2" class="custom-control-input" required />
                                         <span class="custom-control-indicator"></span>
                                         <span class="custom-control-description">Pasaporte</span>
                                     </label>
@@ -707,7 +707,7 @@
                                     </div>
                                     <div class="col-12" style="padding: 0;">
                                         <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
+                                            <input type="checkbox" class="custom-control-input" ng-model="mayoredad" required />
                                             <span class="custom-control-indicator"></span>
                                             <span class="custom-control-description">* Acepto ser mayor de edad y poseer licencia de conducir</span>
                                         </label>
@@ -751,7 +751,7 @@
                                 <label for="lastnames" class="col-sm-3 col-form-label" style="font-weight: bold;"></label>
                                 <div class="col-sm-9">
                                     <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="term_cond" class="custom-control-input" required />
+                                        <input type="checkbox" name="term_cond" class="custom-control-input" ng-model="term_cond" required />
                                         <span class="custom-control-indicator"></span>
                                         <span class="custom-control-description" style="color: darkred;"> * Acepto Términos y Condiciones</span>
                                     </label>
