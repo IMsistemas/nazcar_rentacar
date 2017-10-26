@@ -548,6 +548,33 @@
 
         $scope.save = function () {
 
+            var data0 = {
+
+                nameperson: $scope.names,
+                lastnameperson: $scope.lastnames,
+                identifyperson: $scope.docident,
+                emailperson: $scope.email,
+                numphoneperson: $scope.phone,
+
+                idcar: $scope.carSelected.idcar,
+                startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
+                enddatetime: $scope.fecha_entrega + ' ' + $scope.hora_entrega,
+                totalcost: $scope.total,
+
+                idplaceretreat: $scope.dataRetiroPlace.idplace,
+                idplacereturn: $scope.dataEntregaPlace.idplace,
+                retiro_place: $scope.data_retiro_place,
+                entrega_place: $scope.data_entrega_place,
+                rest_day: $scope.rest_day,
+
+                serviceList: $scope.selectServiceList,
+
+                stateRegister: $scope.stateRegister,
+                registeremail: $scope.registeremail,
+                registerpassword: $scope.registerpassword
+
+            };
+
             var data = {
 
                 nameperson: $scope.names,
@@ -572,6 +599,8 @@
                 stateRegister: $scope.stateRegister,
                 registeremail: $scope.registeremail,
                 registerpassword: $scope.registerpassword,
+
+                dataRent: JSON.stringify(data0),
 
                 numtarjeta: $scope.numtarjeta,
                 mmaa: $scope.mmaa,

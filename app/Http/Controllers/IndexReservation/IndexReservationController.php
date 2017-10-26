@@ -211,6 +211,8 @@ class IndexReservationController extends Controller
 
                 if ($rentplace->save()) {
 
+                    Session::put('dataRentPaypal', $request->input('dataRent'));
+
                     return response()->json(['success' => true]);
 
                 } else {
@@ -403,16 +405,18 @@ class IndexReservationController extends Controller
     }
 
 
-    private function sendEmail($params)
+    public function sendEmail()
     {
 
-        $params = json_decode($params);
+        $params = json_decode(Session::get('dataRentPaypal'));
+
+        $today = date("Y-m-d H:i:s");
 
         if ($params->emailperson != '' && $params->email != null) {
 
             $correo_cliente = $params->emailperson;
 
-            Mail::send('Lecturas.pdf_body_email_newLectura',['params' => $params] , function($message) use ($correo_cliente)
+            Mail::send('Vouchers.vouchercash',['params' => $params, 'today' => $today] , function($message) use ($correo_cliente)
             {
                 $message->from('raidelbg84@gmail.com', 'Nazcar');
 

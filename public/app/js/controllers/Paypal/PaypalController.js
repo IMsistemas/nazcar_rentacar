@@ -34,6 +34,16 @@ app.controller('PaypalLaravelController', function($scope, $http, API_URL) {
         });
     };
 
+    $scope.sendEmail = function () {
+
+        $http.get(API_URL + 'reservation/sendEmail').then(function(response){
+
+
+
+
+        });
+    };
+
 });
 
 $(document).ready(function(){

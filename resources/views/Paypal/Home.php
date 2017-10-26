@@ -100,19 +100,14 @@
 
     <?php 
         if(isset($data)){
-            if($data["estado"]!="Ok"){
-                echo "
-                    <div class='alert alert-danger' role='alert'>
-                      <strong>Error al realizar el pago</strong>
-                    </div>
-                ";
 
-            }else{
-                echo "
-                    <div class='alert alert-success' role='alert'>
-                      <strong>Se realizo correctamente el pago</strong>
-                    </div>
-                ";
+            if( $data["estado"] != "Ok" ){
+
+                echo '<div class="alert alert-danger" role="alert"><strong>Error al realizar el pago</strong></div>';
+
+            } else {
+
+                echo '<div class="alert alert-success" role="alert" ng-init="sendMail()"><strong>Se realizó correctamente el pago vía Paypal</strong></div>';
             }
         }
     ?>
