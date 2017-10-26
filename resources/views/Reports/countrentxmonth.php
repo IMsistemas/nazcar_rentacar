@@ -1,9 +1,9 @@
 
 
-<div class="container" style="margin-top: 10px;" ng-controller="reportController" ng-init="initLoad()">
+<div class="container" style="margin-top: 10px;" ng-controller="reportController" ng-init="getCountRentxMonth()">
 	
 	<div class="col-xs-12">
-		<h4>Listado Rentas por Mes</h4>
+		<h4>Listado Cantidad Rentas por Mes</h4>
 		<hr>
 	</div>
 
@@ -14,18 +14,15 @@
             <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
                 <thead class="bg-primary">
                     <tr>
-                        <th style="width: 5%;">NO.</th>
-                        <th>MARCA</th>
-                        <th>MODELO</th>
+                        <th>MES</th>
                         <th style="width: 12%;">CANTIDAD</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr dir-paginate="item in list" ng-cloak>
+                    <tr ng-repeat="item in list0" ng-cloak>
 
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ item.nameplace }}</td>
-                        <td>{{ item.codeplace }}</td>
+                        <td>{{ item.mes }}</td>
+                        <td>{{ item.cantidad }}</td>
 
                     </tr>
                 </tbody>

@@ -90,6 +90,10 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
+    Route::get('countrentxmonth/getCountRentxMonth/{year}', 'Reports\CountRentxMonthController@getCountRentxMonth');
+    Route::resource('countrentxmonth', 'Reports\CountRentxMonthController');
+
+    Route::get('topcar/getTopCar', 'Reports\TopCarController@getTopCar');
     Route::resource('topcar', 'Reports\TopCarController');
 
     Route::get('slider/getDataSlider', 'Slider\SliderController@getDataSlider');

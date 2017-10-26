@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Reports;
 
 use App\Models\Rent\Rent;
-use App\Models\Rent\Rent_Place;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
-class TopCarController extends Controller
+class CountRentxMonthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,19 +22,18 @@ class TopCarController extends Controller
 
         } else {
 
-            return view('Reports.topcar');
+            return view('Reports.countrentxmonth');
 
         }
     }
 
-    public function getTopCar()
+
+    public function getCountRentxMonth($year)
     {
-        return Rent::selectRaw('rent.idcar, COUNT(rent.idcar) AS cantidad, carmodel.namecarmodel, carbrand.namecarbrand')
-                ->join('car', 'car.idcar', '=', 'rent.idcar')
-                ->join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
-                ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
-                ->groupBy('rent.idcar')->orderBy('cantidad', 'desc')
-                ->limit(5)->get();
+        return Rent::selectRaw('MONTH(startdatetime) AS mes, COUNT(MONTH(startdatetime)) AS cantidad')
+            ->whereRaw('YEAR(startdatetime) = ' . $year)
+            ->groupBy('mes')
+            ->limit(5)->get();
     }
 
     /**
