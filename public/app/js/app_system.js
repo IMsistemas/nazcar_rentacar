@@ -85,6 +85,10 @@ app.config(function($routeProvider){
             templateUrl : URL + 'topcar',
             controller: 'reportController'
         })
+        .when('/countrentxmonth',{
+            templateUrl : URL + 'countrentxmonth',
+            controller: 'reportController'
+        })
         .otherwise({
             template : ''
             //controller : 'indexController'
