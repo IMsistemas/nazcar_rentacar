@@ -687,7 +687,7 @@
                             <div class="form-group row">
                                 <label for="email" class="col-sm-3 col-form-label" style="font-weight: bold;">Correo *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" name="email" id="email" ng-model="email" placeholder="Correo" required />
+                                    <input type="email" class="form-control colours" name="email" id="email" ng-model="email" placeholder="Correo" required />
                                     <span class="help-block error" ng-show="formDataClient.email.$invalid && formDataClient.email.$touched">
                                         <small class="form-text text-danger text-right">Correo es requerido</small>
                                     </span>
