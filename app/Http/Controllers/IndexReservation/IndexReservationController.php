@@ -423,6 +423,7 @@ class IndexReservationController extends Controller
                     $message->bcc('luis.imnegocios@gmail.com')*/->subject('Prefactura Lectura!');
             });
         }
+
     }
 
     public function printComprobante($params)
