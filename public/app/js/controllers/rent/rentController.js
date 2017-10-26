@@ -5,6 +5,9 @@
         $scope.aux_estado = "";
         $scope.iditem = 0;
 
+        $scope.pageChanged = function(newPage) {
+            $scope.initLoad(newPage);
+        };
 
         $scope.initLoad = function(pageNumber){
 
@@ -35,13 +38,14 @@
 
                 $scope.list = response.data.data;
                 $scope.totalItems = response.data.total;
+
             })
-                .catch(function(data, status) {
-                    console.error('Gists error', response.status, response.data);
-                })
-                .finally(function() {
-                    //console.log("finally finished gists");
-                });
+            .catch(function(data, status) {
+                console.error('Gists error', response.status, response.data);
+            })
+            .finally(function() {
+                //console.log("finally finished gists");
+            });
         };
 
         $scope.getClients = function () {

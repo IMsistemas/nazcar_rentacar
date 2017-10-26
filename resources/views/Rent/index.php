@@ -88,7 +88,7 @@
                 template-url="dirPagination.html"
 
                 class="pull-right"
-                max-size="1"
+                max-size="10"
                 direction-links="true"
                 boundary-links="true" >
         </dir-pagination-controls>
