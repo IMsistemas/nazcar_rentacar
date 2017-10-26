@@ -73,9 +73,9 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#topcar">Top 5 Mas Rentados</a>
                     <a class="dropdown-item" href="#countrentxmonth">Rentas x Mes</a>
-                    <a class="dropdown-item" href="#transmission">Rentas x Día</a>
+                    <!--<a class="dropdown-item" href="#transmission">Rentas x Día</a>
                     <a class="dropdown-item" href="#fuel">Clientes Activos x Mes</a>
-                    <a class="dropdown-item" href="#motor">Vehículos Rentados x Día</a>
+                    <a class="dropdown-item" href="#motor">Vehículos Rentados x Día</a>-->
                 </div>
             </li>
 
