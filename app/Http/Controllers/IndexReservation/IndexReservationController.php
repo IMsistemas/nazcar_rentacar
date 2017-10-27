@@ -466,8 +466,11 @@ class IndexReservationController extends Controller
 
         }
 
+    }
 
-
+    private function getImageCar($id)
+    {
+        return Car::find($id);
     }
 
     public function printComprobante($params)
@@ -478,9 +481,13 @@ class IndexReservationController extends Controller
 
         $params = json_decode($params);
 
+        $image_url = Car::find($params->idcar);
+
+        $image_url = $image_url->image;
+
         $today = date("Y-m-d H:i:s");
 
-        $view =  \View::make('Vouchers.vouchercash2', compact('today', 'params', 'aux_empresa'))->render();
+        $view =  \View::make('Vouchers.vouchercash2', compact('today', 'params', 'aux_empresa', 'image_url'))->render();
 
         $pdf = App::make('dompdf.wrapper');
 

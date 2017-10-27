@@ -95,22 +95,36 @@
         }
 
 
+        .footer {
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            height: 200px;
+        }
+        .footer {
+            bottom: 0px;
+        }
+
+        .tablecolorback {
+
+            background: #000000 !important;
+
+        }
+
     </style>
 </head>
 <body>
 
 <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
-
     <tr>
-        <td>
-            <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
-                <tr>
-                    <td style="width: 50%;"></td>
-                    <td style="width: 50%;" class="text-right"><h2>COMPROBANTE DE PAGO</h2></td>
-                </tr>
-            </table>
-        </td>
+        <td style="width: 50%;"><img src="<?= $aux_empresa[0]->logocompany ?>" alt="" style="width: 100px;"></td>
+        <td style="width: 50%;" class="text-right"><h2>COMPROBANTE DE PAGO</h2></td>
     </tr>
+</table>
+
+
+
+<table class="table table-responsive table-striped table-hover table-condensed table-bordered tablecolorback">
 
     <tr>
         <td>
@@ -151,6 +165,12 @@
                     </td>
 
                     <td style="width: 65%;">
+
+                        <div class="col-xs-12 text-center">
+
+                            <img src="<?= $image_url ?>" alt="" style="width: 300px;">
+
+                        </div>
 
                         <div class="col-xs-12" style="margin-top: 2%;">
                             <h3>SERVICIOS</h3>
@@ -233,7 +253,17 @@
 </table>
 
 
-<!--  -->
+<div class="footer">
+
+    <img src="<?= $aux_empresa[0]->logocompany ?>" alt="" style="width: 100px;"> <br><br>
+
+    Condiciones de venta • Política de privacidad <br> <br> <br>
+    Copyright © <?= date('Y') ?> <?= $aux_empresa[0]->namecompany ?> <br>
+    Todos los derechos reservados <br> <br> <br>
+    <?= $aux_empresa[0]->addresscompany ?> <br>
+    Quito - Ecuador <br>
+    Email: <?= $aux_empresa[0]->emailcompany ?> <br>
+</div>
 
 
 </body>
