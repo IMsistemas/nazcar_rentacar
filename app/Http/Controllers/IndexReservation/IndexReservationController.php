@@ -480,7 +480,7 @@ class IndexReservationController extends Controller
 
         $today = date("Y-m-d H:i:s");
 
-        $view =  \View::make('Vouchers.vouchercash', compact('today', 'params', 'aux_empresa'))->render();
+        $view =  \View::make('Vouchers.vouchercash2', compact('today', 'params', 'aux_empresa'))->render();
 
         $pdf = App::make('dompdf.wrapper');
 
