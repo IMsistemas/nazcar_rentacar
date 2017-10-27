@@ -73,6 +73,9 @@
             $('#modalMessageInfoCar').modal('hide');
 
             if (step === 2) {
+
+                $scope.getCar(0, $scope.fecha_retiro, $scope.fecha_entrega);
+
                 $scope.rest_day = $scope.restaFechas($scope.fecha_retiro, $scope.fecha_entrega);
             }
 
@@ -294,11 +297,25 @@
 
         };
 
-        $scope.getCar = function (categories) {
+        $scope.getCar = function (categories, date_ini, date_end) {
 
-            $http.get(API_URL + 'reservation/getCar/' + categories).then(function(response){
+            if (date_ini === undefined) {
+                date_ini = $scope.fecha_retiro;
+                date_end = $scope.fecha_entrega;
+            }
+
+            var data = {
+
+                categories: categories,
+                date_ini: date_ini,
+                date_end: date_end
+
+            };
+
+            $http.get(API_URL + 'reservation/getCar?filter=' + JSON.stringify(data)).then(function(response){
 
                 $scope.carlist = response.data;
+
             });
 
         };
@@ -807,7 +824,7 @@
         $scope.getlistEdad();
         $scope.getPlaces();
         $scope.getCategories();
-        $scope.getCar(0);
+        //$scope.getCar(0);
         $scope.getAditionalServices();
         $scope.getOtherServices();
 

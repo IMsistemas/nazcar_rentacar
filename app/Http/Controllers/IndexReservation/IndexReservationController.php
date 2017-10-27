@@ -42,9 +42,17 @@ class IndexReservationController extends Controller
                                 ->orderBy('amountday', 'asc')->get();
 
         if ($result[0]->typecalculate == '#') {
-            $result_calc = $price * $result[0]->constant;
+
+            //$result_calc = $price * $result[0]->constant;
+
+            $result_calc = $price * $cantday;
+
         } else {
-            $result_calc = ($price * $result[0]->constant/100) * ($result[0]->amountday)-($price * $result[0]->amountday);
+
+            //$result_calc = ($price * $result[0]->constant/100) * ($result[0]->amountday)-($price * $result[0]->amountday);
+
+            $result_calc = ($price * $cantday) - ((($price * $cantday) * $result[0]->constant) / 100);
+
         }
 
         return abs($result_calc);
@@ -60,17 +68,22 @@ class IndexReservationController extends Controller
         return Carbrand::orderBy('namecarbrand', 'asc')->get();
     }
 
-    public function getCar($categories)
+    public function getCar(Request $request)
     {
+
+        $filter = json_decode($request->get('filter'));
 
         $list = Car::join('carmodel', 'car.idcarmodel', '=', 'carmodel.idcarmodel')
             ->join('carbrand', 'carmodel.idcarbrand', '=', 'carbrand.idcarbrand')
             ->join('fuel', 'car.idfuel', '=', 'fuel.idfuel')
             ->join('transmission', 'car.idtransmission', '=', 'transmission.idtransmission')
+            ->whereRaw("idcar NOT IN (SELECT idcar FROM rent WHERE '" . $filter->date_ini . "'  BETWEEN rent.startdatetime AND rent.enddatetime) ")
             ->orderBy('idcar', 'asc');
 
-        if ($categories != 0) {
-            $list = $list->where('carbrand.idcarbrand', $categories);
+        if ($filter->categories != 0) {
+
+            $list = $list->where('carbrand.idcarbrand', $filter->categories);
+
         }
 
         return $list->get();
