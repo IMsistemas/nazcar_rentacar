@@ -258,7 +258,11 @@
                     <div class="carousel-inner">
 
                         <div class="carousel-item" ng-class="$index == 0 ? 'active' : ''" ng-repeat="item_image in sliderlist">
-                            <img class="d-block w-100" src="{{item_image.image_url}}" alt="{{$index}}" style="">
+
+                            <a href="{{item_image.marketing_url}}" target="_blank">
+                                <img class="d-block w-100" src="{{item_image.image_url}}" alt="{{$index}}" style="">
+                            </a>
+
                         </div>
 
                     </div>
