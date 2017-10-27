@@ -68,7 +68,7 @@ class CarController extends Controller
             ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand');
 
         if($search != null){
-            $car = $car->whereRaw("(carmodel.namecarmodel LIKE '%" . $search . "%' OR carbrand.namecarbrand LIKE '%" . $search ."%' OR car.nameowner LIKE '%" . $search . "%' OR car.carserial LIKE '%" . $search . "%') ");
+            $car = $car->whereRaw("(carmodel.namecarmodel LIKE '%" . $search . "%' OR carbrand.namecarbrand LIKE '%" . $search ."%' OR car.nameowner LIKE '%" . $search . "%') ");
         }
 
         if ($state != null) {
@@ -127,7 +127,7 @@ class CarController extends Controller
         $car->securecode = $request->input('secure_code');
         //$car->securetype = $request->input('rent_cost');
         //$car->rentcost = $request->input('rent_cost');
-        $car->additionalcost = $request->input('aditional_cost');
+        //$car->additionalcost = $request->input('aditional_cost');
 
         $car->state = 1;
 

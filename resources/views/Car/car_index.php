@@ -141,7 +141,7 @@
     </div>
 
     <div class="modal fade" id="modalMessageInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header modal-header-info">
                     <h5 class="modal-title">Información</h5>
@@ -163,13 +163,14 @@
                             <strong>Propietario: </strong>{{name_owner}}<br>
                             <strong>Compañía de Seguros: </strong>{{insurance_company}}<br>
                             <strong>Código de Seguro: </strong>{{secure_code}}<br>
+                            <strong>Costo de Renta: </strong>{{rent_cost}}<br>
+                            <!--<strong>Costo Adicional: </strong>{{aditional_cost}}-->
                         </div>
                         <div class="col-md-6">
                             <div class="text-center">
-                                <img src="{{file_view}}" style="width: 200px; height: 170px;">
+                                <img src="{{file_view}}" class="img-fluid" style="width: 100%;">
                             </div>
-                            <strong>Costo de Renta: </strong>{{rent_cost}}<br>
-                            <strong>Costo Adicional: </strong>{{aditional_cost}}
+
                         </div>
                     </div>
                 </div>
@@ -332,12 +333,12 @@
                                     <input type="text" class="form-control" ng-model="year"/>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-12">
+                            <!--<div class="col-sm-6 col-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">Costo Adicional: </span>
                                     <input type="text" class="form-control" ng-model="aditional_cost"/>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </form>
 

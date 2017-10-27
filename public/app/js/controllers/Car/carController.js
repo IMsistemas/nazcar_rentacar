@@ -147,7 +147,7 @@
                 insurance_company: $scope.insurance_company,
                 secure_code: $scope.secure_code,
                 //rent_cost: $scope.rent_cost,
-                aditional_cost: $scope.aditional_cost,
+                //aditional_cost: $scope.aditional_cost,
                 file: $scope.file
             };
 
@@ -242,7 +242,7 @@
             $scope.secure_code = '';
             $scope.amountpassengers = '';
             $scope.amountluggage = '';
-            $scope.aditional_cost = '';
+            //$scope.aditional_cost = '';
             $scope.file = '';
 
             $scope.id = 0;
@@ -279,7 +279,7 @@
             $scope.amountpassengers = item.amountpassengers;
             $scope.amountluggage = item.amountluggage;
             //$scope.rent_cost = item.rentcost;
-            $scope.aditional_cost = item.additionalcost;
+            //$scope.aditional_cost = item.additionalcost;
             $scope.file = item.image;
 
             $scope.title_modal_action = 'Editar';
@@ -305,7 +305,7 @@
             $scope.secure_code = item.securecode;
             $scope.rent_cost = item.price;
 
-            $scope.aditional_cost = item.additionalcost;
+            //$scope.aditional_cost = item.additionalcost;
 
             if (item.image !== null) {
                 $scope.file_view = item.image;
