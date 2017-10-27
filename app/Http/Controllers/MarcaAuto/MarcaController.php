@@ -72,14 +72,26 @@ class MarcaController extends Controller
      *
      */
     public function update(Request $request, $id){
-        $data = $request->all();
-        $respuesta=Carbrand::whereRaw("idcarbrand=".$id)
+        /*$data = $request->all();
+        /*$respuesta=Carbrand::whereRaw("idcarbrand=".$id)
                             ->update($data);
+
         if($respuesta==1){
             return "true";
         }else{
             return "false";
+        }*/
+
+        $object=Carbrand::find($id);
+
+        $object->namecarbrand = $request->input('namecarbrand');
+
+        if ($object->save()) {
+            return "true";
+        }else{
+            return "false";
         }
+
     }
     /**
      *

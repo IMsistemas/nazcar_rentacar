@@ -75,6 +75,9 @@ app.controller('MarcaController', function($scope, $http, API_URL) {
     	if($scope.aux_namecarbrand!="" ){
     		$scope.aux_marca.namecarbrand=$scope.aux_namecarbrand;
     		$scope.aux_btn_marcae="2";
+
+    		console.log($scope.aux_marca);
+
     		$http.put(API_URL+'Marca/'+$scope.aux_marca.idcarbrand,$scope.aux_marca)
 	        .then(function (response) {
 	        	if(response.data=="true"){
