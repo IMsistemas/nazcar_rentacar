@@ -94,6 +94,7 @@ class SliderController extends Controller
 
         $slider->order = $request->input('order');
         $slider->language = $request->input('language');
+        $slider->marketing_url = $request->input('marketing_url');
         $slider->state = 1;
 
         if ($slider->save()) {

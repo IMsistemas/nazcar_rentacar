@@ -67,6 +67,7 @@
             $scope.idslider = 0;
             $scope.language = 'es_ES';
             $scope.file = '';
+            $scope.marketing_url = '';
             $scope.getlistOrder();
             $scope.selectItem = null;
         };
@@ -83,6 +84,7 @@
             $scope.idslider = item.idslider;
             $scope.language = item.language;
             $scope.order = item.order;
+            $scope.marketing_url = item.marketing_url;
             $scope.file = item.image_url;
 
             $scope.title_modal_action = 'Editar';
@@ -102,6 +104,7 @@
 
             var data = {
                 idslider: $scope.idslider,
+                marketing_url: $scope.marketing_url,
                 language: $scope.language,
                 order: $scope.order,
                 file: $scope.file

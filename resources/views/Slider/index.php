@@ -33,8 +33,9 @@
 			<thead class="bg-primary">
 				<tr>
 					<th>IMAGEN</th>
-                    <th>ORDEN</th>
-                    <th>IDIOMA</th>
+                    <th style="width: 50%;">URL MARKETING</th>
+                    <th style="width: 5%;">ORDEN</th>
+                    <th style="width: 8%;">IDIOMA</th>
 					<th style="width: 15%;">ACCIONES</th>
 				</tr>
 			</thead>
@@ -44,6 +45,7 @@
 					<td>
                         <img src="{{item.image_url}}" style="width: 40%;" class="img-fluid">
                     </td>
+                    <td><a href="{{ item.marketing_url }}" target="_blank">{{ item.marketing_url }}</a></td>
                     <td>{{ item.order }}</td>
                     <td>{{ item.language }}</td>
 					<td class="text-center">
@@ -92,6 +94,16 @@
                                        accept="image/*" ngf-max-size="2MB"  ng-required="true" ngf-pattern="image/*">
                                 <span class="help-block error" ng-show="formSlider.file.$invalid && formSlider.file.$touched">
                                     <small id="emailHelp" class="form-text text-danger text-right">La imagen es requerida</small>
+                                </span>
+                            </div>
+
+                            <div class="col-12" style="margin-top: 5px;">
+                                <div class="input-group">
+                                    <span class="input-group-addon">URL: </span>
+                                    <input type="text" class="form-control" id="marketing_url" name="marketing_url" ng-model="marketing_url" required />
+                                </div>
+                                <span class="help-block error" ng-show="formSlider.marketing_url.$invalid && formSlider.marketing_url.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">La URL de Marketing es requerida</small>
                                 </span>
                             </div>
 
