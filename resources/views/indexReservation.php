@@ -123,7 +123,7 @@
                                     </div>
 
                                     <div class="col-6">
-                                        <input type="time" class="form-control colours" name="hora_retiro" id="hora_retiro"
+                                        <input type="text" class="form-control colours datetimepicker3" name="hora_retiro" id="hora_retiro" min="04:00"
                                                ng-model="hora_retiro" placeholder="Hora" ng-blur="reafirmHours(0)"  required />
                                         <span class="help-block error" ng-show="formReserva_1.hora_retiro.$invalid && formReserva_1.hora_retiro.$touched">
                                 <small id="emailHelp" class="form-text text-danger text-right">La Hora es requerida</small>
@@ -157,7 +157,7 @@
                                     </div>
 
                                     <div class="col-6">
-                                        <input type="time" class="form-control colours" name="hora_entrega" id="hora_entrega"
+                                        <input type="text" class="form-control colours datetimepicker3" name="hora_entrega" id="hora_entrega"
                                                ng-model="hora_entrega" placeholder="Hora" ng-blur="reafirmHours(1)" required />
                                         <span class="help-block error" ng-show="formReserva_1.hora_entrega.$invalid && formReserva_1.hora_entrega.$touched">
                                 <small id="emailHelp" class="form-text text-danger text-right">La Hora es requerida</small>

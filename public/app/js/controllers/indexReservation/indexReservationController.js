@@ -41,6 +41,12 @@
             format: 'YYYY-MM-DD'
         });
 
+        $('.datetimepicker3').datetimepicker({
+            format: 'LT',
+        });
+
+
+
         $scope.reserva_1 = 1;
 
         $scope.getlistEdad = function () {
