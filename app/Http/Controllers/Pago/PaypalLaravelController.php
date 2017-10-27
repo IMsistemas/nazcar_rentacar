@@ -202,7 +202,9 @@ class PaypalLaravelController extends Controller
                     'estado'=> 'Error',
                     'Info'=> 'Payment failed'
                     );
-             return view('Paypal.Home' ,compact('data')); // Vista donde se visualiza la respuesta de paypal
+             //return view('Paypal.Home' ,compact('data')); // Vista donde se visualiza la respuesta de paypal
+
+            return view('indexReservation'); // Vista donde se visualiza la respuesta de paypal
         }
         $payment = Payment::get($payment_id, $this->_api_context);
         $execution = new PaymentExecution();
@@ -217,7 +219,9 @@ class PaypalLaravelController extends Controller
                     );
 
             \Session::put('pagoPaypal', true);
-             return view('Paypal.Home' ,compact('data')); // Vista donde se visualiza la respuesta de paypal
+             //return view('Paypal.Home' ,compact('data')); // Vista donde se visualiza la respuesta de paypal
+
+            return view('indexReservation'); // Vista donde se visualiza la respuesta de paypal
         }
         \Session::put('error','Payment failed');
         $data = array(
@@ -226,7 +230,9 @@ class PaypalLaravelController extends Controller
                     'Info'=> 'Payment failed'
                     );
         \Session::put('pagoPaypal', false);
-        return view('Paypal.Home' ,compact('data')); // Vista donde se visualiza la respuesta de paypal
+        //return view('Paypal.Home' ,compact('data')); // Vista donde se visualiza la respuesta de paypal
+
+        return view('indexReservation'); // Vista donde se visualiza la respuesta de paypal
     }
 
 

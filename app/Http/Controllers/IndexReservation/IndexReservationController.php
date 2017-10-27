@@ -104,6 +104,19 @@ class IndexReservationController extends Controller
         return Slider::where('state', 1)->orderBy('order', 'asc')->get();
     }
 
+    public function getResultPagoPaypal()
+    {
+        if (Session::has('pagoPaypal') == true) {
+
+            return 'true';
+
+        } else {
+
+            return 'false';
+
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -441,6 +454,8 @@ class IndexReservationController extends Controller
                         $message->bcc('raidelbg84@gmail.com');
                         $message->bcc('luis.imnegocios@gmail.com')*/->subject('Comprobante de Renta');
                 });
+
+                Session::forget('pagoPaypal');
             }
 
             return response()->json(['success' => true]);

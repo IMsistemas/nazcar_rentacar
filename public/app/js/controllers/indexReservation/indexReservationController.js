@@ -668,30 +668,32 @@
 
                     $http.post(API_URL+'Paypallaravel2',datos).then(function (response) {
 
-                        if(response.data.url !== undefined){
+                        //location.href = response.data.url;
 
-                            location.href = response.data.url;
+                        if(response.data.url!=undefined){
+                            location.href=response.data.url;
+                        }else{
+                            location.href=response.data;
+                        }
 
+                        //location.href = API_URL + 'reservation';
 
+                        /*if(response.data.url !== undefined){
 
+                            location.href = API_URL + 'reservation';
 
                         } else {
 
-                            location.href = response.data;
+                            //location.href = response.data;
 
-                            /*$scope.message_error = 'Ha ocurrido un error al intentar Pagar via PayPal...';
-                            $('#modalError').modal('show');*/
+                            $scope.message_error = 'Ha ocurrido un error al intentar Pagar via PayPal...';
+                            $('#modalError').modal('show');
 
-                        }
+                        }*/
 
                     });
 
 
-
-                    $scope.message_success = 'La Reserva se ha agregado satisfactoriamente...';
-                    $('#modalSuccess').modal('show');
-
-                    /*$scope.reserva_1 = 1;*/
 
                 } else {
 
@@ -792,39 +794,39 @@
         };
 
 
-        $scope.sendEmail = function (data) {
+        $scope.sendEmail = function () {
 
-            $http.post(API_URL + 'reservation', data).then(function(response) {
+            $http.get(API_URL + 'reservation/sendEmail').then(function(response){
 
-                $('#modalAction').modal('hide');
+                console.log(response);
 
-                if (response.data.success === true) {
 
-                    $scope.cancel();
+            });
+        };
 
-                    $scope.message_success = 'El Tipo de Combustible se ha agregado satisfactoriamente...';
+
+        $scope.verifiedPagoPaypal = function () {
+
+            $http.get(API_URL + 'reservation/getResultPagoPaypal').then(function(response){
+
+                if (response.data === 'true') {
+
+                    $scope.message_success = 'La Reserva y el pago en Paypal se han efectuado satisfactoriamente...';
                     $('#modalSuccess').modal('show');
 
-                    $scope.initLoad(1);
 
+                    $scope.sendEmail();
                 } else {
 
-                    $scope.message_error = 'Ha ocurrido un error al intentar agregar un Tipo de Combustible...';
+                    $scope.message_error = 'Ha ocurrido un error al intentar Pagar via PayPal...';
                     $('#modalError').modal('show');
 
                 }
-
-            }).catch(function(data, status) {
-
-                console.error('Gists error', response.status, response.data);
-
-            }).finally(function() {
-
-                //console.log("finally finished gists");
-
             });
 
         };
+
+        $scope.verifiedPagoPaypal();
 
         $scope.getSlider();
         $scope.getlistEdad();
