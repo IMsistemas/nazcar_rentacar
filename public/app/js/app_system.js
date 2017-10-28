@@ -8,7 +8,7 @@ $.ajaxSetup({
     }
 });
 
-var URL = 'http://rentacar.checkim.net/';
+var URL = 'http://localhost:8000/';
 
 var app = angular.module('reservationApp', ['ngRoute', 'ngSanitize', 'ngFileUpload', 'angularUtils.directives.dirPagination'])
     .constant('API_URL', URL);
