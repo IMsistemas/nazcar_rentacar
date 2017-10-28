@@ -129,7 +129,7 @@ class IndexReservationController extends Controller
 
     public function login(Request $request)
     {
-        $user = Person::where( 'emailperson', $request->input('email' ) )->where('typeperson', 1)->get();
+        $user = Person::where( 'emailperson', $request->input('email' ) )->get();
 
         if ( count( $user ) > 0 ) {
 
@@ -185,7 +185,7 @@ class IndexReservationController extends Controller
             $person->identifyperson = $request->input('identifyperson');
             $person->emailperson = $request->input('emailperson');
             $person->numphoneperson = $request->input('numphoneperson');
-            $person->typeperson = 1;
+            //$person->typeperson = 1;
 
             if ($person->save()) {
 
@@ -363,7 +363,7 @@ class IndexReservationController extends Controller
 
     private function searchClient($email)
     {
-        $person = Person::where('emailperson', $email)->where('typeperson', 1)->get();
+        $person = Person::where('emailperson', $email)->get(); 
 
         if (count($person) == 1) {
 

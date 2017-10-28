@@ -90,8 +90,8 @@ app.config(function($routeProvider){
             controller: 'reportController'
         })
         .otherwise({
-            template : ''
-            //controller : 'indexController'
+            templateUrl : URL + 'countrentxmonth',
+            controller: 'reportController'
         });
 
 });
