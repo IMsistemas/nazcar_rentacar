@@ -3,6 +3,7 @@
 <head>
     <title></title>
     <style type="text/css">
+
         body{
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-size: 12px;
@@ -16,7 +17,7 @@
             position: absolute;
         }
 
-        .col-xs-3, .col-xs-6,  .col-xs-12 {
+        .col-xs-3, .col-xs-6,  .col-xs-12, .col-xs-4, .col-xs-5 {
             position: relative;
             min-height: 1px;
             padding-right: 5px;
@@ -29,44 +30,23 @@
 
         .col-xs-12 {
             width: 100%;
+
         }
 
-        .col-xs-6-l {
+        .col-xs-6 {
             float: left;
             width: 50%;
         }
 
-        .col-xs-6-r {
-            float: right;
-            width: 50%;
+        .col-xs-4 {
+            width: 35%;
         }
 
-        .col-xs-3 {
-            float: left;
-            width: 25%;
+        .col-xs-5 {
+            width: 65%;
         }
 
-        .form-control {
-            /*display: block;*/
-            width: 100%;
-            height: 20px;
-            padding: 6px 12px;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #555;
-            background-color: #fff;
-            background-image: none;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 
-            text-align: right;
-
-        }
 
         .table {
             border-collapse: collapse !important;
@@ -83,7 +63,7 @@
         .table {
             width: 100%;
             max-width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
         }
         .table > thead > tr > th,
         .table > tbody > tr > th,
@@ -91,7 +71,7 @@
         .table > thead > tr > td,
         .table > tbody > tr > td,
         .table > tfoot > tr > td {
-            padding: 8px;
+            padding: 2px;
             line-height: 1.42857143;
             vertical-align: top;
             border-top: 1px solid #ddd;
@@ -114,151 +94,178 @@
             text-align: center !important;
         }
 
-        .text-left
-        {
-            text-align: left !important;
+
+        .footer {
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            height: 200px;
         }
-        .bg-primary{
-            background:#2F70A8 !important;
+        .footer {
+            bottom: 0px;
         }
-        .bg-success{
-            background:#DFF0D8 !important;
+
+        .tablecolorback {
+
+            background: #000000 !important;
+
         }
-        .bg-warning{
-            background:#FCF8E3 !important;
-        }
+
     </style>
 </head>
 <body>
 
-<div class="col-xs-12">
-    <div class="col-xs-6-l" style="font-size: 14px;">
-        <strong></strong>
-    </div>
-
-    <div class="col-xs-6-r text-center">
-        <?= $today ?>
-    </div>
-</div>
-
-<br>
-
-<div class="col-xs-12 text-center" style="margin-top: 20px;">
-    <h3><strong>COMPROBANTE DE PAGO</strong></h3>
-</div>
 
 
-<div class="col-xs-6-l">
-
-    <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
-        <thead>
-            <tr>
-                <th class="text-center" colspan="2">DATOS CLIENTE</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <tr>
-                <th style="width: 35%;">Nombre (s)</th>
-                <td style="width: 65%;"><?= $params->nameperson ?></td>
-            </tr>
-            <tr>
-                <th>Apellidos</th>
-                <td><?= $params->lastnameperson ?></td>
-            </tr>
-            <tr>
-                <th>Correo</th>
-                <td><?= $params->emailperson ?></td>
-            </tr>
-            <tr>
-                <th>Agencia Retiro</th>
-                <td><?= $params->retiro_place ?></td>
-            </tr>
-            <tr>
-                <th>Agencia Entrega</th>
-                <td><?= $params->entrega_place ?></td>
-            </tr>
-            <tr>
-                <th>Fecha Retiro</th>
-                <td><?= $params->startdatetime ?></td>
-            </tr>
-            <tr>
-                <th>Fecha Devolución</th>
-                <td><?= $params->enddatetime ?></td>
-            </tr>
-            <tr>
-                <th>Renta por</th>
-                <td><?= $params->rest_day ?> días</td>
-            </tr>
-
-        </tbody>
-    </table>
-
-</div>
+<table class="table table-responsive table-striped table-hover table-condensed table-bordered" style="width: 75% !important;">
+    <tr>
+        <td style="width: 50%;"><img src="<?= $aux_empresa[0]->logocompany ?>" alt="" style="width: 100px;"></td>
+        <td style="width: 50%;" class="text-right"><h2>COMPROBANTE DE PAGO</h2></td>
+    </tr>
+</table>
 
 
-<div class="col-xs-6-r" style="float: right !important;">
 
-    <table class="table table-responsive table-striped table-hover table-condensed table-bordered" style="float: right !important;">
-        <thead>
-            <tr>
-                <th class="text-center" colspan="2">DATOS SERVICIOS</th>
-            </tr>
-        </thead>
-        <tbody>
+<table class="table table-responsive table-striped table-hover table-condensed table-bordered tablecolorback" style="width: 75% !important;">
 
-            <?php foreach ($params->serviceList as $item):?>
+    <tr>
+        <td>
+            <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
                 <tr>
+                    <td style="width: 35%;">
 
-                    <th><?= $item->service ?></th>
-                    <td class="text-right"><?= number_format($item->price, 2, '.', ',') ?></td>
+                        <div class="col-xs-12" style="margin-top: 2%;">
+                            <h3>CLIENTE</h3>
+                            <?= $params->nameperson ?> <?= $params->lastnameperson ?><br>
+                            <?= $params->emailperson ?>
+                        </div>
+
+                        <div class="col-xs-12" style="margin-top: 2%;">
+                            <h3>AGENCIA DE RETIRO</h3>
+                            <?= $params->retiro_place ?>
+                        </div>
+
+                        <div class="col-xs-12" style="margin-top: 2%;">
+                            <h3>AGENCIA DE ENTREGA</h3>
+                            <?= $params->entrega_place ?>
+                        </div>
+
+                        <div class="col-xs-12" style="margin-top: 2%;">
+                            <h3>DÍAS DE RENTA</h3>
+                            <?= $params->rest_day ?>
+                        </div>
+
+                        <div class="col-xs-12" style="margin-top: 2%;">
+                            <h3>FECHA DE RETIRO</h3>
+                            <?= $params->startdatetime ?>
+                        </div>
+
+                        <div class="col-xs-12" style="margin-top: 2%;">
+                            <h3>FECHA DE DEVOLUCIÓN</h3>
+                            <?= $params->enddatetime ?>
+                        </div>
+                    </td>
+
+                    <td style="width: 65%;">
+
+                        <div class="col-xs-12 text-center">
+
+                            <img src="<?= $image_url ?>" alt="" style="width: 300px;">
+
+                        </div>
+
+                        <div class="col-xs-12" style="margin-top: 2%;">
+                            <h3>SERVICIOS</h3>
+
+                            <?php
+
+                            foreach ($params->serviceList as $item) {
+
+                                if ($item->idservice == 0) {
+
+                                    echo $item->service . ' ' . number_format($item->price, 2, '.', ',') . '<br>';
+
+                                } else if ($item->type == 0) {
+
+                                    echo $item->service . ' ' . number_format($item->price, 2, '.', ',') . '<br>';
+
+                                }
+
+                            }
+
+                            ?>
+
+                        </div>
+
+                        <div class="col-xs-12" style="margin-top: 2%;">
+                            <h3>SERVICIOS ADICIONALES</h3>
+                            <?php
+
+                            foreach ($params->serviceList as $item) {
+
+                                if ($item->idservice != 0) {
+
+                                    if ($item->type == 1) {
+
+                                        echo $item->service . ' ' . number_format($item->price, 2, '.', ',') . '<br>';
+
+                                    }
+
+                                }
+
+                            }
+
+                            ?>
+                        </div>
+
+                    </td>
 
                 </tr>
-            <?php  endforeach;?>
-
-            <tr>
-
-                <th>
-                    <hr>SUBTOTAL
-                </th>
-                <td class="text-right">
-                    <hr>
-                    <?= number_format($params->subtotal, 2, '.', ',') ?>
-                </td>
-
-            </tr>
-
-            <tr>
-
-                <th>
-                    IVA (12%)
-                </th>
-                <td class="text-right">
-                    <?= number_format($params->iva, 2, '.', ',') ?>
-                </td>
-
-            </tr>
-
-            <tr>
-
-                <th>
-                    TOTAL
-                </th>
-                <td class="text-right">
-                    <?= number_format($params->totalcost, 2, '.', ',') ?>
-                </td>
-
-            </tr>
-
-        </tbody>
-
-    </table>
+            </table>
 
 
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+
+            <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+                <tbody>
+                <tr>
+                    <th style="width: 85%;" class="text-right">SUBTOTAL</th>
+                    <td style="width: 15%;" class="text-right"><?= number_format($params->subtotal, 2, '.', ',') ?></td>
+                </tr>
+
+                <tr>
+                    <th class="text-right">IVA (12%)</th>
+                    <td class="text-right"><?= number_format($params->iva, 2, '.', ',') ?></td>
+                </tr>
+
+                <tr>
+                    <th class="text-right">TOTAL</th>
+                    <td class="text-right"><?= number_format($params->totalcost, 2, '.', ',') ?></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
+
+</table>
 
 
+<div class="footer">
+
+    <img src="<?= 'http://' . $_SERVER['HTTP_HOST'] . '/public/' . $aux_empresa[0]->logocompany ?>" alt="" style="width: 100px;"> <br><br>
+
+    Condiciones de venta • Política de privacidad <br> <br> <br>
+    Copyright © <?= date('Y') ?> <?= $aux_empresa[0]->namecompany ?> <br>
+    Todos los derechos reservados <br> <br> <br>
+    <?= $aux_empresa[0]->addresscompany ?> <br>
+    Quito - Ecuador <br>
+    Email: <?= $aux_empresa[0]->emailcompany ?> <br>
 </div>
-
 
 
 </body>
