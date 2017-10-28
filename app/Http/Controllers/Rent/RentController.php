@@ -71,12 +71,12 @@ class RentController extends Controller
             $rent = $rent->whereRaw("(person.nameperson LIKE '%" . $search . "%' OR person.lastnameperson LIKE '%" . $search ."%' OR carmodel.namecarmodel LIKE '%" . $search . "%' OR carbrand.namecarbrand LIKE '%". $search . "%' ) ");
         }
 
-        if ($client != null) {
+        if ($client != null && $client != '') {
             $rent = $rent->whereRaw('rent.idclient = ' . $client);
         }
 
-        if ($carbran != null) {
-            $rent = $rent->whereRaw('rent.idcar = ' . $carbran);
+        if ($carbran != null && $carbran != '') {
+            $rent = $rent->whereRaw('carbrand.idcarbrand = ' . $carbran);
         }
 
         if ($state != null) {

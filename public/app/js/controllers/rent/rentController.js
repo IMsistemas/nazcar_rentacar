@@ -35,6 +35,8 @@
                 state: state
             };
 
+            console.log(filtros);
+
             $http.get(API_URL + 'rent/listRents?page=' + pageNumber + '&filter=' + JSON.stringify(filtros)).then(function(response) {
 
                 $scope.list = response.data.data;
@@ -72,7 +74,7 @@
                 var long = response.data.length;
                 var array = [{label: '-- Seleccione --', id: ''}];
                 for(var i = 0; i < long; i++){
-                    array.push({label: response.data[i].namecarbrand , id: response.data[i].idcar})
+                    array.push({label: response.data[i].namecarbrand , id: response.data[i].idcarbrand})
                 }
                 $scope.carBrandlist = array;
                 $scope.carBrandfilter = '';
