@@ -593,7 +593,7 @@
                 entrega_place: $scope.data_entrega_place,
                 rest_day: $scope.rest_day,
 
-                title_carimage: API_URL + $scope.title_carimage,
+                //title_carimage: API_URL + $scope.title_carimage,
 
                 serviceList: $scope.selectServiceList,
 
@@ -624,7 +624,7 @@
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
 
-                title_carimage: API_URL + $scope.title_carimage,
+                //title_carimage: API_URL + $scope.title_carimage,
 
                 serviceList: $scope.selectServiceList,
 

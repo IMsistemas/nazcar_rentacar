@@ -73,6 +73,7 @@ class UserController extends Controller
         $person->identifyperson = $request->input('identifyperson');
         $person->emailperson = $request->input('emailperson');
         $person->numphoneperson = $request->input('numphoneperson');
+        $person->typeperson = 0;
 
         if ($person->save()) {
 

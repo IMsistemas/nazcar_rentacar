@@ -185,6 +185,7 @@ class IndexReservationController extends Controller
             $person->identifyperson = $request->input('identifyperson');
             $person->emailperson = $request->input('emailperson');
             $person->numphoneperson = $request->input('numphoneperson');
+            $person->typeperson = 1;
 
             if ($person->save()) {
 
@@ -438,13 +439,19 @@ class IndexReservationController extends Controller
 
             $params = json_decode(Session::get('dataRentPaypal'));
 
+            $image_url = Car::find($params->idcar);
+
+            $image_url = $image_url->image;
+
+            $aux_empresa = Company::all();
+
             $today = date("Y-m-d H:i:s");
 
             if ($params->emailperson != '' && $params->emailperson != null) {
 
                 $correo_cliente = $params->emailperson;
 
-                Mail::send('Vouchers.vouchercash',['params' => $params, 'today' => $today] , function($message) use ($correo_cliente)
+                Mail::send('Vouchers.vouchercash2',['params' => $params, 'today' => $today, 'image_url' => $image_url, 'aux_empresa' => $aux_empresa] , function($message) use ($correo_cliente)
                 {
                     $message->from('notificacionimnegocios@gmail.com', 'Nazcar');
 
