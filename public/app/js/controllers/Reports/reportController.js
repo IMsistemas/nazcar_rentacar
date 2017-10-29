@@ -32,19 +32,80 @@
                 ];
 
                 var lista = response.data;
+                var temp = [];
 
-                console.log(lista);
+                $scope.subtotal_end = 0;
+                $scope.iva_end = 0;
+                $scope.total_end = 0;
+                $scope.cantidad_end = 0;
 
                 var longitud = response.data.length;
 
                 for (var i = 0; i < longitud; i++) {
 
-                    var o = {
-                        mes: month_array[parseInt(lista[i].mes) - 1],
-                        cantidad: lista[i].cantidad
-                    };
+                    if (temp.length === 0) {
 
-                    $scope.list0.push(o);
+                        var o = {
+
+                            mes: month_array[parseInt(lista[i].mes) - 1],
+                            cantidad: 1,
+                            subtotal: parseFloat(lista[i].subtotal).toFixed(2),
+                            iva: parseFloat(lista[i].iva).toFixed(2),
+                            total: parseFloat(lista[i].total).toFixed(2)
+
+                        };
+
+                        temp.push(o);
+
+                    } else {
+
+                        var flag = false;
+
+                        for (var j = 0; j < temp.length; j++) {
+
+                            if (temp[j].mes === month_array[parseInt(lista[i].mes) - 1]) {
+
+                                temp[j].cantidad++;
+                                temp[j].subtotal = (parseFloat(temp[j].subtotal) + parseFloat(lista[i].subtotal)).toFixed(2);
+                                temp[j].iva = (parseFloat(temp[j].iva) + parseFloat(lista[i].iva)).toFixed(2);
+                                temp[j].total = (parseFloat(temp[j].total) + parseFloat(lista[i].total)).toFixed(2);
+
+                                flag = true;
+
+                                break;
+
+                            }
+
+                        }
+
+                        if (flag === false) {
+
+                            var o = {
+
+                                mes: month_array[parseInt(lista[i].mes) - 1],
+                                cantidad: 1,
+                                subtotal: parseFloat(lista[i].subtotal).toFixed(2),
+                                iva: parseFloat(lista[i].iva).toFixed(2),
+                                total: parseFloat(lista[i].total).toFixed(2)
+
+                            };
+
+                            temp.push(o);
+
+                        }
+
+                    }
+
+                    $scope.subtotal_end = $scope.subtotal_end + parseFloat(lista[i].subtotal);
+                    $scope.iva_end = $scope.iva_end + parseFloat(lista[i].iva);
+                    $scope.total_end = $scope.total_end + parseFloat(lista[i].total);
+
+                    /*$scope.subtotal_end = parseFloat($scope.subtotal_end).toFixed(2);*/
+
+
+                    $scope.cantidad_end++;
+
+                    $scope.list0 = temp;
 
                 }
 

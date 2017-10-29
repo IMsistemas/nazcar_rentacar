@@ -30,10 +30,14 @@ class CountRentxMonthController extends Controller
 
     public function getCountRentxMonth($year)
     {
-        return Rent::selectRaw('MONTH(startdatetime) AS mes, COUNT(MONTH(startdatetime)) AS cantidad')
+        /*return Rent::selectRaw('MONTH(startdatetime) AS mes, COUNT(MONTH(startdatetime)) AS cantidad')
             ->whereRaw('YEAR(startdatetime) = ' . $year)
-            ->groupBy('mes')
-            ->limit(5)->get();
+            ->groupBy('mes')->get();*/
+
+        return Rent::join('rentcost', 'rentcost.idrent', '=', 'rent.idrent')
+                    ->whereRaw('YEAR(startdatetime) = ' . $year)
+                    ->selectRaw('MONTH(rent.startdatetime) AS mes, rentcost.subtotal, rentcost.iva, rentcost.total')
+                    ->orderBy('mes', 'asc')->get();
     }
 
     /**
