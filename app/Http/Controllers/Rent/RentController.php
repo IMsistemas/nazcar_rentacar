@@ -66,6 +66,7 @@ class RentController extends Controller
             ->join('car', 'car.idcar', '=', 'rent.idcar')
             ->join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
             ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
+            ->join('rentcost', 'rentcost.idrent', '=', 'rent.idrent')
             ->selectRaw('*, rent.state AS staterent');
 
         if($search != null){
@@ -96,7 +97,7 @@ class RentController extends Controller
 
         }
 
-        return $rent->orderBy('idrent', 'desc')->paginate(10);
+        return $rent->orderBy('rent.idrent', 'desc')->paginate(10);
     }
 
     /**

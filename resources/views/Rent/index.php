@@ -62,7 +62,7 @@
                 <td>{{item.year}}</td>
                 <td>{{item.startdatetime}}</td>
                 <td>{{item.enddatetime}}</td>
-                <td class="text-right">$ {{item.totalcost}}</td>
+                <td class="text-right">$ {{item.total}}</td>
                 <td class="text-center">
 
                     <div class="btn-group" role="group" aria-label="Basic example">
