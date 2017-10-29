@@ -86,22 +86,29 @@
         $scope.showModalInformation=function(item){
 
             $scope.client = item.nameperson + " " + item.lastnameperson;
-            $scope.idclient = item.identifyperson
+            $scope.idclient = item.identifyperson;
             $scope.emailperson = item.emailperson;
             $scope.phoneperson = item.numphoneperson;
-            $scope.celperson = item.numcelperson;
-            $scope.addressperson = item.addressperson;
+            /*$scope.celperson = item.numcelperson;
+            $scope.addressperson = item.addressperson;*/
 
             $scope.carbrand = item.namecarbrand;
             $scope.carmodel = item.namecarmodel;
-            $scope.year = item.year;
+            $scope.licenseplate = item.licenseplate;
+            /*$scope.year = item.year;
             $scope.nameowner = item.nameowner;
             $scope.insurancecompany = item.insurancecompany;
-            $scope.securecode = item.securecode;
+            $scope.securecode = item.securecode;*/
+
+            $scope.placeretreat = item.placeretreat;
+            $scope.placereturn = item.placereturn;
+
+            $scope.subtotal_rent = item.subtotal;
+            $scope.iva_rent = item.iva;
+            $scope.total_rent = item.total;
 
             $scope.startdate = item.startdatetime;
             $scope.enddate = item.enddatetime;
-            $scope.totalcost = item.totalcost;
 
             $("#modalInformation").modal("show");
         };

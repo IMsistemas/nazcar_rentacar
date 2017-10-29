@@ -164,7 +164,7 @@
     </div>
 
     <div class="modal fade" id="modalInformation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header modal-header-info">
                     <h5 class="modal-title">Información de la Reserva</h5>
@@ -175,39 +175,100 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-6">
-                            Cliente<hr>
-                            Nombre y Apellidos: {{client}}<br>
-                            Identificación: {{idclient}}<br>
-                            No. Teléfono: {{phoneperson}}<br>
-                            No. Celular: {{celperson}}<br>
-                            Dirección: {{addressperson}}
+
+                            <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+                                <thead class="bg-info">
+                                    <tr>
+                                        <th colspan="2">CLIENTE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th style="width: 45%;">Nombre y Apellidos:</th>  <td style="width: 55%;">{{client}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Identificación:</th>  <td>{{idclient}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>No. Teléfono:</th>  <td>{{phoneperson}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
+
                         <div class="col-6">
-                            Auto<hr>
-                            Marca: {{carbrand}}<br>
-                            Modelo: {{carmodel}}<br>
-                            Año: {{year}}<br>
-                            Propietario: {{nameowner}}<br>
-                            Aseguradora: {{insurancecompany}}<br>
-                            Código de Seguro: {{securecode}}
+
+                            <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+                                <thead class="bg-info">
+                                    <tr>
+                                        <th colspan="2">AUTO</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th style="width: 25%;">Marca:</th>  <td style="width: 75%;">{{carbrand}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Modelo:</th>  <td>{{carmodel}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Placa:</th>  <td>{{licenseplate}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-12">
-                            Reserva<hr>
-                            <div class="row">
-                                <div class="col-4">
-                                    Fecha Inicio: <br>{{startdate}}
-                                </div>
-                                <div class="col-4">
-                                    Fecha Entrega: <br>{{enddate}}
-                                </div>
-                                <div class="col-4">
-                                    Costo Total: <br>{{totalcost}}
-                                </div>
-                            </div>
+
+                            <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+                                <thead class="bg-info">
+                                    <tr>
+                                        <th colspan="4">RESERVA</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="width: 20%;">FECHA RETIRO</th>
+                                        <th>LUGAR RETIRO</th>
+                                        <th style="width: 20%;">FECHA ENTREGA</th>
+                                        <th>LUGAR ENTREGA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{startdate}}</td>
+                                        <td>{{placeretreat}}</td>
+                                        <td>{{enddate}}</td>
+                                        <td>{{placereturn}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+                                <thead class="bg-info">
+                                    <tr>
+                                        <th>SUBTOTAL</th>
+                                        <th>IVA</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="font-weight: bold; font-size: 16px;">
+                                        <td class="text-right">{{subtotal_rent}}</td>
+                                        <td class="text-right">{{iva_rent}}</td>
+                                        <td class="text-right">{{total_rent}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
                         </div>
+
+
+
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -67,7 +67,10 @@ class RentController extends Controller
             ->join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
             ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
             ->join('rentcost', 'rentcost.idrent', '=', 'rent.idrent')
-            ->selectRaw('*, rent.state AS staterent');
+            ->join('rent_place', 'rent_place.idrent', '=', 'rent.idrent')
+            ->selectRaw('*, rent.state AS staterent, 
+                            (SELECT nameplace FROM place WHERE place.idplace = rent_place.idplaceretreat) AS placeretreat,
+                            (SELECT nameplace FROM place WHERE place.idplace = rent_place.idplacereturn) AS placereturn');
 
         if($search != null){
 
