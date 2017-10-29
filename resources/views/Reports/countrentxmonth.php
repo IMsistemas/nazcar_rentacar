@@ -7,6 +7,17 @@
 		<hr>
 	</div>
 
+    <div class="row " style="margin-top: 5px;">
+
+        <div class="col-4 ">
+            <div class="input-group">
+                <span class="input-group-addon"> <i class="fa fa-calendar" aria-hidden="true"></i></span>
+                <input type="text" class="form-control datepickerA" id="year" ng-model="year" />
+            </div>
+        </div>
+
+    </div>
+
 	<div class="row">
 
         <div class="col-12" style="margin-top: 10px;">

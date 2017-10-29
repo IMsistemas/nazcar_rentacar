@@ -2,6 +2,20 @@
 
     app.controller('reportController', function($scope, $http, API_URL) {
 
+        $('.datepickerA').datetimepicker({
+
+            locale: 'es',
+            viewMode: 'years',
+            format: 'YYYY'
+
+        }).on('dp.change', function (e) {
+
+            $scope.year = $('#year').val();
+
+            $scope.getCountRentxMonth($scope.year);
+
+        });
+
         $scope.getTopCar = function () {
 
             $http.get(API_URL + 'topcar/getTopCar').then(function(response) {
@@ -17,10 +31,15 @@
 
         };
 
-        $scope.getCountRentxMonth = function () {
+        $scope.getCountRentxMonth = function (year) {
 
-            var fecha = new Date();
-            var year = fecha.getFullYear();
+            if (year === undefined) {
+
+                var fecha = new Date();
+                year = fecha.getFullYear();
+
+            }
+
 
             $http.get(API_URL + 'countrentxmonth/getCountRentxMonth/' + year).then(function(response) {
 
