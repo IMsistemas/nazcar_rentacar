@@ -137,12 +137,27 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <strong>Nombre completo: </strong> {{client}}<br>
-                    <strong>No. Identificación: </strong>{{identify}}<br>
-                    <strong>Correo Electrónico: </strong>{{email}}<br>
-                    <strong>No. Teléfono: </strong>{{phone}}<br>
-                    <strong>Dirección: </strong>{{address}}<br>
-                    <strong>Actividad Económica: </strong>{{activity}}<br>
+
+                    <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+
+                        <tbody>
+                        <tr>
+                            <th style="width: 42%;">NOMBRE Y APELLIDOS:</th>  <td style="width: 58%;">{{client}}</td>
+                        </tr>
+                        <tr>
+                            <th>NO. IDENTIFICACION:</th>  <td>{{identify}}</td>
+                        </tr>
+                        <tr>
+                            <th>EMAIL:</th>  <td>{{email}}</td>
+                        </tr>
+                        <tr>
+                            <th>NO. TELEFONO:</th>  <td>{{phone}}</td>
+                        </tr>
+                        <tr>
+                            <th>DIRECCION:</th>  <td>{{address}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
