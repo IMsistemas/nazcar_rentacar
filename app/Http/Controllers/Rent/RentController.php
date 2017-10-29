@@ -54,6 +54,7 @@ class RentController extends Controller
      */
 
     public function listRents(Request $request){
+
         $filter = json_decode($request->get('filter'));
         $search = $filter->search;
         $client = $filter->idclient;
@@ -68,15 +69,21 @@ class RentController extends Controller
             ->selectRaw('*, rent.state AS staterent');
 
         if($search != null){
+
             $rent = $rent->whereRaw("(person.nameperson LIKE '%" . $search . "%' OR person.lastnameperson LIKE '%" . $search ."%' OR carmodel.namecarmodel LIKE '%" . $search . "%' OR carbrand.namecarbrand LIKE '%". $search . "%' ) ");
+
         }
 
         if ($client != null && $client != '') {
+
             $rent = $rent->whereRaw('rent.idclient = ' . $client);
+
         }
 
         if ($carbran != null && $carbran != '') {
+
             $rent = $rent->whereRaw('carbrand.idcarbrand = ' . $carbran);
+
         }
 
         if ($state != null) {

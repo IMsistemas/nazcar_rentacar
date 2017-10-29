@@ -10,6 +10,7 @@ use App\Models\Person\Person;
 use App\Models\Place\Place;
 use App\Models\Rent\Rent;
 use App\Models\Rent\Rent_Place;
+use App\Models\Rent\RentCost;
 use App\Models\Service\Service;
 use App\Models\Slider\Slider;
 use App\Models\TypeTime\TypeTime;
@@ -185,7 +186,7 @@ class IndexReservationController extends Controller
             $person->identifyperson = $request->input('identifyperson');
             $person->emailperson = $request->input('emailperson');
             $person->numphoneperson = $request->input('numphoneperson');
-            //$person->typeperson = 1;
+            $person->typeperson = 1;
 
             if ($person->save()) {
 
@@ -226,21 +227,36 @@ class IndexReservationController extends Controller
             $rent->idclient = $idclient;
             $rent->startdatetime = $request->input('startdatetime');
             $rent->enddatetime = $request->input('enddatetime');
-            $rent->totalcost = $request->input('totalcost');
+            $rent->state = 1;
 
             if ($rent->save()){
 
-                $rentplace = new Rent_Place();
+                $rentcost = new RentCost();
 
-                $rentplace->idrent = $rent->idrent;
-                $rentplace->idplaceretreat = $request->input('idplaceretreat');
-                $rentplace->idplacereturn = $request->input('idplacereturn');
+                $rentcost->idrent = $rent->idrent;
+                $rentcost->subtotal = $request->input('subtotal');
+                $rentcost->iva = $request->input('iva');
+                $rentcost->total = $request->input('totalcost');
 
-                if ($rentplace->save()) {
+                if ($rentcost->save()) {
 
-                    Session::put('dataRentPaypal', $request->input('dataRent'));
+                    $rentplace = new Rent_Place();
 
-                    return response()->json(['success' => true]);
+                    $rentplace->idrent = $rent->idrent;
+                    $rentplace->idplaceretreat = $request->input('idplaceretreat');
+                    $rentplace->idplacereturn = $request->input('idplacereturn');
+
+                    if ($rentplace->save()) {
+
+                        Session::put('dataRentPaypal', $request->input('dataRent'));
+
+                        return response()->json(['success' => true]);
+
+                    } else {
+
+                        return response()->json(['success' => false]);
+
+                    }
 
                 } else {
 
@@ -259,7 +275,6 @@ class IndexReservationController extends Controller
             return response()->json(['success' => false]);
 
         }
-
 
     }
 
