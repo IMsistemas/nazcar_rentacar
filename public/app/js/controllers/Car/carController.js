@@ -31,14 +31,13 @@
                 $scope.list = response.data.data;
                 $scope.totalItems = response.data.total;
 
-
             })
-                .catch(function(data, status) {
-                    console.error('Gists error', response.status, response.data);
-                })
-                .finally(function() {
-                    //console.log("finally finished gists");
-                });
+            .catch(function(data, status) {
+                console.error('Gists error', response.status, response.data);
+            })
+            .finally(function() {
+                //console.log("finally finished gists");
+            });
 
         };
 
@@ -78,8 +77,6 @@
                     $scope.car_model = idcarmodel;
 
                 }
-
-                //console.log($scope.modelos);
 
 
             });
@@ -146,8 +143,7 @@
                 amountluggage: $scope.amountluggage,
                 insurance_company: $scope.insurance_company,
                 secure_code: $scope.secure_code,
-                //rent_cost: $scope.rent_cost,
-                //aditional_cost: $scope.aditional_cost,
+                licenseplate: $scope.licenseplate,
                 file: $scope.file
             };
 
@@ -183,14 +179,12 @@
         ///---cambiar estado marca
         $scope.change_estado=function(item){
 
-            console.log(item);
-
             $scope.aux_state=item.state;
             $scope.id = item.idcar;
             $scope.name_car = item.namecarmodel;
             $("#modalMessagePrimary").modal("show");
-        };
 
+        };
 
         $scope.ok_inactivar = function(){
 
@@ -203,7 +197,7 @@
                 id: $scope.id
             };
 
-            console.log(data);
+;
             $http.get(API_URL + 'car/estado/' + JSON.stringify(data)).then(function(response) {
 
                 if (response.data.success === true) {
@@ -227,7 +221,6 @@
             });
         };
 
-
         $scope.cancel = function () {
 
             $scope.listCarbrand();
@@ -242,12 +235,11 @@
             $scope.secure_code = '';
             $scope.amountpassengers = '';
             $scope.amountluggage = '';
-            //$scope.aditional_cost = '';
+            $scope.licenseplate = '';
             $scope.file = '';
 
             $scope.id = 0;
         };
-
 
         $scope.showModalAdd = function () {
 
@@ -263,7 +255,6 @@
         $scope.showModalEdit = function (item) {
 
             $scope.car_brand = item.idcarbrand;
-            //$scope.car_model = item.idcarmodel;
 
             $scope.listCarModel(item.idcarmodel);
 
@@ -278,8 +269,7 @@
             $scope.secure_code = item.securecode;
             $scope.amountpassengers = item.amountpassengers;
             $scope.amountluggage = item.amountluggage;
-            //$scope.rent_cost = item.rentcost;
-            //$scope.aditional_cost = item.additionalcost;
+            $scope.licenseplate = item.licenseplate;
             $scope.file = item.image;
 
             $scope.title_modal_action = 'Editar';
@@ -295,9 +285,9 @@
             $scope.car_brand = item.namecarbrand;
             $scope.car_model = item.namecarmodel;
             $scope.year = item.year;
-            $scope.car_type = item.cartype;
-            $scope.serial_motor = item.serialmotor;
-            $scope.serial_car = item.carserial;
+            $scope.car_transmission = item.nametransmission;
+            $scope.car_motor = item.namemotor;
+            $scope.car_fuel = item.namefuel;
             $scope.name_owner = item.nameowner;
             $scope.amountpassengers = item.amountpassengers;
             $scope.amountluggage = item.amountluggage;
@@ -305,7 +295,7 @@
             $scope.secure_code = item.securecode;
             $scope.rent_cost = item.price;
 
-            //$scope.aditional_cost = item.additionalcost;
+            $scope.licenseplate_car = item.licenseplate;
 
             if (item.image !== null) {
                 $scope.file_view = item.image;

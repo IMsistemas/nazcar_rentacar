@@ -152,24 +152,67 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <strong>Marca: </strong> {{car_brand}}<br>
-                            <strong>Modelo: </strong>{{car_model}}<br>
-                            <strong>Año: </strong>{{year}}<br>
-                            <strong>Tipo de Auto: </strong>{{car_type}}<br>
-                            <strong>Serial del Motor: </strong>{{serial_motor}}<br>
-                            <strong>Serial del Auto: </strong>{{serial_car}}<br>
-                            <strong>Cantidad de Pasajeros: </strong>{{amountpassengers}}<br>
-                            <strong>Cantidad de Equipaje: </strong>{{amountluggage}}<br>
-                            <strong>Propietario: </strong>{{name_owner}}<br>
-                            <strong>Compañía de Seguros: </strong>{{insurance_company}}<br>
-                            <strong>Código de Seguro: </strong>{{secure_code}}<br>
-                            <strong>Costo de Renta: </strong>{{rent_cost}}<br>
-                            <!--<strong>Costo Adicional: </strong>{{aditional_cost}}-->
+
+                            <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+                                <tbody>
+
+                                    <tr>
+                                        <th style="width: 45%;">MARCA:</th>  <td style="width: 55%;">{{car_brand}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>MODELO:</th>  <td>{{car_model}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>AÑO:</th>  <td>{{year}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>TRANSMISION:</th>  <td>{{car_transmission}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>MOTOR:</th>  <td>{{car_motor}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>COMBUSTIBLE:</th>  <td>{{car_fuel}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>PLACA:</th>  <td>{{licenseplate_car}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>CANT. PASAJEROS:</th>  <td>{{amountpassengers}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>CANT. EQUIPAJE:</th>  <td>{{amountluggage}}</td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+
                         </div>
                         <div class="col-md-6">
+
                             <div class="text-center">
                                 <img src="{{file_view}}" class="img-fluid" style="width: 100%;">
                             </div>
+
+                            <table class="table table-responsive table-striped table-hover table-condensed table-bordered" style="margin-top: 5px;">
+                                <tbody>
+
+                                    <tr>
+                                        <th style="width: 45%;">PROPIETARIO:</th>  <td style="width: 55%;">{{name_owner}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>COMP. SEGURO:</th>  <td>{{insurance_company}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>CODIGO SEGURO:</th>  <td>{{secure_code}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>COSTO RENTA:</th>  <td>{{rent_cost}}</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
 
                         </div>
                     </div>
@@ -333,12 +376,15 @@
                                     <input type="text" class="form-control" ng-model="year"/>
                                 </div>
                             </div>
-                            <!--<div class="col-sm-6 col-12">
+                            <div class="col-sm-6 col-12">
                                 <div class="input-group">
-                                    <span class="input-group-addon">Costo Adicional: </span>
-                                    <input type="text" class="form-control" ng-model="aditional_cost"/>
+                                    <span class="input-group-addon">Placa: </span>
+                                    <input type="text" class="form-control" ng-model="licenseplate" id="licenseplate" name="licenseplate" required />
                                 </div>
-                            </div>-->
+                                <span class="help-block error" ng-show="formCar.licenseplate.$invalid && formCar.licenseplate.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">La Placa es requerida</small>
+                                </span>
+                            </div>
                         </div>
                     </form>
 

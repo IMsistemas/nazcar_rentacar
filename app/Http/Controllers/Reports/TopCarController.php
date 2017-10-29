@@ -30,12 +30,17 @@ class TopCarController extends Controller
 
     public function getTopCar()
     {
-        return Rent::selectRaw('rent.idcar, COUNT(rent.idcar) AS cantidad, carmodel.namecarmodel, carbrand.namecarbrand')
+        /*return Rent::selectRaw('rent.idcar, COUNT(rent.idcar) AS cantidad, carmodel.namecarmodel, carbrand.namecarbrand')
                 ->join('car', 'car.idcar', '=', 'rent.idcar')
                 ->join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
                 ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
                 ->groupBy('rent.idcar')->orderBy('cantidad', 'desc')
-                ->limit(5)->get();
+                ->limit(5)->get();*/
+
+        return Rent::join('car', 'car.idcar', '=', 'rent.idcar')
+            ->join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
+            ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
+            ->join('rentcost', 'rentcost.idrent', '=', 'rent.idrent');
     }
 
     /**
