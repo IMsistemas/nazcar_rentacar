@@ -141,21 +141,21 @@
                     <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
 
                         <tbody>
-                        <tr>
-                            <th style="width: 42%;">NOMBRE Y APELLIDOS:</th>  <td style="width: 58%;">{{client}}</td>
-                        </tr>
-                        <tr>
-                            <th>NO. IDENTIFICACION:</th>  <td>{{identify}}</td>
-                        </tr>
-                        <tr>
-                            <th>EMAIL:</th>  <td>{{email}}</td>
-                        </tr>
-                        <tr>
-                            <th>NO. TELEFONO:</th>  <td>{{phone}}</td>
-                        </tr>
-                        <tr>
-                            <th>DIRECCION:</th>  <td>{{address}}</td>
-                        </tr>
+                            <tr>
+                                <th style="width: 42%;">NOMBRE Y APELLIDOS:</th>  <td style="width: 58%;">{{client}}</td>
+                            </tr>
+                            <tr>
+                                <th>NO. IDENTIFICACION:</th>  <td>{{identify}}</td>
+                            </tr>
+                            <tr>
+                                <th>EMAIL:</th>  <td>{{email}}</td>
+                            </tr>
+                            <tr>
+                                <th>NO. TELEFONO:</th>  <td>{{phone}}</td>
+                            </tr>
+                            <tr>
+                                <th>DIRECCION:</th>  <td>{{address}}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

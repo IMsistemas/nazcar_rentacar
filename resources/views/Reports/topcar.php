@@ -18,6 +18,9 @@
                         <th>MARCA</th>
                         <th>MODELO</th>
                         <th style="width: 12%;">CANTIDAD</th>
+                        <th style="width: 12%;">SUBTOTAL</th>
+                        <th style="width: 12%;">IVA</th>
+                        <th style="width: 12%;">TOTAL</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,10 +29,24 @@
                         <td>{{ $index + 1 }}</td>
                         <td>{{ item.namecarbrand }}</td>
                         <td>{{ item.namecarmodel }}</td>
-                        <td>{{ item.cantidad }}</td>
+                        <td  class="text-right">{{ item.cantidad }}</td>
+                        <td  class="text-right">{{ item.subtotal }}</td>
+                        <td  class="text-right">{{ item.iva }}</td>
+                        <td  class="text-right">{{ item.total }}</td>
 
                     </tr>
                 </tbody>
+                <tfoot class="bg-info">
+                    <tr>
+
+                        <th class="text-right" colspan="3">TOTALES</th>
+                        <th class="text-right">{{ cantidad_end }}</th>
+                        <th class="text-right">{{ subtotal_end }}</th>
+                        <th class="text-right">{{ iva_end }}</th>
+                        <th class="text-right bg-success">{{ total_end }}</th>
+
+                    </tr>
+                </tfoot>
             </table>
 
         </div>

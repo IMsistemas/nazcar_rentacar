@@ -20,7 +20,43 @@
 
             $http.get(API_URL + 'topcar/getTopCar').then(function(response) {
 
-                $scope.list = response.data;
+                $scope.list = [];
+
+                var top5 = response.data[0];
+                var cost = response.data[1];
+
+                $scope.subtotal_end = 0;
+                $scope.iva_end = 0;
+                $scope.total_end = 0;
+
+                $scope.cantidad_end = 0;
+
+                var longitud = top5.length;
+
+                for (var i = 0; i < longitud; i++) {
+
+                    var object = {
+
+                        namecarbrand: top5[i].namecarbrand,
+                        namecarmodel: top5[i].namecarmodel,
+                        cantidad: top5[i].cantidad,
+
+                        subtotal: cost[i].subtotal,
+                        iva: cost[i].iva,
+                        total: cost[i].total
+
+                    };
+
+                    $scope.subtotal_end = parseFloat($scope.subtotal_end) + parseFloat(cost[i].subtotal);
+                    $scope.iva_end = parseFloat($scope.iva_end) + parseFloat(cost[i].iva);
+                    $scope.total_end = parseFloat($scope.total_end) + parseFloat(cost[i].total);
+
+                    $scope.cantidad_end = parseInt($scope.cantidad_end) + parseInt(top5[i].cantidad);
+
+                    $scope.list.push(object);
+
+                }
+
             })
             .catch(function(data, status) {
                 console.error('Gists error', response.status, response.data);
