@@ -322,6 +322,10 @@
             $scope.secure_code = item.securecode;
             $scope.rent_cost = item.price;
 
+            $scope.color_car = item.color;
+            $scope.nameplace_car = item.nameplace;
+            $scope.fleet_car = item.fleet;
+
             $scope.licenseplate_car = item.licenseplate;
 
             if (item.image !== null) {

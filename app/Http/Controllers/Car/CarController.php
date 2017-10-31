@@ -75,7 +75,9 @@ class CarController extends Controller
             ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
             ->join('fuel', 'fuel.idfuel', '=', 'car.idfuel')
             ->join('motor', 'motor.idmotor', '=', 'car.idmotor')
-            ->join('transmission', 'transmission.idtransmission', '=', 'car.idtransmission');
+            ->join('transmission', 'transmission.idtransmission', '=', 'car.idtransmission')
+            ->join('fleet', 'fleet.idcar', '=', 'car.idcar')
+            ->join('place', 'place.idplace', '=', 'fleet.idplace');
 
         if($search != null){
             $car = $car->whereRaw("(carmodel.namecarmodel LIKE '%" . $search . "%' OR carbrand.namecarbrand LIKE '%" . $search ."%' OR car.nameowner LIKE '%" . $search . "%') ");
@@ -85,9 +87,9 @@ class CarController extends Controller
             $car = $car->whereRaw('car.state = ' . $state);
         }
 
-        return $car->selectRaw('car.*, carbrand.namecarbrand, carbrand.idcarbrand, carmodel.namecarmodel, 
+        return $car->selectRaw('car.*, fleet.*, place.*, carbrand.namecarbrand, carbrand.idcarbrand, carmodel.namecarmodel, 
                                     carmodel.price, carmodel.guarantee, fuel.namefuel, motor.namemotor, transmission.nametransmission')
-                        ->orderBy('idcar', 'desc')->paginate(10);
+                        ->orderBy('car.idcar', 'desc')->paginate(10);
     }
     /**
      *

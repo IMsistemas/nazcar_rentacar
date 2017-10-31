@@ -183,7 +183,12 @@
                                     <tr>
                                         <th>CANT. EQUIPAJE:</th>  <td>{{amountluggage}}</td>
                                     </tr>
-
+                                    <tr>
+                                        <th>COLOR:</th>  <td>{{color_car}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th >PROPIETARIO:</th>  <td>{{name_owner}}</td>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -198,17 +203,21 @@
                             <table class="table table-responsive table-striped table-hover table-condensed table-bordered" style="margin-top: 5px;">
                                 <tbody>
 
+
                                     <tr>
-                                        <th style="width: 45%;">PROPIETARIO:</th>  <td style="width: 55%;">{{name_owner}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>COMP. SEGURO:</th>  <td>{{insurance_company}}</td>
+                                        <th style="width: 45%;">COMP. SEGURO:</th>  <td style="width: 55%;">{{insurance_company}}</td>
                                     </tr>
                                     <tr>
                                         <th>CODIGO SEGURO:</th>  <td>{{secure_code}}</td>
                                     </tr>
                                     <tr>
                                         <th>COSTO RENTA:</th>  <td>{{rent_cost}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>SEDE:</th>  <td>{{nameplace_car}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>FLOTA:</th>  <td>{{fleet_car}}</td>
                                     </tr>
 
                                 </tbody>
