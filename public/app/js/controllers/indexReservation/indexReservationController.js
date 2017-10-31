@@ -589,6 +589,10 @@
 
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
+
+                addressplaceretreat: $scope.dataRetiroPlace.addressplace,
+                addressplacereturn: $scope.dataEntregaPlace.addressplace,
+
                 retiro_place: $scope.data_retiro_place,
                 entrega_place: $scope.data_entrega_place,
                 rest_day: $scope.rest_day,
@@ -618,6 +622,10 @@
 
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
+
+                addressplaceretreat: $scope.dataRetiroPlace.addressplace,
+                addressplacereturn: $scope.dataEntregaPlace.addressplace,
+
                 retiro_place: $scope.data_retiro_place,
                 entrega_place: $scope.data_entrega_place,
                 rest_day: $scope.rest_day,
@@ -739,6 +747,10 @@
 
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
+
+                addressplaceretreat: $scope.dataRetiroPlace.addressplace,
+                addressplacereturn: $scope.dataEntregaPlace.addressplace,
+
                 retiro_place: $scope.data_retiro_place,
                 entrega_place: $scope.data_entrega_place,
                 rest_day: $scope.rest_day,

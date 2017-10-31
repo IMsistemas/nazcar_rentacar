@@ -341,19 +341,36 @@ class IndexReservationController extends Controller
             $rent->idclient = $idclient;
             $rent->startdatetime = $request->input('startdatetime');
             $rent->enddatetime = $request->input('enddatetime');
-            $rent->totalcost = $request->input('totalcost');
+            $rent->state = 1;
 
             if ($rent->save()){
 
-                $rentplace = new Rent_Place();
+                $rentcost = new RentCost();
 
-                $rentplace->idrent = $rent->idrent;
-                $rentplace->idplaceretreat = $request->input('idplaceretreat');
-                $rentplace->idplacereturn = $request->input('idplacereturn');
+                $rentcost->idrent = $rent->idrent;
+                $rentcost->subtotal = $request->input('subtotal');
+                $rentcost->iva = $request->input('iva');
+                $rentcost->total = $request->input('totalcost');
 
-                if ($rentplace->save()) {
+                if ($rentcost->save()) {
 
-                    return response()->json(['success' => true]);
+                    $rentplace = new Rent_Place();
+
+                    $rentplace->idrent = $rent->idrent;
+                    $rentplace->idplaceretreat = $request->input('idplaceretreat');
+                    $rentplace->idplacereturn = $request->input('idplacereturn');
+
+                    if ($rentplace->save()) {
+
+                        Session::put('dataRentPaypal', $request->input('dataRent'));
+
+                        return response()->json(['success' => true]);
+
+                    } else {
+
+                        return response()->json(['success' => false]);
+
+                    }
 
                 } else {
 

@@ -117,7 +117,7 @@
 
 <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
     <tr>
-        <td style="width: 50%;"><img src="<?= $aux_empresa[0]->logocompany ?>" alt="" style="width: 100px;"></td>
+        <td style="width: 50%;"><img src="<?= $aux_empresa[0]->logocompany ?>" alt="" style="width: 200px;"></td>
         <td style="width: 50%;" class="text-right"><h2>COMPROBANTE DE PAGO</h2></td>
     </tr>
 </table>
@@ -133,19 +133,22 @@
                     <td style="width: 35%;">
 
                         <div class="col-xs-12" style="margin-top: 2%;">
-                            <h3>CLIENTE</h3>
-                            <?= $params->nameperson ?> <?= $params->lastnameperson ?><br>
-                            <?= $params->emailperson ?>
+                            <h3>TITULAR DE RESERVA</h3>
+                            <strong>CLIENTE: </strong> <?= $params->nameperson ?> <?= $params->lastnameperson ?><br>
+                            <strong>EMAIL: </strong> <?= $params->emailperson ?> <br>
+                            <strong>TELEFONO: </strong> <?= $params->numphoneperson ?>
                         </div>
 
                         <div class="col-xs-12" style="margin-top: 2%;">
                             <h3>AGENCIA DE RETIRO</h3>
-                            <?= $params->retiro_place ?>
+                            <strong>LUGAR: </strong> <?= $params->retiro_place ?> <br>
+                            <strong>DIRECCION: </strong> <?= $params->addressplaceretreat ?>
                         </div>
 
                         <div class="col-xs-12" style="margin-top: 2%;">
                             <h3>AGENCIA DE ENTREGA</h3>
-                            <?= $params->entrega_place ?>
+                            <strong>LUGAR: </strong> <?= $params->entrega_place ?> <br>
+                            <strong>DIRECCION: </strong> <?= $params->addressplacereturn ?>
                         </div>
 
                         <div class="col-xs-12" style="margin-top: 2%;">
@@ -241,8 +244,8 @@
                 </tr>
 
                 <tr>
-                    <th class="text-right">TOTAL</th>
-                    <td class="text-right"><?= number_format($params->totalcost, 2, '.', ',') ?></td>
+                    <th class="text-right">TOTAL A PAGAR</th>
+                    <td class="text-right" style="font-size: 20px; font-weight: bold;"><?= number_format($params->totalcost, 2, '.', ',') ?></td>
                 </tr>
                 </tbody>
             </table>
