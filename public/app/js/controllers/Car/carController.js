@@ -3,6 +3,7 @@
     app.controller('CarController', function($scope, $http, API_URL, Upload) {
 
         $scope.id = 0;
+        $scope.idfleet = 0;
         $scope.aux_state = "1";
         $scope.estado = '1';
 
@@ -170,9 +171,12 @@
                 idplace: $scope.car_sede,
                 fleet: $scope.fleet,
                 color: $scope.color,
+                idfleet: $scope.idfleet,
 
                 file: $scope.file
             };
+
+
 
             Upload.upload({
 
@@ -265,7 +269,12 @@
             $scope.licenseplate = '';
             $scope.file = '';
 
+            $scope.car_sede = '';
+            $scope.fleet = '';
+            $scope.color = '';
+
             $scope.id = 0;
+            $scope.idfleet = 0;
         };
 
         $scope.showModalAdd = function () {
@@ -299,9 +308,16 @@
             $scope.licenseplate = item.licenseplate;
             $scope.file = item.image;
 
+            $scope.car_sede = item.idplace;
+            $scope.fleet = item.fleet;
+            $scope.color = item.color;
+
             $scope.title_modal_action = 'Editar';
 
             $scope.id = item.idcar;
+            $scope.idfleet = item.idfleet;
+
+            console.log($scope.id);
 
             $("#modalMessagePrimaryAdd").modal("show");
 

@@ -48,6 +48,7 @@
             $scope.idplace = 0;
             $scope.nameplace = '';
             $scope.codeplace = '';
+            $scope.addressplace = '';
             $scope.selectItem = null;
         };
 
@@ -63,6 +64,7 @@
             $scope.idplace = item.idplace;
             $scope.nameplace = item.nameplace;
             $scope.codeplace = item.codeplace;
+            $scope.addressplace = item.addressplace;
 
             $scope.title_modal_action = 'Editar';
             $('#modalAction').modal('show');
@@ -82,7 +84,8 @@
 
             var data = {
                 nameplace: $scope.nameplace,
-                codeplace: $scope.codeplace
+                codeplace: $scope.codeplace,
+                addressplace: $scope.addressplace
             };
 
             if ($scope.idplace === 0) {

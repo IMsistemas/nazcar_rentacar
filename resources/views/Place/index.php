@@ -39,8 +39,9 @@
 			<thead class="bg-primary">
 				<tr>
 					<th style="width: 5%;">NO.</th>
-					<th>NOMBRE</th>
-                    <th style="width: 12%;">CODIGO</th>
+					<th style="width: 20%;">NOMBRE</th>
+                    <th>DIRECCION</th>
+                    <th style="width: 10%;">CODIGO</th>
 					<th style="width: 12%;">ACCIONES</th>
 				</tr>
 			</thead>
@@ -49,6 +50,7 @@
 					
 					<td>{{ $index + 1 }}</td>
 					<td>{{ item.nameplace }}</td>
+                    <td>{{ item.addressplace }}</td>
                     <td>{{ item.codeplace }}</td>
 					<td class="text-center">
 
@@ -106,6 +108,16 @@
                                 </div>
                                 <span class="help-block error" ng-show="formPlace.codeplace.$invalid && formPlace.codeplace.$touched">
                                     <small id="emailHelp" class="form-text text-danger text-right">El Código del Lugar es requerido</small>
+                                </span>
+                            </div>
+
+                            <div class="col-12" style="margin-top: 5px;">
+                                <div class="input-group">
+                                    <textarea class="form-control" name="addressplace" id="addressplace"
+                                              ng-model="addressplace" cols="30" rows="3" placeholder="Dirección" required ></textarea>
+                                </div>
+                                <span class="help-block error" ng-show="formPlace.addressplace.$invalid && formPlace.addressplace.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">La Dirección del Lugar es requerida</small>
                                 </span>
                             </div>
                         </div>

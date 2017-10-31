@@ -68,6 +68,7 @@ class PlaceController extends Controller
 
         $place->nameplace = $request->input('nameplace');
         $place->codeplace = $request->input('codeplace');
+        $place->addressplace = $request->input('addressplace');
         $place->state = 1;
 
         if ($place->save()) {
@@ -116,6 +117,7 @@ class PlaceController extends Controller
 
         $place->nameplace = $request->input('nameplace');
         $place->codeplace = $request->input('codeplace');
+        $place->addressplace = $request->input('addressplace');
 
         if ($place->save()) {
 

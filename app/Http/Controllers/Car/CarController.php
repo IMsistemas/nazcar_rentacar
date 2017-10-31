@@ -145,7 +145,15 @@ class CarController extends Controller
 
         if ($car->save()) {
 
-            $fleet = new Fleet();
+            if ($request->input('idfleet') == 0) {
+
+                $fleet = new Fleet();
+
+            } else {
+
+                $fleet = Fleet::find($request->input('idfleet'));
+
+            }
 
             $fleet->idplace = $request->input('idplace');
             $fleet->idcar = $car->idcar;
