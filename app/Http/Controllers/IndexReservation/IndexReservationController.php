@@ -227,6 +227,9 @@ class IndexReservationController extends Controller
             $rent->idclient = $idclient;
             $rent->startdatetime = $request->input('startdatetime');
             $rent->enddatetime = $request->input('enddatetime');
+
+            $rent->numrent = $this->searchNumRent();
+
             $rent->state = 1;
 
             if ($rent->save()){
@@ -341,6 +344,9 @@ class IndexReservationController extends Controller
             $rent->idclient = $idclient;
             $rent->startdatetime = $request->input('startdatetime');
             $rent->enddatetime = $request->input('enddatetime');
+
+            $rent->numrent = $this->searchNumRent();
+
             $rent->state = 1;
 
             if ($rent->save()){
@@ -391,6 +397,27 @@ class IndexReservationController extends Controller
         }
 
 
+    }
+
+    private function searchNumRent()
+    {
+        $num = Rent::orderBy('numrent')->limit(1)->get();
+
+        if (count($num) == 0) {
+
+            return str_pad('1', 7, "0", STR_PAD_LEFT);
+
+        } else {
+
+            $numero = $num[0]->numrent;
+
+            settype($numero, 'integer');
+
+            $numero += 1;
+
+            return str_pad($numero, 7, "0", STR_PAD_LEFT);
+
+        }
     }
 
     private function searchClient($email)
