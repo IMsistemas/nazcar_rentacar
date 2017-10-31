@@ -11,6 +11,8 @@
     <link href="<?= asset('../lib/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css') ?>" rel="stylesheet">
     <link href="<?= asset('../lib/font-awesome-4.7.0/css/font-awesome.min.css') ?>" rel="stylesheet">
 
+    <link href="<?= asset('../lib/textAngular/dist/textAngular.css') ?>" rel="stylesheet">
+
     <link href="<?= asset('../app/css/main.css') ?>" rel="stylesheet">
 
     <style>
@@ -142,12 +144,15 @@
 <script src="<?= asset('../lib/bootstrap-datetimepicker/es.js') ?>"></script>
 <script src="<?= asset('../lib/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js') ?>"></script>
 
-
 <script src="<?= asset('../lib/angularjs/angular.min.js') ?>"></script>
 <script src="<?= asset('../lib/angularjs/angular-sanitize.min.js') ?>"></script>
 <script src="<?= asset('../lib/angularjs/angular-route.min.js') ?>"></script>
 <script src="<?= asset('../lib/upload/ng-file-upload.min.js') ?>"></script>
 <script src="<?= asset('../lib/dirPagination.js') ?>"></script>
+
+<script src="<?= asset('../lib/textAngular/dist/textAngular-rangy.min.js') ?>"></script>
+<script src="<?= asset('../lib/textAngular/dist/textAngular-sanitize.min.js') ?>"></script>
+<script src="<?= asset('../lib/textAngular/dist/textAngular.min.js') ?>"></script>
 
 <script src="<?= asset('../app/js/app_system.js') ?>"></script>
 

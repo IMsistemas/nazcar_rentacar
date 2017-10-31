@@ -25,6 +25,7 @@
                     $scope.emailcompany = response.data[0].emailcompany;
                     $scope.addresscompany = response.data[0].addresscompany;
                     $scope.file = response.data[0].logocompany;
+                    $scope.termcondcompany = response.data[0].termcondcompany;
 
                     $scope.idcompany = response.data[0].idcompany;
 
@@ -35,6 +36,7 @@
                     $scope.contribcompany = '';
                     $scope.emailcompany = '';
                     $scope.addresscompany = '';
+                    $scope.termcondcompany = '';
 
                     $scope.idcompany = 0;
 
@@ -107,6 +109,7 @@
                 contributoridcompany: $scope.contribcompany,
                 emailcompany: $scope.emailcompany,
                 addresscompany: $scope.addresscompany,
+                termcondcompany: $scope.termcondcompany,
                 file: $scope.file
             };
 

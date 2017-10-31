@@ -87,6 +87,7 @@ class CompanyController extends Controller
         $object->emailcompany = $request->input('emailcompany');
         $object->contributoridcompany = $request->input('contributoridcompany');
         $object->addresscompany = $request->input('addresscompany');
+        $object->termcondcompany = $request->input('termcondcompany');
 
         if ($object->save()) {
 
@@ -136,6 +137,7 @@ class CompanyController extends Controller
         $object->ruccompany = $request->input('ruccompany');
         $object->contributoridcompany = $request->input('contributoridcompany');
         $object->addresscompany = $request->input('addresscompany');
+        $object->termcondcompany = $request->input('termcondcompany');
 
         if ($object->save()) {
 

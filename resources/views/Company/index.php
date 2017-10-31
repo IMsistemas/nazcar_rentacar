@@ -68,6 +68,10 @@
                     </div>
                 </div>
 
+                <div class="col-12" style="margin-top: 5px;">
+                    <text-angular ng-model="termcondcompany"></text-angular>
+                </div>
+
                 <div class="col-12 text-center" style="margin-top: 5px;">
 
                     <button type="button" class="btn btn-secondary" ng-click="cancelCompany()">
@@ -147,6 +151,8 @@
                 </div>
             </div>
         </div>
+
+
 
     </div>
 
