@@ -224,6 +224,18 @@
 
         };
 
+        $scope.getCompany = function () {
+
+            $http.get(API_URL + 'reservation/getCompany').then(function(response){
+
+                $scope.termCond = response.data[0].termcondcompany;
+
+                $('#modalTermCond').modal('show');
+
+            });
+
+        };
+
         $scope.getAditionalServices = function () {
 
             $http.get(API_URL + 'reservation/getAditionalServices').then(function(response){

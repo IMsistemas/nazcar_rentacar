@@ -136,6 +136,7 @@
     Route::resource('transmission', 'Transmission\TransmissionController');
 
 
+    Route::get('reservation/getCompany', 'IndexReservation\IndexReservationController@getCompany');
     Route::get('reservation/getResultPagoPaypal', 'IndexReservation\IndexReservationController@getResultPagoPaypal');
     Route::get('reservation/sendEmail', 'IndexReservation\IndexReservationController@sendEmail');
     Route::get('reservation/printComprobante/{params}', 'IndexReservation\IndexReservationController@printComprobante');

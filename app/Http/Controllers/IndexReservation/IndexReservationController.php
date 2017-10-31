@@ -105,6 +105,11 @@ class IndexReservationController extends Controller
         return Slider::where('state', 1)->orderBy('order', 'asc')->get();
     }
 
+    public function getCompany()
+    {
+        return Company::get();
+    }
+
     public function getResultPagoPaypal()
     {
         if (Session::has('pagoPaypal') == true) {

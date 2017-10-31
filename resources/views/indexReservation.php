@@ -759,7 +759,9 @@
                                     <label class="custom-control custom-checkbox">
                                         <input type="checkbox" name="term_cond" class="custom-control-input" ng-model="term_cond" required />
                                         <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description" style="color: darkred;"> * Acepto Términos y Condiciones</span>
+                                        <span class="custom-control-description" style="color: darkred;">
+                                            <a href="" ng-click="getCompany()"> * Acepto Términos y Condiciones</a>
+                                        </span>
                                     </label>
                                     <span class="help-block error" ng-show="formDataClient.term_cond.$invalid && formDataClient.term_cond.$touched">
                                         <small class="form-text text-danger text-right">Es requerido</small>
@@ -1250,6 +1252,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modalTermCond" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        <h5 class="modal-title">Terminos y Condiciones</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12" style="max-height: 400px;overflow-y: auto;">
+                                <div ng-bind-html="termCond"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class="modal fade" id="WPrint" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
