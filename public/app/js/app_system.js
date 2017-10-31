@@ -8,7 +8,7 @@ $.ajaxSetup({
     }
 });
 
-var URL = 'http://localhost:8000/';
+var URL = 'http://nazcar.ecuadorrentacar.ec/';
 
 var app = angular.module('reservationApp', ['ngRoute', 'ngSanitize', 'ngFileUpload', 'angularUtils.directives.dirPagination'])
     .constant('API_URL', URL);

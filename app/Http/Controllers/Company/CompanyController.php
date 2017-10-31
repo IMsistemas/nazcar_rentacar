@@ -56,13 +56,13 @@ class CompanyController extends Controller
         if ($request->hasFile('file')) {
 
             $file = $request->file('file');
-            $destinationPath = public_path() . '/uploads/images';
+            $destinationPath = public_path() . '/uploads/imageslogo';
             $name = rand(0, 9999) . '_' . $file->getClientOriginalName();
 
             if(!$file->move($destinationPath, $name)) {
                 return response()->json(['success' => false]);
             } else {
-                $url_file = 'uploads/images/' . $name;
+                $url_file = 'uploads/imageslogo/' . $name;
             }
 
         }
