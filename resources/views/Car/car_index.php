@@ -386,6 +386,47 @@
                                 </span>
                             </div>
                         </div>
+
+                        <div class="row" style="margin-top: 5px;">
+
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Sede: </span>
+                                    <select class="form-control" ng-model="car_sede" id="car_sede"
+                                            ng-options="value.id as value.label for value in list_sedes" required >
+                                    </select>
+                                </div>
+                                <span class="help-block error" ng-show="formCar.car_sede.$invalid && formCar.car_sede.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">La Sede es requerido</small>
+                                </span>
+                            </div>
+
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Flota: </span>
+                                    <input type="text" class="form-control" ng-model="fleet" id="fleet" name="fleet" required />
+                                </div>
+                                <span class="help-block error" ng-show="formCar.fleet.$invalid && formCar.fleet.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">La Flota es requerida</small>
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="row" style="margin-top: 5px;">
+
+                            <div class="col-sm-6 col-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Color: </span>
+                                    <input type="text" class="form-control" ng-model="color" id="color" name="color" required />
+                                </div>
+                                <span class="help-block error" ng-show="formCar.color.$invalid && formCar.color.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">El Color es requerido</small>
+                                </span>
+                            </div>
+
+                        </div>
+
                     </form>
 
                 </div>

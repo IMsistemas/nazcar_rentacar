@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Car;
 
 use App\Models\Car\Car;
+use App\Models\Fleet\Fleet;
 use App\Models\Fuel\Fuel;
 use App\Models\MarcaAuto\Carbrand;
 use App\Models\ModeloAuto\Carmodel;
 use App\Models\Motor\Motor;
+use App\Models\Place\Place;
 use App\Models\Transmission\Transmission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -32,6 +34,11 @@ class CarController extends Controller
 
         }
 
+    }
+
+    public function get_list_sedes()
+    {
+        return Place::orderBy('nameplace', 'asc')->get();
     }
 
     public function get_list_marca()
@@ -130,11 +137,24 @@ class CarController extends Controller
         $car->insurancecompany = $request->input('insurance_company');
         $car->securecode = $request->input('secure_code');
         $car->licenseplate = $request->input('licenseplate');
+        $car->color = $request->input('color');
 
         $car->state = 1;
 
         if ($car->save()) {
-            return response()->json(['success' => true]);
+
+            $fleet = new Fleet();
+
+            $fleet->idplace = $request->input('idplace');
+            $fleet->idcar = $car->idcar;
+            $fleet->fleet = $request->input('fleet');
+
+            if ($fleet->save()) {
+                return response()->json(['success' => true]);
+            } else {
+                return response()->json(['success' => false]);
+            }
+
         } else {
             return response()->json(['success' => false]);
         }

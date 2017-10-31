@@ -12,6 +12,7 @@
             $scope.listMotors();
             $scope.listFuel();
             $scope.listTransmission();
+            $scope.listSedes();
 
             if ($scope.busqueda !== undefined) {
                 var search = $scope.busqueda;
@@ -97,6 +98,26 @@
             });
         };
 
+        $scope.listSedes = function(){
+
+            $http.get(API_URL + 'car/get_list_sedes').then(function(response){
+
+                var longitud = response.data.length;
+                var array_temp = [{label: '-- Seleccione --', id: ''}];
+
+                for(var i = 0; i < longitud; i++) {
+
+                    array_temp.push({label: response.data[i].nameplace, id: response.data[i].idplace});
+
+                }
+
+                $scope.list_sedes = array_temp;
+                $scope.car_sede = '';
+
+            });
+
+        };
+
         $scope.listFuel = function(){
             $http.get(API_URL + 'car/get_list_fuel').then(function(response){
 
@@ -131,6 +152,7 @@
         $scope.saveCar = function () {
 
             var data = {
+
                 id: $scope.id,
                 car_brand: $scope.car_brand,
                 car_model: $scope.car_model,
@@ -144,6 +166,11 @@
                 insurance_company: $scope.insurance_company,
                 secure_code: $scope.secure_code,
                 licenseplate: $scope.licenseplate,
+
+                idplace: $scope.car_sede,
+                fleet: $scope.fleet,
+                color: $scope.color,
+
                 file: $scope.file
             };
 
