@@ -238,6 +238,7 @@ class IndexReservationController extends Controller
             $rent->idclient = $idclient;
             $rent->startdatetime = $request->input('startdatetime');
             $rent->enddatetime = $request->input('enddatetime');
+            $rent->flightnumber = $request->input('flightnumber');
 
             $rent->numrent = $this->searchNumRent();
 
@@ -355,6 +356,7 @@ class IndexReservationController extends Controller
             $rent->idclient = $idclient;
             $rent->startdatetime = $request->input('startdatetime');
             $rent->enddatetime = $request->input('enddatetime');
+            $rent->flightnumber = $request->input('flightnumber');
 
             $rent->numrent = $this->searchNumRent();
 

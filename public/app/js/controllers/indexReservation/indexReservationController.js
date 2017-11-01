@@ -623,6 +623,8 @@
 
         };
 
+
+
         $scope.save = function () {
 
             var data0 = {
@@ -639,6 +641,8 @@
                 totalcost: $scope.total,
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
+
+                flightnumber: $scope.flightnumber,
 
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
@@ -684,6 +688,8 @@
                 rest_day: $scope.rest_day,
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
+
+                flightnumber: $scope.flightnumber,
 
                 //title_carimage: API_URL + $scope.title_carimage,
 
@@ -780,7 +786,6 @@
 
         };
 
-
         $scope.saveCaja = function () {
 
             var data = {
@@ -797,6 +802,8 @@
                 totalcost: $scope.total,
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
+
+                flightnumber: $scope.flightnumber,
 
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
@@ -863,6 +870,8 @@
 
 
         };
+
+
 
 
         $scope.sendEmail = function () {

@@ -768,6 +768,16 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="city" class="col-sm-3 col-form-label" style="font-weight: bold;">No. Vuelo *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control colours" name="flightnumber" id="flightnumber" ng-model="flightnumber" placeholder="Numero de Vuelo" required />
+                                    <span class="help-block error" ng-show="formDataClient.flightnumber.$invalid && formDataClient.flightnumber.$touched">
+                                        <small class="form-text text-danger text-right">Numero de Vuelo es requerido</small>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="lastnames" class="col-sm-3 col-form-label" style="font-weight: bold;"></label>
                                 <div class="col-sm-9">
                                     <label class="custom-control custom-checkbox">
