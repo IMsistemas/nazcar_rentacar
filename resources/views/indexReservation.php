@@ -726,7 +726,12 @@
                             <div class="form-group row">
                                 <label for="pais" class="col-sm-3 col-form-label" style="font-weight: bold;">País *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" name="pais" id="pais" ng-model="pais" placeholder="Pais" required />
+                                    <!--<input type="text" class="form-control colours" name="pais" id="pais" ng-model="pais" placeholder="Pais" required />-->
+
+                                    <select class="form-control" ng-model="pais" id="pais" name="pais"
+                                            ng-options="value.id as value.label for value in listCountry" ng-change="" required >
+                                    </select>
+
                                     <span class="help-block error" ng-show="formDataClient.pais.$invalid && formDataClient.pais.$touched">
                                         <small class="form-text text-danger text-right">País es requerido</small>
                                     </span>

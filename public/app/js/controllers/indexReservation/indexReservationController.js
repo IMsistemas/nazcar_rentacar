@@ -236,6 +236,24 @@
 
         };
 
+        $scope.getCountryPhone = function () {
+
+            $http.get(API_URL + 'reservation/getCountryPhone').then(function(response){
+
+                var longitud = response.data.length;
+                var array = [{label: '-- Seleccione Pais --', id: ''}];
+
+                for(var i = 0; i < longitud; i++){
+                    array.push({label: response.data[i].namecountry0, id: response.data[i].idcountryphone});
+                }
+
+                $scope.listCountry = array;
+                $scope.pais = '';
+
+            });
+
+        };
+
         $scope.getAditionalServices = function () {
 
             $http.get(API_URL + 'reservation/getAditionalServices').then(function(response){
@@ -862,6 +880,7 @@
         $scope.getlistEdad();
         $scope.getPlaces();
         $scope.getCategories();
+        $scope.getCountryPhone();
         //$scope.getCar(0);
         $scope.getAditionalServices();
         $scope.getOtherServices();

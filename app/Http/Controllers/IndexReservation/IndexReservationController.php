@@ -5,6 +5,7 @@ namespace App\Http\Controllers\IndexReservation;
 use App\Models\Car\Car;
 use App\Models\Client\Client;
 use App\Models\Company\Company;
+use App\Models\CountryPhone\CountryPhone;
 use App\Models\MarcaAuto\Carbrand;
 use App\Models\Person\Person;
 use App\Models\Place\Place;
@@ -108,6 +109,11 @@ class IndexReservationController extends Controller
     public function getCompany()
     {
         return Company::get();
+    }
+
+    public function getCountryPhone()
+    {
+        return CountryPhone::orderBy('namecountry0', 'asc')->get();
     }
 
     public function getResultPagoPaypal()
