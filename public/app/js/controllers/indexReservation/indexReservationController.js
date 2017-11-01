@@ -80,9 +80,24 @@
 
             if (step === 2) {
 
-                $scope.getCar(0, $scope.fecha_retiro, $scope.fecha_entrega);
+                var result = $scope.valida_date_time($scope.fecha_retiro, $scope.hora_retiro);
 
-                $scope.rest_day = $scope.restaFechas($scope.fecha_retiro, $scope.fecha_entrega);
+                if (result === true) {
+
+                    $scope.getCar(0, $scope.fecha_retiro, $scope.fecha_entrega);
+
+                    $scope.rest_day = $scope.restaFechas($scope.fecha_retiro, $scope.fecha_entrega);
+
+                } else {
+
+                    $scope.Mensaje = 'La hora de Retiro no debe ser menor para reservas de hoy...';
+                    $('#modalMessageError').modal('show');
+
+                    step = 1;
+
+                }
+
+
             }
 
             if (step === 3) {
@@ -871,7 +886,24 @@
 
         };
 
+        $scope.valida_date_time = function (fecha, hora) {
 
+            var aux = fecha.toString().split("-");
+            var auxh = hora.toString().split(":");
+            var today = new Date();
+            var fecha_select = new Date(parseInt(aux[0]), (parseInt(aux[1])-1), parseInt(aux[2]), parseInt(auxh[0]),parseInt(auxh[1]), 0);
+
+            /*if(fecha_select < today){
+                // console.log("La hora es menor");
+                return false;
+            } else {
+                // console.log("La hora es mayor");
+                return true;
+            }*/
+
+            return (fecha_select < today) ? false : true;
+
+        };
 
 
         $scope.sendEmail = function () {
@@ -918,3 +950,4 @@
         $scope.getOtherServices();
 
     });
+
