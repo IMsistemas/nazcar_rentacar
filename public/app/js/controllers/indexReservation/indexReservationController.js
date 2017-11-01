@@ -241,16 +241,39 @@
             $http.get(API_URL + 'reservation/getCountryPhone').then(function(response){
 
                 var longitud = response.data.length;
-                var array = [{label: '-- Seleccione Pais --', id: ''}];
+                var array = [{label: '-- Seleccione Pais --', id: '', countryphone: ''}];
 
                 for(var i = 0; i < longitud; i++){
-                    array.push({label: response.data[i].namecountry0, id: response.data[i].idcountryphone});
+                    array.push({
+                        label: response.data[i].namecountry0,
+                        id: response.data[i].idcountryphone,
+                        countryphone: response.data[i].countryphone
+                    });
                 }
 
                 $scope.listCountry = array;
                 $scope.pais = '';
 
             });
+
+        };
+
+        $scope.getCodeCountry = function () {
+
+            var longitud = $scope.listCountry.length;
+
+            $scope.codephone = '';
+
+            for (var i = 0; i < longitud; i++) {
+
+                if (parseInt($scope.listCountry[i].id) === parseInt($scope.pais)) {
+
+                    $scope.codephone = $scope.listCountry[i].countryphone;
+
+                    break;
+                }
+
+            }
 
         };
 
@@ -608,7 +631,7 @@
                 lastnameperson: $scope.lastnames,
                 identifyperson: $scope.docident,
                 emailperson: $scope.email,
-                numphoneperson: $scope.phone,
+                numphoneperson: $scope.codephone + '-' + $scope.phone,
 
                 idcar: $scope.carSelected.idcar,
                 startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
@@ -643,7 +666,7 @@
                 lastnameperson: $scope.lastnames,
                 identifyperson: $scope.docident,
                 emailperson: $scope.email,
-                numphoneperson: $scope.phone,
+                numphoneperson: $scope.codephone + '-' + $scope.phone,
 
                 idcar: $scope.carSelected.idcar,
                 startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
@@ -766,7 +789,7 @@
                 lastnameperson: $scope.lastnames,
                 identifyperson: $scope.docident,
                 emailperson: $scope.email,
-                numphoneperson: $scope.phone,
+                numphoneperson: $scope.codephone + '-' + $scope.phone,
 
                 idcar: $scope.carSelected.idcar,
                 startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,

@@ -729,7 +729,7 @@
                                     <!--<input type="text" class="form-control colours" name="pais" id="pais" ng-model="pais" placeholder="Pais" required />-->
 
                                     <select class="form-control" ng-model="pais" id="pais" name="pais"
-                                            ng-options="value.id as value.label for value in listCountry" ng-change="" required >
+                                            ng-options="value.id as value.label for value in listCountry" ng-change="getCodeCountry()" required >
                                     </select>
 
                                     <span class="help-block error" ng-show="formDataClient.pais.$invalid && formDataClient.pais.$touched">
@@ -751,7 +751,16 @@
                             <div class="form-group row">
                                 <label for="phone" class="col-sm-3 col-form-label" style="font-weight: bold;">Teléfono *</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" name="phone" id="phone" ng-model="phone" placeholder="Teléfono" required />
+
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" name="codephone" id="codephone" ng-model="codephone" disabled />
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control colours" name="phone" id="phone" ng-model="phone" placeholder="Teléfono" required />
+                                        </div>
+                                    </div>
+
                                     <span class="help-block error" ng-show="formDataClient.phone.$invalid && formDataClient.phone.$touched">
                                         <small class="form-text text-danger text-right">Teléfono es requerido</small>
                                     </span>
