@@ -240,7 +240,11 @@ class IndexReservationController extends Controller
             $rent->enddatetime = $request->input('enddatetime');
             $rent->flightnumber = $request->input('flightnumber');
 
-            $rent->numrent = $this->searchNumRent();
+            $numrent = $this->searchNumRent();
+
+            $rent->numrent = $numrent;
+
+            Session::put('numrent', $numrent);
 
             $rent->state = 1;
 
@@ -358,7 +362,11 @@ class IndexReservationController extends Controller
             $rent->enddatetime = $request->input('enddatetime');
             $rent->flightnumber = $request->input('flightnumber');
 
-            $rent->numrent = $this->searchNumRent();
+            $numrent = $this->searchNumRent();
+
+            $rent->numrent = $numrent;
+
+            Session::put('numrent', $numrent);
 
             $rent->state = 1;
 
@@ -414,7 +422,7 @@ class IndexReservationController extends Controller
 
     private function searchNumRent()
     {
-        $num = Rent::orderBy('numrent')->limit(1)->get();
+        $num = Rent::orderBy('numrent')->get();
 
         if (count($num) == 0) {
 
@@ -422,7 +430,7 @@ class IndexReservationController extends Controller
 
         } else {
 
-            $numero = $num[0]->numrent;
+            $numero = $num[count($num) - 1]->numrent;
 
             settype($numero, 'integer');
 
@@ -512,10 +520,11 @@ class IndexReservationController extends Controller
             $params = json_decode(Session::get('dataRentPaypal'));
 
             $image_url = Car::find($params->idcar);
-
             $image_url = $image_url->image;
 
             $aux_empresa = Company::all();
+
+            $numrent = Session::get('numrent');
 
             $today = date("Y-m-d H:i:s");
 
@@ -523,7 +532,7 @@ class IndexReservationController extends Controller
 
                 $correo_cliente = $params->emailperson;
 
-                Mail::send('Vouchers.vouchercash2',['params' => $params, 'today' => $today, 'image_url' => $image_url, 'aux_empresa' => $aux_empresa] , function($message) use ($correo_cliente)
+                Mail::send('Vouchers.vouchercash2',['params' => $params, 'today' => $today, 'image_url' => $image_url, 'aux_empresa' => $aux_empresa, 'numrent' => $numrent] , function($message) use ($correo_cliente)
                 {
                     $message->from('notificacionimnegocios@gmail.com', 'Nazcar');
 
@@ -561,12 +570,13 @@ class IndexReservationController extends Controller
         $params = json_decode($params);
 
         $image_url = Car::find($params->idcar);
-
         $image_url = $image_url->image;
+
+        $numrent = Session::get('numrent');
 
         $today = date("Y-m-d H:i:s");
 
-        $view =  \View::make('Vouchers.vouchercash2', compact('today', 'params', 'aux_empresa', 'image_url'))->render();
+        $view =  \View::make('Vouchers.vouchercash2', compact('today', 'params', 'aux_empresa', 'image_url', 'numrent'))->render();
 
         $pdf = App::make('dompdf.wrapper');
 

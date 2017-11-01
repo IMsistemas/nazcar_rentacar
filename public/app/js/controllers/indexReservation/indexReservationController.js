@@ -886,6 +886,9 @@
 
         };
 
+
+
+
         $scope.valida_date_time = function (fecha, hora) {
 
             var aux = fecha.toString().split("-");
@@ -905,7 +908,6 @@
 
         };
 
-
         $scope.sendEmail = function () {
 
             $http.get(API_URL + 'reservation/sendEmail').then(function(response){
@@ -915,7 +917,6 @@
 
             });
         };
-
 
         $scope.verifiedPagoPaypal = function () {
 
@@ -939,6 +940,9 @@
         };
 
         $scope.verifiedPagoPaypal();
+
+
+
 
         $scope.getSlider();
         $scope.getlistEdad();

@@ -99,7 +99,7 @@
             width: 100%;
             text-align: center;
             position: fixed;
-            height: 200px;
+            height: 130px;
         }
         .footer {
             bottom: 0px;
@@ -111,6 +111,10 @@
 
         }
 
+        .page-break {
+            page-break-after: always;
+        }
+
     </style>
 </head>
 <body>
@@ -118,7 +122,10 @@
 <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
     <tr>
         <td style="width: 50%;"><img src="<?= $aux_empresa[0]->logocompany ?>" alt="" style="width: 200px;"></td>
-        <td style="width: 50%;" class="text-right"><h2>COMPROBANTE DE PAGO</h2></td>
+        <td style="width: 50%;" class="text-right">
+            <h2>COMPROBANTE DE PAGO</h2>
+            <span style="font-weight: bold;">RESERVA NO.: <?= $numrent ?></span>
+        </td>
     </tr>
 </table>
 
@@ -165,6 +172,11 @@
                             <h3>FECHA DE DEVOLUCIÓN</h3>
                             <?= $params->enddatetime ?>
                         </div>
+
+                        <div class="col-xs-12" style="margin-top: 2%;">
+                            <h3>VUELO NO. </h3>
+                            <?= $params->flightnumber ?>
+                        </div>
                     </td>
 
                     <td style="width: 65%;">
@@ -174,6 +186,29 @@
                             <img src="<?= $image_url ?>" alt="" style="width: 300px;">
 
                         </div>
+
+                        <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+                            <tr>
+                                <td style="font-weight: bold;">Marca:</td><td></td>
+                                <td style="font-weight: bold;">Cantidad Pasajeros:</td><td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Modelo:</td><td></td>
+                                <td style="font-weight: bold;">Cantidad Equipajes:</td><td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;"></td><td></td>
+                                <td style="font-weight: bold;">Tipo Motor:</td><td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;"></td><td></td>
+                                <td style="font-weight: bold;">Tipo Combustible:</td><td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;"></td><td></td>
+                                <td style="font-weight: bold;">Tipo Transmision:</td><td></td>
+                            </tr>
+                        </table>
 
                         <div class="col-xs-12" style="margin-top: 2%;">
                             <h3>SERVICIOS</h3>
@@ -256,16 +291,32 @@
 </table>
 
 
+
 <div class="footer">
 
-    <img src="<?= $aux_empresa[0]->logocompany ?>" alt="" style="width: 100px;"> <br><br>
+    <img src="<?= $aux_empresa[0]->logocompany ?>" alt="" style="width: 100px;"> <br> <br>
 
-    Condiciones de venta • Política de privacidad <br> <br> <br>
+    Condiciones de venta • Política de privacidad <br>
     Copyright © <?= date('Y') ?> <?= $aux_empresa[0]->namecompany ?> <br>
-    Todos los derechos reservados <br> <br> <br>
+    Todos los derechos reservados <br>
     <?= $aux_empresa[0]->addresscompany ?> <br>
     Quito - Ecuador <br>
     Email: <?= $aux_empresa[0]->emailcompany ?> <br>
+</div>
+
+
+<div class="page-break"></div>
+
+<table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+    <tr>
+        <td>
+            <h2>TERMINOS Y CONDICIONES</h2>
+        </td>
+    </tr>
+</table>
+
+<div class="container" style="font-size: 11px !important;">
+    <?= $aux_empresa[0]->termcondcompany ?>
 </div>
 
 
