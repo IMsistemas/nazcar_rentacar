@@ -657,7 +657,12 @@
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
 
-                carselected: $scope.carSelected,
+                nametransmission: $scope.carSelected.nametransmission,
+                namecarbrand: $scope.carSelected.namecarbrand,
+                namecarmodel: $scope.carSelected.namecarmodel,
+                namefuel: $scope.carSelected.namefuel,
+                amountpassengers: $scope.carSelected.amountpassengers,
+                amountluggage: $scope.carSelected.amountluggage,
 
                 flightnumber: $scope.flightnumber,
 
@@ -706,7 +711,12 @@
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
 
-                carselected: $scope.carSelected,
+                nametransmission: $scope.carSelected.nametransmission,
+                namecarbrand: $scope.carSelected.namecarbrand,
+                namecarmodel: $scope.carSelected.namecarmodel,
+                namefuel: $scope.carSelected.namefuel,
+                amountpassengers: $scope.carSelected.amountpassengers,
+                amountluggage: $scope.carSelected.amountluggage,
 
                 flightnumber: $scope.flightnumber,
 
@@ -822,7 +832,13 @@
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
 
-                carselected: $scope.carSelected,
+                nametransmission: $scope.carSelected.nametransmission,
+                namecarbrand: $scope.carSelected.namecarbrand,
+                namecarmodel: $scope.carSelected.namecarmodel,
+                namefuel: $scope.carSelected.namefuel,
+                amountpassengers: $scope.carSelected.amountpassengers,
+                amountluggage: $scope.carSelected.amountluggage,
+                namemotor: $scope.carSelected.namemotor,
 
                 flightnumber: $scope.flightnumber,
 

@@ -78,6 +78,7 @@ class IndexReservationController extends Controller
         $list = Car::join('carmodel', 'car.idcarmodel', '=', 'carmodel.idcarmodel')
             ->join('carbrand', 'carmodel.idcarbrand', '=', 'carbrand.idcarbrand')
             ->join('fuel', 'car.idfuel', '=', 'fuel.idfuel')
+            ->join('motor', 'car.idmotor', '=', 'motor.idmotor')
             ->join('transmission', 'car.idtransmission', '=', 'transmission.idtransmission')
             ->whereRaw("idcar NOT IN (SELECT idcar FROM rent WHERE '" . $filter->date_ini . "'  BETWEEN rent.startdatetime AND rent.enddatetime) ")
             ->orderBy('idcar', 'asc');

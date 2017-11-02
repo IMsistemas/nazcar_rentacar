@@ -189,24 +189,24 @@
 
                         <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
                             <tr>
-                                <td style="font-weight: bold;">Marca:</td><td></td>
-                                <td style="font-weight: bold;">Cantidad Pasajeros:</td><td></td>
+                                <td style="font-weight: bold;">Marca:</td><td><?= $params->namecarbrand ?></td>
+                                <td style="font-weight: bold;">Cantidad Pasajeros:</td><td><?= $params->amountpassengers ?></td>
                             </tr>
                             <tr>
-                                <td style="font-weight: bold;">Modelo:</td><td></td>
-                                <td style="font-weight: bold;">Cantidad Equipajes:</td><td></td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: bold;"></td><td></td>
-                                <td style="font-weight: bold;">Tipo Motor:</td><td></td>
+                                <td style="font-weight: bold;">Modelo:</td><td><?= $params->namecarmodel ?></td>
+                                <td style="font-weight: bold;">Cantidad Equipajes:</td><td><?= $params->amountluggage ?></td>
                             </tr>
                             <tr>
                                 <td style="font-weight: bold;"></td><td></td>
-                                <td style="font-weight: bold;">Tipo Combustible:</td><td></td>
+                                <td style="font-weight: bold;">Tipo Motor:</td><td><?= $params->namemotor ?></td>
                             </tr>
                             <tr>
                                 <td style="font-weight: bold;"></td><td></td>
-                                <td style="font-weight: bold;">Tipo Transmision:</td><td></td>
+                                <td style="font-weight: bold;">Tipo Combustible:</td><td><?= $params->namefuel ?></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;"></td><td></td>
+                                <td style="font-weight: bold;">Tipo Transmisión:</td><td><?= $params->nametransmission ?></td>
                             </tr>
                         </table>
 
