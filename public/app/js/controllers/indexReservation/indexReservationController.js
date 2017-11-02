@@ -657,6 +657,8 @@
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
 
+                carselected: $scope.carSelected,
+
                 flightnumber: $scope.flightnumber,
 
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
@@ -703,6 +705,8 @@
                 rest_day: $scope.rest_day,
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
+
+                carselected: $scope.carSelected,
 
                 flightnumber: $scope.flightnumber,
 
@@ -817,6 +821,8 @@
                 totalcost: $scope.total,
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
+
+                carselected: $scope.carSelected,
 
                 flightnumber: $scope.flightnumber,
 

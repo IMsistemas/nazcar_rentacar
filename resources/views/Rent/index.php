@@ -42,24 +42,25 @@
         <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
             <thead class="bg-primary">
             <tr>
-                <th style="width: 5px">NO.</th>
-                <th style="width: 15px">CLIENTE</th>
-                <th style="width: 15px">AUTO</th>
-                <th style="width: 15px">MODELO</th>
-                <th style="width: 8px">AÑO</th>
-                <th style="width: 12px">FECHA INICIO</th>
-                <th style="width: 12px">FECHA FIN</th>
-                <th style="width: 12px">COSTO</th>
-                <th style="width: 10px">ACCIONES</th>
+
+                <th style="width: 6%;">NO. RENTA</th>
+                <th style="">CLIENTE</th>
+                <th style="width: 15%;">MARCA</th>
+                <th style="width: 15%;">MODELO</th>
+                <th style="width: 10%;">FECHA INICIO</th>
+                <th style="width: 10%;">FECHA FIN</th>
+                <th style="width: 8%;">COSTO</th>
+                <th style="width: 8%;">ACCIONES</th>
             </tr>
             </thead>
             <tbody>
             <tr dir-paginate="item in list|orderBy:sortKey:reverse| itemsPerPage:10" total-items="totalItems" ng-cloak >
-                <td>{{$index + 1}}</td>
+
+                <td>{{item.numrent}}</td>
                 <td>{{item.nameperson + ' ' + item.lastnameperson}}</td>
                 <td>{{item.namecarbrand}}</td>
                 <td>{{item.namecarmodel}}</td>
-                <td>{{item.year}}</td>
+
                 <td>{{item.startdatetime}}</td>
                 <td>{{item.enddatetime}}</td>
                 <td class="text-right">$ {{item.total}}</td>
@@ -220,7 +221,7 @@
 
                         </div>
                     </div>
-                    <br>
+
                     <div class="row">
                         <div class="col-12">
 
@@ -229,6 +230,21 @@
                                     <tr>
                                         <th colspan="4">RESERVA</th>
                                     </tr>
+                                    <tr>
+                                        <th style="width: 50%;">NO. RESERVA</th>
+                                        <th style="width: 50%;">NO. VUELO</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{numrent}}</td>
+                                        <td>{{flightnumber}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-responsive table-striped table-hover table-condensed table-bordered" style="margin-top: -15px !important;">
+                                <thead class="bg-info">
                                     <tr>
                                         <th style="width: 20%;">FECHA RETIRO</th>
                                         <th>LUGAR RETIRO</th>
@@ -246,7 +262,7 @@
                                 </tbody>
                             </table>
 
-                            <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+                            <table class="table table-responsive table-striped table-hover table-condensed table-bordered" style="margin-top: -15px !important;">
                                 <thead class="bg-info">
                                     <tr>
                                         <th>SUBTOTAL</th>
@@ -263,11 +279,7 @@
                                 </tbody>
                             </table>
 
-
-
                         </div>
-
-
 
                     </div>
                 </div>
@@ -279,6 +291,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 

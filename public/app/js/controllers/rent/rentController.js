@@ -95,9 +95,9 @@
             $scope.carbrand = item.namecarbrand;
             $scope.carmodel = item.namecarmodel;
             $scope.licenseplate = item.licenseplate;
-            /*$scope.year = item.year;
-            $scope.nameowner = item.nameowner;
-            $scope.insurancecompany = item.insurancecompany;
+            $scope.numrent = item.numrent;
+            $scope.flightnumber = item.flightnumber;
+            /*$scope.insurancecompany = item.insurancecompany;
             $scope.securecode = item.securecode;*/
 
             $scope.placeretreat = item.placeretreat;
