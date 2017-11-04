@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Gantt;
 
+use App\Models\Rent\Rent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -29,7 +30,16 @@ class GanttController extends Controller
     public function getRent()
     {
 
-
+        return Rent::join('client', 'client.idclient', '=', 'rent.idclient')
+            ->join('person', 'person.idperson', '=', 'client.idperson')
+            ->join('car', 'car.idcar', '=', 'rent.idcar')
+            ->join('carmodel', 'carmodel.idcarmodel', '=', 'car.idcarmodel')
+            ->join('carbrand', 'carbrand.idcarbrand', '=', 'carmodel.idcarbrand')
+            ->join('rentcost', 'rentcost.idrent', '=', 'rent.idrent')
+            ->join('rent_place', 'rent_place.idrent', '=', 'rent.idrent')
+            ->selectRaw('*, rent.state AS staterent, 
+                            (SELECT nameplace FROM place WHERE place.idplace = rent_place.idplaceretreat) AS placeretreat,
+                            (SELECT nameplace FROM place WHERE place.idplace = rent_place.idplacereturn) AS placereturn')->get();
 
     }
 

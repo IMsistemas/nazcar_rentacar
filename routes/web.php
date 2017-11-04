@@ -91,7 +91,7 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
-
+    Route::get('gantt/getRent', 'Gantt\GanttController@getRent');
     Route::resource('gantt', 'Gantt\GanttController');
 
     Route::get('countrentxmonth/getCountRentxMonth/{year}', 'Reports\CountRentxMonthController@getCountRentxMonth');
