@@ -91,6 +91,9 @@
  * --------------------------------------Raidel Berrillo Gonzalez-------------------------------------------------------
  */
 
+
+    Route::resource('gantt', 'Gantt\GanttController');
+
     Route::get('countrentxmonth/getCountRentxMonth/{year}', 'Reports\CountRentxMonthController@getCountRentxMonth');
     Route::resource('countrentxmonth', 'Reports\CountRentxMonthController');
 
@@ -134,7 +137,6 @@
     Route::get('transmission/getTransmission', 'Transmission\TransmissionController@getTransmission');
     Route::put('transmission/updateState/{id}', 'Transmission\TransmissionController@updateState');
     Route::resource('transmission', 'Transmission\TransmissionController');
-
 
     Route::get('reservation/getCountryPhone', 'IndexReservation\IndexReservationController@getCountryPhone');
     Route::get('reservation/getCompany', 'IndexReservation\IndexReservationController@getCompany');

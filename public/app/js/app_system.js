@@ -89,6 +89,10 @@ app.config(function($routeProvider){
             templateUrl : URL + 'countrentxmonth',
             controller: 'reportController'
         })
+        .when('/gantt',{
+            templateUrl : URL + 'gantt',
+            controller: 'ganttController'
+        })
         .otherwise({
             templateUrl : URL + 'countrentxmonth',
             controller: 'reportController'
