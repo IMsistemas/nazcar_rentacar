@@ -38,6 +38,9 @@ td.gspanning				{ border-left: none; border-right: none; }
 .gpccomplete,
 .gstartdate div, /* needed for IE8 */
 .gstartdate					{ text-align: center; min-width: 70px; max-width: 70px; width: 70px; font-size: 10px; }
+
+
+
 .genddate div, /* needed for IE8 */
 .genddate					{ text-align: center; min-width: 70px; max-width: 70px; width: 70px; font-size: 10px; }
 .gtaskheading				{ text-align: center; }
