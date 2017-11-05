@@ -961,17 +961,13 @@
 
                         <div class="form-group row">
 
-
-
-                                <label for="city" class="col-sm-3 col-form-label" style="font-weight: bold;">No. Vuelo *</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" name="flightnumber" id="flightnumber" ng-model="flightnumber" placeholder="Número de Vuelo" required />
-                                    <span class="help-block error" ng-show="formDataVuelo.flightnumber.$invalid && formDataVuelo.flightnumber.$touched">
-                                            <small class="form-text text-danger text-right">Número de Vuelo es requerido</small>
-                                        </span>
-                                </div>
-
-
+                            <label for="city" class="col-sm-3 col-form-label" style="font-weight: bold;">No. Vuelo *</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control colours" name="flightnumber" id="flightnumber" ng-model="flightnumber" placeholder="Número de Vuelo" required />
+                                <span class="help-block error" ng-show="formDataVuelo.flightnumber.$invalid && formDataVuelo.flightnumber.$touched">
+                                        <small class="form-text text-danger text-right">Número de Vuelo es requerido</small>
+                                    </span>
+                            </div>
 
                         </div>
 

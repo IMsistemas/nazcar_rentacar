@@ -47,13 +47,13 @@
 
 
 
-        $scope.reserva_1 = 5;
+        $scope.reserva_1 = 1;
 
         $scope.getlistEdad = function () {
 
             var arrayList = [{label: 'Seleccionar Edad', id: ''}];
 
-            for (var i = 18; i <= 65; i++) {
+            for (var i = 21; i <= 65; i++) {
                 arrayList.push({label: i, id: i});
             }
 
