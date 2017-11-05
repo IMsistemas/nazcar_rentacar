@@ -390,7 +390,9 @@ class IndexReservationController extends Controller
 
                     if ($rentplace->save()) {
 
-                        Session::put('dataRentPaypal', $request->input('dataRent'));
+                        Session::put('dataRentCaja', $request->input('dataRent'));
+
+                        $this->sendEmailCaja();
 
                         return response()->json(['success' => true]);
 
@@ -554,6 +556,42 @@ class IndexReservationController extends Controller
             return response()->json(['success' => false]);
 
         }
+
+    }
+
+    private function sendEmailCaja()
+    {
+
+        $params = json_decode(Session::get('dataRentCaja'));
+
+        $image_url = Car::find($params->idcar);
+        $image_url = $image_url->image;
+
+        $aux_empresa = Company::all();
+
+        $numrent = Session::get('numrent');
+
+        $today = date("Y-m-d H:i:s");
+
+        if ($params->emailperson != '' && $params->emailperson != null) {
+
+            $correo_cliente = $params->emailperson;
+
+            Mail::send('Vouchers.vouchercash2',['params' => $params, 'today' => $today, 'image_url' => $image_url, 'aux_empresa' => $aux_empresa, 'numrent' => $numrent] , function($message) use ($correo_cliente)
+            {
+                $message->from('notificacionimnegocios@gmail.com', 'Nazcar');
+
+                $message->to($correo_cliente)
+                    /*$message->bcc('christian.imnegocios@gmail.com');
+                    $message->bcc('kevin.imnegocios@gmail.com');
+                    $message->bcc('raidelbg84@gmail.com');
+                    $message->bcc('luis.imnegocios@gmail.com')*/->subject('Comprobante de Renta');
+            });
+
+            //Session::forget('dataRentCaja');
+        }
+
+        return response()->json(['success' => true]);
 
     }
 

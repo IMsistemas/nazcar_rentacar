@@ -200,7 +200,6 @@
 
             }
 
-
             if (step === 5) {
 
                 if ($scope.typepago === 'paypal') {
@@ -649,37 +648,28 @@
                 identifyperson: $scope.docident,
                 emailperson: $scope.email,
                 numphoneperson: $scope.codephone + '-' + $scope.phone,
-
                 idcar: $scope.carSelected.idcar,
                 startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
                 enddatetime: $scope.fecha_entrega + ' ' + $scope.hora_entrega,
                 totalcost: $scope.total,
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
-
                 nametransmission: $scope.carSelected.nametransmission,
                 namecarbrand: $scope.carSelected.namecarbrand,
                 namecarmodel: $scope.carSelected.namecarmodel,
                 namefuel: $scope.carSelected.namefuel,
                 amountpassengers: $scope.carSelected.amountpassengers,
                 amountluggage: $scope.carSelected.amountluggage,
-
+                namemotor: $scope.carSelected.namemotor,
                 flightnumber: $scope.flightnumber,
-
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
-
                 addressplaceretreat: $scope.dataRetiroPlace.addressplace,
                 addressplacereturn: $scope.dataEntregaPlace.addressplace,
-
                 retiro_place: $scope.data_retiro_place,
                 entrega_place: $scope.data_entrega_place,
                 rest_day: $scope.rest_day,
-
-                //title_carimage: API_URL + $scope.title_carimage,
-
                 serviceList: $scope.selectServiceList,
-
                 stateRegister: $scope.stateRegister,
                 registeremail: $scope.registeremail,
                 registerpassword: $scope.registerpassword
@@ -693,46 +683,32 @@
                 identifyperson: $scope.docident,
                 emailperson: $scope.email,
                 numphoneperson: $scope.codephone + '-' + $scope.phone,
-
                 idcar: $scope.carSelected.idcar,
                 startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
                 enddatetime: $scope.fecha_entrega + ' ' + $scope.hora_entrega,
                 totalcost: $scope.total,
-
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
-
                 addressplaceretreat: $scope.dataRetiroPlace.addressplace,
                 addressplacereturn: $scope.dataEntregaPlace.addressplace,
-
                 retiro_place: $scope.data_retiro_place,
                 entrega_place: $scope.data_entrega_place,
                 rest_day: $scope.rest_day,
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
-
                 nametransmission: $scope.carSelected.nametransmission,
                 namecarbrand: $scope.carSelected.namecarbrand,
                 namecarmodel: $scope.carSelected.namecarmodel,
                 namefuel: $scope.carSelected.namefuel,
                 amountpassengers: $scope.carSelected.amountpassengers,
                 amountluggage: $scope.carSelected.amountluggage,
-
+                namemotor: $scope.carSelected.namemotor,
                 flightnumber: $scope.flightnumber,
-
-                //title_carimage: API_URL + $scope.title_carimage,
-
                 serviceList: $scope.selectServiceList,
-
                 stateRegister: $scope.stateRegister,
                 registeremail: $scope.registeremail,
                 registerpassword: $scope.registerpassword,
-
-                dataRent: JSON.stringify(data0),
-
-                numtarjeta: $scope.numtarjeta,
-                mmaa: $scope.mmaa,
-                cvc: $scope.cvc
+                dataRent: JSON.stringify(data0)
 
             };
 
@@ -768,28 +744,11 @@
 
                     $http.post(API_URL+'Paypallaravel2',datos).then(function (response) {
 
-                        //location.href = response.data.url;
-
                         if(response.data.url!=undefined){
                             location.href=response.data.url;
                         }else{
                             location.href=response.data;
                         }
-
-                        //location.href = API_URL + 'reservation';
-
-                        /*if(response.data.url !== undefined){
-
-                            location.href = API_URL + 'reservation';
-
-                        } else {
-
-                            //location.href = response.data;
-
-                            $scope.message_error = 'Ha ocurrido un error al intentar Pagar via PayPal...';
-                            $('#modalError').modal('show');
-
-                        }*/
 
                     });
 
@@ -817,21 +776,19 @@
 
         $scope.saveCaja = function () {
 
-            var data = {
+            var data0 = {
 
                 nameperson: $scope.names,
                 lastnameperson: $scope.lastnames,
                 identifyperson: $scope.docident,
                 emailperson: $scope.email,
                 numphoneperson: $scope.codephone + '-' + $scope.phone,
-
                 idcar: $scope.carSelected.idcar,
                 startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
                 enddatetime: $scope.fecha_entrega + ' ' + $scope.hora_entrega,
                 totalcost: $scope.total,
                 subtotal: $scope.subtotal,
                 iva: $scope.iva,
-
                 nametransmission: $scope.carSelected.nametransmission,
                 namecarbrand: $scope.carSelected.namecarbrand,
                 namecarmodel: $scope.carSelected.namecarmodel,
@@ -839,30 +796,54 @@
                 amountpassengers: $scope.carSelected.amountpassengers,
                 amountluggage: $scope.carSelected.amountluggage,
                 namemotor: $scope.carSelected.namemotor,
-
                 flightnumber: $scope.flightnumber,
-
                 idplaceretreat: $scope.dataRetiroPlace.idplace,
                 idplacereturn: $scope.dataEntregaPlace.idplace,
-
                 addressplaceretreat: $scope.dataRetiroPlace.addressplace,
                 addressplacereturn: $scope.dataEntregaPlace.addressplace,
-
                 retiro_place: $scope.data_retiro_place,
                 entrega_place: $scope.data_entrega_place,
                 rest_day: $scope.rest_day,
-
-                //title_carimage: $scope.title_carimage,
-
                 serviceList: $scope.selectServiceList,
+                stateRegister: $scope.stateRegister,
+                registeremail: $scope.registeremail,
+                registerpassword: $scope.registerpassword
 
+            };
+
+            var data = {
+
+                nameperson: $scope.names,
+                lastnameperson: $scope.lastnames,
+                identifyperson: $scope.docident,
+                emailperson: $scope.email,
+                numphoneperson: $scope.codephone + '-' + $scope.phone,
+                idcar: $scope.carSelected.idcar,
+                startdatetime: $scope.fecha_retiro + ' ' + $scope.hora_retiro,
+                enddatetime: $scope.fecha_entrega + ' ' + $scope.hora_entrega,
+                totalcost: $scope.total,
+                subtotal: $scope.subtotal,
+                iva: $scope.iva,
+                nametransmission: $scope.carSelected.nametransmission,
+                namecarbrand: $scope.carSelected.namecarbrand,
+                namecarmodel: $scope.carSelected.namecarmodel,
+                namefuel: $scope.carSelected.namefuel,
+                amountpassengers: $scope.carSelected.amountpassengers,
+                amountluggage: $scope.carSelected.amountluggage,
+                namemotor: $scope.carSelected.namemotor,
+                flightnumber: $scope.flightnumber,
+                idplaceretreat: $scope.dataRetiroPlace.idplace,
+                idplacereturn: $scope.dataEntregaPlace.idplace,
+                addressplaceretreat: $scope.dataRetiroPlace.addressplace,
+                addressplacereturn: $scope.dataEntregaPlace.addressplace,
+                retiro_place: $scope.data_retiro_place,
+                entrega_place: $scope.data_entrega_place,
+                rest_day: $scope.rest_day,
+                serviceList: $scope.selectServiceList,
                 stateRegister: $scope.stateRegister,
                 registeremail: $scope.registeremail,
                 registerpassword: $scope.registerpassword,
-
-                numtarjeta: $scope.numtarjeta,
-                mmaa: $scope.mmaa,
-                cvc: $scope.cvc
+                dataRent: JSON.stringify(data0)
 
             };
 
@@ -874,11 +855,10 @@
 
                 if (response.data.success === true) {
 
-
-                    $scope.message_success = 'La Reserva se ha agregado satisfactoriamente...';
+                    $scope.message_success = 'El pago y su Reserva fue exitosa, le llegara la notificación via email...';
                     $('#modalSuccess').modal('show');
 
-                    var accion = API_URL + 'reservation/printComprobante/' + JSON.stringify(data);
+                    var accion = API_URL + 'reservation/printComprobante/' + JSON.stringify(data0);
 
                     $('#WPrint_head').html('Comprobante de Pago');
 
@@ -886,7 +866,7 @@
 
                     $('#bodyprint').html("<object width='100%' height='600' data='" + accion + "'></object>");
 
-
+                    $scope.reserva_1 = 1;
 
                 } else {
 
