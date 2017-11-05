@@ -47,7 +47,7 @@
 
 
 
-        $scope.reserva_1 = 1;
+        $scope.reserva_1 = 5;
 
         $scope.getlistEdad = function () {
 

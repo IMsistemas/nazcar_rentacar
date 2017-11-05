@@ -767,15 +767,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="city" class="col-sm-3 col-form-label" style="font-weight: bold;">No. Vuelo *</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control colours" name="flightnumber" id="flightnumber" ng-model="flightnumber" placeholder="Numero de Vuelo" required />
-                                    <span class="help-block error" ng-show="formDataClient.flightnumber.$invalid && formDataClient.flightnumber.$touched">
-                                        <small class="form-text text-danger text-right">Numero de Vuelo es requerido</small>
-                                    </span>
-                                </div>
-                            </div>
+
 
                             <div class="form-group row">
                                 <label for="lastnames" class="col-sm-3 col-form-label" style="font-weight: bold;"></label>
@@ -965,6 +957,25 @@
                         </tbody>
                     </table>
 
+                    <form class="form-horizontal" name="formDataVuelo" novalidate="">
+
+                        <div class="form-group row">
+
+
+
+                                <label for="city" class="col-sm-3 col-form-label" style="font-weight: bold;">No. Vuelo *</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control colours" name="flightnumber" id="flightnumber" ng-model="flightnumber" placeholder="Número de Vuelo" required />
+                                    <span class="help-block error" ng-show="formDataVuelo.flightnumber.$invalid && formDataVuelo.flightnumber.$touched">
+                                            <small class="form-text text-danger text-right">Número de Vuelo es requerido</small>
+                                        </span>
+                                </div>
+
+
+
+                        </div>
+
+                    </form>
 
                     <div class="col-12 text-center" style="margin-top: 5px;" id="accRegister">
                         <p style="color: #014c8c; font-size: 20px;">
@@ -1033,14 +1044,14 @@
 
                     <div class="col-12" style="margin-top: 15px;" id="btn_paypal">
                         <button type="button" class="btn btn-info btn-lg btn-block" style="font-weight: bold;"
-                                ng-click="save()">
+                                ng-click="save()" ng-disabled="formDataVuelo.$invalid">
                             <i class="fa fa-paypal" aria-hidden="true"></i> PayPal $ {{total}}
                         </button>
                     </div>
 
                     <div class="col-12" style="margin-top: 15px;" id="btn_caja">
                         <button type="button" class="btn btn-primary btn-lg btn-block" style="font-weight: bold;"
-                                ng-click="saveCaja()">
+                                ng-click="saveCaja()" ng-disabled="formDataVuelo.$invalid">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Caja $ {{total}}
                         </button>
                     </div>
