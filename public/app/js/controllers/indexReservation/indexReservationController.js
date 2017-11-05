@@ -849,13 +849,17 @@
 
             console.log(data);
 
+            $('#myModalProgressBar').modal('show');
+
             $http.post(API_URL + 'reservation/Caja', data).then(function(response) {
 
                 $('#modalAction').modal('hide');
 
+                $('#myModalProgressBar').modal('hide');
+
                 if (response.data.success === true) {
 
-                    $scope.message_success = 'El pago y su Reserva fue exitosa, le llegara la notificación via email...';
+                    $scope.message_success = 'El pago y su Reserva fue exitosa, le llegará la notificación via email...';
                     $('#modalSuccess').modal('show');
 
                     var accion = API_URL + 'reservation/printComprobante/' + JSON.stringify(data0);
@@ -865,6 +869,8 @@
                     $('#WPrint').modal('show');
 
                     $('#bodyprint').html("<object width='100%' height='600' data='" + accion + "'></object>");
+
+                    $scope.clearPtoFirts();
 
                     $scope.reserva_1 = 1;
 
@@ -888,7 +894,24 @@
 
         };
 
+        $scope.clearPtoFirts = function () {
 
+            $('#fecha_retiro').val('');
+            $('#fecha_entrega').val('');
+            $scope.fecha_retiro = '';
+            $scope.fecha_entrega = '';
+
+            $('#hora_retiro').val('');
+            $('#hora_entrega').val('');
+            $scope.hora_retiro = '';
+            $scope.hora_entrega = '';
+
+            $scope.edad = '';
+
+            $scope.lugar_retiro = '';
+            $scope.lugar_entrega = '';
+
+        };
 
 
         $scope.valida_date_time = function (fecha, hora) {
