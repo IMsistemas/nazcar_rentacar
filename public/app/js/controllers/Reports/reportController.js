@@ -52,16 +52,15 @@
                     $scope.total_end = parseFloat($scope.total_end) + parseFloat(cost[i].total);
 
 
-                    $scope.subtotal_end = ($scope.subtotal_end).toFixed(2);
-                    $scope.iva_end = ($scope.iva_end).toFixed(2);
-                    $scope.total_end = ($scope.total_end).toFixed(2);
-
-
                     $scope.cantidad_end = parseInt($scope.cantidad_end) + parseInt(top5[i].cantidad);
 
                     $scope.list.push(object);
 
                 }
+
+                $scope.subtotal_end = ($scope.subtotal_end).toFixed(2);
+                $scope.iva_end = ($scope.iva_end).toFixed(2);
+                $scope.total_end = ($scope.total_end).toFixed(2);
 
             })
             .catch(function(data, status) {
@@ -161,15 +160,15 @@
                     $scope.iva_end = $scope.iva_end + parseFloat(lista[i].iva);
                     $scope.total_end = $scope.total_end + parseFloat(lista[i].total);
 
-                    $scope.subtotal_end = ($scope.subtotal_end).toFixed(2);
-                    $scope.iva_end = ($scope.iva_end).toFixed(2);
-                    $scope.total_end = ($scope.total_end).toFixed(2);
-
                     $scope.cantidad_end++;
 
                     $scope.list0 = temp;
 
                 }
+
+                $scope.subtotal_end = ($scope.subtotal_end).toFixed(2);
+                $scope.iva_end = ($scope.iva_end).toFixed(2);
+                $scope.total_end = ($scope.total_end).toFixed(2);
 
                 console.log($scope.list0);
             })
