@@ -526,9 +526,12 @@ class IndexReservationController extends Controller
             $params = json_decode(Session::get('dataRentPaypal'));
 
             $image_url = Car::find($params->idcar);
-            $image_url = $image_url->image;
+
+            $image_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $image_url->image;
 
             $aux_empresa = Company::all();
+
+            $aux_empresa[0]->logocompany = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $aux_empresa[0]->logocompany;
 
             $numrent = Session::get('numrent');
 
@@ -569,9 +572,11 @@ class IndexReservationController extends Controller
 
         $image_url = Car::find($params->idcar);
 
-        $image_url = $_SERVER['HTTP_HOST'] . $image_url->image;
+        $image_url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $image_url->image;
 
         $aux_empresa = Company::all();
+
+        $aux_empresa[0]->logocompany = 'http://' . $_SERVER['HTTP_HOST'] . '/' . $aux_empresa[0]->logocompany;
 
         $numrent = Session::get('numrent');
 
