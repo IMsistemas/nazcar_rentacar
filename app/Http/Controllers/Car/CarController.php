@@ -38,32 +38,32 @@ class CarController extends Controller
 
     public function get_list_sedes()
     {
-        return Place::orderBy('nameplace', 'asc')->get();
+        return Place::where('state', 1)->orderBy('nameplace', 'asc')->get();
     }
 
     public function get_list_marca()
     {
-        return Carbrand::orderBy("namecarbrand","ASC")->get();
+        return Carbrand::where('state', 1)->orderBy("namecarbrand","ASC")->get();
     }
 
     public function get_list_motor()
     {
-        return Motor::orderBy("namemotor","asc")->get();
+        return Motor::where('state', 1)->orderBy("namemotor","asc")->get();
     }
 
     public function get_list_fuel()
     {
-        return Fuel::orderBy("namefuel","asc")->get();
+        return Fuel::where('state', 1)->orderBy("namefuel","asc")->get();
     }
 
     public function get_list_transmission()
     {
-        return Transmission::orderBy("nametransmission","asc")->get();
+        return Transmission::where('state', 1)->orderBy("nametransmission","asc")->get();
     }
 
     public function get_list_modelo($id)
     {
-        return Carmodel::where('idcarbrand', $id)->orderBy('namecarmodel', 'asc')->get();
+        return Carmodel::where('state', 1)->where('idcarbrand', $id)->orderBy('namecarmodel', 'asc')->get();
     }
 
     public function listCars(Request $request){
