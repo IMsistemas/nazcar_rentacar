@@ -36,7 +36,7 @@ app.controller('ganttController', function($scope, $http, API_URL, Upload) {
 
                 var date_ini = response.data[i].startdatetime;
                 var date_end = response.data[i].enddatetime;
-                var marca = response.data[i].namecarmodel;
+                var marca = response.data[i].namecarmodel + '(' + response.data[i].licenseplate + ')';
                 var idrent = response.data[i].idrent;
                 var client = response.data[i].nameperson + ' ' + response.data[i].lastnameperson;
 
