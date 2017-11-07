@@ -1336,7 +1336,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <p style="font-size: 12px !important; font-weight: bold;" id="text-demo-load">
-                            ESPERE POR FAVOR!, SE ESTA ENVIANDO LOS DATOS A PAYPAL....
+                            {{text_bar}}
                         </p>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>

@@ -733,6 +733,8 @@
             console.log(data);
             console.log(datos);
 
+            $scope.text_bar = 'ESPERE POR FAVOR!, SE ESTA ENVIANDO LOS DATOS A PAYPAL....';
+
             $('#myModalProgressBar').modal('show');
 
             $http.post(API_URL + 'reservation', data).then(function(response) {
@@ -848,6 +850,8 @@
             };
 
             console.log(data);
+
+            $scope.text_bar = 'ESPERE POR FAVOR!, SE ESTA CREANDO LA RENTA....';
 
             $('#myModalProgressBar').modal('show');
 
@@ -965,8 +969,6 @@
         };
 
         $scope.verifiedPagoPaypal();
-
-
 
 
         $scope.getSlider();
