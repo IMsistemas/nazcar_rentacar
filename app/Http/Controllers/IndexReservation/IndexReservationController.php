@@ -62,12 +62,12 @@ class IndexReservationController extends Controller
 
     public function getPlaces()
     {
-        return Place::orderBy('nameplace', 'asc')->get();
+        return Place::where('state', '1')->orderBy('nameplace', 'asc')->get();
     }
 
     public function getCategories()
     {
-        return Carbrand::orderBy('namecarbrand', 'asc')->get();
+        return Carbrand::where('state', '1')->orderBy('namecarbrand', 'asc')->get();
     }
 
     public function getCar(Request $request)
@@ -81,6 +81,7 @@ class IndexReservationController extends Controller
             ->join('motor', 'car.idmotor', '=', 'motor.idmotor')
             ->join('transmission', 'car.idtransmission', '=', 'transmission.idtransmission')
             ->whereRaw("idcar NOT IN (SELECT idcar FROM rent WHERE '" . $filter->date_ini . "'  BETWEEN rent.startdatetime AND rent.enddatetime) ")
+            ->where('car.state', '1')
             ->orderBy('idcar', 'asc');
 
         if ($filter->categories != 0) {
@@ -94,12 +95,14 @@ class IndexReservationController extends Controller
 
     public function getAditionalServices()
     {
-        return Service::where('type', '0')->orderBy('service', 'asc')->get();
+        return Service::where('type', '0')
+                ->where('state', '1')->orderBy('service', 'asc')->get();
     }
 
     public function getOtherServices()
     {
-        return Service::where('type', '1')->orderBy('service', 'asc')->get();
+        return Service::where('type', '1')
+                ->where('state', '1')->orderBy('service', 'asc')->get();
     }
 
     public function getSlider()
