@@ -192,7 +192,7 @@
 
 
 
-        $scope.getCountrys();
+        //$scope.getCountrys();
         $scope.getPaidForms();
     });
 

@@ -568,7 +568,8 @@ class IndexReservationController extends Controller
         $params = json_decode(Session::get('dataRentCaja'));
 
         $image_url = Car::find($params->idcar);
-        $image_url = $image_url->image;
+
+        $image_url = $_SERVER['HTTP_HOST'] . $image_url->image;
 
         $aux_empresa = Company::all();
 
