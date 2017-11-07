@@ -80,7 +80,7 @@ class IndexReservationController extends Controller
             ->join('fuel', 'car.idfuel', '=', 'fuel.idfuel')
             ->join('motor', 'car.idmotor', '=', 'motor.idmotor')
             ->join('transmission', 'car.idtransmission', '=', 'transmission.idtransmission')
-            ->whereRaw("idcar NOT IN (SELECT idcar FROM rent WHERE '" . $filter->date_ini . "'  BETWEEN rent.startdatetime AND rent.enddatetime) ")
+            ->whereRaw("idcar NOT IN (SELECT idcar FROM rent WHERE '" . $filter->date_ini . "' BETWEEN STR_TO_DATE(rent.startdatetime,'%Y-%m-%d') AND  STR_TO_DATE(rent.enddatetime,'%Y-%m-%d')) ")
             ->where('car.state', '1')
             ->orderBy('idcar', 'asc');
 
