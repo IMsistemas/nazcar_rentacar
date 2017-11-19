@@ -34,50 +34,51 @@
 	</div>
 
 	<div class="row">
-	<div class="col-12" style="margin-top: 10px;">
-		<table class="table table-responsive table-striped table-hover table-condensed table-bordered">
-			<thead class="bg-primary">
-				<tr>
-					<th style="width: 5%;">NO.</th>
-					<th style="width: 20%;">NOMBRE</th>
-                    <th>DIRECCION</th>
-                    <th style="width: 10%;">CODIGO</th>
-					<th style="width: 12%;">ACCIONES</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr dir-paginate="item in list | orderBy:sortKey:reverse | filter:buscquedamarca | itemsPerPage:10" total-items="totalItems" ng-cloak>
-					
-					<td>{{ $index + 1 }}</td>
-					<td>{{ item.nameplace }}</td>
-                    <td>{{ item.addressplace }}</td>
-                    <td>{{ item.codeplace }}</td>
-					<td class="text-center">
+        <div class="col-12" style="margin-top: 10px;">
+            <table class="table table-responsive table-striped table-hover table-condensed table-bordered">
+                <thead class="bg-primary">
+                    <tr>
+                        <th style="width: 5%;">NO.</th>
+                        <th style="width: 20%;">NOMBRE</th>
+                        <th>DIRECCION</th>
+                        <th style="width: 10%;">CODIGO</th>
+                        <th style="width: 15%;">COSTO ADICIONAL</th>
+                        <th style="width: 12%;">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="item in list | orderBy:sortKey:reverse | filter:buscquedamarca | itemsPerPage:10" total-items="totalItems" ng-cloak>
 
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="edit(item)" >
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" ng-click="editState(item)" >
-                                <i class="fa fa-ban" aria-hidden="true"></i>
-                            </button>
-                        </div>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ item.nameplace }}</td>
+                        <td>{{ item.addressplace }}</td>
+                        <td>{{ item.codeplace }}</td>
+                        <td class="text-right">{{ item.additionalcost }}</td>
+                        <td class="text-center">
 
-					</td>
-				</tr>
-			</tbody>
-		</table>
-        <dir-pagination-controls
-        	on-page-change="pageChanged(newPageNumber)"
-            template-url="dirPagination.html"
-            class="pull-right"
-            max-size="10"
-            direction-links="true"
-            boundary-links="true" >
-        </dir-pagination-controls>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editar" ng-click="edit(item)" >
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Anular" ng-click="editState(item)" >
+                                    <i class="fa fa-ban" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <dir-pagination-controls
+                on-page-change="pageChanged(newPageNumber)"
+                template-url="dirPagination.html"
+                class="pull-right"
+                max-size="10"
+                direction-links="true"
+                boundary-links="true" >
+            </dir-pagination-controls>
+        </div>
 	</div>
-	</div>
-
 
     <div class="modal fade" id="modalAction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -91,6 +92,7 @@
                 <div class="modal-body">
                     <form class="form-horizontal" name="formPlace" novalidate="">
                         <div class="row">
+
                             <div class="col-12">
                                 <div class="input-group">
                                     <span class="input-group-addon">Nombre: </span>
@@ -108,6 +110,16 @@
                                 </div>
                                 <span class="help-block error" ng-show="formPlace.codeplace.$invalid && formPlace.codeplace.$touched">
                                     <small id="emailHelp" class="form-text text-danger text-right">El Código del Lugar es requerido</small>
+                                </span>
+                            </div>
+
+                            <div class="col-12" style="margin-top: 5px;">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Costo Adicional: </span>
+                                    <input type="text" class="form-control" id="additionalcost" name="additionalcost" ng-model="additionalcost" required />
+                                </div>
+                                <span class="help-block error" ng-show="formPlace.additionalcost.$invalid && formPlace.additionalcost.$touched">
+                                    <small id="emailHelp" class="form-text text-danger text-right">El Costo Adicional del Lugar es requerido</small>
                                 </span>
                             </div>
 

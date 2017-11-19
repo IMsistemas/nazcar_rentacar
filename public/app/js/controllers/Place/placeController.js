@@ -48,6 +48,7 @@
             $scope.idplace = 0;
             $scope.nameplace = '';
             $scope.codeplace = '';
+            $scope.additionalcost = '';
             $scope.addressplace = '';
             $scope.selectItem = null;
         };
@@ -64,6 +65,7 @@
             $scope.idplace = item.idplace;
             $scope.nameplace = item.nameplace;
             $scope.codeplace = item.codeplace;
+            $scope.additionalcost = item.additionalcost;
             $scope.addressplace = item.addressplace;
 
             $scope.title_modal_action = 'Editar';
@@ -85,6 +87,7 @@
             var data = {
                 nameplace: $scope.nameplace,
                 codeplace: $scope.codeplace,
+                additionalcost: $scope.additionalcost,
                 addressplace: $scope.addressplace
             };
 
