@@ -495,8 +495,8 @@
                                 <td>
                                     <label class="custom-control custom-checkbox">
                                         <input name="item_otherservice.idservice" id="checkbox_{{item_otherservice.idservice}}"
-                                               ng-model="item_otherservice.idservice" type="checkbox"
-                                               class="custom-control-input" ng-click="selectServicesClick(item_otherservice, 'checkbox_' + item_otherservice.idservice)">
+                                               ng-model="item_otherservice.namengmodel" type="checkbox"
+                                               class="custom-control-input" ng-click="selectServicesClick(item_otherservice, 'checkbox_' + item_otherservice.namengmodel)">
                                         <span class="custom-control-indicator"></span>
                                     </label>
                                 </td>
