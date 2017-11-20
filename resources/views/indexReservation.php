@@ -1134,7 +1134,7 @@
                             </div>
                             <div class="col-8">
                                 <div class="col-12">
-
+                                    <div id="map"></div>
                                 </div>
                             </div>
                         </div>
@@ -1303,7 +1303,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="modal fade" id="WPrint" style="z-index:2000;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
