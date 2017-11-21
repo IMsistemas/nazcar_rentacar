@@ -1384,8 +1384,9 @@
     function initMap() {
 
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 15
+            center: {lat: 31, lng: 34},
+            zoom: 2,
+            minZoom: 2,
         });
 
         var infoWindow = new google.maps.InfoWindow({map: map});
@@ -1395,7 +1396,9 @@
 
             navigator.geolocation.getCurrentPosition(function(position) {
 
-                var pos = {
+                console.log('aaaa');
+
+                /*var pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
@@ -1408,13 +1411,34 @@
                     position: pos,
                     map: map,
                     draggable:true
+                });*/
+
+                console.log(position.coords.latitude);
+                console.log(position.coords.longitude);
+
+                var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title: 'Transmision',
+                    draggable: true,
+                    //animation: google.maps.Animation.DROP,
+                    //label: '8'
                 });
 
+                marker.setMap(map);
 
-            }, function() {
+            }, function(error) {
+
+                console.log(error);
+
                 handleLocationError(true, infoWindow, map.getCenter());
             });
+
         } else {
+
+            console.log('El navegador no soporta la geolicalización');
+
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
         }
