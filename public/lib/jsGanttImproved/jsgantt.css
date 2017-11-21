@@ -186,8 +186,8 @@ div.gtaskbarcontainer		{ z-index: 1; position: absolute; top: 0px }
 .gantt				{ min-width: 632px;	/* 2x LC width */ }
 .gchartcontainer	{ /* padding-left: 532px; LC width */ line-height: 1; /* Overrides inherited CSS (e.g. from Bootstrap) */ }
 .gcontainercol		{ position: relative; } /* Add a max-height value here if wanted */
-.glistgrid			{ /*width: 532px;*/width: 60%; /* LC width */ float: left; /* LC width */ padding-right: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; background-color: #ffffff; overflow: hidden; }
-.glistlbl			{ /*width: 532px;*/width: 40%; /* LC width */ float: left; /* LC width */ padding-right: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; background-color: #ffffff; overflow: hidden; }
+.glistgrid			{ /*width: 532px;*/width: 50%; /* LC width */ float: left; /* LC width */ padding-right: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; background-color: #ffffff; overflow: hidden; }
+.glistlbl			{ /*width: 532px;*/width: 50%; /* LC width */ float: left; /* LC width */ padding-right: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px; background-color: #ffffff; overflow: hidden; }
 .glabelfooter		{ clear: both; }
 .ggridfooter		{ clear: both; }
 
@@ -246,6 +246,6 @@ td.gspanning div { *overflow: hidden; } /* stops resizing fixed width columns if
 */
 
 
-.gpccomplete {
+.gpccomplete, gduration {
 	display: none;
 }
