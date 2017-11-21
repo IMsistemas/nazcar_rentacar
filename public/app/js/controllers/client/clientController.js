@@ -7,6 +7,10 @@
         $scope.idpersonitem = 0;
         $scope.statefilter = "1";
 
+        $scope.pageChanged = function(newPage) {
+            $scope.initLoad(newPage);
+        };
+
         $scope.initLoad = function(pageNumber){
 
             if ($scope.buscar !== undefined) {

@@ -7,6 +7,10 @@
         $scope.aux_state = "1";
         $scope.estado = '1';
 
+        $scope.pageChanged = function(newPage) {
+            $scope.initLoad(newPage);
+        };
+
         $scope.initLoad = function(pageNumber){
 
             $scope.listCarbrand();
