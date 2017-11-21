@@ -1,5 +1,5 @@
 /* Sample CSS for jsGanttImproved v1.7.5.4 */
-div.gantt		{ font-family:tahoma, arial, verdana, Sans-serif; font-size:10px; color: #656565; }
+div.gantt		{ font-family:tahoma, arial, verdana, Sans-serif; font-size:11px; color: #656565; }
 
 .gantt table	{ border-collapse: collapse; }
 .gantt td { padding: 0px; }
@@ -18,7 +18,7 @@ div.gantt		{ font-family:tahoma, arial, verdana, Sans-serif; font-size:10px; col
 .gminorheading				{ background-color: #ffffff; font-weight: bold; font-size: 9px; white-space: nowrap; }
 .gtaskcellwkend,
 .gminorheadingwkend			{ background-color: #f7f7f7; font-weight: bold; font-size: 9px; white-space: nowrap; }
-td.gtaskcell				{ text-align: left; white-space: normal; }
+td.gtaskcell				{ text-align: left }
 td.gspanning				{ border-left: none; border-right: none; }
 .gtaskcelldiv				{ position: relative; }
 
@@ -30,7 +30,7 @@ td.gspanning				{ border-left: none; border-right: none; }
 .gduration,
 .gpccomplete,
 .gstartdate,
-.genddate					{ height: 18px; white-space: normal; border: #efefef 1px solid; }
+.genddate					{ height: 18px; white-space: nowrap; border: #efefef 1px solid; }
 
 /* Additional values for some task list elements */
 .gresource,
