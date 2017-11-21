@@ -11,7 +11,7 @@
         <hr>
     </div>
 
-    <div style="position:relative;" class="container gantt" id="GanttChartDIV"></div>
+    <div class="col-xs-12" style="position:relative;" class="container gantt" id="GanttChartDIV"></div>
 
 </div>
 
