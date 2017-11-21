@@ -246,6 +246,6 @@ td.gspanning div { *overflow: hidden; } /* stops resizing fixed width columns if
 */
 
 
-.gpccomplete, gduration {
+.gpccomplete, .gduration {
 	display: none;
 }
