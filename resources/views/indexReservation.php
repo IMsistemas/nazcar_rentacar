@@ -1385,11 +1385,11 @@
 
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 31, lng: 34},
-            zoom: 2,
-            minZoom: 2,
+            zoom: 18,
+            minZoom: 6,
         });
 
-        var infoWindow = new google.maps.InfoWindow({map: map});
+        //var infoWindow = new google.maps.InfoWindow({map: map});
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
@@ -1398,16 +1398,16 @@
 
                 console.log('aaaa');
 
-                /*var pos = {
+                var pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
 
-                infoWindow.setPosition(pos);
+                //infoWindow.setPosition(pos);
                 //infoWindow.setContent('Location found.');
-                map.setCenter(pos);
 
-                var marker = new google.maps.Marker({
+
+                /*var marker = new google.maps.Marker({
                     position: pos,
                     map: map,
                     draggable:true
@@ -1425,6 +1425,8 @@
                     //animation: google.maps.Animation.DROP,
                     //label: '8'
                 });
+
+                map.setCenter(myLatlng);
 
                 marker.setMap(map);
 
@@ -1453,6 +1455,6 @@
 </script>
 
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBetlhxbUjMSwBWLtgLrHtZlecWmwpH_jI&callback=initMap&libraries=places"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDQdCSTBt7U40HNwCNM-0altJgQUjhONQM&callback=initMap&libraries=places" async defer></script>
 
 </html>
