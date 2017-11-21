@@ -112,6 +112,12 @@
                     price: 0
                 };
 
+                var item_1 = {
+                    idservice: 0,
+                    service: 'Costo Adicional por otra Localidad',
+                    price: 0
+                };
+
                 if (parseInt($scope.rest_day) > 1) {
 
                     var data = {
@@ -123,8 +129,6 @@
 
                         item_0.price = response.data;
 
-
-
                         var longitud = $scope.selectServiceList.length;
 
                         if (longitud === 0) {
@@ -134,6 +138,18 @@
                             $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item_0.price);
                             $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
                             $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
+
+
+                            if (parseInt($scope.dataEntregaPlace.idplace) !== parseInt($scope.dataRetiroPlace.idplace)) {
+
+                                $scope.selectServiceList.push(item_1);
+
+                                $scope.subtotal = parseFloat($scope.subtotal) + parseFloat($scope.dataEntregaPlace.additionalcost);
+                                $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+                                $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
+
+                            }
+
 
                         } else {
 

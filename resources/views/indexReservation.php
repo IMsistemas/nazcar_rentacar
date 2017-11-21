@@ -1396,7 +1396,7 @@
 
             navigator.geolocation.getCurrentPosition(function(position) {
 
-                console.log('aaaa');
+
 
                 var pos = {
                     lat: position.coords.latitude,
