@@ -4,7 +4,7 @@
     }*/
 </style>
 
-<div class="container" style="margin-top: 10px;" ng-controller="ganttController" ng-init="initLoad()">
+<div class="row" style="margin-top: 10px;" ng-controller="ganttController" ng-init="initLoad()">
 
     <div class="col-xs-12">
         <h4>Disponibilidad - Diagrama de Gantt</h4>
