@@ -1429,6 +1429,6 @@
 </script>
 
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBetlhxbUjMSwBWLtgLrHtZlecWmwpH_jI&libraries=places"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBetlhxbUjMSwBWLtgLrHtZlecWmwpH_jI&callback=initMap&libraries=places"></script>
 
 </html>
