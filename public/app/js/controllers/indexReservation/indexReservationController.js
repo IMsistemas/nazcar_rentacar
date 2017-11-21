@@ -142,6 +142,8 @@
 
                             if (parseInt($scope.dataEntregaPlace.idplace) !== parseInt($scope.dataRetiroPlace.idplace)) {
 
+                                item_1.price = parseFloat($scope.dataEntregaPlace.additionalcost);
+
                                 $scope.selectServiceList.push(item_1);
 
                                 $scope.subtotal = parseFloat($scope.subtotal) + parseFloat($scope.dataEntregaPlace.additionalcost);
