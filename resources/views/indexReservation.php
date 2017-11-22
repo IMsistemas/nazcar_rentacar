@@ -1385,7 +1385,7 @@
 
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 31, lng: 34},
-            zoom: 25,
+            zoom: 20,
             minZoom: 6,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
