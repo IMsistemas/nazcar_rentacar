@@ -114,8 +114,14 @@
 
                 var item_1 = {
                     idservice: 0,
-                    service: 'Costo Adicional por otra Localidad',
-                    price: 0
+                    service: 'Costo de Lugar de Retiro',
+                    price: $scope.dataRetiroPlace.additionalcost
+                };
+
+                var item_2 = {
+                    idservice: 0,
+                    service: 'Costo de Lugar de Entrega',
+                    price: $scope.dataEntregaPlace.additionalcost
                 };
 
                 if (parseInt($scope.rest_day) > 1) {
@@ -140,17 +146,14 @@
                             $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
 
 
-                            if (parseInt($scope.dataEntregaPlace.idplace) !== parseInt($scope.dataRetiroPlace.idplace)) {
+                            $scope.selectServiceList.push(item_1);
+                            $scope.selectServiceList.push(item_2);
 
-                                item_1.price = parseFloat($scope.dataEntregaPlace.additionalcost);
+                            $scope.subtotal = parseFloat($scope.subtotal) + parseFloat($scope.item_1.price);
+                            $scope.subtotal = parseFloat($scope.subtotal) + parseFloat($scope.item_2.price);
 
-                                $scope.selectServiceList.push(item_1);
-
-                                $scope.subtotal = parseFloat($scope.subtotal) + parseFloat($scope.dataEntregaPlace.additionalcost);
-                                $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
-                                $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
-
-                            }
+                            $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
+                            $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
 
 
                         } else {
