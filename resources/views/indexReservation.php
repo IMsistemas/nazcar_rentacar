@@ -1397,10 +1397,10 @@
 
             navigator.geolocation.getCurrentPosition(function(position) {
 
-                var pos = {
+                /*var pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
-                };
+                };*/
 
                 //infoWindow.setPosition(pos);
                 //infoWindow.setContent('Location found.');
@@ -1414,6 +1414,7 @@
 
                 console.log(position.coords.latitude);
                 console.log(position.coords.longitude);
+                console.log(position.coords.accuracy);
 
                 var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
