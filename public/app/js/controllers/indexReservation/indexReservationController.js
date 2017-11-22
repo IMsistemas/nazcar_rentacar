@@ -370,6 +370,10 @@
                     $scope.type_place = 1;
                 }
 
+                $('#modalMessagePlace').on('shown.bs.modal', function () {
+                    google.maps.event.trigger(map, "resize");
+                });
+
                 $('#modalMessagePlace').modal('show');
 
 

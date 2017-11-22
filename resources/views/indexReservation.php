@@ -1385,8 +1385,9 @@
 
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 31, lng: 34},
-            zoom: 18,
-            minZoom: 6,
+            zoom: 8,
+            minZoom: 1,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
         //var infoWindow = new google.maps.InfoWindow({map: map});
@@ -1395,8 +1396,6 @@
         if (navigator.geolocation) {
 
             navigator.geolocation.getCurrentPosition(function(position) {
-
-
 
                 var pos = {
                     lat: position.coords.latitude,
@@ -1434,7 +1433,7 @@
 
                 console.log(error);
 
-                handleLocationError(true, infoWindow, map.getCenter());
+                //handleLocationError(true, infoWindow, map.getCenter());
             });
 
         } else {
@@ -1442,7 +1441,7 @@
             console.log('El navegador no soporta la geolicalización');
 
             // Browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, map.getCenter());
+            //handleLocationError(false, infoWindow, map.getCenter());
         }
     }
 
