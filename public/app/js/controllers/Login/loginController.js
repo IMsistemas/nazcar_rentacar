@@ -46,6 +46,8 @@ app.controller('loginController', function($scope, $http, API_URL, Upload) {
 
     $scope.resetPassword = function () {
 
+        //si
+
         $http.post(API_URL + 'index/resetPassword', {} ).then(function (response) {
 
             $('#modalResetPassword').modal('hide');
