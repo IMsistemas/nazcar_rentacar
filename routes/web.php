@@ -17,6 +17,7 @@
 
     Route::get('index/logout', 'Index\IndexController@logout');
     Route::get('index/index_b', 'Index\IndexController@viewIndex');
+    Route::post('index/resetPassword', 'Index\IndexController@resetPassword');
     Route::resource('/', 'Index\IndexController');
 
 /*
