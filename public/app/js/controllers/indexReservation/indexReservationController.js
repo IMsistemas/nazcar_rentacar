@@ -176,8 +176,8 @@
                             $scope.selectServiceList.push(item_1);
                             $scope.selectServiceList.push(item_2);
 
-                            $scope.subtotal = parseFloat($scope.subtotal) + parseFloat($scope.item_1.price);
-                            $scope.subtotal = parseFloat($scope.subtotal) + parseFloat($scope.item_2.price);
+                            $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item_1.price);
+                            $scope.subtotal = parseFloat($scope.subtotal) + parseFloat(item_2.price);
 
                             $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
                             $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
