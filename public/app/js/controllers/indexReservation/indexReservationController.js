@@ -78,15 +78,43 @@
 
             $('#modalMessageInfoCar').modal('hide');
 
+            $flag_max_calculate = false;
+
             if (step === 2) {
 
                 var result = $scope.valida_date_time($scope.fecha_retiro, $scope.hora_retiro);
 
                 if (result === true) {
 
-                    $scope.getCar(0, $scope.fecha_retiro, $scope.fecha_entrega);
-
                     $scope.rest_day = $scope.restaFechas($scope.fecha_retiro, $scope.fecha_entrega);
+
+                    var data0 = {
+                        cantday: parseInt($scope.rest_day)
+                    };
+
+                    $http.get(API_URL + 'reservation/getCalculate0?parameter=' + JSON.stringify(data0)).then(function(response){
+
+                        console.log(response);
+
+
+                        if (response.data === 1 || response.data === '1') {
+
+                            $scope.getCar(0, $scope.fecha_retiro, $scope.fecha_entrega);
+
+                            $scope.reserva_1 = step;
+
+                        } else {
+
+                            //$flag_max_calculate = true;
+
+                            $scope.message_info = 'NO puede realizar rentas por esa cantidad de dias (' + $scope.rest_day + ')...';
+
+                            $('#modalInfo').modal('show');
+
+                        }
+
+                    });
+
 
                 } else {
 
@@ -145,7 +173,6 @@
                             $scope.iva = ((parseFloat($scope.subtotal) * 12) / 100).toFixed(2);
                             $scope.total = (parseFloat($scope.subtotal) + parseFloat($scope.iva)).toFixed(2);
 
-
                             $scope.selectServiceList.push(item_1);
                             $scope.selectServiceList.push(item_2);
 
@@ -182,6 +209,7 @@
                             }
 
                         }
+
 
                     });
 
@@ -237,7 +265,13 @@
 
             }
 
-            $scope.reserva_1 = step;
+
+            if (step !== 2) {
+
+                $scope.reserva_1 = step;
+
+            }
+
 
         };
 

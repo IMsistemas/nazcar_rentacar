@@ -34,6 +34,26 @@ class IndexReservationController extends Controller
         return view('indexReservation');
     }
 
+    public function getCalculate0(Request $request)
+    {
+        $parameter = json_decode($request->get('parameter'));
+        $cantday = $parameter->cantday;
+
+        $result = TypeTime::where('amountday', '>=', $cantday)
+            ->orderBy('amountday', 'asc')->get();
+
+        if (count($result) > 0) {
+
+            return 1;
+
+        } else {
+
+            return 0;
+
+        }
+
+    }
+
     public function getCalculate(Request $request)
     {
         $parameter = json_decode($request->get('parameter'));
@@ -43,21 +63,30 @@ class IndexReservationController extends Controller
         $result = TypeTime::where('amountday', '>=', $cantday)
                                 ->orderBy('amountday', 'asc')->get();
 
-        if ($result[0]->typecalculate == '#') {
+        if (count($result) > 0) {
 
-            //$result_calc = $price * $result[0]->constant;
+            if ($result[0]->typecalculate == '#') {
 
-            $result_calc = $price * $cantday;
+                //$result_calc = $price * $result[0]->constant;
+
+                $result_calc = $price * $cantday;
+
+            } else {
+
+                //$result_calc = ($price * $result[0]->constant/100) * ($result[0]->amountday)-($price * $result[0]->amountday);
+
+                $result_calc = ($price * $cantday) - ((($price * $cantday) * $result[0]->constant) / 100);
+
+            }
+
+            return abs($result_calc);
 
         } else {
 
-            //$result_calc = ($price * $result[0]->constant/100) * ($result[0]->amountday)-($price * $result[0]->amountday);
-
-            $result_calc = ($price * $cantday) - ((($price * $cantday) * $result[0]->constant) / 100);
+            return 0;
 
         }
 
-        return abs($result_calc);
     }
 
     public function getPlaces()

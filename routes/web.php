@@ -144,6 +144,7 @@
     Route::get('reservation/getResultPagoPaypal', 'IndexReservation\IndexReservationController@getResultPagoPaypal');
     Route::get('reservation/sendEmail', 'IndexReservation\IndexReservationController@sendEmail');
     Route::get('reservation/printComprobante/{params}', 'IndexReservation\IndexReservationController@printComprobante');
+    Route::get('reservation/getCalculate0', 'IndexReservation\IndexReservationController@getCalculate0');
     Route::get('reservation/getCalculate', 'IndexReservation\IndexReservationController@getCalculate');
     Route::get('reservation/getOtherServices', 'IndexReservation\IndexReservationController@getOtherServices');
     Route::get('reservation/getAditionalServices', 'IndexReservation\IndexReservationController@getAditionalServices');
